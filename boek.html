@@ -135,9 +135,9 @@
   const id = parseInt(params.get('id'));
   if (!id) { toonFout(); return; }
   const boeken = await nbLaadBoeken();
+  const cats = [...new Set(boeken.flatMap(b => (b.categorieën||b.categorie ? (Array.isArray(b.categorieën||b.categorie) ? (b.categorieën||b.categorie) : [b.categorieën||b.categorie]) : [])))].sort().map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1).replace(/-/g,' '), slug: s}));
   const b = boeken.find(x => x.id === id);
   document.getElementById('nbHeader').innerHTML = nbHeaderHTML('', cats);
-  const cats = [...new Set(boeken.flatMap(b => (b.categorieën||b.categorie ? (Array.isArray(b.categorieën||b.categorie) ? (b.categorieën||b.categorie) : [b.categorieën||b.categorie]) : [])))].sort().map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1).replace(/-/g,' '), slug: s}));
   document.getElementById('nbFooter').innerHTML = nbFooterHTML(cats);
   if (!b) { document.getElementById('laadIndicator').style.display='none'; toonFout(); return; }
 
