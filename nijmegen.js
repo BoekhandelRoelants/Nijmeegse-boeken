@@ -95,7 +95,6 @@ function nbRenderKaart(b) {
     + '</a>';
   return html;
 }
-}
 
 // ── HTML ESCAPEN ──
 function escHtml(t) {
