@@ -22,11 +22,12 @@ function nbRenderKaart(b) {
     : b.aanbieding ? `<span class="nb-label nb-label-aanbieding">Aanbieding</span>` : '';
   const prijsOud = b.prijsOud
     ? `<span class="nb-prijs-oud">${nbPrijs(b.prijsOud)}</span>` : '';
-  const cover = b.omslag
-    ? `<img src="${b.omslag}" alt="Omslag ${escHtml(b.titel)}" loading="lazy">`
-    : `<div class="nb-cover-placeholder" style="background:${b.kleur||'#555'}">
-         <span style="font-size:2rem;opacity:0.35;color:${fg}">📖</span>
-         <span style="font-size:0.75rem;font-weight:700;color:${fg};opacity:0.7;line-height:1.3;text-align:center">${escHtml(b.titel)}</span>
+
+  const coverInhoud = b.omslag
+    ? `<img src="${b.omslag}" alt="Omslag ${escHtml(b.titel)}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">`
+    : `<div style="position:absolute;inset:0;background:${b.kleur||'#555'};display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;padding:12px;text-align:center;">
+         <span style="font-size:2rem;opacity:0.3;color:${fg}">📖</span>
+         <span style="font-size:0.72rem;font-weight:700;color:${fg};opacity:0.65;line-height:1.3">${escHtml(b.titel)}</span>
        </div>`;
 
   return `
@@ -36,7 +37,9 @@ function nbRenderKaart(b) {
       <meta itemprop="name" content="${escHtml(b.titel)}">
       <meta itemprop="author" content="${escHtml(b.auteur)}">
       <meta itemprop="isbn" content="${escHtml(b.isbn||'')}">
-      <div class="nb-cover">${label}${cover}</div>
+      <div style="position:relative;width:100%;padding-top:150%;overflow:hidden;flex-shrink:0;">
+        ${label}${coverInhoud}
+      </div>
       <div class="nb-kaart-info">
         <div class="nb-kaart-cat">${escHtml(b.categorie)}</div>
         <div class="nb-kaart-titel">${escHtml(b.titel)}</div>
