@@ -52,42 +52,49 @@ function nbPrijs(p) {
 // ── BOEK KAART RENDEREN ──
 function nbRenderKaart(b) {
   const label = b.nieuw
-    ? `<span class="nb-label nb-label-nieuw">Nieuw</span>`
-    : b.aanbieding ? `<span class="nb-label nb-label-aanbieding">Aanbieding</span>` : '';
+    ? '<span class="nb-label nb-label-nieuw">Nieuw</span>'
+    : b.aanbieding ? '<span class="nb-label nb-label-aanbieding">Aanbieding</span>' : '';
   const prijsOud = b.prijsOud ? nbPrijs(b.prijsOud) : null;
-
   const coverInhoud = b.omslag
-    ? `<img src="${b.omslag}" alt="Omslag ${escHtml(b.titel)}" loading="lazy">`
+    ? '<img src="' + escHtml(b.omslag) + '" alt="Omslag ' + escHtml(b.titel) + '" loading="lazy">'
     : nbPlaceholder(b.titel);
 
-  return `
-    <a class="nb-kaart" href="boek.html?id=${b.id}"
-       style="display:flex;flex-direction:column;overflow:hidden;background:white;border:1px solid #d6d2ca;border-radius:6px;text-decoration:none;color:inherit;transition:transform 0.2s,box-shadow 0.2s;"
-       itemscope itemtype="https://schema.org/Book"
-       aria-label="${escHtml(b.titel)} — ${escHtml(b.auteur)} — ${nbPrijs(b.prijs)}">
-      <meta itemprop="name" content="${escHtml(b.titel)}">
-      <meta itemprop="author" content="${escHtml(b.auteur)}">
-      <meta itemprop="isbn" content="${escHtml(b.isbn||'')}">
-      <div class="nb-cover" style="width:100%;flex-shrink:0;overflow:hidden;position:relative;display:block;">
-        ${label}${coverInhoud}
-      </div>
-      <div class="nb-kaart-info" style="padding:0.7rem;display:flex;flex-direction:column;flex:1;border-top:1px solid #e8e4dc;">
-        <div class="nb-kaart-cat">${escHtml(b.categorie)}</div>
-        <div class="nb-kaart-titel">${escHtml(b.titel)}</div>
-        <div class="nb-kaart-auteur">${escHtml(b.auteur)}</div>
-        <div class="nb-kaart-footer" style="display:flex;align-items:center;justify-content:space-between;gap:0.4rem;margin-top:auto;">
-          <div class="nb-prijs-blok">
-            ${prijsOud ? `<span class="nb-prijs-oud">${prijsOud}</span>` : ''}
-            <span class="nb-prijs" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-              <span itemprop="price">${nbPrijs(b.prijs)}</span>
-              <meta itemprop="priceCurrency" content="EUR">
-            </span>
-          </div>
-          <a class="nb-btn-bestel" href="${escHtml(b.afrekenen)}" target="_blank" rel="noopener"
-             onclick="event.stopPropagation()">Bestellen</a>
-        </div>
-      </div>
-    </a>`;
+  const kaartStijl = 'display:flex;flex-direction:column;overflow:hidden;background:white;'
+    + 'border:1px solid #d6d2ca;border-radius:6px;text-decoration:none;color:inherit;'
+    + 'transition:transform 0.2s,box-shadow 0.2s;';
+  const coverStijl = 'width:100%;flex-shrink:0;overflow:hidden;position:relative;display:block;';
+  const infoStijl  = 'padding:0.7rem;display:flex;flex-direction:column;flex:1;border-top:1px solid #e8e4dc;';
+  const footerStijl = 'display:flex;align-items:center;justify-content:space-between;gap:0.4rem;margin-top:auto;';
+
+  let html = '<a class="nb-kaart" href="boek.html?id=' + b.id + '"'
+    + ' style="' + kaartStijl + '"'
+    + ' itemscope itemtype="https://schema.org/Book"'
+    + ' aria-label="' + escHtml(b.titel) + ' — ' + escHtml(b.auteur) + ' — ' + nbPrijs(b.prijs) + '">'
+    + '<meta itemprop="name" content="' + escHtml(b.titel) + '">'
+    + '<meta itemprop="author" content="' + escHtml(b.auteur) + '">'
+    + '<meta itemprop="isbn" content="' + escHtml(b.isbn || '') + '">'
+    + '<div class="nb-cover" style="' + coverStijl + '">'
+    + label + coverInhoud
+    + '</div>'
+    + '<div class="nb-kaart-info" style="' + infoStijl + '">'
+    + '<div class="nb-kaart-cat">' + escHtml(b.categorie) + '</div>'
+    + '<div class="nb-kaart-titel">' + escHtml(b.titel) + '</div>'
+    + '<div class="nb-kaart-auteur">' + escHtml(b.auteur) + '</div>'
+    + '<div class="nb-kaart-footer" style="' + footerStijl + '">'
+    + '<div class="nb-prijs-blok">'
+    + (prijsOud ? '<span class="nb-prijs-oud">' + prijsOud + '</span>' : '')
+    + '<span class="nb-prijs" itemprop="offers" itemscope itemtype="https://schema.org/Offer">'
+    + '<span itemprop="price">' + nbPrijs(b.prijs) + '</span>'
+    + '<meta itemprop="priceCurrency" content="EUR">'
+    + '</span>'
+    + '</div>'
+    + '<a class="nb-btn-bestel" href="' + escHtml(b.afrekenen) + '" target="_blank" rel="noopener"'
+    + ' onclick="event.stopPropagation()">Bestellen</a>'
+    + '</div>'
+    + '</div>'
+    + '</a>';
+  return html;
+}
 }
 
 // ── HTML ESCAPEN ──
