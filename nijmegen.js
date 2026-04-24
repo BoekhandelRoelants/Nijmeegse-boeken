@@ -2,7 +2,42 @@
 // NIJMEEGSE BOEKEN — Gedeeld JavaScript
 // ══════════════════════════════════════════════════════════
 
-// ── KLEUR HULPFUNCTIE ──
+// ── PLACEHOLDER: Nijmeegse vlag met boeknaam in zwart vlak ──
+function nbPlaceholder(titel) {
+  // Wikkel lange titels over meerdere regels (max 16 tekens per regel)
+  const woorden = titel.split(' ');
+  const regels = [];
+  let huidig = '';
+  woorden.forEach(w => {
+    if ((huidig + ' ' + w).trim().length > 16 && huidig) {
+      regels.push(huidig.trim());
+      huidig = w;
+    } else {
+      huidig = (huidig + ' ' + w).trim();
+    }
+  });
+  if (huidig) regels.push(huidig.trim());
+  // Max 4 regels
+  const zichtbaar = regels.slice(0, 4);
+
+  const regelH = 22;
+  const totaalH = zichtbaar.length * regelH;
+  // Gecentreerd in het zwarte vlak (onderste 50% = y 150 t/m 300 in viewBox 0-300)
+  const startY = 225 - totaalH / 2;
+
+  const tekstRegels = zichtbaar.map((r, i) =>
+    `<text x="100" y="${startY + i * regelH}" text-anchor="middle" font-family="'Nunito','Museo Sans',sans-serif" font-size="14" font-weight="700" fill="white" opacity="0.9">${escHtml(r)}</text>`
+  ).join('');
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" style="position:absolute;inset:0;width:100%;height:100%;display:block;">
+    <rect width="200" height="150" fill="#B21233"/>
+    <rect y="150" width="200" height="150" fill="#1a1a1a"/>
+    <rect y="148" width="200" height="4" fill="#6b0e1e"/>
+    ${tekstRegels}
+  </svg>`;
+}
+
+
 function nbKleurVoor(hex) {
   if (!hex) return '#fff';
   const r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16);
@@ -16,19 +51,16 @@ function nbPrijs(p) {
 
 // ── BOEK KAART RENDEREN ──
 function nbRenderKaart(b) {
-  const fg = nbKleurVoor(b.kleur);
+  const kleur = b.kleur || '#B21233';
+  const fg = nbKleurVoor(kleur);
   const label = b.nieuw
     ? `<span class="nb-label nb-label-nieuw">Nieuw</span>`
     : b.aanbieding ? `<span class="nb-label nb-label-aanbieding">Aanbieding</span>` : '';
-  const prijsOud = b.prijsOud
-    ? `<span class="nb-prijs-oud">${nbPrijs(b.prijsOud)}</span>` : '';
+  const prijsOud = b.prijsOud ? nbPrijs(b.prijsOud) : null;
 
   const coverInhoud = b.omslag
     ? `<img src="${b.omslag}" alt="Omslag ${escHtml(b.titel)}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">`
-    : `<div style="position:absolute;inset:0;background:${b.kleur||'#555'};display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;padding:12px;text-align:center;">
-         <span style="font-size:2rem;opacity:0.3;color:${fg}">📖</span>
-         <span style="font-size:0.72rem;font-weight:700;color:${fg};opacity:0.65;line-height:1.3">${escHtml(b.titel)}</span>
-       </div>`;
+    : nbPlaceholder(b.titel);
 
   return `
     <a class="nb-kaart" href="boek.html?id=${b.id}"
@@ -37,7 +69,7 @@ function nbRenderKaart(b) {
       <meta itemprop="name" content="${escHtml(b.titel)}">
       <meta itemprop="author" content="${escHtml(b.auteur)}">
       <meta itemprop="isbn" content="${escHtml(b.isbn||'')}">
-      <div style="position:relative;width:100%;padding-top:150%;overflow:hidden;flex-shrink:0;">
+      <div style="position:relative;width:100%;padding-top:150%;flex-shrink:0;overflow:hidden;">
         ${label}${coverInhoud}
       </div>
       <div class="nb-kaart-info">
@@ -45,10 +77,13 @@ function nbRenderKaart(b) {
         <div class="nb-kaart-titel">${escHtml(b.titel)}</div>
         <div class="nb-kaart-auteur">${escHtml(b.auteur)}</div>
         <div class="nb-kaart-footer">
-          <span class="nb-prijs" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-            ${prijsOud}<span itemprop="price">${nbPrijs(b.prijs)}</span>
-            <meta itemprop="priceCurrency" content="EUR">
-          </span>
+          <div class="nb-prijs-blok">
+            ${prijsOud ? `<span class="nb-prijs-oud">${prijsOud}</span>` : ''}
+            <span class="nb-prijs" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+              <span itemprop="price">${nbPrijs(b.prijs)}</span>
+              <meta itemprop="priceCurrency" content="EUR">
+            </span>
+          </div>
           <a class="nb-btn-bestel" href="${escHtml(b.afrekenen)}" target="_blank" rel="noopener"
              onclick="event.stopPropagation()">Bestellen</a>
         </div>

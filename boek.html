@@ -110,7 +110,7 @@
       <a id="btnBestellen" href="#" target="_blank" rel="noopener" class="btn-bestellen">
         Bestellen bij Roelants &rarr;
       </a>
-      <p class="verzend-info">Gratis verzending vanaf €30,-<br>Anders €4,95 · Afhalen kan ook</p>
+      <p class="verzend-info">Gratis verzending vanaf €30,-<br>Anders €4,95 · Gratis afhalen bij Boekhandel Roelants</p>
     </div>
     <div class="info-kolom">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem" id="labelRij"></div>
@@ -165,10 +165,9 @@
   lr.innerHTML += '<span class="label-pill label-cat">'+escHtml(b.categorie)+'</span>';
 
   // Cover
-  const fg = nbKleurVoor(b.kleur);
   document.getElementById('coverContainer').innerHTML = b.omslag
-    ? '<img src="'+escHtml(b.omslag)+'" alt="Omslag van '+escHtml(b.titel)+'">'
-    : '<div class="cover-placeholder" style="background:'+b.kleur+'"><span style="font-size:3.5rem;opacity:0.3;color:'+fg+'">📖</span><div style="font-size:0.85rem;font-weight:700;color:'+fg+';opacity:0.75;line-height:1.3">'+escHtml(b.titel)+'</div><div style="font-size:0.75rem;color:'+fg+';opacity:0.5">'+escHtml(b.auteur)+'</div></div>';
+    ? '<img src="'+escHtml(b.omslag)+'" alt="Omslag van '+escHtml(b.titel)+'" style="width:100%;height:100%;object-fit:cover;">'
+    : nbPlaceholder(b.titel);
 
   document.getElementById('boekTitel').textContent = b.titel;
   document.getElementById('boekAuteur').textContent = b.auteur;
@@ -177,7 +176,7 @@
   document.getElementById('prijsRij').innerHTML = po + '<span class="prijs-groot">'+nbPrijs(b.prijs)+'</span><span style="font-size:0.8rem;color:var(--grijs-muted);align-self:center">incl. BTW</span>';
   document.getElementById('boekBeschrijving').textContent = b.beschrijving||'';
 
-  const specs = [['Auteur',b.auteur],['Uitgever',b.uitgever],['Jaar',b.jaar],["Pagina's",b.paginas],['Formaat',b.formaat],['ISBN',b.isbn],['Categorie',b.categorie.charAt(0).toUpperCase()+b.categorie.slice(1)]];
+  const specs = [['Auteur',b.auteur],['Uitgever',b.uitgever],['Jaar',b.jaar],["Pagina's",b.paginas],['Formaat',b.formaat],['ISBN',(b.isbn||'').replace(/-/g,'')],['Categorie',b.categorie.charAt(0).toUpperCase()+b.categorie.slice(1)]];
   document.getElementById('specsTable').innerHTML = specs.filter(([,v])=>v).map(([k,v])=>'<tr><td>'+k+'</td><td>'+escHtml(String(v))+'</td></tr>').join('');
 
   if (b.trefwoorden&&b.trefwoorden.length)

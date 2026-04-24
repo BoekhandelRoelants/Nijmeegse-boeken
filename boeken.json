@@ -17,7 +17,13 @@
     "kleur": "#8B1A10",
     "beschrijving": "Van Noviomagus tot moderne stad – een standaardwerk over 2000 jaar Nijmegen. Dit omvangrijke werk behandelt alle perioden van de Nijmeegse geschiedenis: van de Romeinse legerplaats en middeleeuwse bloei tot de rampzalige bombardementen van 1944 en de wederopbouw daarna.",
     "isbn": "978-90-0000001-1",
-    "trefwoorden": ["geschiedenis", "Nijmegen", "Noviomagus", "middeleeuwen", "wederopbouw"],
+    "trefwoorden": [
+      "geschiedenis",
+      "Nijmegen",
+      "Noviomagus",
+      "middeleeuwen",
+      "wederopbouw"
+    ],
     "afrekenen": "https://roelants.nl/boek/nijmegen-twee-millennia"
   },
   {
@@ -32,13 +38,19 @@
     "jaar": 2024,
     "paginas": 256,
     "formaat": "Gebonden",
-    "prijs": 27.50,
+    "prijs": 27.5,
     "categorie": "natuur",
     "omslag": null,
     "kleur": "#1A4A6B",
     "beschrijving": "Natuur, cultuur en mensen langs de Waal bij Nijmegen. Een prachtig geïllustreerd boek over de rivier die de stad eeuwenlang heeft gevormd en bedreigd. Met verhalen van bewoners en unieke foto's van het rivierenlandschap.",
     "isbn": "978-90-0000002-2",
-    "trefwoorden": ["Waal", "rivier", "natuur", "Nijmegen", "fotografie"],
+    "trefwoorden": [
+      "Waal",
+      "rivier",
+      "natuur",
+      "Nijmegen",
+      "fotografie"
+    ],
     "afrekenen": "https://roelants.nl/boek/de-waal"
   },
   {
@@ -53,13 +65,19 @@
     "jaar": 2024,
     "paginas": 192,
     "formaat": "Paperback",
-    "prijs": 22.50,
+    "prijs": 22.5,
     "categorie": "oorlog",
     "omslag": null,
     "kleur": "#3D3830",
     "beschrijving": "Het tragische bombardement op Nijmegen, 22 februari 1944, waarbij bijna 800 mensen omkwamen en grote delen van de binnenstad werden verwoest. Dit boek reconstrueert de fatale dag en de gevolgen voor de stad en haar bewoners.",
     "isbn": "978-90-0000003-3",
-    "trefwoorden": ["bombardement", "1944", "Tweede Wereldoorlog", "Nijmegen", "oorlog"],
+    "trefwoorden": [
+      "bombardement",
+      "1944",
+      "Tweede Wereldoorlog",
+      "Nijmegen",
+      "oorlog"
+    ],
     "afrekenen": "https://roelants.nl/boek/bombardement-1944"
   },
   {
@@ -80,7 +98,13 @@
     "kleur": "#5C4A1E",
     "beschrijving": "Architectuurgeschiedenis van Nijmegens bekendste plekken. Van de Karolingische kapel op het Valkhof tot het omstreden Belvédère-gebouw: een rijkelijk geïllustreerde verkenning van de gebouwde omgeving van Nijmegen.",
     "isbn": "978-90-0000004-4",
-    "trefwoorden": ["Valkhof", "Belvédère", "architectuur", "Nijmegen", "monumenten"],
+    "trefwoorden": [
+      "Valkhof",
+      "Belvédère",
+      "architectuur",
+      "Nijmegen",
+      "monumenten"
+    ],
     "afrekenen": "https://roelants.nl/boek/valkhof-belveder"
   },
   {
@@ -101,7 +125,13 @@
     "kleur": "#2C5F2E",
     "beschrijving": "Historische krantenberichten over Nijmegen, opnieuw uitgegeven met commentaar. Een uniek tijdsdocument dat de stad laat zien door de ogen van haar eigen bewoners, van de 19e eeuw tot ver in de 20e eeuw.",
     "isbn": "978-90-0000005-5",
-    "trefwoorden": ["kranten", "geschiedenis", "Nijmegen", "19e eeuw", "20e eeuw"],
+    "trefwoorden": [
+      "kranten",
+      "geschiedenis",
+      "Nijmegen",
+      "19e eeuw",
+      "20e eeuw"
+    ],
     "afrekenen": "https://roelants.nl/boek/nijmegen-oud-nieuws"
   },
   {
@@ -122,7 +152,14 @@
     "kleur": "#3A5C2E",
     "beschrijving": "Fotobiografie van de Ooijpolder, het Natura 2000-gebied vlak bij Nijmegen. Met spectaculaire foto's van de seizoenen, de wilde paarden en runderen, en de bijzondere vogels die dit unieke rivierenlandschap herbergt.",
     "isbn": "978-90-0000006-6",
-    "trefwoorden": ["Ooijpolder", "natuur", "Natura 2000", "fotografie", "vogels", "Gelderse Poort"],
+    "trefwoorden": [
+      "Ooijpolder",
+      "natuur",
+      "Natura 2000",
+      "fotografie",
+      "vogels",
+      "Gelderse Poort"
+    ],
     "afrekenen": "https://roelants.nl/boek/ooijpolder"
   },
   {
@@ -137,13 +174,19 @@
     "jaar": 2020,
     "paginas": 144,
     "formaat": "Paperback",
-    "prijs": 12.50,
+    "prijs": 12.5,
     "categorie": "kunst",
     "omslag": null,
     "kleur": "#6B2D8B",
     "beschrijving": "Overzicht van hedendaagse Nijmeegse kunstenaars en galerieën. Van Museum Arnhem tot de vrije ateliers in de Waalsprong: dit boek toont de levendige kunstscene van de regio, met interviews en portfoliopagina's.",
     "isbn": "978-90-0000007-7",
-    "trefwoorden": ["kunst", "kunstenaars", "galerieën", "Nijmegen", "hedendaags"],
+    "trefwoorden": [
+      "kunst",
+      "kunstenaars",
+      "galerieën",
+      "Nijmegen",
+      "hedendaags"
+    ],
     "afrekenen": "https://roelants.nl/boek/moderne-kunst-nijmegen"
   },
   {
@@ -164,7 +207,13 @@
     "kleur": "#7A5C2A",
     "beschrijving": "Wandelgids langs de middeleeuwse omwalling van Nijmegen, gecombineerd met historische verhalen over elke toren, poort en restant. Met gedetailleerde kaarten en QR-codes naar aanvullend beeldmateriaal.",
     "isbn": "978-90-0000008-8",
-    "trefwoorden": ["stadswal", "wandelgids", "middeleeuwen", "architectuur", "Nijmegen"],
+    "trefwoorden": [
+      "stadswal",
+      "wandelgids",
+      "middeleeuwen",
+      "architectuur",
+      "Nijmegen"
+    ],
     "afrekenen": "https://roelants.nl/boek/langs-de-stadswal"
   }
 ]
