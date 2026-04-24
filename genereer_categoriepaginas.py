@@ -84,7 +84,7 @@ def genereer_pagina(slug, naam, aantal):
   const gefilterd = boeken.filter(b => nbInCategorie(b, '{slug}'));
   document.getElementById('paginaOndertitel').textContent = gefilterd.length + ' titel' + (gefilterd.length !== 1 ? 's' : '') + ' in deze categorie';
   document.getElementById('nbSorteerBalk').innerHTML = nbSorteerBalk('id-desc');
-  function nbHerrendeer(methode) {{
+  window.nbHerrendeer = function(methode) {{
     const gesorteerd = nbSorteer(gefilterd, methode);
     document.getElementById('gridCategorie').innerHTML = gesorteerd.length ? gesorteerd.map(nbRenderKaart).join('') : '<p class="nb-leeg">Geen boeken in deze categorie.</p>';
     nbFixCoverHoogtes(); setTimeout(nbFixCoverHoogtes, 300);

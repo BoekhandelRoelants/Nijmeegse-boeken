@@ -50,7 +50,7 @@
   const aanbiBoeken = boeken.filter(b => b.aanbieding);
   document.getElementById('paginaOndertitel').textContent = aanbiBoeken.length + ' titel' + (aanbiBoeken.length !== 1 ? 's' : '') + ' in de aanbieding';
   document.getElementById('nbSorteerBalk').innerHTML = nbSorteerBalk('id-desc');
-  function nbHerrendeer(methode) {
+  window.nbHerrendeer = function(methode) {
     const gesorteerd = nbSorteer(aanbiBoeken, methode);
     document.getElementById('gridAanbiedingen').innerHTML = gesorteerd.length ? gesorteerd.map(nbRenderKaart).join('') : '<p class="nb-leeg">Momenteel geen aanbiedingen.</p>';
     nbFixCoverHoogtes(); setTimeout(nbFixCoverHoogtes, 300);

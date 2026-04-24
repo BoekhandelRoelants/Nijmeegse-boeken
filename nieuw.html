@@ -53,7 +53,7 @@
   const nieuwBoeken = boeken.filter(b => b.nieuw);
   document.getElementById('paginaOndertitel').textContent = nieuwBoeken.length + ' titel' + (nieuwBoeken.length !== 1 ? 's' : '') + ' nieuw verschenen';
   document.getElementById('nbSorteerBalk').innerHTML = nbSorteerBalk('id-desc');
-  function nbHerrendeer(methode) {
+  window.nbHerrendeer = function(methode) {
     const gesorteerd = nbSorteer(nieuwBoeken, methode);
     document.getElementById('gridNieuw').innerHTML = gesorteerd.length ? gesorteerd.map(nbRenderKaart).join('') : '<p class="nb-leeg">Momenteel geen nieuwe titels.</p>';
     nbFixCoverHoogtes(); setTimeout(nbFixCoverHoogtes, 300);
