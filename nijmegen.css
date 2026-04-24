@@ -469,6 +469,64 @@ body {
 /* ── HOOFDINHOUD ── */
 .nb-hoofd {}
 
+/* ── SORTEER BALK ── */
+.nb-sorteer-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.nb-sorteer-btn {
+  background: var(--wit);
+  border: 1px solid var(--grijs-rand);
+  border-radius: 5px;
+  padding: 0.4rem 0.85rem;
+  font-family: var(--font);
+  font-size: 0.82rem;
+  color: var(--grijs-tekst);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: border-color 0.15s;
+}
+
+.nb-sorteer-btn:hover { border-color: var(--rood); color: var(--rood); }
+.nb-sorteer-btn strong { color: var(--zwart); font-weight: 700; }
+
+.nb-sorteer-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  background: var(--wit);
+  border: 1px solid var(--grijs-rand);
+  border-top: 2px solid var(--rood);
+  border-radius: 0 0 6px 6px;
+  min-width: 200px;
+  z-index: 150;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.nb-sorteer-menu.open { display: block; }
+
+.nb-sorteer-optie {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0.5rem 0.85rem;
+  font-family: var(--font);
+  font-size: 0.85rem;
+  color: var(--grijs-tekst);
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+}
+
+.nb-sorteer-optie:hover { background: var(--rood-licht); color: var(--rood); }
+.nb-sorteer-optie.actief { color: var(--rood); font-weight: 700; }
+
 /* Paginakop (voor nieuw/aanbiedingen/categorie-pagina's) */
 .nb-paginakop {
   background: var(--wit);

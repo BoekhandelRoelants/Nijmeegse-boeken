@@ -63,6 +63,7 @@ def genereer_pagina(slug, naam, aantal):
         <h1>Boeken over Nijmegen: {naam}</h1>
         <p id="paginaOndertitel">{aantal} titel{meervoud} in deze categorie</p>
       </div>
+      <div id="nbSorteerBalk"></div>
       <div class="nb-grid" id="gridCategorie"><p class="nb-leeg">Laden\u2026</p></div>
       <div class="nb-seo">
         <h2>{naam} in en rond Nijmegen</h2>
@@ -82,7 +83,13 @@ def genereer_pagina(slug, naam, aantal):
   nbVulSidebar(boeken, '{slug}');
   const gefilterd = boeken.filter(b => nbInCategorie(b, '{slug}'));
   document.getElementById('paginaOndertitel').textContent = gefilterd.length + ' titel' + (gefilterd.length !== 1 ? 's' : '') + ' in deze categorie';
-  document.getElementById('gridCategorie').innerHTML = gefilterd.length ? gefilterd.map(nbRenderKaart).join('') : '<p class="nb-leeg">Geen boeken in deze categorie.</p>';
+  document.getElementById('nbSorteerBalk').innerHTML = nbSorteerBalk('id-desc');
+  function nbHerrendeer(methode) {{
+    const gesorteerd = nbSorteer(gefilterd, methode);
+    document.getElementById('gridCategorie').innerHTML = gesorteerd.length ? gesorteerd.map(nbRenderKaart).join('') : '<p class="nb-leeg">Geen boeken in deze categorie.</p>';
+    nbFixCoverHoogtes(); setTimeout(nbFixCoverHoogtes, 300);
+  }}
+  nbHerrendeer('id-desc');
   nbFixCoverHoogtes();
   setTimeout(nbFixCoverHoogtes, 300);
 }})();

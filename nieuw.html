@@ -36,6 +36,7 @@
         <h1>Nieuw verschenen</h1>
         <p id="paginaOndertitel">Actuele nieuwe titels over Nijmegen en de regio</p>
       </div>
+      <div id="nbSorteerBalk"></div>
       <div class="nb-grid" id="gridNieuw"><p class="nb-leeg">Laden…</p></div>
     </div>
   </div>
@@ -49,11 +50,15 @@
   const cats = [...new Set(boeken.flatMap(b => (b.categorieën||b.categorie ? (Array.isArray(b.categorieën||b.categorie) ? (b.categorieën||b.categorie) : [b.categorieën||b.categorie]) : [])))].sort().map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1).replace(/-/g,' '), slug: s}));
   document.getElementById('nbFooter').innerHTML = nbFooterHTML(cats);
   nbVulSidebar(boeken, null);
-  const nieuw = boeken.filter(b => b.nieuw);
-  document.getElementById('paginaOndertitel').textContent = nieuw.length + ' titel' + (nieuw.length !== 1 ? 's' : '') + ' nieuw verschenen';
-  document.getElementById('gridNieuw').innerHTML = nieuw.length ? nieuw.map(nbRenderKaart).join('') : '<p class="nb-leeg">Momenteel geen nieuwe titels.</p>';
-  nbFixCoverHoogtes();
-  setTimeout(nbFixCoverHoogtes, 300);
+  const nieuwBoeken = boeken.filter(b => b.nieuw);
+  document.getElementById('paginaOndertitel').textContent = nieuwBoeken.length + ' titel' + (nieuwBoeken.length !== 1 ? 's' : '') + ' nieuw verschenen';
+  document.getElementById('nbSorteerBalk').innerHTML = nbSorteerBalk('id-desc');
+  function nbHerrendeer(methode) {
+    const gesorteerd = nbSorteer(nieuwBoeken, methode);
+    document.getElementById('gridNieuw').innerHTML = gesorteerd.length ? gesorteerd.map(nbRenderKaart).join('') : '<p class="nb-leeg">Momenteel geen nieuwe titels.</p>';
+    nbFixCoverHoogtes(); setTimeout(nbFixCoverHoogtes, 300);
+  }
+  nbHerrendeer('id-desc');
 })();
 </script>
 </body>

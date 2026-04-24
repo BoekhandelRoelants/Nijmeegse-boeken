@@ -291,6 +291,75 @@ window.addEventListener('resize', () => {
   window._nbResizeTimer = setTimeout(nbFixCoverHoogtes, 100);
 });
 
+// ── SORTEREN ──
+function nbSorteer(boeken, methode) {
+  const kopie = [...boeken];
+  switch (methode) {
+    case 'id-desc':   return kopie.sort((a, b) => (b.id||0) - (a.id||0));
+    case 'jaar-desc': return kopie.sort((a, b) => (b.jaar||0) - (a.jaar||0));
+    case 'jaar-asc':  return kopie.sort((a, b) => (a.jaar||0) - (b.jaar||0));
+    case 'titel-asc': return kopie.sort((a, b) => (a.titel||'').localeCompare(b.titel||'', 'nl'));
+    case 'prijs-asc': return kopie.sort((a, b) => (a.prijs||0) - (b.prijs||0));
+    case 'prijs-desc':return kopie.sort((a, b) => (b.prijs||0) - (a.prijs||0));
+    default:          return kopie.sort((a, b) => (b.id||0) - (a.id||0));
+  }
+}
+
+const NB_SORTEER_OPTIES = [
+  { waarde: 'id-desc',    label: 'Nieuwst toegevoegd' },
+  { waarde: 'jaar-desc',  label: 'Jaar (nieuwste eerst)' },
+  { waarde: 'jaar-asc',   label: 'Jaar (oudste eerst)' },
+  { waarde: 'titel-asc',  label: 'Titel (A–Z)' },
+  { waarde: 'prijs-asc',  label: 'Prijs (laag–hoog)' },
+  { waarde: 'prijs-desc', label: 'Prijs (hoog–laag)' },
+];
+
+function nbSorteerBalk(huidig) {
+  huidig = huidig || 'id-desc';
+  const label = NB_SORTEER_OPTIES.find(o => o.waarde === huidig)?.label || 'Sorteren';
+  return '<div class="nb-sorteer-wrap">'
+    + '<button class="nb-sorteer-btn" onclick="nbToggleSorteer(event)" aria-expanded="false">'
+    + 'Sorteren: <strong>' + label + '</strong> &#9660;'
+    + '</button>'
+    + '<div class="nb-sorteer-menu" id="nbSorteerMenu">'
+    + NB_SORTEER_OPTIES.map(o =>
+        '<button onclick="nbKiesSorteer(\'' + o.waarde + '\')" class="nb-sorteer-optie'
+        + (o.waarde === huidig ? ' actief' : '') + '">'
+        + o.label + '</button>'
+      ).join('')
+    + '</div>'
+    + '</div>';
+}
+
+function nbToggleSorteer(e) {
+  e.stopPropagation();
+  const menu = document.getElementById('nbSorteerMenu');
+  const btn  = e.currentTarget;
+  const open = menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open);
+}
+
+document.addEventListener('click', () => {
+  document.getElementById('nbSorteerMenu')?.classList.remove('open');
+  document.querySelector('.nb-sorteer-btn')?.setAttribute('aria-expanded', 'false');
+});
+
+// Huidige sortering bijhouden per pagina
+let nbHuidigeSorteer = 'id-desc';
+
+function nbKiesSorteer(methode) {
+  nbHuidigeSorteer = methode;
+  document.getElementById('nbSorteerMenu')?.classList.remove('open');
+
+  // Update knoptekst
+  const label = NB_SORTEER_OPTIES.find(o => o.waarde === methode)?.label || '';
+  const btn = document.querySelector('.nb-sorteer-btn strong');
+  if (btn) btn.textContent = label;
+
+  // Herrender alle zichtbare grids
+  if (typeof nbHerrendeer === 'function') nbHerrendeer(methode);
+}
+
 // ── DROPDOWN TOGGLE ──
 function nbToggleDropdown(e) {
   e.stopPropagation();

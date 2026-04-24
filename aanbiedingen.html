@@ -33,6 +33,7 @@
         <h1>Aanbiedingen</h1>
         <p id="paginaOndertitel">Afgeprijsde titels over Nijmegen en de regio</p>
       </div>
+      <div id="nbSorteerBalk"></div>
       <div class="nb-grid" id="gridAanbiedingen"><p class="nb-leeg">Laden…</p></div>
     </div>
   </div>
@@ -46,11 +47,15 @@
   const cats = [...new Set(boeken.flatMap(b => (b.categorieën||b.categorie ? (Array.isArray(b.categorieën||b.categorie) ? (b.categorieën||b.categorie) : [b.categorieën||b.categorie]) : [])))].sort().map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1).replace(/-/g,' '), slug: s}));
   document.getElementById('nbFooter').innerHTML = nbFooterHTML(cats);
   nbVulSidebar(boeken, null);
-  const aanbiedingen = boeken.filter(b => b.aanbieding);
-  document.getElementById('paginaOndertitel').textContent = aanbiedingen.length + ' titel' + (aanbiedingen.length !== 1 ? 's' : '') + ' in de aanbieding';
-  document.getElementById('gridAanbiedingen').innerHTML = aanbiedingen.length ? aanbiedingen.map(nbRenderKaart).join('') : '<p class="nb-leeg">Momenteel geen aanbiedingen.</p>';
-  nbFixCoverHoogtes();
-  setTimeout(nbFixCoverHoogtes, 300);
+  const aanbiBoeken = boeken.filter(b => b.aanbieding);
+  document.getElementById('paginaOndertitel').textContent = aanbiBoeken.length + ' titel' + (aanbiBoeken.length !== 1 ? 's' : '') + ' in de aanbieding';
+  document.getElementById('nbSorteerBalk').innerHTML = nbSorteerBalk('id-desc');
+  function nbHerrendeer(methode) {
+    const gesorteerd = nbSorteer(aanbiBoeken, methode);
+    document.getElementById('gridAanbiedingen').innerHTML = gesorteerd.length ? gesorteerd.map(nbRenderKaart).join('') : '<p class="nb-leeg">Momenteel geen aanbiedingen.</p>';
+    nbFixCoverHoogtes(); setTimeout(nbFixCoverHoogtes, 300);
+  }
+  nbHerrendeer('id-desc');
 })();
 </script>
 </body>
