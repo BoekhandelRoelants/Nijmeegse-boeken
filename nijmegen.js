@@ -192,6 +192,7 @@ function nbVulSidebar(boeken, actiefSlug) {
 function nbHeaderHTML(actiefNav, categorieën) {
   const nav = [
     { href: 'index.html',        label: 'Alle boeken' },
+    { href: 'toptien.html',      label: 'Top Tien' },
     { href: 'nieuw.html',        label: 'Nieuw' },
     { href: 'aanbiedingen.html', label: 'Aanbiedingen' },
   ];

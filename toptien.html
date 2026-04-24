@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Tien – Boeken over Nijmegen</title>
+  <meta name="description" content="De tien aanbevolen boeken over Nijmegen en de regio, samengesteld door Boekhandel Roelants.">
+  <link rel="canonical" href="https://nijmeegseboeken.nl/toptien.html">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="nijmegen.css">
+</head>
+<body>
+<div id="nbHeader"></div>
+<main>
+  <div class="nb-pagina">
+    <aside class="nb-sidebar">
+      <div class="nb-sidebar-blok">
+        <h3>Nieuwste boeken</h3>
+        <div id="nbSidebarNieuwste"></div>
+      </div>
+      <div class="nb-sidebar-blok">
+        <h3>Categorieën</h3>
+        <ul id="nbSidebarCats"></ul>
+      </div>
+    </aside>
+    <div class="nb-hoofd">
+      <nav class="nb-breadcrumb" aria-label="Kruimelpad">
+        <a href="index.html">Nijmeegse Boeken</a> › <span>Top Tien</span>
+      </nav>
+      <div class="nb-paginakop">
+        <h1>Top Tien</h1>
+        <p id="paginaOndertitel">De aanbevolen boeken over Nijmegen, samengesteld door Boekhandel Roelants</p>
+      </div>
+      <div class="nb-grid" id="gridToptien"><p class="nb-leeg">Laden…</p></div>
+      <div class="nb-seo">
+        <h2>Onze aanbeveling</h2>
+        <p>Deze selectie boeken over Nijmegen wordt samengesteld door Boekhandel Roelants. Van stadsgeschiedenis tot fotografie — dit zijn de titels die wij van harte aanbevelen.</p>
+      </div>
+    </div>
+  </div>
+</main>
+<div id="nbFooter"></div>
+<script src="nijmegen.js"></script>
+<script>
+(async () => {
+  const boeken = await nbLaadBoeken();
+  const cats = [...new Set(boeken.flatMap(b => (b.categorieën||b.categorie ? (Array.isArray(b.categorieën||b.categorie) ? (b.categorieën||b.categorie) : [b.categorieën||b.categorie]) : [])))].sort().map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1).replace(/-/g,' '), slug: s}));
+  document.getElementById('nbHeader').innerHTML = nbHeaderHTML('toptien.html', cats);
+  document.getElementById('nbFooter').innerHTML = nbFooterHTML(cats);
+  nbVulSidebar(boeken, null);
+  const toptien = boeken.filter(b => b.toptien);
+  document.getElementById('paginaOndertitel').textContent = toptien.length
+    ? 'Onze ' + toptien.length + ' aanbevolen boeken over Nijmegen'
+    : 'Binnenkort beschikbaar';
+  document.getElementById('gridToptien').innerHTML = toptien.length
+    ? toptien.map(nbRenderKaart).join('')
+    : '<p class="nb-leeg">Nog geen top tien samengesteld.</p>';
+  nbFixCoverHoogtes();
+  setTimeout(nbFixCoverHoogtes, 300);
+})();
+</script>
+</body>
+</html>

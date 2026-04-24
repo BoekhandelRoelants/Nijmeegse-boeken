@@ -756,6 +756,11 @@
                 <span class="toggle-dot"></span>
                 <span class="toggle-item-tekst">Aanbieding</span>
               </label>
+              <label class="toggle-item">
+                <input type="checkbox" id="vToptien" onchange="updatePreview()">
+                <span class="toggle-dot"></span>
+                <span class="toggle-item-tekst">Top Tien</span>
+              </label>
             </div>
 
             <div class="veld-rij">
@@ -1094,6 +1099,7 @@ function resetFormulier() {
   document.getElementById('vUitgelicht').checked = false;
   document.getElementById('vNieuw').checked = false;
   document.getElementById('vAanbieding').checked = false;
+  document.getElementById('vToptien').checked = false;
   updatePreview();
 }
 
@@ -1128,6 +1134,7 @@ function bewerkBoek(id) {
   document.getElementById('vUitgelicht').checked = !!b.uitgelicht;
   document.getElementById('vNieuw').checked = !!b.nieuw;
   document.getElementById('vAanbieding').checked = !!b.aanbieding;
+  document.getElementById('vToptien').checked = !!b.toptien;
 
   updatePreview();
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1157,6 +1164,7 @@ function slaBoekOp() {
     uitgelicht: document.getElementById('vUitgelicht').checked,
     nieuw: document.getElementById('vNieuw').checked,
     aanbieding: document.getElementById('vAanbieding').checked,
+    toptien: document.getElementById('vToptien').checked,
     prijsOud: prijsOudWaarde,
     titel,
     auteur,
