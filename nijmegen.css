@@ -210,6 +210,102 @@ body {
 .nb-nav a:hover { background: rgba(0,0,0,0.15); color: white; }
 .nb-nav a.actief { color: white; border-bottom-color: rgba(255,255,255,0.7); }
 
+/* ── NAV DROPDOWN ── */
+.nb-nav-dropdown {
+  position: relative;
+}
+
+.nb-nav-dropdown-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.88);
+  font-family: var(--font);
+  font-size: 0.83rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.nb-nav-dropdown-btn:hover,
+.nb-nav-dropdown-btn[aria-expanded="true"] {
+  background: rgba(0,0,0,0.15);
+  color: white;
+}
+
+.nb-nav-chevron {
+  font-size: 0.6rem;
+  opacity: 0.7;
+  transition: transform 0.15s;
+}
+
+.nb-nav-dropdown-btn[aria-expanded="true"] .nb-nav-chevron {
+  transform: rotate(180deg);
+}
+
+.nb-nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--wit);
+  border: 1px solid var(--grijs-rand);
+  border-top: 2px solid var(--rood);
+  border-radius: 0 0 6px 6px;
+  min-width: 380px;
+  z-index: 200;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.nb-nav-dropdown-menu.open { display: block; }
+
+.nb-nav-dropdown-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 6px 0;
+}
+
+.nb-nav-dropdown-cols a {
+  display: block;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  color: var(--grijs-tekst);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: none;
+  text-transform: none;
+  font-weight: 400;
+  letter-spacing: 0;
+  transition: background 0.1s, color 0.1s;
+}
+
+.nb-nav-dropdown-cols a:hover {
+  background: var(--rood-licht);
+  color: var(--rood);
+}
+
+.nb-nav-dropdown-alle {
+  display: block;
+  border-top: 1px solid var(--grijs-mid);
+  padding: 7px 14px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--rood);
+  text-decoration: none;
+  transition: background 0.1s;
+}
+
+.nb-nav-dropdown-alle:hover { background: var(--rood-licht); }
+
 /* ── WELKOM BLOK ── */
 .nb-welkom {
   background: var(--wit);

@@ -189,54 +189,54 @@ function nbVulSidebar(boeken, actiefSlug) {
 }
 
 // ── GEDEELDE HEADER HTML ──
-function nbHeaderHTML(actiefNav) {
+function nbHeaderHTML(actiefNav, categorieën) {
   const nav = [
     { href: 'index.html',        label: 'Alle boeken' },
     { href: 'nieuw.html',        label: 'Nieuw' },
     { href: 'aanbiedingen.html', label: 'Aanbiedingen' },
   ];
 
-  return `
-    <div class="nb-topbar">
-      <span>Boekhandel Roelants · Van Broeckhuysenstraat 34, 6511 PJ Nijmegen</span>
-      <span>
-        <a href="tel:+31243221734">024 322 17 34</a>
-        &nbsp;·&nbsp;
-        <a href="mailto:nijmegen@roelants.nl">nijmegen@roelants.nl</a>
-      </span>
-    </div>
-    <div class="nb-hero">
-      <div class="nb-hero-overlay"></div>
-      <div class="nb-hero-inhoud">
-        <div class="nb-logo">
-          <a href="index.html">
-            <div class="nb-logo-naam">Nijmeegse Boeken</div>
-            <div class="nb-logo-sub">Boeken uit en over Nijmegen</div>
-          </a>
-        </div>
-        <div class="nb-hero-rechts">
-          <div class="nb-zoekbalk">
-            <input type="search" id="nbZoekInput" placeholder="Zoek op titel, auteur, onderwerp…" aria-label="Zoeken">
-            <button onclick="nbZoek()" aria-label="Zoeken">⌕</button>
-          </div>
-          <div class="nb-badges">
-            <span class="nb-badge">✓ Gratis verzending vanaf €30,-</span>
-            <span class="nb-badge">✓ Afhalen bij Roelants</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <nav class="nb-nav" aria-label="Hoofdnavigatie">
-      <div class="nb-nav-inner">
-        ${nav.map(n => `<a href="${n.href}" class="${actiefNav === n.href ? 'actief' : ''}">${n.label}</a>`).join('')}
-      </div>
-    </nav>
-    <div class="nb-welkom">
-      <div class="nb-welkom-inner">
-        <p>Welkom in de winkel voor Nijmeegse boeken, een initiatief van <a href="https://roelants.nl" target="_blank" rel="noopener">Boekhandel Roelants</a>. Gratis verzending binnen Nederland bij bestellingen boven de €30,-, anders €4,95. Uiteraard kunt u uw bestelling zonder verzendkosten ook bij ons in de winkel komen afhalen. We doen ons best om onze voorraad en de website zo volledig mogelijk te houden. Wilt u zeker weten dat het boek op voorraad is, informeer dan vooraf even per mail of telefoon.</p>
-        <p>Voor relatiegeschenken in grotere hoeveelheden kunnen wij een aantrekkelijke korting bieden. Neem daarvoor rechtstreeks contact met ons op via <a href="tel:+31243221734">024 322 17 34</a> of <a href="mailto:roelants@roelants.nl">roelants@roelants.nl</a>.</p>
-      </div>
-    </div>`;
+  const catItems = (categorieën || []).map(c =>
+    '<a href="categorie-' + escHtml(c.slug) + '.html">'
+    + escHtml(c.naam)
+    + '</a>'
+  ).join('');
+
+  return '<div class="nb-topbar">'
+    + '<span>Boekhandel Roelants · Van Broeckhuysenstraat 34, 6511 PJ Nijmegen</span>'
+    + '<span><a href="tel:+31243221734">024 322 17 34</a>&nbsp;·&nbsp;<a href="mailto:nijmegen@roelants.nl">nijmegen@roelants.nl</a></span>'
+    + '</div>'
+    + '<div class="nb-hero"><div class="nb-hero-overlay"></div>'
+    + '<div class="nb-hero-inhoud">'
+    + '<div class="nb-logo"><a href="index.html">'
+    + '<div class="nb-logo-naam">Nijmeegse Boeken</div>'
+    + '<div class="nb-logo-sub">Boeken uit en over Nijmegen</div>'
+    + '</a></div>'
+    + '<div class="nb-hero-rechts">'
+    + '<div class="nb-zoekbalk">'
+    + '<input type="search" id="nbZoekInput" placeholder="Zoek op titel, auteur, onderwerp\u2026" aria-label="Zoeken">'
+    + '<button onclick="nbZoek()" aria-label="Zoeken">\u2315</button>'
+    + '</div>'
+    + '<div class="nb-badges">'
+    + '<span class="nb-badge">\u2713 Gratis verzending vanaf \u20ac30,-</span>'
+    + '<span class="nb-badge">\u2713 Afhalen bij Roelants</span>'
+    + '</div></div></div></div>'
+    + '<nav class="nb-nav" aria-label="Hoofdnavigatie">'
+    + '<div class="nb-nav-inner">'
+    + nav.map(n => '<a href="' + n.href + '" class="' + (actiefNav === n.href ? 'actief' : '') + '">' + n.label + '</a>').join('')
+    + '<div class="nb-nav-dropdown" id="nbCatDropdown">'
+    + '<button class="nb-nav-dropdown-btn" onclick="nbToggleDropdown(event)" aria-expanded="false" aria-haspopup="true">'
+    + 'Categorie\u00ebn <span class="nb-nav-chevron">&#9660;</span>'
+    + '</button>'
+    + '<div class="nb-nav-dropdown-menu" id="nbCatMenu" role="menu">'
+    + '<div class="nb-nav-dropdown-cols">' + catItems + '</div>'
+    + '<a href="index.html" class="nb-nav-dropdown-alle">Alle categorieën →</a>'
+    + '</div></div>'
+    + '</div></nav>'
+    + '<div class="nb-welkom"><div class="nb-welkom-inner">'
+    + '<p>Welkom in de winkel voor Nijmeegse boeken, een initiatief van <a href="https://roelants.nl" target="_blank" rel="noopener">Boekhandel Roelants</a>. Gratis verzending binnen Nederland bij bestellingen boven de €30,-, anders €4,95. Uiteraard kunt u uw bestelling zonder verzendkosten ook bij ons in de winkel komen afhalen. We doen ons best om onze voorraad en de website zo volledig mogelijk te houden. Wilt u zeker weten dat het boek op voorraad is, informeer dan vooraf even per mail of telefoon.</p>'
+    + '<p>Voor relatiegeschenken in grotere hoeveelheden kunnen wij een aantrekkelijke korting bieden. Neem daarvoor rechtstreeks contact met ons op via <a href="tel:+31243221734">024 322 17 34</a> of <a href="mailto:roelants@roelants.nl">roelants@roelants.nl</a>.</p>'
+    + '</div></div>';
 }
 
 // ── GEDEELDE FOOTER HTML ──
@@ -289,6 +289,22 @@ function nbFixCoverHoogtes() {
 window.addEventListener('resize', () => {
   clearTimeout(window._nbResizeTimer);
   window._nbResizeTimer = setTimeout(nbFixCoverHoogtes, 100);
+});
+
+// ── DROPDOWN TOGGLE ──
+function nbToggleDropdown(e) {
+  e.stopPropagation();
+  const menu = document.getElementById('nbCatMenu');
+  const btn  = document.getElementById('nbCatDropdown').querySelector('.nb-nav-dropdown-btn');
+  const open = menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open);
+}
+
+document.addEventListener('click', () => {
+  const menu = document.getElementById('nbCatMenu');
+  const btn  = document.getElementById('nbCatDropdown')?.querySelector('.nb-nav-dropdown-btn');
+  if (menu) menu.classList.remove('open');
+  if (btn)  btn.setAttribute('aria-expanded', 'false');
 });
 
 // ── ZOEKEN (navigeert naar index met query) ──
