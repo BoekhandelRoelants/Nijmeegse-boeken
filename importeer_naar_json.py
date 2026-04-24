@@ -251,7 +251,7 @@ def parseer_html(html: str, eind_url: str, isbn: str) -> dict | None:
         "reeks":       reeks,
         "paginas":     paginas,
         "prijs":       prijs,
-        "beschrijving": beschrijving[:1000],
+        "beschrijving": beschrijving,
         "bron_beschrijving": "Roelants" if beschrijving else "",
         "url":         eind_url,
     }
@@ -312,7 +312,7 @@ async def haal_boekdata_async(
         if not resultaat["beschrijving"]:
             beschrijving_deslegte = haal_beschrijving_deslegte(isbn)
             if beschrijving_deslegte:
-                resultaat["beschrijving"] = beschrijving_deslegte[:1000]
+                resultaat["beschrijving"] = beschrijving_deslegte
                 resultaat["bron_beschrijving"] = "De Slegte"
 
     teller["verwerkt"] += 1
@@ -367,10 +367,9 @@ def verwerk_naar_json(resultaten: list[dict]):
             None
         )
 
-        # Bouw volledige titel (met ondertitel indien aanwezig)
+        # Titel en ondertitel apart bewaren
         titel = r["titel"]
-        if r.get("ondertitel"):
-            titel = titel + ": " + r["ondertitel"]
+        ondertitel = r.get("ondertitel", "") or ""
 
         # Formaat afleiden uit uitvoering
         uitvoering = r.get("uitvoering", "")
@@ -390,6 +389,7 @@ def verwerk_naar_json(resultaten: list[dict]):
                 **b,
                 "categorieën": b.get("categorieën", [b.get("categorie", STANDAARD_CATEGORIE)]),
                 "titel":       titel       or b.get("titel", ""),
+                "ondertitel":  ondertitel  or b.get("ondertitel", ""),
                 "auteur":      r["auteur"] or b.get("auteur", ""),
                 "uitgever":    r["uitgever"] or b.get("uitgever", ""),
                 "jaar":        jaar_uit_datum(r["datum"]) or b.get("jaar"),
@@ -410,6 +410,7 @@ def verwerk_naar_json(resultaten: list[dict]):
                 "aanbieding":  False,
                 "prijsOud":    None,
                 "titel":       titel,
+                "ondertitel":  ondertitel,
                 "auteur":      r["auteur"],
                 "uitgever":    r["uitgever"],
                 "jaar":        jaar_uit_datum(r["datum"]),

@@ -63,7 +63,11 @@
     .label-cat { background: var(--grijs-mid); color: var(--grijs-tekst); }
     .boek-titel-groot {
       font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; line-height: 1.2;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.2rem;
+    }
+    .boek-ondertitel {
+      font-size: 1rem; color: var(--grijs-muted); font-style: italic;
+      margin-bottom: 0.6rem; line-height: 1.4;
     }
     .boek-auteur-groot { font-size: 1rem; color: var(--grijs-muted); margin-bottom: 1.25rem; }
     .prijs-rij {
@@ -119,6 +123,7 @@
     <div class="info-kolom">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem" id="labelRij"></div>
       <h1 class="boek-titel-groot" id="boekTitel"></h1>
+      <p class="boek-ondertitel" id="boekOndertitel" style="display:none;"></p>
       <p class="boek-auteur-groot" id="boekAuteur"></p>
       <div class="prijs-rij" id="prijsRij"></div>
       <div class="beschrijving" id="boekBeschrijving"></div>
@@ -217,6 +222,11 @@
     : nbPlaceholder(b.titel);
 
   document.getElementById('boekTitel').textContent = b.titel;
+  if (b.ondertitel) {
+    const ot = document.getElementById('boekOndertitel');
+    ot.textContent = b.ondertitel;
+    ot.style.display = '';
+  }
   document.getElementById('boekAuteur').textContent = b.auteur;
 
   const po = b.prijsOud ? '<span class="prijs-oud-groot">'+nbPrijs(b.prijsOud)+'</span>' : '';
