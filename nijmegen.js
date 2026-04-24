@@ -50,13 +50,25 @@ function nbPrijs(p) {
 }
 
 // ── BOEK KAART RENDEREN ──
+function nbCoverURL(b) {
+  // Gebruik handmatig opgegeven omslag als dat er is
+  if (b.omslag) return b.omslag;
+  // Haal automatisch cover op via ISBN (streepjes verwijderen)
+  const isbn = (b.isbn || '').replace(/-/g, '');
+  if (isbn) return 'https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=' + isbn + '&size=l';
+  return null;
+}
+
 function nbRenderKaart(b) {
   const label = b.nieuw
     ? '<span class="nb-label nb-label-nieuw">Nieuw</span>'
     : b.aanbieding ? '<span class="nb-label nb-label-aanbieding">Aanbieding</span>' : '';
   const prijsOud = b.prijsOud ? nbPrijs(b.prijsOud) : null;
-  const coverInhoud = b.omslag
-    ? '<img src="' + escHtml(b.omslag) + '" alt="Omslag ' + escHtml(b.titel) + '" loading="lazy">'
+  const coverURL = nbCoverURL(b);
+  const coverInhoud = coverURL
+    ? '<img src="' + escHtml(coverURL) + '" alt="Omslag ' + escHtml(b.titel) + '" loading="lazy"'
+      + ' onerror="this.style.display=\'none\';this.nextSibling.style.display=\'block\'">'
+      + '<div style="display:none;width:100%;height:100%;position:absolute;top:0;left:0;">' + nbPlaceholder(b.titel) + '</div>'
     : nbPlaceholder(b.titel);
 
   const kaartStijl = 'display:flex;flex-direction:column;overflow:hidden;background:white;'
@@ -138,8 +150,8 @@ function nbVulSidebar(boeken, actiefSlug) {
   if (nieuwsteEl) {
     const nieuwste = [...boeken].sort((a, b) => b.id - a.id).slice(0, 5);
     nieuwsteEl.innerHTML = nieuwste.map(b => {
-      const cover = b.omslag
-        ? '<img src="' + escHtml(b.omslag) + '" style="width:100%;height:100%;object-fit:cover;display:block;">'
+    const cover = nbCoverURL(b)
+        ? '<img src="' + escHtml(nbCoverURL(b)) + '" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.outerHTML=\'<svg viewBox=\\\"0 0 28 42\\\" xmlns=\\\"http://www.w3.org/2000/svg\\\"><rect width=\\\"28\\\" height=\\\"21\\\" fill=\\\"#B21233\\\"/><rect y=\\\"21\\\" width=\\\"28\\\" height=\\\"21\\\" fill=\\\"#1a1a1a\\\"/></svg>\'">'
         : '<svg viewBox="0 0 28 42" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="21" fill="#B21233"/><rect y="21" width="28" height="21" fill="#1a1a1a"/></svg>';
       return '<a href="boek.html?id=' + b.id + '" class="nb-sb-nieuwste-item">'
         + '<div class="nb-sb-nieuwste-cover">' + cover + '</div>'
