@@ -133,6 +133,25 @@ function nbVulSidebar(boeken, actiefSlug) {
       </a></li>
     `).join('')}`;
 
+  // Nieuwste boeken in sidebar
+  const nieuwsteEl = document.getElementById('nbSidebarNieuwste');
+  if (nieuwsteEl) {
+    const nieuwste = [...boeken].sort((a, b) => b.id - a.id).slice(0, 5);
+    nieuwsteEl.innerHTML = nieuwste.map(b => {
+      const cover = b.omslag
+        ? '<img src="' + escHtml(b.omslag) + '" style="width:100%;height:100%;object-fit:cover;display:block;">'
+        : '<svg viewBox="0 0 28 42" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="21" fill="#B21233"/><rect y="21" width="28" height="21" fill="#1a1a1a"/></svg>';
+      return '<a href="boek.html?id=' + b.id + '" class="nb-sb-nieuwste-item">'
+        + '<div class="nb-sb-nieuwste-cover">' + cover + '</div>'
+        + '<div class="nb-sb-nieuwste-tekst">'
+        + '<div class="nb-sb-nieuwste-titel">' + escHtml(b.titel) + '</div>'
+        + '<div class="nb-sb-nieuwste-auteur">' + escHtml(b.auteur) + '</div>'
+        + '<div class="nb-sb-nieuwste-prijs">' + nbPrijs(b.prijs) + '</div>'
+        + '</div>'
+        + '</a>';
+    }).join('');
+  }
+
   // Fix coverhoogtes na renderen
   setTimeout(nbFixCoverHoogtes, 150);
 }

@@ -301,6 +301,63 @@ body {
   flex-shrink: 0;
 }
 
+/* ── SIDEBAR NIEUWSTE BOEKEN ── */
+.nb-sb-nieuwste-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-bottom: 0.5px solid var(--grijs-mid);
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.12s;
+}
+
+.nb-sb-nieuwste-item:last-child { border-bottom: none; }
+
+.nb-sb-nieuwste-item:hover { background: var(--rood-licht); }
+.nb-sb-nieuwste-item:hover .nb-sb-nieuwste-titel { color: var(--rood); }
+
+.nb-sb-nieuwste-cover {
+  width: 28px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.nb-sb-nieuwste-cover img,
+.nb-sb-nieuwste-cover svg { width: 100%; height: 100%; display: block; }
+
+.nb-sb-nieuwste-tekst { flex: 1; min-width: 0; }
+
+.nb-sb-nieuwste-titel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--zwart);
+  line-height: 1.3;
+  margin-bottom: 1px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.nb-sb-nieuwste-auteur {
+  font-size: 0.68rem;
+  color: var(--grijs-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+
+.nb-sb-nieuwste-prijs {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--rood);
+}
+
 /* ── HOOFDINHOUD ── */
 .nb-hoofd {}
 
