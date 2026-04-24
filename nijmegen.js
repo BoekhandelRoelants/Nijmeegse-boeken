@@ -60,15 +60,16 @@ function nbRenderKaart(b) {
     : nbPlaceholder(b.titel);
 
   const kaartStijl = 'display:flex;flex-direction:column;overflow:hidden;background:white;'
-    + 'border:1px solid #d6d2ca;border-radius:6px;text-decoration:none;color:inherit;'
+    + 'border:1px solid #d6d2ca;border-radius:6px;cursor:pointer;'
     + 'transition:transform 0.2s,box-shadow 0.2s;';
   const coverStijl = 'width:100%;flex-shrink:0;overflow:hidden;position:relative;display:block;';
   const infoStijl  = 'padding:0.7rem;display:flex;flex-direction:column;flex:1;border-top:1px solid #e8e4dc;';
   const footerStijl = 'display:flex;align-items:center;justify-content:space-between;gap:0.4rem;margin-top:auto;';
 
-  let html = '<a class="nb-kaart" href="boek.html?id=' + b.id + '"'
-    + ' style="' + kaartStijl + '"'
+  let html = '<div class="nb-kaart" style="' + kaartStijl + '"'
+    + ' onclick="location.href=\'boek.html?id=' + b.id + '\'"'
     + ' itemscope itemtype="https://schema.org/Book"'
+    + ' role="link" tabindex="0"'
     + ' aria-label="' + escHtml(b.titel) + ' — ' + escHtml(b.auteur) + ' — ' + nbPrijs(b.prijs) + '">'
     + '<meta itemprop="name" content="' + escHtml(b.titel) + '">'
     + '<meta itemprop="author" content="' + escHtml(b.auteur) + '">'
@@ -92,7 +93,7 @@ function nbRenderKaart(b) {
     + ' onclick="event.stopPropagation()">Bestellen</a>'
     + '</div>'
     + '</div>'
-    + '</a>';
+    + '</div>';
   return html;
 }
 
