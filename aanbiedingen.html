@@ -43,12 +43,13 @@
 <script>
 (async () => {
   const boeken = await nbLaadBoeken();
+  await nbLaadInstellingen();
   const cats = [...new Set(boeken.flatMap(b => (b.categorieën||b.categorie ? (Array.isArray(b.categorieën||b.categorie) ? (b.categorieën||b.categorie) : [b.categorieën||b.categorie]) : [])))].sort().map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1).replace(/-/g,' '), slug: s}));
   document.getElementById('nbHeader').innerHTML = nbHeaderHTML('aanbiedingen.html', cats);
   document.getElementById('nbFooter').innerHTML = nbFooterHTML(cats);
   nbVulSidebar(boeken, null);
   const aanbiBoeken = boeken.filter(b => b.aanbieding);
-  document.getElementById('paginaOndertitel').textContent = aanbiBoeken.length + ' titel' + (aanbiBoeken.length !== 1 ? 's' : '') + ' in de aanbieding';
+  document.getElementById('paginaOndertitel').textContent = nbTekst('aanbiedingen_intro','Boeken met een speciale prijs') || aanbiBoeken.length + ' titel' + (aanbiBoeken.length !== 1 ? 's' : '') + ' in de aanbieding';
   document.getElementById('nbSorteerBalk').innerHTML = nbSorteerBalk('id-desc');
   window.nbHerrendeer = function(methode) {
     const gesorteerd = nbSorteer(aanbiBoeken, methode);

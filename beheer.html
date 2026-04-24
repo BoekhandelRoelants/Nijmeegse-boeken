@@ -586,6 +586,7 @@
   <div class="tab actief" onclick="toonPagina('overzicht', this)">Boekenoverzicht</div>
   <div class="tab" onclick="toonPagina('toevoegen', this)">Boek toevoegen</div>
   <div class="tab" onclick="toonPagina('categorieen', this)">Categorieën</div>
+  <div class="tab" onclick="toonPagina('instellingen', this)">Instellingen</div>
   <div class="tab" onclick="toonPagina('json', this)">JSON bekijken</div>
 </div>
 
@@ -829,6 +830,121 @@
 <!-- ══════════════════════════════════════ -->
 <!-- PAGINA: JSON BEKIJKEN -->
 <!-- ══════════════════════════════════════ -->
+<!-- PAGINA: INSTELLINGEN -->
+<!-- ══════════════════════════════════════ -->
+<div class="pagina" id="pagina-instellingen">
+  <div class="wrapper">
+
+    <div class="formulier-kaart">
+      <div class="formulier-kop">Homepagina — secties <span>Aantal boeken per sectie (0 = geen limiet)</span></div>
+      <div style="padding:1.5rem;display:flex;flex-direction:column;gap:1.25rem;">
+        <div class="veld">
+          <label>Uitgelicht — maximaal aantal</label>
+          <input type="number" id="iUitgelichtMax" min="0" value="0" style="width:120px;">
+          <span class="veld-hint">0 = alle uitgelichte boeken tonen</span>
+        </div>
+        <div class="veld">
+          <label>Nieuw verschenen — maximaal aantal</label>
+          <input type="number" id="iNieuwMax" min="0" value="8" style="width:120px;">
+          <span class="veld-hint">0 = alle nieuwe boeken tonen</span>
+        </div>
+        <div class="veld">
+          <label>Aanbiedingen — maximaal aantal</label>
+          <input type="number" id="iAanbiedingenMax" min="0" value="0" style="width:120px;">
+          <span class="veld-hint">0 = alle aanbiedingen tonen</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="formulier-kaart" style="margin-top:1rem;">
+      <div class="formulier-kop">Welkomsttekst <span>Wordt getoond onder het zoekvak op elke pagina</span></div>
+      <div style="padding:1.5rem;display:flex;flex-direction:column;gap:1.25rem;">
+        <div class="veld">
+          <label>Eerste alinea</label>
+          <textarea id="iTekstWelkom" rows="3" style="width:100%;resize:vertical;"></textarea>
+        </div>
+        <div class="veld">
+          <label>Tweede alinea</label>
+          <textarea id="iTekstWelkom2" rows="2" style="width:100%;resize:vertical;"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="formulier-kaart" style="margin-top:1rem;">
+      <div class="formulier-kop">Footer <span>Tekst in de voettekst van de website</span></div>
+      <div style="padding:1.5rem;">
+        <div class="veld">
+          <label>Beschrijving</label>
+          <textarea id="iTekstFooter" rows="2" style="width:100%;resize:vertical;"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="formulier-kaart" style="margin-top:1rem;">
+      <div class="formulier-kop">SEO-teksten — homepagina <span>Tekst onderaan de homepagina</span></div>
+      <div style="padding:1.5rem;display:flex;flex-direction:column;gap:1.25rem;">
+        <div class="veld">
+          <label>Koptekst</label>
+          <input type="text" id="iTekstHomeSeoTitel" style="width:100%;">
+        </div>
+        <div class="veld">
+          <label>Eerste alinea</label>
+          <textarea id="iTekstHomeSeo" rows="3" style="width:100%;resize:vertical;"></textarea>
+        </div>
+        <div class="veld">
+          <label>Tweede alinea</label>
+          <textarea id="iTekstHomeSeo2" rows="2" style="width:100%;resize:vertical;"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="formulier-kaart" style="margin-top:1rem;">
+      <div class="formulier-kop">Pagina-intro's <span>Introductietekst bovenaan elke pagina</span></div>
+      <div style="padding:1.5rem;display:flex;flex-direction:column;gap:1.25rem;">
+        <div class="veld">
+          <label>Nieuw verschenen</label>
+          <input type="text" id="iTekstNieuwIntro" style="width:100%;">
+        </div>
+        <div class="veld">
+          <label>Aanbiedingen</label>
+          <input type="text" id="iTekstAanbiedingenIntro" style="width:100%;">
+        </div>
+        <div class="veld">
+          <label>Top Tien</label>
+          <input type="text" id="iTekstToptienIntro" style="width:100%;">
+        </div>
+      </div>
+    </div>
+
+    <div class="formulier-kaart" style="margin-top:1rem;">
+      <div class="formulier-kop">SEO-teksten — overige pagina's <span>Tekst onderaan de pagina</span></div>
+      <div style="padding:1.5rem;display:flex;flex-direction:column;gap:1.25rem;">
+        <div class="veld">
+          <label>Nieuw verschenen</label>
+          <textarea id="iTekstNieuwSeo" rows="2" style="width:100%;resize:vertical;"></textarea>
+        </div>
+        <div class="veld">
+          <label>Aanbiedingen</label>
+          <textarea id="iTekstAanbiedingenSeo" rows="2" style="width:100%;resize:vertical;"></textarea>
+        </div>
+        <div class="veld">
+          <label>Top Tien</label>
+          <textarea id="iTekstToptienSeo" rows="2" style="width:100%;resize:vertical;"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:1rem 0;display:flex;gap:0.75rem;align-items:center;">
+      <button class="btn btn-groen" onclick="slaInstellingenOp()">↓ Downloaden als instellingen.json</button>
+      <span id="instMelding" style="font-size:0.82rem;color:var(--groen);display:none;">✓ Bestand gedownload</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- PAGINA: JSON -->
+<!-- ══════════════════════════════════════ -->
 <div class="pagina" id="pagina-json">
   <div class="wrapper">
     <div class="download-kaart">
@@ -1000,6 +1116,7 @@ function toonPagina(naam, tabEl) {
   if (tabEl) tabEl.classList.add('actief');
   if (naam === 'json') verversJSON();
   if (naam === 'categorieen') verversCategorieLijst();
+  if (naam === 'instellingen') laadInstellingen();
 }
 
 // ══════════════════════════════════════
@@ -1463,6 +1580,71 @@ function helderheid(hex) {
 
 function escHtml(t) {
   return String(t||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ══════════════════════════════════════
+// INSTELLINGEN
+// ══════════════════════════════════════
+let INSTELLINGEN = { homepagina: { uitgelicht_max: 0, nieuw_max: 8, aanbiedingen_max: 0 }, teksten: {} };
+
+async function laadInstellingen() {
+  try {
+    const r = await fetch('instellingen.json');
+    if (r.ok) INSTELLINGEN = await r.json();
+  } catch(e) {}
+  const hp = INSTELLINGEN.homepagina || {};
+  const t  = INSTELLINGEN.teksten    || {};
+  document.getElementById('iUitgelichtMax').value        = hp.uitgelicht_max   ?? 0;
+  document.getElementById('iNieuwMax').value             = hp.nieuw_max        ?? 8;
+  document.getElementById('iAanbiedingenMax').value      = hp.aanbiedingen_max ?? 0;
+  document.getElementById('iTekstWelkom').value          = t.welkom            || '';
+  document.getElementById('iTekstWelkom2').value         = t.welkom2           || '';
+  document.getElementById('iTekstFooter').value          = t.footer            || '';
+  document.getElementById('iTekstHomeSeoTitel').value    = t.homepagina_seo_titel || '';
+  document.getElementById('iTekstHomeSeo').value         = t.homepagina_seo    || '';
+  document.getElementById('iTekstHomeSeo2').value        = t.homepagina_seo2   || '';
+  document.getElementById('iTekstNieuwIntro').value      = t.nieuw_intro       || '';
+  document.getElementById('iTekstAanbiedingenIntro').value = t.aanbiedingen_intro || '';
+  document.getElementById('iTekstToptienIntro').value    = t.toptien_intro     || '';
+  document.getElementById('iTekstNieuwSeo').value        = t.nieuw_seo         || '';
+  document.getElementById('iTekstAanbiedingenSeo').value = t.aanbiedingen_seo  || '';
+  document.getElementById('iTekstToptienSeo').value      = t.toptien_seo       || '';
+}
+
+function slaInstellingenOp() {
+  const inst = {
+    homepagina: {
+      uitgelicht_max:   parseInt(document.getElementById('iUitgelichtMax').value)        || 0,
+      nieuw_max:        parseInt(document.getElementById('iNieuwMax').value)             || 0,
+      aanbiedingen_max: parseInt(document.getElementById('iAanbiedingenMax').value)      || 0,
+    },
+    teksten: {
+      welkom:               document.getElementById('iTekstWelkom').value.trim(),
+      welkom2:              document.getElementById('iTekstWelkom2').value.trim(),
+      footer:               document.getElementById('iTekstFooter').value.trim(),
+      homepagina_seo_titel: document.getElementById('iTekstHomeSeoTitel').value.trim(),
+      homepagina_seo:       document.getElementById('iTekstHomeSeo').value.trim(),
+      homepagina_seo2:      document.getElementById('iTekstHomeSeo2').value.trim(),
+      nieuw_intro:          document.getElementById('iTekstNieuwIntro').value.trim(),
+      aanbiedingen_intro:   document.getElementById('iTekstAanbiedingenIntro').value.trim(),
+      toptien_intro:        document.getElementById('iTekstToptienIntro').value.trim(),
+      nieuw_seo:            document.getElementById('iTekstNieuwSeo').value.trim(),
+      aanbiedingen_seo:     document.getElementById('iTekstAanbiedingenSeo').value.trim(),
+      toptien_seo:          document.getElementById('iTekstToptienSeo').value.trim(),
+      ...Object.fromEntries(
+        Object.entries(INSTELLINGEN.teksten || {}).filter(([k]) => k.startsWith('cat_'))
+      ),
+    }
+  };
+  const blob = new Blob([JSON.stringify(inst, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'instellingen.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  const m = document.getElementById('instMelding');
+  m.style.display = 'inline';
+  setTimeout(() => m.style.display = 'none', 3000);
 }
 
 // ══════════════════════════════════════

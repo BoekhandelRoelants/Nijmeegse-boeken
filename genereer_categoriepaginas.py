@@ -65,7 +65,7 @@ def genereer_pagina(slug, naam, aantal):
       </div>
       <div id="nbSorteerBalk"></div>
       <div class="nb-grid" id="gridCategorie"><p class="nb-leeg">Laden\u2026</p></div>
-      <div class="nb-seo">
+      <div class="nb-seo" id="nbSeoBlok">
         <h2>{naam} in en rond Nijmegen</h2>
         <p>Ontdek ons aanbod boeken in de categorie {naam.lower()}. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.</p>
       </div>
@@ -90,6 +90,9 @@ def genereer_pagina(slug, naam, aantal):
     nbFixCoverHoogtes(); setTimeout(nbFixCoverHoogtes, 300);
   }}
   nbHerrendeer('id-desc');
+  const seoTitel = nbTekst('cat_{slug}_titel', '{naam} in en rond Nijmegen');
+  const seoTekst = nbTekst('cat_{slug}_tekst', 'Ontdek ons aanbod boeken in de categorie {naam.lower()}. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.');
+  document.getElementById('nbSeoBlok').innerHTML = '<h2>' + seoTitel + '</h2><p>' + seoTekst + '</p>';
   nbFixCoverHoogtes();
   setTimeout(nbFixCoverHoogtes, 300);
 }})();

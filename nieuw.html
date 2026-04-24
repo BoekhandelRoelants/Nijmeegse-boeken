@@ -34,7 +34,7 @@
       </nav>
       <div class="nb-paginakop">
         <h1>Nieuw verschenen</h1>
-        <p id="paginaOndertitel">Actuele nieuwe titels over Nijmegen en de regio</p>
+        <p id="paginaOndertitel"></p>
       </div>
       <div id="nbSorteerBalk"></div>
       <div class="nb-grid" id="gridNieuw"><p class="nb-leeg">Laden…</p></div>
@@ -46,12 +46,13 @@
 <script>
 (async () => {
   const boeken = await nbLaadBoeken();
+  await nbLaadInstellingen();
   const cats = [...new Set(boeken.flatMap(b => (b.categorieën||b.categorie ? (Array.isArray(b.categorieën||b.categorie) ? (b.categorieën||b.categorie) : [b.categorieën||b.categorie]) : [])))].sort().map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1).replace(/-/g,' '), slug: s}));
   document.getElementById('nbHeader').innerHTML = nbHeaderHTML('nieuw.html', cats);
   document.getElementById('nbFooter').innerHTML = nbFooterHTML(cats);
   nbVulSidebar(boeken, null);
   const nieuwBoeken = boeken.filter(b => b.nieuw);
-  document.getElementById('paginaOndertitel').textContent = nieuwBoeken.length + ' titel' + (nieuwBoeken.length !== 1 ? 's' : '') + ' nieuw verschenen';
+  document.getElementById('paginaOndertitel').textContent = nbTekst('nieuw_intro','Actuele nieuwe titels') || nieuwBoeken.length + ' titel' + (nieuwBoeken.length !== 1 ? 's' : '') + ' nieuw verschenen';
   document.getElementById('nbSorteerBalk').innerHTML = nbSorteerBalk('id-desc');
   window.nbHerrendeer = function(methode) {
     const gesorteerd = nbSorteer(nieuwBoeken, methode);

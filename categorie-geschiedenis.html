@@ -38,7 +38,7 @@
       </div>
       <div id="nbSorteerBalk"></div>
       <div class="nb-grid" id="gridCategorie"><p class="nb-leeg">Laden…</p></div>
-      <div class="nb-seo">
+      <div class="nb-seo" id="nbSeoBlok">
         <h2>Geschiedenis in en rond Nijmegen</h2>
         <p>Ontdek ons aanbod boeken in de categorie geschiedenis. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.</p>
       </div>
@@ -63,6 +63,9 @@
     nbFixCoverHoogtes(); setTimeout(nbFixCoverHoogtes, 300);
   }
   nbHerrendeer('id-desc');
+  const seoTitel = nbTekst('cat_geschiedenis_titel', 'Geschiedenis in en rond Nijmegen');
+  const seoTekst = nbTekst('cat_geschiedenis_tekst', 'Ontdek ons aanbod boeken in de categorie geschiedenis. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.');
+  document.getElementById('nbSeoBlok').innerHTML = '<h2>' + seoTitel + '</h2><p>' + seoTekst + '</p>';
   nbFixCoverHoogtes();
   setTimeout(nbFixCoverHoogtes, 300);
 })();

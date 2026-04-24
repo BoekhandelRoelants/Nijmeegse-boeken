@@ -2,6 +2,22 @@
 // NIJMEEGSE BOEKEN — Gedeeld JavaScript
 // ══════════════════════════════════════════════════════════
 
+// ── INSTELLINGEN LADEN ──
+let _nbInst = null;
+async function nbLaadInstellingen() {
+  if (_nbInst) return _nbInst;
+  try {
+    const r = await fetch('instellingen.json');
+    if (r.ok) _nbInst = await r.json();
+  } catch(e) {}
+  if (!_nbInst) _nbInst = {};
+  return _nbInst;
+}
+
+function nbTekst(sleutel, standaard) {
+  return (_nbInst && _nbInst.teksten && _nbInst.teksten[sleutel]) || standaard || '';
+}
+
 // ── PLACEHOLDER: Nijmeegse vlag met boeknaam in zwart vlak ──
 function nbPlaceholder(titel) {
   // Wikkel lange titels over meerdere regels (max 16 tekens per regel)
@@ -235,8 +251,8 @@ function nbHeaderHTML(actiefNav, categorieën) {
     + '</div></div>'
     + '</div></nav>'
     + '<div class="nb-welkom"><div class="nb-welkom-inner">'
-    + '<p>Welkom in de winkel voor Nijmeegse boeken, een initiatief van <a href="https://roelants.nl" target="_blank" rel="noopener">Boekhandel Roelants</a>. Gratis verzending binnen Nederland bij bestellingen boven de €30,-, anders €4,95. Uiteraard kunt u uw bestelling zonder verzendkosten ook bij ons in de winkel komen afhalen. We doen ons best om onze voorraad en de website zo volledig mogelijk te houden. Wilt u zeker weten dat het boek op voorraad is, informeer dan vooraf even per mail of telefoon.</p>'
-    + '<p>Voor relatiegeschenken in grotere hoeveelheden kunnen wij een aantrekkelijke korting bieden. Neem daarvoor rechtstreeks contact met ons op via <a href="tel:+31243221734">024 322 17 34</a> of <a href="mailto:roelants@roelants.nl">roelants@roelants.nl</a>.</p>'
+    + '<p>' + nbTekst('welkom', 'Welkom in de winkel voor Nijmeegse boeken, een initiatief van <a href="https://roelants.nl" target="_blank" rel="noopener">Boekhandel Roelants</a>.') + '</p>'
+    + '<p>' + nbTekst('welkom2', '') + '</p>'
     + '</div></div>';
 }
 
@@ -251,7 +267,7 @@ function nbFooterHTML(categorieën) {
       <div class="nb-footer-inner">
         <div class="nb-footer-blok">
           <h4>Nijmeegse Boeken</h4>
-          <p>Het meest complete overzicht van boeken over Nijmegen en de regio. Een initiatief van Boekhandel Roelants.</p>
+          <p>' + nbTekst('footer', 'Het meest complete overzicht van boeken over Nijmegen en de regio. Een initiatief van Boekhandel Roelants.') + '</p>
         </div>
         <div class="nb-footer-blok">
           <h4>Categorieën</h4>
