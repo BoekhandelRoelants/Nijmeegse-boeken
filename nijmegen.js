@@ -110,11 +110,8 @@ function nbVulSidebar(boeken, actiefSlug) {
   const el = document.getElementById('nbSidebarCats');
   if (!el) return;
 
-  // Tel boeken per categorie
   const tellingen = {};
   boeken.forEach(b => { tellingen[b.categorie] = (tellingen[b.categorie]||0) + 1; });
-
-  // Unieke categorieën in volgorde van voorkomen
   const cats = [...new Set(boeken.map(b => b.categorie))];
 
   el.innerHTML = `
@@ -127,6 +124,9 @@ function nbVulSidebar(boeken, actiefSlug) {
         <span class="nb-cat-count">${tellingen[slug]||0}</span>
       </a></li>
     `).join('')}`;
+
+  // Fix coverhoogtes na renderen
+  setTimeout(nbFixCoverHoogtes, 50);
 }
 
 // ── GEDEELDE HEADER HTML ──
@@ -213,6 +213,19 @@ function nbFooterHTML(categorieën) {
       </div>
     </footer>`;
 }
+
+// ── COVER HOOGTE FIXER ──
+// Zet de hoogte van elke cover expliciet op 1.5x de breedte (2:3 verhouding)
+function nbFixCoverHoogtes() {
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.nb-cover').forEach(el => {
+      const w = el.offsetWidth;
+      if (w > 0) el.style.height = Math.round(w * 1.5) + 'px';
+    });
+  });
+}
+
+window.addEventListener('resize', nbFixCoverHoogtes);
 
 // ── ZOEKEN (navigeert naar index met query) ──
 function nbZoek() {

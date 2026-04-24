@@ -378,11 +378,11 @@ body {
 
 .nb-cover {
   width: 100%;
-  aspect-ratio: 2 / 3;
+  display: block;
   overflow: hidden;
   flex-shrink: 0;
   position: relative;
-  display: block;
+  background: #e8e4dc;
 }
 
 .nb-cover img {
@@ -390,12 +390,16 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+  position: absolute;
+  top: 0; left: 0;
 }
 
 .nb-cover svg {
   width: 100%;
   height: 100%;
   display: block;
+  position: absolute;
+  top: 0; left: 0;
 }
 
 .nb-cover-placeholder {
