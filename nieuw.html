@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nieuw verschenen – Boeken over Nijmegen</title>
+  <meta name="description" content="Bekijk de nieuwste boeken over Nijmegen en de regio. Actueel aanbod van nieuwe titels over geschiedenis, architectuur, natuur en meer.">
+  <link rel="canonical" href="https://nijmeegse-boeken.nl/nieuw.html">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"CollectionPage","name":"Nieuw verschenen – Nijmeegse Boeken","url":"https://nijmeegse-boeken.nl/nieuw.html"}
+  </script>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="nijmegen.css">
+</head>
+<body>
+<div id="nbHeader"></div>
+<main>
+  <div class="nb-pagina">
+    <aside class="nb-sidebar">
+      <div class="nb-sidebar-blok">
+        <h3>Categorieën</h3>
+        <ul id="nbSidebarCats"></ul>
+      </div>
+    </aside>
+    <div class="nb-hoofd">
+      <nav class="nb-breadcrumb" aria-label="Kruimelpad">
+        <a href="index.html">Nijmeegse Boeken</a> › <span>Nieuw verschenen</span>
+      </nav>
+      <div class="nb-paginakop">
+        <h1>Nieuw verschenen</h1>
+        <p id="paginaOndertitel">Actuele nieuwe titels over Nijmegen en de regio</p>
+      </div>
+      <div class="nb-grid" id="gridNieuw"><p class="nb-leeg">Laden…</p></div>
+    </div>
+  </div>
+</main>
+<div id="nbFooter"></div>
+<script src="nijmegen.js"></script>
+<script>
+(async () => {
+  const boeken = await nbLaadBoeken();
+  document.getElementById('nbHeader').innerHTML = nbHeaderHTML('nieuw.html');
+  const cats = [...new Set(boeken.map(b => b.categorie))].map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1), slug: s}));
+  document.getElementById('nbFooter').innerHTML = nbFooterHTML(cats);
+  nbVulSidebar(boeken, null);
+  const nieuw = boeken.filter(b => b.nieuw);
+  document.getElementById('paginaOndertitel').textContent = nieuw.length + ' titel' + (nieuw.length !== 1 ? 's' : '') + ' nieuw verschenen';
+  document.getElementById('gridNieuw').innerHTML = nieuw.length ? nieuw.map(nbRenderKaart).join('') : '<p class="nb-leeg">Momenteel geen nieuwe titels.</p>';
+})();
+</script>
+</body>
+</html>

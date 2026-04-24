@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aanbiedingen – Boeken over Nijmegen</title>
+  <meta name="description" content="Voordelig boeken over Nijmegen kopen. Bekijk onze actuele aanbiedingen en afgeprijsde titels over Nijmeegse geschiedenis, architectuur en meer.">
+  <link rel="canonical" href="https://nijmeegse-boeken.nl/aanbiedingen.html">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="nijmegen.css">
+</head>
+<body>
+<div id="nbHeader"></div>
+<main>
+  <div class="nb-pagina">
+    <aside class="nb-sidebar">
+      <div class="nb-sidebar-blok">
+        <h3>Categorieën</h3>
+        <ul id="nbSidebarCats"></ul>
+      </div>
+    </aside>
+    <div class="nb-hoofd">
+      <nav class="nb-breadcrumb" aria-label="Kruimelpad">
+        <a href="index.html">Nijmeegse Boeken</a> › <span>Aanbiedingen</span>
+      </nav>
+      <div class="nb-paginakop">
+        <h1>Aanbiedingen</h1>
+        <p id="paginaOndertitel">Afgeprijsde titels over Nijmegen en de regio</p>
+      </div>
+      <div class="nb-grid" id="gridAanbiedingen"><p class="nb-leeg">Laden…</p></div>
+    </div>
+  </div>
+</main>
+<div id="nbFooter"></div>
+<script src="nijmegen.js"></script>
+<script>
+(async () => {
+  const boeken = await nbLaadBoeken();
+  document.getElementById('nbHeader').innerHTML = nbHeaderHTML('aanbiedingen.html');
+  const cats = [...new Set(boeken.map(b => b.categorie))].map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1), slug: s}));
+  document.getElementById('nbFooter').innerHTML = nbFooterHTML(cats);
+  nbVulSidebar(boeken, null);
+  const aanbiedingen = boeken.filter(b => b.aanbieding);
+  document.getElementById('paginaOndertitel').textContent = aanbiedingen.length + ' titel' + (aanbiedingen.length !== 1 ? 's' : '') + ' in de aanbieding';
+  document.getElementById('gridAanbiedingen').innerHTML = aanbiedingen.length ? aanbiedingen.map(nbRenderKaart).join('') : '<p class="nb-leeg">Momenteel geen aanbiedingen.</p>';
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oorlog – Boeken over Nijmegen</title>
+  <meta name="description" content="Boeken over Nijmegen in de categorie Oorlog. 1 titel over oorlog in en rond Nijmegen.">
+  <link rel="canonical" href="https://nijmeegse-boeken.nl/categorie-oorlog.html">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"CollectionPage","name":"Oorlog – Nijmeegse Boeken","url":"https://nijmeegse-boeken.nl/categorie-oorlog.html"}
+  </script>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="nijmegen.css">
+</head>
+<body>
+<div id="nbHeader"></div>
+<main>
+  <div class="nb-pagina">
+    <aside class="nb-sidebar">
+      <div class="nb-sidebar-blok">
+        <h3>Categorieën</h3>
+        <ul id="nbSidebarCats"></ul>
+      </div>
+    </aside>
+    <div class="nb-hoofd">
+      <nav class="nb-breadcrumb" aria-label="Kruimelpad">
+        <a href="index.html">Nijmeegse Boeken</a> &rsaquo; <span>Oorlog</span>
+      </nav>
+      <div class="nb-paginakop">
+        <h1>Boeken over Nijmegen: Oorlog</h1>
+        <p id="paginaOndertitel">1 titel in deze categorie</p>
+      </div>
+      <div class="nb-grid" id="gridCategorie"><p class="nb-leeg">Laden…</p></div>
+      <div class="nb-seo">
+        <h2>Oorlog in en rond Nijmegen</h2>
+        <p>Ontdek ons aanbod boeken in de categorie oorlog. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.</p>
+      </div>
+    </div>
+  </div>
+</main>
+<div id="nbFooter"></div>
+<script src="nijmegen.js"></script>
+<script>
+(async () => {
+  const boeken = await nbLaadBoeken();
+  document.getElementById('nbHeader').innerHTML = nbHeaderHTML('categorie-oorlog.html');
+  const cats = [...new Set(boeken.map(b => b.categorie))].map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1), slug: s}));
+  document.getElementById('nbFooter').innerHTML = nbFooterHTML(cats);
+  nbVulSidebar(boeken, 'oorlog');
+  const gefilterd = boeken.filter(b => b.categorie === 'oorlog');
+  document.getElementById('paginaOndertitel').textContent = gefilterd.length + ' titel' + (gefilterd.length !== 1 ? 's' : '') + ' in deze categorie';
+  document.getElementById('gridCategorie').innerHTML = gefilterd.length ? gefilterd.map(nbRenderKaart).join('') : '<p class="nb-leeg">Geen boeken in deze categorie.</p>';
+})();
+</script>
+</body>
+</html>

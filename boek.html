@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="paginaTitel">Boek – Nijmeegse Boeken</title>
+  <meta name="description" id="metaDesc" content="">
+  <link rel="canonical" id="canonical" href="">
+  <meta id="ogTitle" property="og:title" content="">
+  <meta id="ogDesc" property="og:description" content="">
+  <meta property="og:type" content="book">
+  <meta property="og:locale" content="nl_NL">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="nijmegen.css">
+  <style>
+    .detail-wrapper {
+      max-width: 1200px;
+      margin: 1.25rem auto 3rem;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .cover-kolom { position: sticky; top: 70px; }
+    .cover-groot {
+      width: 100%;
+      aspect-ratio: 2/3;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 4px 8px 24px rgba(0,0,0,0.18);
+      margin-bottom: 1rem;
+    }
+    .cover-groot img { width: 100%; height: 100%; object-fit: cover; }
+    .cover-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 0.75rem; padding: 1.5rem; text-align: center;
+    }
+    .btn-bestellen {
+      display: block; width: 100%;
+      background: var(--rood); color: white;
+      border: none; border-radius: 6px;
+      padding: 0.85rem 1.25rem;
+      font-family: var(--font); font-size: 1rem; font-weight: 700;
+      cursor: pointer; text-align: center; text-decoration: none;
+      transition: background 0.15s; margin-bottom: 0.6rem;
+    }
+    .btn-bestellen:hover { background: var(--rood-donker); }
+    .verzend-info { font-size: 0.78rem; color: var(--grijs-muted); text-align: center; line-height: 1.6; }
+    .label-pill {
+      border-radius: 20px; padding: 0.25rem 0.85rem;
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .label-nieuw { background: var(--rood); color: white; }
+    .label-aanbieding { background: var(--zwart); color: white; }
+    .label-cat { background: var(--grijs-mid); color: var(--grijs-tekst); }
+    .boek-titel-groot {
+      font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; line-height: 1.2;
+      margin-bottom: 0.4rem;
+    }
+    .boek-auteur-groot { font-size: 1rem; color: var(--grijs-muted); margin-bottom: 1.25rem; }
+    .prijs-rij {
+      display: flex; align-items: baseline; gap: 0.75rem;
+      margin-bottom: 1.25rem; padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--grijs-mid);
+    }
+    .prijs-groot { font-size: 2rem; font-weight: 700; color: var(--rood-donker); }
+    .prijs-oud-groot { font-size: 1.1rem; color: var(--grijs-muted); text-decoration: line-through; }
+    .beschrijving { font-size: 0.95rem; line-height: 1.8; color: var(--grijs-tekst); margin-bottom: 1.75rem; }
+    .specs { background: var(--wit); border: 1px solid var(--grijs-rand); border-radius: 6px; overflow: hidden; margin-bottom: 1.75rem; }
+    .specs h3 { background: var(--grijs-mid); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.55rem 1rem; color: var(--grijs-tekst); }
+    .specs table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+    .specs table tr:not(:last-child) td { border-bottom: 1px solid var(--grijs-mid); }
+    .specs table td { padding: 0.5rem 1rem; vertical-align: top; }
+    .specs table td:first-child { color: var(--grijs-muted); font-weight: 600; width: 38%; }
+    .trefwoorden { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.75rem; }
+    .trefwoord { background: var(--grijs-licht); border: 1px solid var(--grijs-rand); border-radius: 4px; padding: 0.2rem 0.65rem; font-size: 0.78rem; color: var(--grijs-tekst); }
+    .gerelateerd h2 { font-size: 1.05rem; font-weight: 700; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--rood); }
+    #laadIndicator { max-width: 1200px; margin: 3rem auto; padding: 0 1.5rem; text-align: center; color: var(--grijs-muted); }
+    #foutMelding { max-width: 600px; margin: 3rem auto; padding: 2rem; background: var(--wit); border: 1px solid var(--grijs-rand); border-radius: 8px; text-align: center; }
+    #foutMelding h2 { color: var(--rood); margin-bottom: 0.75rem; }
+    @media (max-width: 720px) {
+      .detail-wrapper { grid-template-columns: 1fr; }
+      .cover-kolom { position: static; max-width: 240px; margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+<div id="nbHeader"></div>
+<p id="laadIndicator">Boek wordt geladen…</p>
+<div id="foutMelding" style="display:none">
+  <h2>Boek niet gevonden</h2>
+  <p>Dit boek bestaat niet of is niet meer beschikbaar.<br>
+  <a href="index.html" style="color:var(--rood);font-weight:600">Bekijk alle boeken &rarr;</a></p>
+</div>
+<div id="paginaInhoud" style="display:none">
+  <div style="max-width:1200px;margin:1rem auto 0;padding:0 1.5rem">
+    <nav class="nb-breadcrumb" aria-label="Kruimelpad">
+      <a href="index.html">Nijmeegse Boeken</a> ›
+      <a id="bcCategorie" href="#">Categorie</a> ›
+      <span id="bcTitel">Titel</span>
+    </nav>
+  </div>
+  <div class="detail-wrapper">
+    <div class="cover-kolom">
+      <div class="cover-groot" id="coverContainer"></div>
+      <a id="btnBestellen" href="#" target="_blank" rel="noopener" class="btn-bestellen">
+        Bestellen bij Roelants &rarr;
+      </a>
+      <p class="verzend-info">Gratis verzending vanaf €30,-<br>Anders €4,95 · Afhalen kan ook</p>
+    </div>
+    <div class="info-kolom">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem" id="labelRij"></div>
+      <h1 class="boek-titel-groot" id="boekTitel"></h1>
+      <p class="boek-auteur-groot" id="boekAuteur"></p>
+      <div class="prijs-rij" id="prijsRij"></div>
+      <div class="beschrijving" id="boekBeschrijving"></div>
+      <div class="specs"><h3>Boekinformatie</h3><table id="specsTable"></table></div>
+      <div class="trefwoorden" id="trefwoorden"></div>
+      <div id="gereleateerdBlok">
+        <h2 class="gerelateerd">Vergelijkbare boeken</h2>
+        <div class="nb-grid" id="gereleateerdGrid"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="nbFooter"></div>
+<script src="nijmegen.js"></script>
+<script>
+(async () => {
+  const params = new URLSearchParams(window.location.search);
+  const id = parseInt(params.get('id'));
+  if (!id) { toonFout(); return; }
+  const boeken = await nbLaadBoeken();
+  const b = boeken.find(x => x.id === id);
+  document.getElementById('nbHeader').innerHTML = nbHeaderHTML('');
+  const cats = [...new Set(boeken.map(b => b.categorie))].map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1), slug: s}));
+  document.getElementById('nbFooter').innerHTML = nbFooterHTML(cats);
+  if (!b) { document.getElementById('laadIndicator').style.display='none'; toonFout(); return; }
+
+  // SEO
+  document.getElementById('paginaTitel').textContent = b.titel + ' – ' + b.auteur + ' | Nijmeegse Boeken';
+  document.getElementById('metaDesc').content = (b.beschrijving||'').substring(0,155);
+  document.getElementById('canonical').href = 'https://nijmeegse-boeken.nl/boek.html?id=' + b.id;
+  document.getElementById('ogTitle').content = b.titel + ' – ' + b.auteur;
+  document.getElementById('ogDesc').content = (b.beschrijving||'').substring(0,155);
+
+  // Schema.org
+  const s = document.createElement('script'); s.type='application/ld+json';
+  s.textContent = JSON.stringify({"@context":"https://schema.org","@type":"Book","name":b.titel,"author":{"@type":"Person","name":b.auteur},"publisher":{"@type":"Organization","name":b.uitgever},"isbn":b.isbn,"datePublished":String(b.jaar||''),"numberOfPages":b.paginas,"inLanguage":"nl","description":b.beschrijving,"offers":{"@type":"Offer","price":b.prijs,"priceCurrency":"EUR","availability":"https://schema.org/InStock","url":b.afrekenen}});
+  document.head.appendChild(s);
+
+  // Breadcrumb
+  document.getElementById('bcCategorie').textContent = b.categorie.charAt(0).toUpperCase()+b.categorie.slice(1);
+  document.getElementById('bcCategorie').href = 'categorie-'+b.categorie+'.html';
+  document.getElementById('bcTitel').textContent = b.titel;
+
+  // Labels
+  const lr = document.getElementById('labelRij');
+  if (b.nieuw) lr.innerHTML += '<span class="label-pill label-nieuw">Nieuw</span>';
+  if (b.aanbieding) lr.innerHTML += '<span class="label-pill label-aanbieding">Aanbieding</span>';
+  lr.innerHTML += '<span class="label-pill label-cat">'+escHtml(b.categorie)+'</span>';
+
+  // Cover
+  const fg = nbKleurVoor(b.kleur);
+  document.getElementById('coverContainer').innerHTML = b.omslag
+    ? '<img src="'+escHtml(b.omslag)+'" alt="Omslag van '+escHtml(b.titel)+'">'
+    : '<div class="cover-placeholder" style="background:'+b.kleur+'"><span style="font-size:3.5rem;opacity:0.3;color:'+fg+'">📖</span><div style="font-size:0.85rem;font-weight:700;color:'+fg+';opacity:0.75;line-height:1.3">'+escHtml(b.titel)+'</div><div style="font-size:0.75rem;color:'+fg+';opacity:0.5">'+escHtml(b.auteur)+'</div></div>';
+
+  document.getElementById('boekTitel').textContent = b.titel;
+  document.getElementById('boekAuteur').textContent = b.auteur;
+
+  const po = b.prijsOud ? '<span class="prijs-oud-groot">'+nbPrijs(b.prijsOud)+'</span>' : '';
+  document.getElementById('prijsRij').innerHTML = po + '<span class="prijs-groot">'+nbPrijs(b.prijs)+'</span><span style="font-size:0.8rem;color:var(--grijs-muted);align-self:center">incl. BTW</span>';
+  document.getElementById('boekBeschrijving').textContent = b.beschrijving||'';
+
+  const specs = [['Auteur',b.auteur],['Uitgever',b.uitgever],['Jaar',b.jaar],["Pagina's",b.paginas],['Formaat',b.formaat],['ISBN',b.isbn],['Categorie',b.categorie.charAt(0).toUpperCase()+b.categorie.slice(1)]];
+  document.getElementById('specsTable').innerHTML = specs.filter(([,v])=>v).map(([k,v])=>'<tr><td>'+k+'</td><td>'+escHtml(String(v))+'</td></tr>').join('');
+
+  if (b.trefwoorden&&b.trefwoorden.length)
+    document.getElementById('trefwoorden').innerHTML = b.trefwoorden.map(t=>'<span class="trefwoord">'+escHtml(t)+'</span>').join('');
+
+  document.getElementById('btnBestellen').href = b.afrekenen;
+
+  const gerelateerd = boeken.filter(x=>x.id!==b.id&&x.categorie===b.categorie).slice(0,4);
+  if (gerelateerd.length) {
+    document.getElementById('gereleateerdGrid').innerHTML = gerelateerd.map(nbRenderKaart).join('');
+  } else {
+    document.getElementById('gereleateerdBlok').style.display='none';
+  }
+
+  document.getElementById('laadIndicator').style.display='none';
+  document.getElementById('paginaInhoud').style.display='block';
+})();
+
+function toonFout() {
+  document.getElementById('foutMelding').style.display='block';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,554 @@
+/*
+  NIJMEEGSE BOEKEN — Gedeelde stijlen
+  Museo Sans: vervang de Google Fonts-link in elke pagina door uw Adobe Fonts/TypeKit embed.
+  Verander dan: --font: 'museo-sans', sans-serif;
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  --rood:        #B21233;
+  --rood-donker: #8a0e27;
+  --rood-licht:  #fbe9ec;
+  --zwart:       #1a1a1a;
+  --zwart-mid:   #2e2e2e;
+  --grijs-licht: #f5f3ef;
+  --grijs-mid:   #e8e4dc;
+  --grijs-rand:  #d6d2ca;
+  --grijs-tekst: #4a4845;
+  --grijs-muted: #7c7975;
+  --wit:         #ffffff;
+  --goud:        #b7860b;
+  --font:        'Nunito', 'Museo Sans', sans-serif;
+  --schaduw:     0 2px 8px rgba(0,0,0,0.10);
+  --schaduw-hover: 0 8px 24px rgba(0,0,0,0.14);
+  --radius:      6px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--zwart);
+  background: var(--grijs-licht);
+}
+
+/* ── TOPBAR ── */
+.nb-topbar {
+  background: var(--zwart);
+  color: rgba(255,255,255,0.55);
+  font-size: 0.78rem;
+  padding: 0 1.5rem;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.nb-topbar a {
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.nb-topbar a:hover { color: white; }
+
+/* ── HERO HEADER ── */
+.nb-hero {
+  /*
+    ACHTERGRONDAFBEELDING:
+    Vervang de URL hieronder door uw eigen foto van Nijmegen.
+    Aanbevolen: Waalkade, Valkhof of stadspanorama, minimaal 1400×500px.
+
+    Optie A – lokaal bestand:
+      background-image: url('fotos/nijmegen-waalkade.jpg');
+
+    Optie B – externe URL (bijv. van Roelants.nl):
+      background-image: url('https://roelants.nl/wp-content/uploads/nijmegen.jpg');
+  */
+  background-image: linear-gradient(160deg, #6b0e1e 0%, #2a0a10 100%);
+  background-size: cover;
+  background-position: center 40%;
+  min-height: 220px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.nb-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.65) 100%);
+}
+
+.nb-hero-inhoud {
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 1.25rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.nb-logo a { text-decoration: none; color: white; }
+.nb-logo-naam {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  letter-spacing: -0.01em;
+}
+.nb-logo-sub {
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.nb-hero-rechts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6rem;
+}
+
+.nb-zoekbalk {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 24px;
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+}
+
+.nb-zoekbalk input {
+  background: transparent;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-family: var(--font);
+  font-size: 0.88rem;
+  width: 240px;
+  outline: none;
+}
+
+.nb-zoekbalk input::placeholder { color: rgba(255,255,255,0.6); }
+
+.nb-zoekbalk button {
+  background: var(--rood);
+  border: none;
+  padding: 0.5rem 0.9rem;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.15s;
+  line-height: 1;
+}
+
+.nb-zoekbalk button:hover { background: var(--rood-donker); }
+
+.nb-badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nb-badge {
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.88);
+}
+
+/* ── NAVIGATIE ── */
+.nb-nav {
+  background: var(--rood);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nb-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nb-nav a {
+  color: rgba(255,255,255,0.88);
+  text-decoration: none;
+  font-size: 0.83rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.7rem 1rem;
+  display: inline-block;
+  transition: background 0.15s, color 0.15s;
+  border-bottom: 2px solid transparent;
+}
+
+.nb-nav a:hover { background: rgba(0,0,0,0.15); color: white; }
+.nb-nav a.actief { color: white; border-bottom-color: rgba(255,255,255,0.7); }
+
+/* ── WELKOM BLOK ── */
+.nb-welkom {
+  background: var(--wit);
+  border-bottom: 1px solid var(--grijs-mid);
+}
+
+.nb-welkom-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.1rem 1.5rem;
+}
+
+.nb-welkom p {
+  font-size: 0.88rem;
+  color: var(--grijs-tekst);
+  line-height: 1.75;
+  margin-bottom: 0.4rem;
+}
+
+.nb-welkom p:last-child { margin-bottom: 0; }
+.nb-welkom a { color: var(--rood); font-weight: 600; text-decoration: none; }
+.nb-welkom a:hover { text-decoration: underline; }
+
+/* ── PAGINALAYOUT ── */
+.nb-pagina {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* ── SIDEBAR ── */
+.nb-sidebar { position: sticky; top: 56px; }
+
+.nb-sidebar-blok {
+  background: var(--wit);
+  border: 1px solid var(--grijs-rand);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.nb-sidebar-blok h3 {
+  background: var(--zwart);
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.55rem 0.9rem;
+}
+
+.nb-sidebar-blok ul { list-style: none; padding: 0.3rem 0; }
+
+.nb-sidebar-blok ul li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  color: var(--grijs-tekst);
+  text-decoration: none;
+  transition: background 0.12s, color 0.12s;
+  border-left: 2px solid transparent;
+}
+
+.nb-sidebar-blok ul li a:hover {
+  background: var(--rood-licht);
+  color: var(--rood);
+  border-left-color: var(--rood);
+}
+
+.nb-sidebar-blok ul li a.actief {
+  background: var(--rood-licht);
+  color: var(--rood);
+  font-weight: 700;
+  border-left-color: var(--rood);
+}
+
+.nb-cat-count {
+  font-size: 0.7rem;
+  background: var(--grijs-mid);
+  color: var(--grijs-muted);
+  border-radius: 8px;
+  padding: 1px 6px;
+  flex-shrink: 0;
+}
+
+/* ── HOOFDINHOUD ── */
+.nb-hoofd {}
+
+/* Paginakop (voor nieuw/aanbiedingen/categorie-pagina's) */
+.nb-paginakop {
+  background: var(--wit);
+  border: 1px solid var(--grijs-rand);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--rood);
+}
+
+.nb-paginakop h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--zwart);
+  margin-bottom: 0.3rem;
+}
+
+.nb-paginakop p {
+  font-size: 0.88rem;
+  color: var(--grijs-muted);
+}
+
+/* Sectiekop */
+.nb-sectiekop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--rood);
+}
+
+.nb-sectiekop h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--zwart);
+}
+
+.nb-sectiekop a {
+  font-size: 0.8rem;
+  color: var(--rood);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.nb-sectiekop a:hover { text-decoration: underline; }
+
+/* ── BOEKENGRID ── */
+.nb-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.nb-kaart {
+  background: var(--wit);
+  border: 1px solid var(--grijs-rand);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.nb-kaart:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--schaduw-hover);
+}
+
+.nb-cover {
+  aspect-ratio: 2/3;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.nb-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nb-cover-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.nb-label {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 7px;
+  border-radius: 3px;
+  color: white;
+}
+
+.nb-label-nieuw    { background: var(--rood); }
+.nb-label-aanbieding { background: var(--zwart); }
+
+.nb-kaart-info { padding: 0.7rem; display: flex; flex-direction: column; flex: 1; }
+.nb-kaart-cat  { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--grijs-muted); font-weight: 700; margin-bottom: 3px; }
+.nb-kaart-titel { font-size: 0.85rem; font-weight: 700; line-height: 1.3; color: var(--zwart); margin-bottom: 3px; flex: 1; }
+.nb-kaart-auteur { font-size: 0.75rem; color: var(--grijs-muted); margin-bottom: 0.5rem; }
+
+.nb-kaart-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+
+.nb-prijs { font-size: 0.95rem; font-weight: 700; color: var(--rood); }
+.nb-prijs-oud { font-size: 0.72rem; color: var(--grijs-muted); text-decoration: line-through; margin-right: 2px; }
+
+.nb-btn-bestel {
+  background: var(--rood);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.3rem 0.65rem;
+  font-family: var(--font);
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nb-btn-bestel:hover { background: var(--rood-donker); }
+
+/* ── LEEG RESULTAAT ── */
+.nb-leeg {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--grijs-muted);
+  font-size: 0.9rem;
+  grid-column: 1 / -1;
+}
+
+/* ── SEO TEKSTBLOK ── */
+.nb-seo {
+  background: var(--wit);
+  border: 1px solid var(--grijs-rand);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.nb-seo h2 { font-size: 1rem; font-weight: 700; color: var(--rood-donker); margin-bottom: 0.6rem; }
+.nb-seo p  { font-size: 0.86rem; color: var(--grijs-tekst); line-height: 1.8; margin-bottom: 0.5rem; }
+.nb-seo p:last-child { margin-bottom: 0; }
+.nb-seo a  { color: var(--rood); font-weight: 600; text-decoration: none; }
+
+/* ── BREADCRUMB ── */
+.nb-breadcrumb {
+  font-size: 0.8rem;
+  color: var(--grijs-muted);
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nb-breadcrumb a { color: var(--rood); text-decoration: none; font-weight: 600; }
+.nb-breadcrumb a:hover { text-decoration: underline; }
+
+/* ── FOOTER ── */
+.nb-footer {
+  background: var(--zwart);
+  color: rgba(255,255,255,0.65);
+  padding: 2rem 1.5rem 1.25rem;
+  margin-top: 2rem;
+}
+
+.nb-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.nb-footer-blok h4 {
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.nb-footer-blok ul { list-style: none; }
+
+.nb-footer-blok ul li { margin-bottom: 0.3rem; }
+
+.nb-footer-blok a {
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  font-size: 0.83rem;
+  transition: color 0.15s;
+}
+
+.nb-footer-blok a:hover { color: white; }
+
+.nb-footer-blok p {
+  font-size: 0.83rem;
+  line-height: 1.8;
+}
+
+.nb-footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.3);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .nb-pagina { grid-template-columns: 1fr; }
+  .nb-sidebar { position: static; }
+  .nb-hero-inhoud { flex-direction: column; align-items: flex-start; }
+  .nb-hero-rechts { align-items: flex-start; width: 100%; }
+  .nb-zoekbalk input { width: 100%; }
+  .nb-zoekbalk { width: 100%; }
+  .nb-badges { justify-content: flex-start; }
+}

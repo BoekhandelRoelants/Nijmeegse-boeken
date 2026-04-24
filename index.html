@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nijmeegse Boeken – Boeken over Nijmegen</title>
+  <meta name="description" content="Het meest complete overzicht van boeken over Nijmegen en de regio. Van stadsgeschiedenis tot architectuur. Gratis verzending vanaf €30,-.">
+  <meta name="keywords" content="boeken Nijmegen, Nijmegen boeken, boekwinkel Nijmegen, geschiedenis Nijmegen, streekboeken Nijmegen">
+  <link rel="canonical" href="https://nijmeegse-boeken.nl/">
+  <meta property="og:title" content="Nijmeegse Boeken – Boeken over Nijmegen">
+  <meta property="og:description" content="Het meest complete overzicht van boeken over Nijmegen en de regio.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BookStore","name":"Nijmeegse Boeken",
+   "url":"https://nijmeegse-boeken.nl/","telephone":"+31243221734",
+   "email":"nijmegen@roelants.nl",
+   "address":{"@type":"PostalAddress","streetAddress":"Van Broeckhuysenstraat 34",
+   "postalCode":"6511 PJ","addressLocality":"Nijmegen","addressCountry":"NL"}}
+  </script>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="nijmegen.css">
+</head>
+<body>
+<div id="nbHeader"></div>
+<main>
+  <div class="nb-pagina">
+    <aside class="nb-sidebar" aria-label="Categorieën">
+      <div class="nb-sidebar-blok">
+        <h3>Categorieën</h3>
+        <ul id="nbSidebarCats"></ul>
+      </div>
+      <div class="nb-sidebar-blok">
+        <h3>Snel naar</h3>
+        <ul>
+          <li><a href="nieuw.html">Nieuw verschenen</a></li>
+          <li><a href="aanbiedingen.html">Aanbiedingen</a></li>
+        </ul>
+      </div>
+    </aside>
+    <div class="nb-hoofd">
+      <section id="uitgelicht" aria-labelledby="kop-uitgelicht">
+        <div class="nb-sectiekop">
+          <h2 id="kop-uitgelicht">Uitgelicht</h2>
+        </div>
+        <div class="nb-grid" id="gridUitgelicht"><p class="nb-leeg">Laden…</p></div>
+      </section>
+      <section id="nieuw" aria-labelledby="kop-nieuw">
+        <div class="nb-sectiekop">
+          <h2 id="kop-nieuw">Nieuw verschenen</h2>
+          <a href="nieuw.html">Alle nieuwe titels &rarr;</a>
+        </div>
+        <div class="nb-grid" id="gridNieuw"><p class="nb-leeg">Laden…</p></div>
+      </section>
+      <section id="aanbiedingen" aria-labelledby="kop-aanbiedingen">
+        <div class="nb-sectiekop">
+          <h2 id="kop-aanbiedingen">Aanbiedingen</h2>
+          <a href="aanbiedingen.html">Alle aanbiedingen &rarr;</a>
+        </div>
+        <div class="nb-grid" id="gridAanbiedingen"><p class="nb-leeg">Laden…</p></div>
+      </section>
+      <section id="sectieZoek" style="display:none" aria-labelledby="kop-zoek">
+        <div class="nb-sectiekop">
+          <h2 id="kop-zoek">Zoekresultaten</h2>
+          <a href="index.html">Wis zoekopdracht &times;</a>
+        </div>
+        <div class="nb-grid" id="gridZoek"></div>
+      </section>
+      <div class="nb-seo">
+        <h2>Boeken over Nijmegen – de oudste stad van Nederland</h2>
+        <p>Nijmegen is de oudste stad van Nederland, met een rijke geschiedenis die teruggaat tot de Romeinse tijd. Onze collectie omvat titels over de stad en de regio: van gedegen geschiedeniswerken en architectuurgidsen tot fotoboeken, wandelgidsen en literaire werken.</p>
+        <p>Of u nu op zoek bent naar een boek over de Waal, het Valkhof, de wederopbouw na 1944, of de natuur van de Ooijpolder — bij Nijmeegse Boeken vindt u het. Niet gevonden wat u zocht? Neem contact op met <a href="https://roelants.nl">Boekhandel Roelants</a>.</p>
+      </div>
+    </div>
+  </div>
+</main>
+<div id="nbFooter"></div>
+<script src="nijmegen.js"></script>
+<script>
+(async () => {
+  const boeken = await nbLaadBoeken();
+  document.getElementById('nbHeader').innerHTML = nbHeaderHTML('index.html');
+  const cats = [...new Set(boeken.map(b => b.categorie))].map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1), slug: s}));
+  document.getElementById('nbFooter').innerHTML = nbFooterHTML(cats);
+  nbVulSidebar(boeken, null);
+  const params = new URLSearchParams(window.location.search);
+  const zoekQ = params.get('zoek');
+  if (zoekQ) {
+    document.getElementById('sectieZoek').style.display = '';
+    document.getElementById('uitgelicht').style.display = 'none';
+    document.getElementById('nieuw').style.display = 'none';
+    document.getElementById('aanbiedingen').style.display = 'none';
+    document.getElementById('kop-zoek').textContent = 'Zoekresultaten voor "' + zoekQ + '"';
+    if (document.getElementById('nbZoekInput')) document.getElementById('nbZoekInput').value = zoekQ;
+    const res = boeken.filter(b => [b.titel,b.auteur,b.categorie,b.beschrijving,...(b.trefwoorden||[])].some(v => (v||'').toLowerCase().includes(zoekQ.toLowerCase())));
+    document.getElementById('gridZoek').innerHTML = res.length ? res.map(nbRenderKaart).join('') : '<p class="nb-leeg">Geen resultaten gevonden voor "' + zoekQ + '".</p>';
+  } else {
+    const uitgelicht = boeken.filter(b => b.uitgelicht);
+    const nieuw = boeken.filter(b => b.nieuw).slice(0,8);
+    const aanbiedingen = boeken.filter(b => b.aanbieding);
+    document.getElementById('gridUitgelicht').innerHTML = uitgelicht.length ? uitgelicht.map(nbRenderKaart).join('') : '<p class="nb-leeg">Geen uitgelichte boeken.</p>';
+    document.getElementById('gridNieuw').innerHTML = nieuw.length ? nieuw.map(nbRenderKaart).join('') : '<p class="nb-leeg">Geen nieuwe titels.</p>';
+    document.getElementById('gridAanbiedingen').innerHTML = aanbiedingen.length ? aanbiedingen.map(nbRenderKaart).join('') : '<p class="nb-leeg">Momenteel geen aanbiedingen.</p>';
+  }
+})();
+</script>
+</body>
+</html>
