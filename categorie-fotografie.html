@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Architectuur – Boeken over Nijmegen</title>
-  <meta name="description" content="Boeken over Nijmegen in de categorie Architectuur. 2 titels over architectuur in en rond Nijmegen.">
-  <link rel="canonical" href="https://nijmeegseboeken.nl/categorie-architectuur.html">
+  <title>Fotografie – Boeken over Nijmegen</title>
+  <meta name="description" content="Boeken over Nijmegen in de categorie Fotografie. 1 titel over fotografie in en rond Nijmegen.">
+  <link rel="canonical" href="https://nijmeegseboeken.nl/categorie-fotografie.html">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"CollectionPage","name":"Architectuur – Nijmeegse Boeken","url":"https://nijmeegseboeken.nl/categorie-architectuur.html"}
+  {"@context":"https://schema.org","@type":"CollectionPage","name":"Fotografie – Nijmeegse Boeken","url":"https://nijmeegseboeken.nl/categorie-fotografie.html"}
   </script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -30,16 +30,16 @@
     </aside>
     <div class="nb-hoofd">
       <nav class="nb-breadcrumb" aria-label="Kruimelpad">
-        <a href="index.html">Nijmeegse Boeken</a> &rsaquo; <span>Architectuur</span>
+        <a href="index.html">Nijmeegse Boeken</a> &rsaquo; <span>Fotografie</span>
       </nav>
       <div class="nb-paginakop">
-        <h1>Boeken over Nijmegen: Architectuur</h1>
-        <p id="paginaOndertitel">2 titels in deze categorie</p>
+        <h1>Boeken over Nijmegen: Fotografie</h1>
+        <p id="paginaOndertitel">1 titel in deze categorie</p>
       </div>
       <div class="nb-grid" id="gridCategorie"><p class="nb-leeg">Laden…</p></div>
       <div class="nb-seo">
-        <h2>Architectuur in en rond Nijmegen</h2>
-        <p>Ontdek ons aanbod boeken in de categorie architectuur. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.</p>
+        <h2>Fotografie in en rond Nijmegen</h2>
+        <p>Ontdek ons aanbod boeken in de categorie fotografie. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.</p>
       </div>
     </div>
   </div>
@@ -50,10 +50,10 @@
 (async () => {
   const boeken = await nbLaadBoeken();
   const cats = [...new Set(boeken.flatMap(b => (b.categorieën||b.categorie ? (Array.isArray(b.categorieën||b.categorie) ? (b.categorieën||b.categorie) : [b.categorieën||b.categorie]) : [])))].sort().map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1).replace(/-/g,' '), slug: s}));
-  document.getElementById('nbHeader').innerHTML = nbHeaderHTML('categorie-architectuur.html', cats);
+  document.getElementById('nbHeader').innerHTML = nbHeaderHTML('categorie-fotografie.html', cats);
   document.getElementById('nbFooter').innerHTML = nbFooterHTML(cats);
-  nbVulSidebar(boeken, 'architectuur');
-  const gefilterd = boeken.filter(b => nbInCategorie(b, 'architectuur'));
+  nbVulSidebar(boeken, 'fotografie');
+  const gefilterd = boeken.filter(b => nbInCategorie(b, 'fotografie'));
   document.getElementById('paginaOndertitel').textContent = gefilterd.length + ' titel' + (gefilterd.length !== 1 ? 's' : '') + ' in deze categorie';
   document.getElementById('gridCategorie').innerHTML = gefilterd.length ? gefilterd.map(nbRenderKaart).join('') : '<p class="nb-leeg">Geen boeken in deze categorie.</p>';
   nbFixCoverHoogtes();

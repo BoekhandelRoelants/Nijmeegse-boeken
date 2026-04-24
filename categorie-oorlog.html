@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Oorlog – Boeken over Nijmegen</title>
-  <meta name="description" content="Boeken over Nijmegen in de categorie Oorlog. 1 titel over oorlog in en rond Nijmegen.">
-  <link rel="canonical" href="https://nijmeegse-boeken.nl/categorie-oorlog.html">
+  <meta name="description" content="Boeken over Nijmegen in de categorie Oorlog. 2 titels over oorlog in en rond Nijmegen.">
+  <link rel="canonical" href="https://nijmeegseboeken.nl/categorie-oorlog.html">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"CollectionPage","name":"Oorlog – Nijmeegse Boeken","url":"https://nijmeegse-boeken.nl/categorie-oorlog.html"}
+  {"@context":"https://schema.org","@type":"CollectionPage","name":"Oorlog – Nijmeegse Boeken","url":"https://nijmeegseboeken.nl/categorie-oorlog.html"}
   </script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -34,7 +34,7 @@
       </nav>
       <div class="nb-paginakop">
         <h1>Boeken over Nijmegen: Oorlog</h1>
-        <p id="paginaOndertitel">1 titel in deze categorie</p>
+        <p id="paginaOndertitel">2 titels in deze categorie</p>
       </div>
       <div class="nb-grid" id="gridCategorie"><p class="nb-leeg">Laden…</p></div>
       <div class="nb-seo">
@@ -49,8 +49,8 @@
 <script>
 (async () => {
   const boeken = await nbLaadBoeken();
-  document.getElementById('nbHeader').innerHTML = nbHeaderHTML('categorie-oorlog.html', cats);
   const cats = [...new Set(boeken.flatMap(b => (b.categorieën||b.categorie ? (Array.isArray(b.categorieën||b.categorie) ? (b.categorieën||b.categorie) : [b.categorieën||b.categorie]) : [])))].sort().map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1).replace(/-/g,' '), slug: s}));
+  document.getElementById('nbHeader').innerHTML = nbHeaderHTML('categorie-oorlog.html', cats);
   document.getElementById('nbFooter').innerHTML = nbFooterHTML(cats);
   nbVulSidebar(boeken, 'oorlog');
   const gefilterd = boeken.filter(b => nbInCategorie(b, 'oorlog'));

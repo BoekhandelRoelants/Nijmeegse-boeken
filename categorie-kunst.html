@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kunst – Boeken over Nijmegen</title>
-  <meta name="description" content="Boeken over Nijmegen in de categorie Kunst. 1 titel over kunst in en rond Nijmegen.">
-  <link rel="canonical" href="https://nijmeegse-boeken.nl/categorie-kunst.html">
+  <meta name="description" content="Boeken over Nijmegen in de categorie Kunst. 3 titels over kunst in en rond Nijmegen.">
+  <link rel="canonical" href="https://nijmeegseboeken.nl/categorie-kunst.html">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"CollectionPage","name":"Kunst – Nijmeegse Boeken","url":"https://nijmeegse-boeken.nl/categorie-kunst.html"}
+  {"@context":"https://schema.org","@type":"CollectionPage","name":"Kunst – Nijmeegse Boeken","url":"https://nijmeegseboeken.nl/categorie-kunst.html"}
   </script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -34,7 +34,7 @@
       </nav>
       <div class="nb-paginakop">
         <h1>Boeken over Nijmegen: Kunst</h1>
-        <p id="paginaOndertitel">1 titel in deze categorie</p>
+        <p id="paginaOndertitel">3 titels in deze categorie</p>
       </div>
       <div class="nb-grid" id="gridCategorie"><p class="nb-leeg">Laden…</p></div>
       <div class="nb-seo">
@@ -49,8 +49,8 @@
 <script>
 (async () => {
   const boeken = await nbLaadBoeken();
-  document.getElementById('nbHeader').innerHTML = nbHeaderHTML('categorie-kunst.html', cats);
   const cats = [...new Set(boeken.flatMap(b => (b.categorieën||b.categorie ? (Array.isArray(b.categorieën||b.categorie) ? (b.categorieën||b.categorie) : [b.categorieën||b.categorie]) : [])))].sort().map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1).replace(/-/g,' '), slug: s}));
+  document.getElementById('nbHeader').innerHTML = nbHeaderHTML('categorie-kunst.html', cats);
   document.getElementById('nbFooter').innerHTML = nbFooterHTML(cats);
   nbVulSidebar(boeken, 'kunst');
   const gefilterd = boeken.filter(b => nbInCategorie(b, 'kunst'));
