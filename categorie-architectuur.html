@@ -52,6 +52,8 @@
   const gefilterd = boeken.filter(b => b.categorie === 'architectuur');
   document.getElementById('paginaOndertitel').textContent = gefilterd.length + ' titel' + (gefilterd.length !== 1 ? 's' : '') + ' in deze categorie';
   document.getElementById('gridCategorie').innerHTML = gefilterd.length ? gefilterd.map(nbRenderKaart).join('') : '<p class="nb-leeg">Geen boeken in deze categorie.</p>';
+  nbFixCoverHoogtes();
+  setTimeout(nbFixCoverHoogtes, 300);
 })();
 </script>
 </body>

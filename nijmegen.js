@@ -126,7 +126,7 @@ function nbVulSidebar(boeken, actiefSlug) {
     `).join('')}`;
 
   // Fix coverhoogtes na renderen
-  setTimeout(nbFixCoverHoogtes, 50);
+  setTimeout(nbFixCoverHoogtes, 150);
 }
 
 // ── GEDEELDE HEADER HTML ──
@@ -218,14 +218,19 @@ function nbFooterHTML(categorieën) {
 // Zet de hoogte van elke cover expliciet op 1.5x de breedte (2:3 verhouding)
 function nbFixCoverHoogtes() {
   requestAnimationFrame(() => {
-    document.querySelectorAll('.nb-cover').forEach(el => {
-      const w = el.offsetWidth;
-      if (w > 0) el.style.height = Math.round(w * 1.5) + 'px';
+    requestAnimationFrame(() => {
+      document.querySelectorAll('.nb-cover').forEach(el => {
+        const w = el.getBoundingClientRect().width;
+        if (w > 0) el.style.height = Math.round(w * 1.5) + 'px';
+      });
     });
   });
 }
 
-window.addEventListener('resize', nbFixCoverHoogtes);
+window.addEventListener('resize', () => {
+  clearTimeout(window._nbResizeTimer);
+  window._nbResizeTimer = setTimeout(nbFixCoverHoogtes, 100);
+});
 
 // ── ZOEKEN (navigeert naar index met query) ──
 function nbZoek() {

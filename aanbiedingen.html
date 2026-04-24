@@ -45,6 +45,8 @@
   const aanbiedingen = boeken.filter(b => b.aanbieding);
   document.getElementById('paginaOndertitel').textContent = aanbiedingen.length + ' titel' + (aanbiedingen.length !== 1 ? 's' : '') + ' in de aanbieding';
   document.getElementById('gridAanbiedingen').innerHTML = aanbiedingen.length ? aanbiedingen.map(nbRenderKaart).join('') : '<p class="nb-leeg">Momenteel geen aanbiedingen.</p>';
+  nbFixCoverHoogtes();
+  setTimeout(nbFixCoverHoogtes, 300);
 })();
 </script>
 </body>

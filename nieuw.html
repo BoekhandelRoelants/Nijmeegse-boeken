@@ -48,6 +48,8 @@
   const nieuw = boeken.filter(b => b.nieuw);
   document.getElementById('paginaOndertitel').textContent = nieuw.length + ' titel' + (nieuw.length !== 1 ? 's' : '') + ' nieuw verschenen';
   document.getElementById('gridNieuw').innerHTML = nieuw.length ? nieuw.map(nbRenderKaart).join('') : '<p class="nb-leeg">Momenteel geen nieuwe titels.</p>';
+  nbFixCoverHoogtes();
+  setTimeout(nbFixCoverHoogtes, 300);
 })();
 </script>
 </body>

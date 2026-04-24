@@ -115,6 +115,8 @@
     document.getElementById('gridNieuw').innerHTML = nieuw.length ? nieuw.map(nbRenderKaart).join('') : '<p class="nb-leeg">Geen nieuwe titels.</p>';
     document.getElementById('gridAanbiedingen').innerHTML = aanbiedingen.length ? aanbiedingen.map(nbRenderKaart).join('') : '<p class="nb-leeg">Momenteel geen aanbiedingen.</p>';
   }
+  nbFixCoverHoogtes();
+  setTimeout(nbFixCoverHoogtes, 300);
 })();
 </script>
 </body>
