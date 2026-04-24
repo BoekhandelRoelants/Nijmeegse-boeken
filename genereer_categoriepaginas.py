@@ -72,6 +72,7 @@ def genereer_pagina(slug, naam, aantal):
       </div>
       <div id="nbSorteerBalk"></div>
       <div class="nb-grid" id="gridCategorie"><p class="nb-leeg">Laden\u2026</p></div>
+      <div id="nbPaginering"></div>
       <div class="nb-seo" id="nbSeoBlok">
         <h2>{naam} in en rond Nijmegen</h2>
         <p>Ontdek ons aanbod boeken in de categorie {naam.lower()}. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.</p>
@@ -93,9 +94,15 @@ def genereer_pagina(slug, naam, aantal):
   document.getElementById('nbSorteerBalk').innerHTML = nbSorteerBalk('id-desc');
   window.nbHerrendeer = function(methode) {{
     const gesorteerd = nbSorteer(gefilterd, methode);
-    document.getElementById('gridCategorie').innerHTML = gesorteerd.length ? gesorteerd.map(nbRenderKaart).join('') : '<p class="nb-leeg">Geen boeken in deze categorie.</p>';
-    nbFixCoverHoogtes(); setTimeout(nbFixCoverHoogtes, 300);
+    window._nbPaginaBoeken = gesorteerd;
+    window._nbPaginaHuidig = 1;
+    nbPaginering(gesorteerd, document.getElementById('nbPaginering'), document.getElementById('gridCategorie'), 1);
   }}
+  window.nbGaNaarPagina = function(nr) {{
+    window._nbPaginaHuidig = nr;
+    nbPaginering(window._nbPaginaBoeken, document.getElementById('nbPaginering'), document.getElementById('gridCategorie'), nr);
+    window.scrollTo({{ top: document.getElementById('gridCategorie').offsetTop - 80, behavior: 'smooth' }});
+  }};
   nbHerrendeer('id-desc');
   const seoTitel = nbTekst('cat_{slug}_titel', '{naam} in en rond Nijmegen');
   const seoTekst = nbTekst('cat_{slug}_tekst', 'Ontdek ons aanbod boeken in de categorie {naam.lower()}. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.');

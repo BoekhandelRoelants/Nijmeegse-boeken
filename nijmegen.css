@@ -825,3 +825,55 @@ body {
   .nb-zoekbalk { width: 100%; }
   .nb-badges { justify-content: flex-start; }
 }
+
+/* ── PAGINERING ── */
+.nb-paginering {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin: 1.5rem 0 2rem;
+}
+
+.nb-pag-btn {
+  background: var(--wit);
+  border: 1px solid var(--grijs-rand);
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-family: var(--font);
+  font-size: 0.83rem;
+  color: var(--grijs-tekst);
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+  white-space: nowrap;
+}
+
+.nb-pag-btn:hover:not(:disabled) {
+  border-color: var(--rood);
+  color: var(--rood);
+  background: var(--rood-licht);
+}
+
+.nb-pag-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.nb-pag-btn.actief {
+  background: var(--rood);
+  border-color: var(--rood);
+  color: white;
+  font-weight: 700;
+}
+
+.nb-pag-sep {
+  padding: 0 4px;
+  color: var(--grijs-muted);
+  font-size: 0.83rem;
+}
+
+.nb-pag-info {
+  margin-left: auto;
+  font-size: 0.78rem;
+  color: var(--grijs-muted);
+}

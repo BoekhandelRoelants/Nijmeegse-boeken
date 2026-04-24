@@ -41,6 +41,7 @@
       </div>
       <div id="nbSorteerBalk"></div>
       <div class="nb-grid" id="gridNieuw"><p class="nb-leeg">Laden…</p></div>
+      <div id="nbPaginering"></div>
     </div>
   </div>
 </main>
@@ -59,9 +60,13 @@
   document.getElementById('nbSorteerBalk').innerHTML = nbSorteerBalk('id-desc');
   window.nbHerrendeer = function(methode) {
     const gesorteerd = nbSorteer(nieuwBoeken, methode);
-    document.getElementById('gridNieuw').innerHTML = gesorteerd.length ? gesorteerd.map(nbRenderKaart).join('') : '<p class="nb-leeg">Momenteel geen nieuwe titels.</p>';
-    nbFixCoverHoogtes(); setTimeout(nbFixCoverHoogtes, 300);
+    window._nbPaginaBoeken = gesorteerd;
+    nbPaginering(gesorteerd, document.getElementById('nbPaginering'), document.getElementById('gridNieuw'), 1);
   }
+  window.nbGaNaarPagina = function(nr) {
+    nbPaginering(window._nbPaginaBoeken, document.getElementById('nbPaginering'), document.getElementById('gridNieuw'), nr);
+    window.scrollTo({ top: document.getElementById('gridNieuw').offsetTop - 80, behavior: 'smooth' });
+  };
   nbHerrendeer('id-desc');
 })();
 </script>

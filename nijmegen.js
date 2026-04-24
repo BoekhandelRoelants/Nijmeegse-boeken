@@ -377,7 +377,78 @@ function nbKiesSorteer(methode) {
   if (typeof nbHerrendeer === 'function') nbHerrendeer(methode);
 }
 
-// ── DROPDOWN TOGGLE ──
+// ── PAGINERING ──
+const NB_PER_PAGINA = 24;
+
+function nbPaginering(boeken, paginaEl, gridEl, huidige) {
+  huidige = huidige || 1;
+  const totaal  = Math.ceil(boeken.length / NB_PER_PAGINA);
+  const van     = (huidige - 1) * NB_PER_PAGINA;
+  const tot     = Math.min(van + NB_PER_PAGINA, boeken.length);
+  const pagina  = boeken.slice(van, tot);
+
+  // Render boeken
+  gridEl.innerHTML = pagina.length
+    ? pagina.map(nbRenderKaart).join('')
+    : '<p class="nb-leeg">Geen boeken gevonden.</p>';
+  nbFixCoverHoogtes();
+  setTimeout(nbFixCoverHoogtes, 300);
+
+  // Render paginering
+  if (totaal <= 1) { paginaEl.innerHTML = ''; return; }
+
+  let html = '<div class="nb-paginering">';
+
+  // Vorige
+  if (huidige > 1) {
+    html += '<button class="nb-pag-btn" onclick="nbGaNaarPagina(' + (huidige - 1) + ')">&lsaquo; Vorige</button>';
+  } else {
+    html += '<button class="nb-pag-btn" disabled>&lsaquo; Vorige</button>';
+  }
+
+  // Paginanummers — toon max 7, met ... voor grote lijsten
+  const nummers = [];
+  for (let i = 1; i <= totaal; i++) {
+    if (i === 1 || i === totaal || (i >= huidige - 2 && i <= huidige + 2)) {
+      nummers.push(i);
+    } else if (nummers[nummers.length - 1] !== '...') {
+      nummers.push('...');
+    }
+  }
+
+  nummers.forEach(n => {
+    if (n === '...') {
+      html += '<span class="nb-pag-sep">&hellip;</span>';
+    } else {
+      html += '<button class="nb-pag-btn nb-pag-num' + (n === huidige ? ' actief' : '') + '"'
+        + ' onclick="nbGaNaarPagina(' + n + ')">' + n + '</button>';
+    }
+  });
+
+  // Volgende
+  if (huidige < totaal) {
+    html += '<button class="nb-pag-btn" onclick="nbGaNaarPagina(' + (huidige + 1) + ')">Volgende &rsaquo;</button>';
+  } else {
+    html += '<button class="nb-pag-btn" disabled>Volgende &rsaquo;</button>';
+  }
+
+  html += '<span class="nb-pag-info">' + van + 1 + '–' + tot + ' van ' + boeken.length + '</span>';
+  html += '</div>';
+  paginaEl.innerHTML = html;
+}
+
+// Wordt overschreven door de pagina zelf
+window.nbGaNaarPagina = function(nr) {
+  window._nbPaginaHuidig = nr;
+  const grid  = document.querySelector('.nb-grid[id]');
+  const pagEl = document.getElementById('nbPaginering');
+  if (grid && pagEl && window._nbPaginaBoeken) {
+    nbPaginering(window._nbPaginaBoeken, pagEl, grid, nr);
+    window.scrollTo({ top: grid.offsetTop - 80, behavior: 'smooth' });
+  }
+};
+
+
 function nbToggleDropdown(e) {
   e.stopPropagation();
   const menu = document.getElementById('nbCatMenu');
