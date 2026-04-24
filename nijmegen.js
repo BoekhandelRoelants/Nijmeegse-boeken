@@ -26,7 +26,7 @@ function nbRenderKaart(b) {
     ? `<img src="${b.omslag}" alt="Omslag ${escHtml(b.titel)}" loading="lazy">`
     : `<div class="nb-cover-placeholder" style="background:${b.kleur||'#555'}">
          <span style="font-size:2rem;opacity:0.35;color:${fg}">📖</span>
-         <span style="font-size:0.75rem;font-weight:700;color:${fg};opacity:0.7;line-height:1.3">${escHtml(b.titel)}</span>
+         <span style="font-size:0.75rem;font-weight:700;color:${fg};opacity:0.7;line-height:1.3;text-align:center">${escHtml(b.titel)}</span>
        </div>`;
 
   return `

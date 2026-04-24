@@ -61,16 +61,13 @@ body {
 .nb-hero {
   /*
     ACHTERGRONDAFBEELDING:
-    Vervang de URL hieronder door uw eigen foto van Nijmegen.
-    Aanbevolen: Waalkade, Valkhof of stadspanorama, minimaal 1400×500px.
-
-    Optie A – lokaal bestand:
-      background-image: url('fotos/nijmegen-waalkade.jpg');
+    Vervang 'Omslagfoto.jpg' door uw eigen foto van Nijmegen.
+    Zet het bestand in dezelfde map als nijmegen.css.
 
     Optie B – externe URL (bijv. van Roelants.nl):
       background-image: url('https://roelants.nl/wp-content/uploads/nijmegen.jpg');
   */
-  background-image: linear-gradient(160deg, #6b0e1e 0%, #2a0a10 100%);
+  background-image: url('Omslagfoto.jpg');
   background-size: cover;
   background-position: center 40%;
   min-height: 220px;
@@ -356,9 +353,11 @@ body {
 /* ── BOEKENGRID ── */
 .nb-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-auto-rows: 1fr;
   gap: 1rem;
   margin-bottom: 2.5rem;
+  align-items: stretch;
 }
 
 .nb-kaart {
@@ -371,6 +370,7 @@ body {
   text-decoration: none;
   color: inherit;
   transition: transform 0.2s, box-shadow 0.2s;
+  height: 100%;
 }
 
 .nb-kaart:hover {
@@ -379,6 +379,7 @@ body {
 }
 
 .nb-cover {
+  width: 100%;
   aspect-ratio: 2/3;
   position: relative;
   overflow: hidden;
@@ -389,11 +390,12 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .nb-cover-placeholder {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -414,15 +416,16 @@ body {
   padding: 2px 7px;
   border-radius: 3px;
   color: white;
+  z-index: 1;
 }
 
 .nb-label-nieuw    { background: var(--rood); }
 .nb-label-aanbieding { background: var(--zwart); }
 
-.nb-kaart-info { padding: 0.7rem; display: flex; flex-direction: column; flex: 1; }
-.nb-kaart-cat  { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--grijs-muted); font-weight: 700; margin-bottom: 3px; }
+.nb-kaart-info { padding: 0.7rem; display: flex; flex-direction: column; flex: 1; min-height: 0; }
+.nb-kaart-cat  { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--grijs-muted); font-weight: 700; margin-bottom: 3px; flex-shrink: 0; }
 .nb-kaart-titel { font-size: 0.85rem; font-weight: 700; line-height: 1.3; color: var(--zwart); margin-bottom: 3px; flex: 1; }
-.nb-kaart-auteur { font-size: 0.75rem; color: var(--grijs-muted); margin-bottom: 0.5rem; }
+.nb-kaart-auteur { font-size: 0.75rem; color: var(--grijs-muted); margin-bottom: 0.5rem; flex-shrink: 0; }
 
 .nb-kaart-footer {
   display: flex;
