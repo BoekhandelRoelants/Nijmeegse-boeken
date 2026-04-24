@@ -90,7 +90,7 @@ function nbRenderKaart(b) {
     + label + coverInhoud
     + '</div>'
     + '<div class="nb-kaart-info" style="' + infoStijl + '">'
-    + '<div class="nb-kaart-cat">' + escHtml(b.categorie) + '</div>'
+    + '<div class="nb-kaart-cat">' + escHtml(nbCatsLabel(b)) + '</div>'
     + '<div class="nb-kaart-titel">' + escHtml(b.titel) + '</div>'
     + '<div class="nb-kaart-auteur">' + escHtml(b.auteur) + '</div>'
     + '<div class="nb-kaart-footer" style="' + footerStijl + '">'
@@ -114,6 +114,22 @@ function escHtml(t) {
   return String(t||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
+// ── CATEGORIEËN HULPFUNCTIES ──
+function nbCats(b) {
+  // Ondersteunt zowel oud formaat (string) als nieuw (array)
+  const c = b.categorieën || b.categorie;
+  if (Array.isArray(c)) return c.filter(Boolean);
+  return c ? [c] : [];
+}
+
+function nbCatsLabel(b) {
+  return nbCats(b).map(c => c.charAt(0).toUpperCase() + c.slice(1)).join(', ');
+}
+
+function nbInCategorie(b, slug) {
+  return nbCats(b).includes(slug);
+}
+
 // ── BOEKEN LADEN ──
 async function nbLaadBoeken() {
   try {
@@ -130,20 +146,24 @@ function nbVulSidebar(boeken, actiefSlug) {
   const el = document.getElementById('nbSidebarCats');
   if (!el) return;
 
+  // Tel boeken per categorie (elk boek telt mee voor elke categorie)
   const tellingen = {};
-  boeken.forEach(b => { tellingen[b.categorie] = (tellingen[b.categorie]||0) + 1; });
-  const cats = [...new Set(boeken.map(b => b.categorie))];
+  boeken.forEach(b => {
+    nbCats(b).forEach(c => { tellingen[c] = (tellingen[c]||0) + 1; });
+  });
 
-  el.innerHTML = `
-    <li><a href="index.html" class="${!actiefSlug ? 'actief' : ''}">
-      Alle boeken <span class="nb-cat-count">${boeken.length}</span>
-    </a></li>
-    ${cats.map(slug => `
-      <li><a href="categorie-${escHtml(slug)}.html" class="${actiefSlug === slug ? 'actief' : ''}">
-        ${escHtml(slug.charAt(0).toUpperCase() + slug.slice(1))}
-        <span class="nb-cat-count">${tellingen[slug]||0}</span>
-      </a></li>
-    `).join('')}`;
+  // Unieke categorieën gesorteerd op naam
+  const cats = [...new Set(boeken.flatMap(b => nbCats(b)))].sort();
+
+  el.innerHTML = '<li><a href="index.html" class="' + (!actiefSlug ? 'actief' : '') + '">'
+    + 'Alle boeken <span class="nb-cat-count">' + boeken.length + '</span>'
+    + '</a></li>'
+    + cats.map(slug =>
+        '<li><a href="categorie-' + escHtml(slug) + '.html" class="' + (actiefSlug === slug ? 'actief' : '') + '">'
+        + escHtml(slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, ' '))
+        + ' <span class="nb-cat-count">' + (tellingen[slug]||0) + '</span>'
+        + '</a></li>'
+      ).join('');
 
   // Nieuwste boeken in sidebar
   const nieuwsteEl = document.getElementById('nbSidebarNieuwste');

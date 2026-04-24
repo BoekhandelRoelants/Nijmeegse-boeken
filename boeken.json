@@ -12,7 +12,6 @@
     "paginas": null,
     "formaat": "Paperback",
     "prijs": 24.99,
-    "categorie": "nijmegen-zo-mooi-als-het-was",
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "",
@@ -20,7 +19,10 @@
     "trefwoorden": [
       "Nijmegen zo mooi als het was"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/2001000002344"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/2001000002344",
+    "categorieën": [
+      "nijmegen-zo-mooi-als-het-was"
+    ]
   },
   {
     "id": 2,
@@ -35,7 +37,6 @@
     "paginas": null,
     "formaat": "Paperback",
     "prijs": 22.95,
-    "categorie": "nijmegen-zo-mooi-als-het-was",
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "",
@@ -43,7 +44,10 @@
     "trefwoorden": [
       "Nijmegen zo mooi als het was"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/2001000001880"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/2001000001880",
+    "categorieën": [
+      "nijmegen-zo-mooi-als-het-was"
+    ]
   },
   {
     "id": 3,
@@ -58,7 +62,6 @@
     "paginas": null,
     "formaat": "Paperback",
     "prijs": 24,
-    "categorie": "nijmegen-zo-mooi-als-het-was",
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "",
@@ -66,7 +69,10 @@
     "trefwoorden": [
       "Nijmegen zo mooi als het was"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/2001000002573"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/2001000002573",
+    "categorieën": [
+      "nijmegen-zo-mooi-als-het-was"
+    ]
   },
   {
     "id": 4,
@@ -81,7 +87,6 @@
     "paginas": 192,
     "formaat": "Paperback",
     "prijs": 24.99,
-    "categorie": "geschiedenis",
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "Wie door Nijmegen loopt of fietst, voelt aan den lijve dat de stad reliëf heeft. De stad helt van oost naar west, loopt steil af naar de Waal en de Ooij, en biedt op allerlei plaatsen verrassende uitzichten. In dit boek worden de geografie en de geschiedenis van Nijmegen en omgeving in samenhang gepresenteerd, met een veelheid aan kaarten en ander beeldmateriaal. De lezer wordt aan de hand van markante locaties meegenomen door twintig eeuwen geschiedenis van Nijmegen. Doorgewinterde Nijmegenaren krijgen hun stad op een nieuwe manier in beeld en voor nieuwkomers is het een aantrekkelijke manier om Nijmegen te leren kennen. Op welke wijze is in het huidige Nijmegen het verleden nog zichtbaar? Ruud Abma (1951) schreef eerder over de geschiedenis van Nijmegen in Stad aan de Waal (1984) en de Nieuwe Historische Atlas van Nijmegen (2018).",
@@ -90,7 +95,10 @@
       "Geschiedenis",
       "Nijmegen"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789074241441/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789074241441/boek",
+    "categorieën": [
+      "geschiedenis"
+    ]
   },
   {
     "id": 5,
@@ -105,7 +113,6 @@
     "paginas": 712,
     "formaat": "Gebonden",
     "prijs": 34.5,
-    "categorie": "oorlog",
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "De pijn die blijft.\nOoggetuigenverslagen van het bombardement van Nijmegen 22 februari 1944",
@@ -114,7 +121,10 @@
       "Nijmegen",
       "Tweede Wereldoorlog"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789460044397/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789460044397/boek",
+    "categorieën": [
+      "oorlog"
+    ]
   },
   {
     "id": 6,
@@ -129,7 +139,6 @@
     "paginas": 144,
     "formaat": "Gebonden",
     "prijs": 24.5,
-    "categorie": "kunst",
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "Al meteen na plaatsing in april 2020 was het masker van kunstenaar Andreas Hetfeld niet meer weg te denken van het eiland Veur-Lent in Nijmegen. Bezoekers deelden eindeloos foto’s van het zes meter hoge beeld, dat iedereen wilde gaan bekijken. Een Romeins ruitermasker in de collectie van Museum het Valkhof, begin twintigste eeuw opgebaggerd uit de Waal, heeft als voorbeeld gediend. Dit rijk geïllustreerde boek laat zien hoe het masker uitgroeide tot een landmark dat refereert aan de rijke geschiedenis van de stad: Het Gezicht van Nijmegen. Paul van der Heijden, kenner van de Romeinse tijd, schrijft over het originele masker uit de tweede helft van de eerste eeuw en over de totstandkoming van het kunstwerk op Veur-Lent. Ook positioneert hij Het Gezicht van Nijmegen in het oeuvre van Andreas Hetfeld. Een foto-essay van de kunstenaar en fotograaf Paul Breuker toont het maakproces, het spectaculaire transport over de Waal en de plaatsing op het stadseiland. Architect Chris Poulissen en dic",
@@ -139,7 +148,10 @@
       "beeldende kunst",
       "Romeinse geschiedenis"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789460045158/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789460045158/boek",
+    "categorieën": [
+      "kunst"
+    ]
   },
   {
     "id": 7,
@@ -154,7 +166,6 @@
     "paginas": null,
     "formaat": "Gebonden",
     "prijs": 32.5,
-    "categorie": "regio-nijmegen",
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "Landgoed Mookerheide.\nEen veelzijdig verlijf",
@@ -163,7 +174,10 @@
       "regio Nijmegen",
       "Landgoed Mookerheide"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789492576743"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789492576743",
+    "categorieën": [
+      "regio-nijmegen"
+    ]
   },
   {
     "id": 8,
@@ -178,7 +192,6 @@
     "paginas": 60,
     "formaat": "Paperback",
     "prijs": 20,
-    "categorie": "geschiedenis",
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "",
@@ -188,7 +201,10 @@
       "Nijmegen",
       "Stevenskerk"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789083165400"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789083165400",
+    "categorieën": [
+      "geschiedenis"
+    ]
   },
   {
     "id": 9,
@@ -203,7 +219,6 @@
     "paginas": 180,
     "formaat": "Gebonden",
     "prijs": 24.99,
-    "categorie": "fotografie",
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "De mensen van Jan\nMet foto's van Jan van Teeffelen",
@@ -212,7 +227,10 @@
       "Nijmegen",
       "fotografie"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789090406572"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789090406572",
+    "categorieën": [
+      "fotografie"
+    ]
   },
   {
     "id": 10,
@@ -227,7 +245,6 @@
     "paginas": 600,
     "formaat": "Paperback",
     "prijs": 34.99,
-    "categorie": "geschiedenis",
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "Socialistische Uitgeverij Nijmegen (SUN) is vanaf de oprichting in 1969 altijd een uitgeefhuis met een programma of missie geweest. Ze ontstond vanuit de Nijmeegse studentenbeweging in de jaren zestig van de vorige eeuw, in een periode waarin het dominante katholicisme plaatsmaakte voor een links engagement en een intellectuele belangstelling voor het marxisme. Er vormde zich een kring van linkse Nederlandse intellectuelen rond de SUN, waardoor de uitgeverij in de jaren zeventig een belangrijke functie kon vervullen als theoretisch tref- en referentiepunt voor de progressieve intelligentsia. Begin jaren tachtig deelden redactie en medewerkers van de SUN de analyse dat de rol van het marxisme en andere socialistische theorievorming was uitgespeeld. De SUN ontwikkelde zich toen tot het kanaal waarlangs moderne richtingen in de cultuurstudie Nederland bereikten Het boek van Cees Willemsen is een diepgaande intellectueel-historische studie van de ontwikkeling van het katholieke intellectue",
@@ -237,7 +254,10 @@
       "geschiedenis",
       "Nijmegen"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789074241489/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789074241489/boek",
+    "categorieën": [
+      "geschiedenis"
+    ]
   },
   {
     "id": 11,
@@ -252,7 +272,6 @@
     "paginas": 72,
     "formaat": "Paperback",
     "prijs": 15,
-    "categorie": "architectuur",
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "",
@@ -262,7 +281,10 @@
       "Sterreschans",
       "architectuur"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789090406459"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789090406459",
+    "categorieën": [
+      "architectuur"
+    ]
   },
   {
     "id": 12,
@@ -277,7 +299,6 @@
     "paginas": 170,
     "formaat": "Paperback",
     "prijs": 20.0,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "50, 100 & 25 jaar filmavant-garde in Nijmegen",
@@ -287,7 +308,10 @@
       "film",
       "filmhuis LUX"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789460045189/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789460045189/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 13,
@@ -302,7 +326,6 @@
     "paginas": 192,
     "formaat": "Gebonden",
     "prijs": 29.95,
-    "categorie": "kunst",
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "De vasim\naltijd reuring aan de Waal",
@@ -313,7 +336,10 @@
       "kunst",
       "geschiedenis"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789090411163"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789090411163",
+    "categorieën": [
+      "kunst"
+    ]
   },
   {
     "id": 14,
@@ -328,7 +354,6 @@
     "paginas": 228,
     "formaat": "Paperback",
     "prijs": 24.5,
-    "categorie": "oorlog",
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "Gewijzigde en aangevulde herdruk Al zolang oorlogen bestaan, wordt er geplunderd. Het zal daarom niemand verbazen dat ook geallieerde soldaten tijdens de Tweede Wereldoorlog zich aan plundering schuldig maakten. Maar waarom deden ze dat op het grondgebied van een bevriende natie? Onderzoek naar wat zich afspeelde in de regio Nijmegen leidt tot een onthutsende conclusie: met name in de geëvacueerde gebieden van de gemeenten Ubbergen, Millingen, Groesbeek, Mook en Middelaar, Ottersum en Gennep blijken vrijwel alle gebouwen leeggehaald. Geallieerde troepen – Amerikanen, Britten en Canadezen – roofden niet alleen uit woonhuizen, maar ook uit fabrieken, hotels, banken, kloosters en kerken. Wat bezielde deze militairen? En waarom werd er nauwelijks tegen hen opgetreden? Bezet, bevrijd & geplunderd toont de bijzondere situatie in de regio Nijmegen, een militaire zone waar het oorlogsfront maandenlang dwars doorheen liep en waar tienduizenden militairen samengepakt leefden onder barre omstandi",
@@ -338,7 +363,10 @@
       "Nijmegen",
       "Tweede Wereldoorlog"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789460045059/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789460045059/boek",
+    "categorieën": [
+      "oorlog"
+    ]
   },
   {
     "id": 15,
@@ -353,7 +381,6 @@
     "paginas": 120,
     "formaat": "Paperback",
     "prijs": 30,
-    "categorie": "kunst",
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "",
@@ -362,7 +389,10 @@
       "Schilderskunst",
       "Nijmegen"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789462667631"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789462667631",
+    "categorieën": [
+      "kunst"
+    ]
   },
   {
     "id": 16,
@@ -377,7 +407,6 @@
     "paginas": 176,
     "formaat": "Gebonden",
     "prijs": 49.95,
-    "categorie": "architectuur",
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "Villa's in Beek, Ubbergen en Berg en Dal",
@@ -387,7 +416,10 @@
       "architectuur",
       "kunst"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789090387437"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789090387437",
+    "categorieën": [
+      "architectuur"
+    ]
   },
   {
     "id": 17,
@@ -402,7 +434,6 @@
     "paginas": 320,
     "formaat": "Paperback",
     "prijs": 29.9,
-    "categorie": "geschiedenis",
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "Verhaal van Gelderland van 1025 tot 1543",
@@ -411,7 +442,10 @@
       "geschiedenis",
       "Gelderland"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789024442522"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789024442522",
+    "categorieën": [
+      "geschiedenis"
+    ]
   },
   {
     "id": 18,
@@ -426,7 +460,6 @@
     "paginas": 320,
     "formaat": "Paperback",
     "prijs": 29.9,
-    "categorie": "geschiedenis",
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "Verhaal van Gelderland van 1795 tot 2020",
@@ -435,7 +468,10 @@
       "geschiedenis",
       "Gelderland"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789024442553"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789024442553",
+    "categorieën": [
+      "geschiedenis"
+    ]
   },
   {
     "id": 19,
@@ -450,7 +486,6 @@
     "paginas": 248,
     "formaat": "Paperback",
     "prijs": 25,
-    "categorie": "regio-nijmegen",
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "",
@@ -459,7 +494,10 @@
       "geschiedenis",
       "Arnhem"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789083320052"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789083320052",
+    "categorieën": [
+      "regio-nijmegen"
+    ]
   },
   {
     "id": 20,
@@ -474,7 +512,6 @@
     "paginas": 240,
     "formaat": "Paperback",
     "prijs": 18.95,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "",
@@ -484,7 +521,10 @@
       "reizen",
       "cultuur"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789068687774/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789068687774/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 21,
@@ -499,7 +539,6 @@
     "paginas": 256,
     "formaat": "Paperback",
     "prijs": 24.5,
-    "categorie": "geschiedenis",
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "Nijmegen heeft een eigen uitstraling en een eigen karakter. Toch is het niet eenvoudig onder woorden te brengen wat de stad zo bijzonder maakt. Wat bepaalt het Nijmegengevoel? Is dat de gehechtheid aan het landschap en aan iconische gebouwen als de Stevenstoren? Is het de liefde voor het Nimweegs, de trouw aan NEC? Zijn het de vele studenten en de linkse bestuurscolleges? Of spelen heel andere zaken een rol? Op zoek naar het Nijmegengevoel sprak de auteur met tientallen Nijmegenaren die in de afgelopen decennia een rol hebben gespeeld in het stedelijk leven. Deze gesprekken gingen over hun herinneringen aan de stad en over hun eigen Nijmegengevoel. Samen vormen de verhalen een verrassende en tegelijkertijd herkenbare geschiedenis van het naoorlogse Nijmegen. Het Nijmegengevoel schetst in tien hoofdstukken het gelaagde karakter vande stad, beginnend met het zwaar geschonden naoorlogse Nijmegen en eindigend met de bescheiden maar ook trotse stad van nu. Daarnaast laten meer dan honderd c",
@@ -509,7 +548,10 @@
       "nijmegen",
       "oorlog"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789460044847/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789460044847/boek",
+    "categorieën": [
+      "geschiedenis"
+    ]
   },
   {
     "id": 22,
@@ -524,7 +566,6 @@
     "paginas": 376,
     "formaat": "Paperback",
     "prijs": 36.99,
-    "categorie": "geschiedenis",
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "De vorming van een Katholieke elite aan drie Nijmeegse jongensinternaten, 1920-1970",
@@ -533,7 +574,10 @@
       "geschiedenis",
       "Nijmegen"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789048559077"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789048559077",
+    "categorieën": [
+      "geschiedenis"
+    ]
   },
   {
     "id": 23,
@@ -548,13 +592,15 @@
     "paginas": null,
     "formaat": "Gebonden",
     "prijs": 19.95,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "De ramen van Joan Collette in het Nijmeegse Stadhuis Op 17 april 1942, midden in de Tweede Wereldoorlog, werd de nieuwe raadzaal van het stadhuis in Nijmegen geopend. In deze zaal bevonden zich tien monumentale gebrandschilderde ramen, aangeboden door de Nijmeegse burgerij aan het stadsbestuur. Elk raam bestaat uit zes vensters die gebeurtenissen, tradities, thema’s, personen en monumenten uit de Nijmeegse samenleving en geschiedenis laten zien. Deze ramen zijn het belangrijkste niet-religieuze werk van de Nijmeegse kunstenaar Joan Collette. Ze vormen ook binnen Nederland een uniek artistiek en historisch kunstwerk. Bij het bombardement van Nijmegen op 22 februari 1944 werden de ramen zwaar beschadigd, maar Collette heeft alle ramen weer in hun oude luister kunnen herstellen. Eind jaren zeventig werd de raadzaal gesloopt en kregen de ramen een plaats in de gangen van de nieuwbouw. Daar leiden ze nu een verborgen leven, onzichtbaar voor de bevolking die deze ramen veertig jaar eerder ha",
     "isbn": "9789074241595",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789074241595/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789074241595/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 24,
@@ -569,13 +615,15 @@
     "paginas": 269,
     "formaat": "Paperback",
     "prijs": 21.95,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "‘Mariken van Nieumeghen’ is het bekendste en beste mirakelspel van de Middelnederlandse letterkunde en een hoogtepunt uit de Nederlandse literatuur. Het is dan ook opgenomen in de canon van de Nederlandse letterkunde. Van ‘Mariken van Nieumeghen’ bestaan meerdere edities, maar deze uitgave van de neerlandicus Robert Castermans bevat de beste en meest volledige versie in hedendaags Nederlands, een uitgebreide toelichting en een facsimile van de oudste druk uit circa 1515. De maagd Mariken wordt door haar tante uitgescholden voor alles wat lelijk is. Verder beschuldigt ze haar ervan dat ze de hele dag heeft zitten zuipen, met Jan en alleman naar bed gaat en zelfs met haar oom seks heeft. Ten einde raad geeft Mariken zich over aan de duivel. Zeven jaar heeft ze met hem een seksuele relatie. Hij gebruikt haar als femme fatale om mannen in het verderf te storten. Vanwege haar worden meer dan 200 mensen vermoord. Door het zien van een toneelstuk komt ze tot inkeer. Berouw, biecht en boetedoe",
     "isbn": "9789465386416",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789465386416/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789465386416/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 25,
@@ -590,13 +638,15 @@
     "paginas": 146,
     "formaat": "Gebonden",
     "prijs": 28.99,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "Nijmegen, de oudste stad van ons land, veranderde ingrijpend door het bombardement van 1944 en door de afbraak van de verkrotte benedenstad. Toon Janssen tekende de straten van de binnenstad rond 1900. Aangevuld met hedendaagse afbeeldingen, historische context en verrassende weetjes neemt ‘Met de pen door Nijmegen’ de lezer mee door het Nijmegen van toen en nu.",
     "isbn": "9789465445106",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789465445106/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789465445106/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 26,
@@ -611,13 +661,15 @@
     "paginas": 140,
     "formaat": "Paperback",
     "prijs": 16.95,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "Nijmegen ken je misschien als de oudste stad van Nederland, maar de échte stad verbergt zich achter de drukke straten en bekende bezienswaardigheden. In Onbekend Nijmegen duik je in de vergeten hoeken, de stille steegjes en de verhalen die de meeste bewoners en bezoekers nooit horen. Je ontdekt hoe middeleeuwse structuren schuilgaan onder moderne gevels, welke plekken een bewogen geschiedenis dragen die zelden wordt verteld, en waarom sommige stadsparels al generaties lang over het hoofd worden gezien. Dit boek laat je zien dat Nijmegen veel meer is dan je dacht, en dat de mooiste ontdekkingen beginnen op de plekken waar je gewoonlijk zomaar voorbijloopt.",
     "isbn": "9789465481944",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789465481944/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789465481944/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 27,
@@ -632,13 +684,15 @@
     "paginas": 136,
     "formaat": "Paperback",
     "prijs": 16.99,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "De reeks ‘De mooiste netwerkwandelingen' heeft zijn succes te danken aan een heldere formule waarmee iedereen een mooie wandeling in Nederland kan maken. Zowel voor de ervaren wandelaar als voor de wandelaar met wat minder meters in de benen bieden deze gidsen een prachtige ervaring in de natuur. Op basis van eigen ervaringen hebben de auteurs de leukste wandelrondjes en lijnwandelingen geselecteerd. Het resultaat is gebundeld in gidsjes per regio met 15 wandelpareltjes van tussen de 5 en 15 km, waarvan minstens 50% uit half- of onverharde paden bestaat. De routes zijn zo beschreven, in kaart en beeld gebracht dat de lezer zin krijgt om zelf te voet de polder in te gaan. De kernwaardes van deze reeks: • 15 wandelingen van 5 tot 16 km, zoveel mogelijk onverhard • Uitsluitend routes uit gemarkeerde wandelnetwerken • Topografische routekaartjes • Landschapsfoto’s & historische illustraties • Downloadbare GPS-tracks",
     "isbn": "9789054725114",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789054725114/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789054725114/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 28,
@@ -653,13 +707,15 @@
     "paginas": null,
     "formaat": "Gebonden",
     "prijs": 22.5,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "De eerste katholieke middelbare meisjesschool in Nederland, te weten MMS Mariënbosch van de zusters van Jezus, Maria en Jozef, is vele decennia een begrip geweest in de onderwijswereld. Katholieke meisjes van doorgaans gegoede stand uit Nijmegen, verdere omgeving en zelfs uit heel Nederland werden door hun ouders naar deze middelbare school aan de Groesbeekseweg gestuurd. Aanvankelijk allemaal als internaatskinderen maar vanaf de jaren 50 in toenemende mate als externen. Zij kregen er een opleiding en vorming, waarmee zij in hun latere leven als echtgenote of in een beroep van betekenis waren. Een oud-conrector kon het tijdens een reünie in 2007 dan ook niet laten om te verzuchten: “Wanneer ik zo naar al die prachtige en pientere dames kijk, voel ik mij beretrots dat ik aan hun opvoeding een steentje heb mogen bijdragen”. De komst van de Mammoetwet in 1968 maakte een einde aan deze MMS en Mariënbosch fuseerde achtereenvolgens een aantal malen met andere Nijmeegse middelbare scholen tot",
     "isbn": "9789074241588",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789074241588/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789074241588/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 29,
@@ -674,13 +730,15 @@
     "paginas": 144,
     "formaat": "Paperback",
     "prijs": 12.5,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "Deze bundel biedt een overzicht van recent historisch onderzoek naar belangrijke ontwikkelingen in Nijmegen kort voor en in de Tweede Wereldoorlog. Er staan boeiende verhalen in over de opvang van Duitse joodse vluchtelingen in de stad en over de reactie van Nijmegenaren op de repressie door de Duitse bezetter. Tre ende voorbeelden van gewapend verzet bijvoorbeeld: de aanslag op de gehate NSB-politiecommissaris Van Dijk en op een Duitse militair in het Kronenburgerpark. Speciale aandacht krijgen Nijmeegse vrouwen die in verzet kwamen en de familie Creutzberg, die was betrokken bij de opmerkelijke schoolstaking in de Hazenkamp. Ook wordt geschetst hoe de Nijmeegse politie onder nationaalsocialistische leiding werd ingezet bij het wegvoeren van joodse stadgenoten. Ruim aandacht is er voor de hulp die Nijmegenaren boden bij de onderduik van joden. De zeven artikelen geven zo een goede indruk van de thema’s en vragen die bekende historici de laatste jaren hebben onderzocht. De uitgave is t",
     "isbn": "9789074241458",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789074241458/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789074241458/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 30,
@@ -695,13 +753,15 @@
     "paginas": 88,
     "formaat": "Paperback",
     "prijs": 17.0,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "Streekpad Rijk van Nijmegen | ISBN 9789492641120 direct en eenvoudig te bestellen bij Boekhandel De Slegte. Uniek aanbod (tweedehands) boeken.",
     "isbn": "9789492641120",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789492641120/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789492641120/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 31,
@@ -716,13 +776,15 @@
     "paginas": 1396,
     "formaat": "Gebonden",
     "prijs": 34.5,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "Met het indrukwekkende De pijn die blijft. Ooggetuigenverslagen van het bombardement van Nijmegen, 22 februari 1944, richtte Bart Janssen in 2005 een monument op voor honderden oorlogsslachtoffers. Maar zijn werk was niet af. Het grote aantal gevallenen uit de periode dat Nijmegen frontstad was, van september 1944 tot maart 1945, de slachtoffers van kleinere bombardementen, van de jodenvervolging, van de Arbeitseinsatz, van ongelukken met Duitse en geallieerde legervoertuigen, maar ook kinderen die met gevonden munitie speelden. Zij allen verdienen een plaats in het collectieve geheugen van de stad. Dus trok Bart Janssen dertien jaar lang opnieuw door het land om de herinneringen en verhalen van nabestaanden op te tekenen en foto’s van Nijmeegse oorlogsslachtoffers te verzamelen. Het resultaat is nog omvangrijker dan De pijn die blijft en minstens zo imponerend.",
     "isbn": "9789460044274",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789460044274/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789460044274/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 32,
@@ -737,13 +799,15 @@
     "paginas": 128,
     "formaat": "Paperback",
     "prijs": 19.95,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "In deze gids balt zandpadgarantieman Rob Wolfs al zijn kennis over zijn eigen woonomgeving samen. Hij leidt de wandelaar over de talloze kruip-door-sluip-door-paadjes die hij in zijn carrière als routemaker heeft ontdekt. In twintig overzichtelijke rondjes van maximaal 10 kilometer komt ook de minder geoefende wandelaar aan zijn trekken. Zijn routes leiden langs rivieroevers, over stuwwallen, door kuddes koeien en paarden, over grazige velden en door imposante, donkere bossen waar je op je hoede moet zijn voor everzwijnen en waar een schichtige wolf zomaar je pad kan kruisen. Extra aandacht is er besteed aan leuke plekken waar ook de inwendige mens niet vergeten wordt. De lengte van de wandelingen leent zich bijzonder goed om er op een zomeravond na het eten nog even op uit te trekken om de zon onder te zien gaan op een heideveld of in de uiterwaarden de mist te zien optrekken terwijl de koeien loeiend hun stal opzoeken. Geniet van dit meesterwerk, want als we de auteur moeten geloven ",
     "isbn": "9789076092201",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789076092201/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789076092201/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 33,
@@ -758,13 +822,15 @@
     "paginas": 200,
     "formaat": "Paperback",
     "prijs": 24.99,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "Victor Vroomkoning viert zijn 40-jarig schrijverschap met de uitgave van dit boek met poëzie en proza. Voor het eerst is hier poëzie verzameld die hij wijdde aan Nijmegen en wijde omgeving, inclusief het werk dat hij als stadsdichter (2006-2008) schreef. Tegelijk is er een vermoeden van een kleine autobiografie, een terugblik op zijn leven. Na de gedichten volgt 'Circuit des Souvenirs', Vroomkonings enige fictie in proza. Het is een liefdesgeschiedenis tegen de achtergrond van Wereldoorlog II. Vroomkoning publiceert meestal bij De Arbeiderspers in Amsterdam, nu bij Roelants in Nijmegen",
     "isbn": "9789074241526",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789074241526/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789074241526/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 34,
@@ -779,13 +845,15 @@
     "paginas": 128,
     "formaat": "Paperback",
     "prijs": 19.95,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "Onze grote voorganger en wandelende dominee Jacobus Craandijk hield in de negentiende eeuw al een vlammend pleidooi voor een goede wandelgids voor deze contreien. “Daar is in den omtrek van Nijmegen veel te zien. Een goede wandelgids is onmisbaar voor wie zooveel mogelijk wil genieten.” Ons binnenste buitenland, zo wordt het Rijk van Nijmegen ook wel genoemd. En terecht, want op weinig plekken in Nederland is de landschappelijke variatie zo groot. Een land met hoge heuvels en lage uiterwaarden op de rand van Duitsland. Een land met bossen, verstilde vennen, steile heuvels, uitgestrekte heidevelden, glooiende velden en polders rondom de Waal. Met bekende hoogtepunten als de Duivelsberg, het Filosofendal, de Elyzeese Velden, de Overasseltse Vennen en de Ooijpolder.",
     "isbn": "9789078641834",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789078641834/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789078641834/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 35,
@@ -800,13 +868,15 @@
     "paginas": 112,
     "formaat": "Paperback",
     "prijs": 19.95,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "Kees Volkers is naast begenadigd cultuurhistoricus inmiddels ook geroutineerd stadswandelaar. Na Utrecht, Rotterdam en Eindhoven voert hij de wandelaar door het veelzijdige Nijmegen en verhaalt hij van Romeinen, Duitsers, industriëlen en pelgrims. In acht wandelingen ontdekt de wandelaar dat Nijmegen naar iedere windrichting een geheel eigen gezicht heeft. Naar het oosten de prachtige Elyzeese Velden op de stuwwal, naar het zuiden de universiteit en de Goffert. Naar het westen het industrieel erfgoed en het hippe Honigcomplex en over de rivier naar het Noorden de prachtige bruggen over de Spiegelwaal en de nieuwe wijk de Waalsprong. Een duidelijke routebeschrijving, een routekaartje en heel veel informatie over alles wat je onderweg tegenkomt maken deze gids tot een feest van herkenning voor de Nijmegenaar en een heuse ontdekkingstocht voor hen die er nieuw zijn.",
     "isbn": "9789078641728",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789078641728/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789078641728/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 36,
@@ -821,13 +891,15 @@
     "paginas": 164,
     "formaat": "Paperback",
     "prijs": 23.0,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "Nijmegen was de belangrijkste stad in het aanzienlijkste gewest van de Nederlandse Republiek. Hoewel ver landinwaarts gelegen, was de stad innig verbonden met steden van waaruit schepen van de handelscompagnieën vertrokken om te handelen in specerijen, suiker en mensen. Welke Nijmeegse stadsbestuurders profiteerden van slavernij? Hoe gebruikten burgemeesters hun macht om slavernij te steunen? Hoe werd slavernij in Nijmegen besproken? En beïnvloedden koloniale belangengroepen het beleid? Dit boek werpt nieuw licht op de betrokkenheid van de Nijmeegse stadsbestuurders bij koloniale slavernij vanaf het einde van de zestiende eeuw tot en met 1873.",
     "isbn": "9789465150734",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789465150734/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789465150734/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 37,
@@ -842,13 +914,15 @@
     "paginas": 128,
     "formaat": "Paperback",
     "prijs": 14.95,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "Wandelen door Nijmeegs Luiletterland Al heel wat jaren spreken in Nijmegen de Letteren. De stad aan de Waal bruist van de literaire festivals, initiatieven en activiteiten. De afgelopen tijd geldt dat meer dan ooit met de verschijning van de Nijmeegse stadsromans van A.F.Th. van der Heijden, Thomas Verbogt, Jaap Robben en Tessa de Loo, waarmee de gemeente Nijmegen de historie en identiteit van de stad een plaats in de literatuur wil geven. In de wandelgids Nijmeegs Luiletterland verbindt schrijver-wandelaar Wim Huijser de Nijmeegse literaire geschiedenis met bestaande plekken in de stad die een rol spelen in boeken en gedichten. Samen met routemaker Rob Wolfs ontwierp hij wandelroutes door Nijmegen en omgeving langs 27 locaties die verwijzen naar het werk van bekende, maar deels ook vergeten, Nijmeegse auteurs – en auteurs die óver Nijmegen hebben geschreven. De verbinding tussen wandelen en literaire beleving biedt de lezer-wandelaar de mogelijkheid de stad in een ander licht te zien.",
     "isbn": "9789492411570",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789492411570/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789492411570/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 38,
@@ -863,13 +937,15 @@
     "paginas": 360,
     "formaat": "Gebonden",
     "prijs": 39.5,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "De zwartste bladzijde van de Nijmeegse geschiedenis is eindelijk beschreven: de stelselmatige vervolging van de Joodse gemeenschap in de Tweede Wereldoorlog. De schrijnende verhalen die Frank Eliëns in de afgelopen jaren verzamelde, laten zien op welke gruwelijke wijze de Joodse inwoners van de oudste stad van Nederland werden opgejaagd, beroofd, opgepakt en gedeporteerd. Slechts heel weinigen keerden terug. Voor Joden verboden brengt al die honderden slachtoffers op indrukwekkende wijze bij elkaar en geeft ze een gezicht in persoonlijke verhalen van woede, wanhoop, ongeloof, niet te bevatten verdriet, maar soms ook geluk en hoop in deze donkere jaren. Zo veel mogelijk zijn ook foto’s afgedrukt van al deze mensen, die nooit de kans kregen om de lente, zomer, herfst en winter van het leven te beleven, en geslachtofferd werden door de nazi’s en hun trawanten. Frank Eliëns is beleidsmedewerker bij de gemeente Nijmegen en schrijft veel over de geschiedenis van de stad. Hij deed ruim een kw",
     "isbn": "9789024435463",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789024435463/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789024435463/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 39,
@@ -884,13 +960,15 @@
     "paginas": 72,
     "formaat": "Paperback",
     "prijs": 9.9,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "",
     "isbn": "9789058814654",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789058814654/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789058814654/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 40,
@@ -905,13 +983,15 @@
     "paginas": 200,
     "formaat": "Paperback",
     "prijs": 15.0,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "Op 22 februari 1944 bombardeerden Amerikaanse vliegtuigen de stad Nijmegen. Het werd een van de grootste rampen die Nederland in de twintigste eeuw zou treffen. Bijna 800 doden, duizenden gewonden en een kwart van het centrum van de kaart geveegd. Over de reden van dit bombardement is lang en veel gespeculeerd. Een Amerikaanse commandant beweerde dat hij Nijmegen aanzag voor Goch. Maar was dat wel zo? Wat was de ware toedracht? Zeven maanden later startte operatie Market Garden en werd Nijmegen frontstad. Weer vielen er honderden doden en werden duizenden huizen verwoest of zwaar beschadigd. Inmiddels is over het bombardement veel bekend geworden, maar tegelijkertijd zijn ook vertekende verhalen in omloop gekomen. In The destruction of Nijmegen, 1944 ontrafelt Joost Rosendaal het verhaal van het unfriendly re én van de uiteindelijke bevrijding van Nijmegen. Joost Rosendaal studeerde geschiedenis in Nijmegen en Parijs. Hij is als universitair docent politieke-cultuurgeschiedenis verbond",
     "isbn": "9789460041754",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789460041754/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789460041754/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 41,
@@ -926,13 +1006,15 @@
     "paginas": 80,
     "formaat": "Paperback",
     "prijs": 12.5,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "",
     "isbn": "9789460044403",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789460044403/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789460044403/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 42,
@@ -947,13 +1029,15 @@
     "paginas": 352,
     "formaat": "Paperback",
     "prijs": 24.5,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "",
     "isbn": "9789460044854",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789460044854/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789460044854/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 43,
@@ -968,13 +1052,15 @@
     "paginas": null,
     "formaat": "Gebonden",
     "prijs": 34.5,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "Wat gebeurt er als een stad door een vijandelijk leger wordt bezet? Is het noodzakelijk en verstandig om samen te werken met de nieuwe machthebber? Of moet er weerstand worden geboden tegen zijn aanwezigheid en beleid? Deze vragen speelden voortdurend tijdens de Duitse bezetting van Nederland tussen 1940 en 1945, toen de spanning tussen collaboratie en verzet zich in het dagelijks leven manifesteerde. In Nijmegen, collaboratie en verzet wordt deze beladen thematiek onderzocht door te kijken naar de oorlogsgeschiedenis van Nijmegen, een stad met een veelzijdig en ook dramatisch oorlogsverleden. Wat bewoog de inwoners tot samenwerking met de bezetter? Wanneer, waarom en op welke manieren kwamen ze in verzet? Welke factoren speelden daarbij een rol? Tegelijkertijd schenkt Lennert Savenije aandacht aan personen en standpunten die niet gemakkelijk binnen dit kader zijn te plaatsen. Door de ogen van burgemeesters, fabrieksdirecteuren en politieagenten, maar ook priesters, studenten en werklo",
     "isbn": "9789460043789",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789460043789/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789460043789/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 44,
@@ -989,13 +1075,15 @@
     "paginas": 312,
     "formaat": "Paperback",
     "prijs": 15.0,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "Eenmalige midprice. Op=op. Wanneer de jonge, vrijgevochten Frieda Tendeloo op een late wintermiddag in 1963 de dichtgevroren Waal op stapt, wacht haar een ontmoeting die ze nooit meer zal vergeten. Tussen de ijsschotsen op de witte rivier ontmoet ze de getrouwde Otto. Ze beleven een liefde die onstuimig begint, maar noodlottig eindigt. Haar leven lang houdt ze haar herinneringen hieraan voor zichzelf. Tot Frieda op 81-jarige leeftijd plotseling weer alleen is. En het verzwegen verdriet zich onontkoombaar aan haar opdringt. Pas dan durft ze op zoek te gaan naar wat ze is verloren. ‘Verbluffend.’ – Het Parool ‘Robben laat met zijn krachtige hoofdpersoon zijn feministische hart spreken.’ – **** Humo ‘Meesterlijk.’ – De Ochtenden – Radio 4 ‘Een van de mooiste boeken van het jaar.’ – Mezza Boek van de maand ‘Fenomenaal.’ – Het Financieele Dagblad ‘Een van de subtielste romanciers van het Nederlands taalgebied.’ – De Lage Landen ‘Robben toont zich opnieuw een meester in de korte ingehouden z",
     "isbn": "9789044549874",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789044549874/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789044549874/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 45,
@@ -1010,13 +1098,15 @@
     "paginas": 312,
     "formaat": "Gebonden",
     "prijs": 24.99,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "Wanneer de jonge, vrijgevochten Frieda Tendeloo op een late wintermiddag in 1963 de dichtgevroren Waal op stapt, wacht haar een ontmoeting die ze nooit meer zal vergeten. Tussen de ijsschotsen op de witte rivier ontmoet ze de getrouwde Otto. Ze beleven een liefde die onstuimig begint, maar noodlottig eindigt. Haar leven lang houdt ze haar herinneringen hieraan voor zichzelf. Tot Frieda op 81-jarige leeftijd plotseling weer alleen is. En het verzwegen verdriet zich onontkoombaar aan haar opdringt. Pas dan durft ze op zoek te gaan naar wat ze is verloren. “Jaap Robben toont zich in dit verhaal over een 'schemerleven' opnieuw een meester in de korte ingehouden zinnetjes die de sentimentaliteit op afstand houden.” – Trouw \"Robben laat met zijn krachtige hoofdpersoon zijn feministische hart spreken.” – HUMO “Indringend” – de Volkskrant “Mooi, raak” – NRC Handelsblad \"Robben weet ontroering op te wekken met zijn verhalen over verschoppelingen.” – De Standaard “In Schemerleven vertelt Robben ",
     "isbn": "9789044546194",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789044546194/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789044546194/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 46,
@@ -1031,13 +1121,15 @@
     "paginas": 64,
     "formaat": "Paperback",
     "prijs": 13.5,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "De Waddenzee verdrinkt. Veel delen van het wad komen steeds vaker en langer onder water te staan, waardoor het wadlopen misschien binnen tien jaar al onmogelijk zou kunnen zijn. Reden dus voor Jaap Robben om voor het eerst te gaan wadlopen naar Schiermonnikoog. Hij verwacht een kalme, haast meditatieve tocht, omringd door niets anders dan wat luierende zeehonden en talloze verborgen schatten die de zee heeft achtergelaten. Maar al snel wordt duidelijk dat hij zich heeft vergist: met laconieke gidsen en een tiental mede-wadlopers, waaronder iemand die luid met zijn moeder beeldbelt en een groep vrijgezellenfeestvierders, blijkt de tocht allesbehalve meditatief. Robben zoekt de rust op achteraan de stoet en verbaast zich daar over hoe weinig er eigenlijk te zien is: geen zeehonden en krioelende beestjes in het zand, alleen maar een enorme, uitgestrekte vlakte zompige modder. En terwijl hij voort baggert naar het noordelijkste puntje van Nederland, probeert Jaap te zien wat onzichtbaar is",
     "isbn": "9789028214163",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789028214163/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789028214163/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 47,
@@ -1052,13 +1144,15 @@
     "paginas": 256,
     "formaat": "Gebonden",
     "prijs": 20.0,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "‘Een roman die je langzaam de keel snoert.’ – **** de Volkskrant Mikael woont met zijn ouders op een afgelegen eiland tussen Schotland en Noorwegen. Op een dag verdwijnt zijn vader in zee en Mikael verzwijgt wat er is gebeurd. Schuld, troost en verwijten stapelen zich op, tot zijn moeder het onmogelijke van hem verlangt. ‘Jaap Robben behandelt kwetsbare en gevaarlijke materie met subtiliteit en inlevingsvermogen, maar ook met een scherp observatievermogen dat meesterlijk en onvergetelijk is.’ – Colm Tóibín",
     "isbn": "9789044550313",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789044550313/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789044550313/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 48,
@@ -1073,13 +1167,15 @@
     "paginas": 316,
     "formaat": "Paperback",
     "prijs": 20.0,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "De dertienjarige Brian woont bij zijn vader op een afgelegen terrein in een caravan. Brians verstandelijk en fysiek beperkte broer Lucien brengt zijn dagen door in een instelling. Een renovatie tijdens de zomer maakt het noodzakelijk dat Lucien elders wordt opgevangen. De vader, vooral gemotiveerd door de in het vooruitzicht gestelde vergoeding, haalt Lucien naar de caravan en maakt de jonge Brian verantwoordelijk voor de verzorging van zijn broer. Maar hoe praat je met iemand die niet spreekt? Hoe zorg je voor iemand van wie je niet weet wat hij nodig heeft? Hoe maak je de juiste keuzes als je zelf nog zo veel moet ontdekken?",
     "isbn": "9789044549478",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789044549478/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789044549478/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 49,
@@ -1094,13 +1190,15 @@
     "paginas": 64,
     "formaat": "Gebonden",
     "prijs": 14.99,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "‘Ik ben een vlieg!’ riep Vlieg uit blijheid om het leven. En hij zoemde een looping door de lucht. Een vlieg wordt niet geboren, een vlieg wordt wakker ergens middenin zijn leven. Een verhaal over ontdekken, vriendschap en vergankelijkheid.",
     "isbn": "9789083100593",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789083100593/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789083100593/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 50,
@@ -1115,13 +1213,15 @@
     "paginas": 224,
     "formaat": "Paperback",
     "prijs": 22.99,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "Eline van der Veer werkt in een archief dat is gevestigd in een voormalig klooster. Bij aantreden voelde die plek als de hemel, de jaren daarna gewoon als de aarde en sinds kort als de hel. Hoe houd je je staande in een wereld die zich tegen je lijkt te keren? Vacht! is een invoelende, geestige en ontroerende roman over verlangen. Over de behoefte ergens bij te horen. Het verlangen één te worden. Maar ja, waarmee? ‘Elíne een relátie?’ Niemand op de werkvloer gelooft het. Zelfs Machteld, zelfverklaard spiritueel begaafd, blijkt de tekenen gemist te hebben – maar ach wat gúnt ze dit haar collega! Helemaal onterecht is al dat wantrouwen niet en Eline voelt zich genoodzaakt haar leugen steeds dikker aan te zetten. Intussen dwingen de koffiemomenten tot openhartigheid en verwart hoofdarchivaris Reinier zijn opendeurenbeleid met controle.",
     "isbn": "9789025477257",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789025477257/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789025477257/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 51,
@@ -1136,13 +1236,15 @@
     "paginas": 224,
     "formaat": "Paperback",
     "prijs": 17.5,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "Een jonge vrouw bevalt van een tweeling. Ze is ongetrouwd en moet van haar ouders haar dochters afstaan. De tweeling wordt daarna ook van elkaar gescheiden en weet niet van elkaars bestaan af. Als dit geheim jaren later wordt onthuld begint hun zoektocht, eerst naar elkaar, en dan naar hun gemiste verleden. De onbedoelden is een pageturner, gebaseerd op waargebeurde feiten.",
     "isbn": "9789025474713",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789025474713/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789025474713/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 52,
@@ -1157,13 +1259,15 @@
     "paginas": 256,
     "formaat": "Paperback",
     "prijs": 18.99,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "‘Naomi is van na de brand. Van haar bestaat alles nog.’ Een geboorte en een sterfdag. Twee gebeurtenissen waarbij Naomi’s familie samenkomt in een veel te kleine ruimte. Uren waarin groot en klein leed door elkaar lopen, de onderlinge verhoudingen op scherp komen te staan en een dramatisch geheim tegelijk met de baby naar buiten breekt. In deze beklemmende en ontroerende familieroman sleept Cobi van Baars je mee in een wereld waarin je wilt blijven maar tegelijk uit wil verdwijnen.",
     "isbn": "9789025475819",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789025475819/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789025475819/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 53,
@@ -1178,13 +1282,15 @@
     "paginas": 240,
     "formaat": "Paperback",
     "prijs": 18.99,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "Voor de sociaal onhandige Saar, dochter van een afwezige vader en een hardvochtige moeder, is schilderen het baken in haar leven. Maar als dat leven kantelt en de mensen om haar heen een voor een verdwijnen, laat juist de scheppingsdrift het afweten en verliest Saar alle houvast. De nalatenschap van haar geliefde, een studie naar de poëzie van Lucebert, prikkelt haar zinnen. Maar hoezeer ze zich ook in zijn woorden probeert te verliezen, haar scheppingsdrift komt er niet mee terug en de geliefde evenmin. Nietsontziend zet Saar haar lichaam in, de biologische scheppingskracht, in de hoop dat die haar kunstenaarschap wakker kust en haar het baken brengt waar ze zo naar hunkert.",
     "isbn": "9789025452759",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789025452759/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789025452759/boek",
+    "categorieën": [
+      "overig"
+    ]
   },
   {
     "id": 54,
@@ -1199,12 +1305,14 @@
     "paginas": 256,
     "formaat": "Paperback",
     "prijs": 22.99,
-    "categorie": "overig",
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "De wereld kampt met klimaatverandering en door etnische conflicten raken bevolkingsgroepen op drift – waar is de mens nog veilig? In Venetië, maar dan wel in de woestijn. De schrijver Omar Lorenzo krijgt van een Nijmeegs ingenieursbureau de opdracht om Venetië in kaart te brengen met behulp van verhalen van reizigers, vluchtelingen en gelukszoekers. Deze verhalen vormen de basis voor het meest ambitieuze project uit de geschiedenis van de stadsarchitectuur: de verplaatsing van het door overstroming bedreigde Venetië naar de veilige woestijn in het Midden-Oosten. Lorenzo krijgt hulp van de raadselachtige dakloze Moor, die zich ontpopt als rasverteller. Ze vertellen elkaar verhalen die tonen hoe de wereld is verbonden, van de Waal tot het Canal Grande, van Dubai tot Tanger – juist als het water ons aan de lippen staat.",
     "isbn": "9789029552691",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789029552691/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789029552691/boek",
+    "categorieën": [
+      "overig"
+    ]
   }
 ]

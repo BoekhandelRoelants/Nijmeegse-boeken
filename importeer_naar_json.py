@@ -388,6 +388,7 @@ def verwerk_naar_json(resultaten: list[dict]):
             b = boeken[bestaand_idx]
             boeken[bestaand_idx] = {
                 **b,
+                "categorieën": b.get("categorieën", [b.get("categorie", STANDAARD_CATEGORIE)]),
                 "titel":       titel       or b.get("titel", ""),
                 "auteur":      r["auteur"] or b.get("auteur", ""),
                 "uitgever":    r["uitgever"] or b.get("uitgever", ""),
@@ -415,7 +416,7 @@ def verwerk_naar_json(resultaten: list[dict]):
                 "paginas":     r["paginas"],
                 "formaat":     formaat,
                 "prijs":       r["prijs"] or 0,
-                "categorie":   STANDAARD_CATEGORIE,
+                "categorieën": [STANDAARD_CATEGORIE],
                 "omslag":      None,
                 "kleur":       STANDAARD_KLEUR,
                 "beschrijving": r["beschrijving"],

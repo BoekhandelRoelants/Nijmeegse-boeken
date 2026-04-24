@@ -245,7 +245,19 @@ body {
 }
 
 /* ── SIDEBAR ── */
-.nb-sidebar { position: sticky; top: 56px; }
+.nb-sidebar {
+  position: sticky;
+  top: 56px;
+  max-height: calc(100vh - 70px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--grijs-rand) transparent;
+}
+
+.nb-sidebar::-webkit-scrollbar { width: 4px; }
+.nb-sidebar::-webkit-scrollbar-track { background: transparent; }
+.nb-sidebar::-webkit-scrollbar-thumb { background: var(--grijs-rand); border-radius: 2px; }
 
 .nb-sidebar-blok {
   background: var(--wit);

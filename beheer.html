@@ -696,10 +696,10 @@
 
             <div class="veld-rij">
               <div class="veld">
-                <label>Categorie <span class="vereist">*</span></label>
-                <select id="vCategorie" onchange="updatePreview()">
-                  <option value="">— kies categorie —</option>
+                <label>Categorieën <span class="vereist">*</span></label>
+                <select id="vCategorie" multiple onchange="updatePreview()" style="height:120px;">
                 </select>
+                <span class="veld-hint">Houd Cmd (Mac) of Ctrl (Windows) ingedrukt voor meerdere categorieën</span>
               </div>
               <div class="veld">
                 <label>ISBN</label>
@@ -933,6 +933,16 @@
 // ══════════════════════════════════════
 // DATA
 // ══════════════════════════════════════
+// ── CATEGORIEËN HULPFUNCTIES ──
+function nbCats(b) {
+  const c = b.categorieën || b.categorie;
+  if (Array.isArray(c)) return c.filter(Boolean);
+  return c ? [c] : [];
+}
+function nbCatsLabel(b) {
+  return nbCats(b).map(c => c.charAt(0).toUpperCase() + c.slice(1).replace(/-/g,' ')).join(', ');
+}
+
 let BOEKEN = [];
 let CATEGORIEEN = [
   { naam: 'Geschiedenis', slug: 'geschiedenis' },
@@ -959,9 +969,11 @@ async function laadJSON() {
       volgendeID = Math.max(...BOEKEN.map(b => b.id), 0) + 1;
       // Extra categorieën die in boeken.json voorkomen maar nog niet in CATEGORIEEN staan
       BOEKEN.forEach(b => {
-        if (b.categorie && !CATEGORIEEN.find(c => c.slug === b.categorie)) {
-          CATEGORIEEN.push({ naam: b.categorie.charAt(0).toUpperCase() + b.categorie.slice(1), slug: b.categorie });
-        }
+        nbCats(b).forEach(slug => {
+          if (slug && !CATEGORIEEN.find(c => c.slug === slug)) {
+            CATEGORIEEN.push({ naam: slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g,' '), slug });
+          }
+        });
       });
       toonMelding('boeken.json geladen — ' + BOEKEN.length + ' boeken gevonden.', 'succes');
     }
@@ -1031,7 +1043,7 @@ function verversTabel(data) {
         <div class="boek-naam">${escHtml(b.titel)}</div>
         <div class="boek-auteur-klein">${escHtml(b.auteur)}</div>
       </td>
-      <td><span class="badge badge-cat">${escHtml(b.categorie)}</span></td>
+      <td><span class="badge badge-cat">${escHtml(nbCatsLabel(b))}</span></td>
       <td>
         <div class="prijs-cel">€${(b.prijs||0).toFixed(2).replace('.',',')}</div>
         ${prijsOud}
@@ -1052,7 +1064,7 @@ function filterLijst(q) {
   const status = document.getElementById('statusFilter').value;
   let data = BOEKEN;
   if (q) data = data.filter(b => b.titel.toLowerCase().includes(q.toLowerCase()) || b.auteur.toLowerCase().includes(q.toLowerCase()));
-  if (cat) data = data.filter(b => b.categorie === cat);
+  if (cat) data = data.filter(b => nbCats(b).includes(cat));
   if (status) data = data.filter(b => b[status]);
   verversTabel(data);
 }
@@ -1076,7 +1088,7 @@ function resetFormulier() {
   document.getElementById('vJaar').value = new Date().getFullYear();
   document.getElementById('vPaginas').value = '';
   document.getElementById('vFormaat').value = 'Gebonden';
-  document.getElementById('vCategorie').value = '';
+  Array.from(document.getElementById('vCategorie').options).forEach(o => o.selected = false);
   document.getElementById('vPrijs').value = '';
   document.getElementById('vKleur').value = '#8B1A10';
   document.getElementById('vUitgelicht').checked = false;
@@ -1101,7 +1113,10 @@ function bewerkBoek(id) {
   document.getElementById('vJaar').value = b.jaar || '';
   document.getElementById('vPaginas').value = b.paginas || '';
   document.getElementById('vFormaat').value = b.formaat || 'Gebonden';
-  document.getElementById('vCategorie').value = b.categorie || '';
+  const geselecteerd = (b.categorieën || (b.categorie ? [b.categorie] : []));
+  Array.from(document.getElementById('vCategorie').options).forEach(o => {
+    o.selected = geselecteerd.includes(o.value);
+  });
   document.getElementById('vISBN').value = b.isbn || '';
   document.getElementById('vBeschrijving').value = b.beschrijving || '';
   document.getElementById('vTrefwoorden').value = (b.trefwoorden || []).join(', ');
@@ -1122,11 +1137,11 @@ function slaBoekOp() {
   const titel = document.getElementById('vTitel').value.trim();
   const auteur = document.getElementById('vAuteur').value.trim();
   const prijs = parseFloat(document.getElementById('vPrijs').value);
-  const categorie = document.getElementById('vCategorie').value;
+  const categorieën = Array.from(document.getElementById('vCategorie').selectedOptions).map(o => o.value);
   const afrekenen = document.getElementById('vAfrekenen').value.trim();
 
-  if (!titel || !auteur || !prijs || !categorie || !afrekenen) {
-    toonMelding('Vul alle verplichte velden in: Titel, Auteur, Prijs, Categorie en Bestelkoppeling.', 'fout');
+  if (!titel || !auteur || !prijs || categorieën.length === 0 || !afrekenen) {
+    toonMelding('Vul alle verplichte velden in: Titel, Auteur, Prijs, minimaal één Categorie en Bestelkoppeling.', 'fout');
     return;
   }
 
@@ -1150,7 +1165,7 @@ function slaBoekOp() {
     paginas,
     formaat: document.getElementById('vFormaat').value,
     prijs,
-    categorie,
+    categorieën,
     omslag: document.getElementById('vOmslag').value.trim() || null,
     kleur: document.getElementById('vKleur').value,
     beschrijving: document.getElementById('vBeschrijving').value.trim(),
@@ -1276,8 +1291,12 @@ function importeerJSON(input) {
       volgendeID = Math.max(...BOEKEN.map(b => b.id), 0) + 1;
       // Detecteer categorieën die nog niet bekend zijn
       BOEKEN.forEach(b => {
-        if (b.categorie && !CATEGORIEEN.find(c => c.slug === b.categorie)) {
-          CATEGORIEEN.push({ naam: b.categorie.charAt(0).toUpperCase() + b.categorie.slice(1), slug: b.categorie });
+        nbCats(b).forEach(slug => {
+          if (slug && !CATEGORIEEN.find(c => c.slug === slug)) {
+            CATEGORIEEN.push({ naam: slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g,' '), slug });
+          }
+        });
+        if (false) {
         }
       });
       verversAlles();
@@ -1313,7 +1332,7 @@ function verversCategorieLijst() {
   }
 
   tbody.innerHTML = CATEGORIEEN.map(c => {
-    const aantalBoeken = BOEKEN.filter(b => b.categorie === c.slug).length;
+    const aantalBoeken = BOEKEN.filter(b => nbCats(b).includes(c.slug)).length;
     return `<tr style="border-bottom:1px solid var(--grijs-mid)">
       <td style="padding:0.65rem 1rem;font-weight:700;font-size:0.9rem">${escHtml(c.naam)}</td>
       <td style="padding:0.65rem 1rem"><code style="font-size:0.8rem;background:var(--grijs-licht);padding:2px 6px;border-radius:3px;border:1px solid var(--grijs-rand)">${escHtml(c.slug)}</code></td>
@@ -1373,7 +1392,7 @@ function slaCategoriOp() {
     const idx = CATEGORIEEN.findIndex(c => c.slug === catBewerkSlug);
     // Als slug verandert: ook boeken bijwerken
     if (catBewerkSlug !== slug) {
-      BOEKEN.forEach(b => { if (b.categorie === catBewerkSlug) b.categorie = slug; });
+      BOEKEN.forEach(b => { const cats = nbCats(b); const idx = cats.indexOf(catBewerkSlug); if (idx > -1) { cats[idx] = slug; b.categorieën = cats; delete b.categorie; } });
       toonMelding('Categorie bijgewerkt. Slugs van gekoppelde boeken zijn ook bijgewerkt. Download het JSON-bestand.', 'succes');
     } else {
       toonMelding('Categorie "' + naam + '" bijgewerkt.', 'succes');
@@ -1392,7 +1411,7 @@ function slaCategoriOp() {
 
 function verwijderCategorie(slug) {
   const c = CATEGORIEEN.find(x => x.slug === slug);
-  const aantalBoeken = BOEKEN.filter(b => b.categorie === slug).length;
+  const aantalBoeken = BOEKEN.filter(b => nbCats(b).includes(slug)).length;
   if (aantalBoeken > 0) {
     toonMelding('Verplaats of verwijder eerst de ' + aantalBoeken + ' boeken in deze categorie.', 'fout');
     return;

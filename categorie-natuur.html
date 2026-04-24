@@ -50,10 +50,10 @@
 (async () => {
   const boeken = await nbLaadBoeken();
   document.getElementById('nbHeader').innerHTML = nbHeaderHTML('categorie-natuur.html');
-  const cats = [...new Set(boeken.map(b => b.categorie))].map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1), slug: s}));
+  const cats = [...new Set(boeken.flatMap(b => (b.categorieën||b.categorie ? (Array.isArray(b.categorieën||b.categorie) ? (b.categorieën||b.categorie) : [b.categorieën||b.categorie]) : [])))].sort().map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1).replace(/-/g,' '), slug: s}));
   document.getElementById('nbFooter').innerHTML = nbFooterHTML(cats);
   nbVulSidebar(boeken, 'natuur');
-  const gefilterd = boeken.filter(b => b.categorie === 'natuur');
+  const gefilterd = boeken.filter(b => nbInCategorie(b, 'natuur'));
   document.getElementById('paginaOndertitel').textContent = gefilterd.length + ' titel' + (gefilterd.length !== 1 ? 's' : '') + ' in deze categorie';
   document.getElementById('gridCategorie').innerHTML = gefilterd.length ? gefilterd.map(nbRenderKaart).join('') : '<p class="nb-leeg">Geen boeken in deze categorie.</p>';
   nbFixCoverHoogtes();

@@ -137,7 +137,7 @@
   const boeken = await nbLaadBoeken();
   const b = boeken.find(x => x.id === id);
   document.getElementById('nbHeader').innerHTML = nbHeaderHTML('');
-  const cats = [...new Set(boeken.map(b => b.categorie))].map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1), slug: s}));
+  const cats = [...new Set(boeken.flatMap(b => (b.categorieën||b.categorie ? (Array.isArray(b.categorieën||b.categorie) ? (b.categorieën||b.categorie) : [b.categorieën||b.categorie]) : [])))].sort().map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1).replace(/-/g,' '), slug: s}));
   document.getElementById('nbFooter').innerHTML = nbFooterHTML(cats);
   if (!b) { document.getElementById('laadIndicator').style.display='none'; toonFout(); return; }
 
@@ -154,15 +154,16 @@
   document.head.appendChild(s);
 
   // Breadcrumb
-  document.getElementById('bcCategorie').textContent = b.categorie.charAt(0).toUpperCase()+b.categorie.slice(1);
-  document.getElementById('bcCategorie').href = 'categorie-'+b.categorie+'.html';
+  const eersteCat = nbCats(b)[0] || 'overig';
+  document.getElementById('bcCategorie').textContent = eersteCat.charAt(0).toUpperCase()+eersteCat.slice(1).replace(/-/g,' ');
+  document.getElementById('bcCategorie').href = 'categorie-'+eersteCat+'.html';
   document.getElementById('bcTitel').textContent = b.titel;
 
   // Labels
   const lr = document.getElementById('labelRij');
   if (b.nieuw) lr.innerHTML += '<span class="label-pill label-nieuw">Nieuw</span>';
   if (b.aanbieding) lr.innerHTML += '<span class="label-pill label-aanbieding">Aanbieding</span>';
-  lr.innerHTML += '<span class="label-pill label-cat">'+escHtml(b.categorie)+'</span>';
+  nbCats(b).forEach(c => { lr.innerHTML += '<span class="label-pill label-cat">'+escHtml(c.charAt(0).toUpperCase()+c.slice(1).replace(/-/g,' '))+'</span>'; });
 
   // Cover
   const coverURL = nbCoverURL(b);
@@ -178,7 +179,7 @@
   document.getElementById('prijsRij').innerHTML = po + '<span class="prijs-groot">'+nbPrijs(b.prijs)+'</span><span style="font-size:0.8rem;color:var(--grijs-muted);align-self:center">incl. BTW</span>';
   document.getElementById('boekBeschrijving').textContent = b.beschrijving||'';
 
-  const specs = [['Auteur',b.auteur],['Uitgever',b.uitgever],['Jaar',b.jaar],["Pagina's",b.paginas],['Formaat',b.formaat],['ISBN',(b.isbn||'').replace(/-/g,'')],['Categorie',b.categorie.charAt(0).toUpperCase()+b.categorie.slice(1)]];
+  const specs = [['Auteur',b.auteur],['Uitgever',b.uitgever],['Jaar',b.jaar],["Pagina's",b.paginas],['Formaat',b.formaat],['ISBN',(b.isbn||'').replace(/-/g,'')],['Categorie', nbCatsLabel(b)]];
   document.getElementById('specsTable').innerHTML = specs.filter(([,v])=>v).map(([k,v])=>'<tr><td>'+k+'</td><td>'+escHtml(String(v))+'</td></tr>').join('');
 
   if (b.trefwoorden&&b.trefwoorden.length)
@@ -186,7 +187,8 @@
 
   document.getElementById('btnBestellen').href = b.afrekenen;
 
-  const gerelateerd = boeken.filter(x=>x.id!==b.id&&x.categorie===b.categorie).slice(0,4);
+  const bCats = nbCats(b);
+  const gerelateerd = boeken.filter(x=>x.id!==b.id&&nbCats(x).some(c=>bCats.includes(c))).slice(0,4);
   if (gerelateerd.length) {
     document.getElementById('gereleateerdGrid').innerHTML = gerelateerd.map(nbRenderKaart).join('');
   } else {
