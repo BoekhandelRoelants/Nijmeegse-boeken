@@ -8,11 +8,15 @@
   <link rel="canonical" id="canonical" href="">
   <meta id="ogTitle" property="og:title" content="">
   <meta id="ogDesc" property="og:description" content="">
+  <meta id="ogImage" property="og:image" content="">
   <meta property="og:type" content="book">
   <meta property="og:locale" content="nl_NL">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preload" href="nijmegen.js" as="script">
+  <link rel="preconnect" href="https://wscovers1.tlsecure.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="nijmegen.css">
   <style>
     .detail-wrapper {
@@ -135,6 +139,7 @@
   const id = parseInt(params.get('id'));
   if (!id) { toonFout(); return; }
   const boeken = await nbLaadBoeken();
+  await nbLaadInstellingen();
   const cats = [...new Set(boeken.flatMap(b => (b.categorieën||b.categorie ? (Array.isArray(b.categorieën||b.categorie) ? (b.categorieën||b.categorie) : [b.categorieën||b.categorie]) : [])))].sort().map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1).replace(/-/g,' '), slug: s}));
   const b = boeken.find(x => x.id === id);
   document.getElementById('nbHeader').innerHTML = nbHeaderHTML('', cats);
@@ -142,21 +147,60 @@
   if (!b) { document.getElementById('laadIndicator').style.display='none'; toonFout(); return; }
 
   // SEO
+  const canonicalURL = 'https://nijmeegseboeken.nl/boek.html?id=' + b.id;
   document.getElementById('paginaTitel').textContent = b.titel + ' – ' + b.auteur + ' | Nijmeegse Boeken';
   document.getElementById('metaDesc').content = (b.beschrijving||'').substring(0,155);
-  document.getElementById('canonical').href = 'https://nijmeegse-boeken.nl/boek.html?id=' + b.id;
+  document.getElementById('canonical').href = canonicalURL;
   document.getElementById('ogTitle').content = b.titel + ' – ' + b.auteur;
   document.getElementById('ogDesc').content = (b.beschrijving||'').substring(0,155);
 
-  // Schema.org
-  const s = document.createElement('script'); s.type='application/ld+json';
-  s.textContent = JSON.stringify({"@context":"https://schema.org","@type":"Book","name":b.titel,"author":{"@type":"Person","name":b.auteur},"publisher":{"@type":"Organization","name":b.uitgever},"isbn":b.isbn,"datePublished":String(b.jaar||''),"numberOfPages":b.paginas,"inLanguage":"nl","description":b.beschrijving,"offers":{"@type":"Offer","price":b.prijs,"priceCurrency":"EUR","availability":"https://schema.org/InStock","url":b.afrekenen}});
+  // OG image via wscovers
+  const isbn = (b.isbn||'').replace(/-/g,'');
+  if (isbn) {
+    document.getElementById('ogImage').content =
+      'https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=' + isbn + '&size=l';
+  }
+
+  // Schema.org Book
+  const s = document.createElement('script'); s.type = 'application/ld+json';
+  s.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "name": b.titel,
+    "author": { "@type": "Person", "name": b.auteur },
+    "publisher": { "@type": "Organization", "name": b.uitgever },
+    "isbn": isbn,
+    "datePublished": String(b.jaar||''),
+    "numberOfPages": b.paginas,
+    "inLanguage": "nl",
+    "description": b.beschrijving,
+    "image": isbn ? 'https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=' + isbn + '&size=l' : '',
+    "offers": {
+      "@type": "Offer",
+      "price": b.prijs,
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock",
+      "url": b.afrekenen
+    }
+  });
   document.head.appendChild(s);
 
-  // Breadcrumb
+  // Breadcrumb schema
   const eersteCat = nbCats(b)[0] || 'overig';
-  document.getElementById('bcCategorie').textContent = eersteCat.charAt(0).toUpperCase()+eersteCat.slice(1).replace(/-/g,' ');
-  document.getElementById('bcCategorie').href = 'categorie-'+eersteCat+'.html';
+  const catNaam = eersteCat.charAt(0).toUpperCase() + eersteCat.slice(1).replace(/-/g,' ');
+  const bc = document.createElement('script'); bc.type = 'application/ld+json';
+  bc.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Nijmeegse Boeken", "item": "https://nijmeegseboeken.nl/" },
+      { "@type": "ListItem", "position": 2, "name": catNaam, "item": "https://nijmeegseboeken.nl/categorie-" + eersteCat + ".html" },
+      { "@type": "ListItem", "position": 3, "name": b.titel, "item": canonicalURL }
+    ]
+  });
+  document.head.appendChild(bc);
+  document.getElementById('bcCategorie').textContent = catNaam;
+  document.getElementById('bcCategorie').href = 'categorie-' + eersteCat + '.html';
   document.getElementById('bcTitel').textContent = b.titel;
 
   // Labels

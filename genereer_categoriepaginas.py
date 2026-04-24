@@ -30,11 +30,18 @@ def genereer_pagina(slug, naam, aantal):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{naam} – Boeken over Nijmegen</title>
-  <meta name="description" content="Boeken over Nijmegen in de categorie {naam}. {aantal} titel{meervoud} over {naam.lower()} in en rond Nijmegen.">
+  <title>{naam}boeken over Nijmegen – Nijmeegse Boeken</title>
+  <meta name="description" content="Bekijk alle {naam.lower()}boeken over Nijmegen en de regio. {aantal} titel{meervoud} beschikbaar bij Boekhandel Roelants. Gratis verzending vanaf €30,-.">
   <link rel="canonical" href="https://nijmeegseboeken.nl/categorie-{slug}.html">
+  <meta property="og:title" content="{naam}boeken over Nijmegen – Nijmeegse Boeken">
+  <meta property="og:description" content="Bekijk alle {naam.lower()}boeken over Nijmegen. {aantal} titel{meervoud} bij Boekhandel Roelants.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
   <script type="application/ld+json">
-  {{"@context":"https://schema.org","@type":"CollectionPage","name":"{naam} – Nijmeegse Boeken","url":"https://nijmeegseboeken.nl/categorie-{slug}.html"}}
+  {{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {{"@type":"ListItem","position":1,"name":"Nijmeegse Boeken","item":"https://nijmeegseboeken.nl/"}},
+    {{"@type":"ListItem","position":2,"name":"{naam}","item":"https://nijmeegseboeken.nl/categorie-{slug}.html"}}
+  ]}}
   </script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -93,6 +100,23 @@ def genereer_pagina(slug, naam, aantal):
   const seoTitel = nbTekst('cat_{slug}_titel', '{naam} in en rond Nijmegen');
   const seoTekst = nbTekst('cat_{slug}_tekst', 'Ontdek ons aanbod boeken in de categorie {naam.lower()}. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.');
   document.getElementById('nbSeoBlok').innerHTML = '<h2>' + seoTitel + '</h2><p>' + seoTekst + '</p>';
+
+  // ItemList schema
+  const itemList = document.createElement('script'); itemList.type = 'application/ld+json';
+  itemList.textContent = JSON.stringify({{
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "{naam}boeken over Nijmegen",
+    "url": "https://nijmeegseboeken.nl/categorie-{slug}.html",
+    "numberOfItems": gefilterd.length,
+    "itemListElement": gefilterd.slice(0,10).map((b, i) => ({{
+      "@type": "ListItem",
+      "position": i + 1,
+      "url": "https://nijmeegseboeken.nl/boek.html?id=" + b.id,
+      "name": b.titel
+    }}))
+  }});
+  document.head.appendChild(itemList);
   nbFixCoverHoogtes();
   setTimeout(nbFixCoverHoogtes, 300);
 }})();
