@@ -62,19 +62,20 @@ function nbRenderKaart(b) {
 
   return `
     <a class="nb-kaart" href="boek.html?id=${b.id}"
+       style="display:flex;flex-direction:column;overflow:hidden;background:white;border:1px solid #d6d2ca;border-radius:6px;text-decoration:none;color:inherit;transition:transform 0.2s,box-shadow 0.2s;"
        itemscope itemtype="https://schema.org/Book"
        aria-label="${escHtml(b.titel)} — ${escHtml(b.auteur)} — ${nbPrijs(b.prijs)}">
       <meta itemprop="name" content="${escHtml(b.titel)}">
       <meta itemprop="author" content="${escHtml(b.auteur)}">
       <meta itemprop="isbn" content="${escHtml(b.isbn||'')}">
-      <div class="nb-cover">
+      <div class="nb-cover" style="width:100%;flex-shrink:0;overflow:hidden;position:relative;display:block;">
         ${label}${coverInhoud}
       </div>
-      <div class="nb-kaart-info">
+      <div class="nb-kaart-info" style="padding:0.7rem;display:flex;flex-direction:column;flex:1;border-top:1px solid #e8e4dc;">
         <div class="nb-kaart-cat">${escHtml(b.categorie)}</div>
         <div class="nb-kaart-titel">${escHtml(b.titel)}</div>
         <div class="nb-kaart-auteur">${escHtml(b.auteur)}</div>
-        <div class="nb-kaart-footer">
+        <div class="nb-kaart-footer" style="display:flex;align-items:center;justify-content:space-between;gap:0.4rem;margin-top:auto;">
           <div class="nb-prijs-blok">
             ${prijsOud ? `<span class="nb-prijs-oud">${prijsOud}</span>` : ''}
             <span class="nb-prijs" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
