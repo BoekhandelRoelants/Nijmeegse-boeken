@@ -51,15 +51,13 @@ function nbPrijs(p) {
 
 // ── BOEK KAART RENDEREN ──
 function nbRenderKaart(b) {
-  const kleur = b.kleur || '#B21233';
-  const fg = nbKleurVoor(kleur);
   const label = b.nieuw
     ? `<span class="nb-label nb-label-nieuw">Nieuw</span>`
     : b.aanbieding ? `<span class="nb-label nb-label-aanbieding">Aanbieding</span>` : '';
   const prijsOud = b.prijsOud ? nbPrijs(b.prijsOud) : null;
 
   const coverInhoud = b.omslag
-    ? `<img src="${b.omslag}" alt="Omslag ${escHtml(b.titel)}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">`
+    ? `<img src="${b.omslag}" alt="Omslag ${escHtml(b.titel)}" loading="lazy">`
     : nbPlaceholder(b.titel);
 
   return `
@@ -69,7 +67,7 @@ function nbRenderKaart(b) {
       <meta itemprop="name" content="${escHtml(b.titel)}">
       <meta itemprop="author" content="${escHtml(b.auteur)}">
       <meta itemprop="isbn" content="${escHtml(b.isbn||'')}">
-      <div style="position:relative;width:100%;padding-top:150%;flex-shrink:0;overflow:hidden;">
+      <div class="nb-cover">
         ${label}${coverInhoud}
       </div>
       <div class="nb-kaart-info">
@@ -176,7 +174,7 @@ function nbHeaderHTML(actiefNav) {
     </nav>
     <div class="nb-welkom">
       <div class="nb-welkom-inner">
-        <p>Welkom in de winkel voor Nijmeegse boeken, een initiatief van <a href="https://roelants.nl">Boekhandel Roelants</a>. Gratis verzending binnen Nederland bij bestellingen boven de €30,-, anders €4,95. Uiteraard kunt u uw bestelling zonder verzendkosten ook bij ons in de winkel komen afhalen. We doen ons best om onze voorraad en de website zo volledig mogelijk te houden. Wilt u zeker weten dat het boek op voorraad is, informeer dan vooraf even per mail of telefoon.</p>
+        <p>Welkom in de winkel voor Nijmeegse boeken, een initiatief van <a href="https://roelants.nl" target="_blank" rel="noopener">Boekhandel Roelants</a>. Gratis verzending binnen Nederland bij bestellingen boven de €30,-, anders €4,95. Uiteraard kunt u uw bestelling zonder verzendkosten ook bij ons in de winkel komen afhalen. We doen ons best om onze voorraad en de website zo volledig mogelijk te houden. Wilt u zeker weten dat het boek op voorraad is, informeer dan vooraf even per mail of telefoon.</p>
         <p>Voor relatiegeschenken in grotere hoeveelheden kunnen wij een aantrekkelijke korting bieden. Neem daarvoor rechtstreeks contact met ons op via <a href="tel:+31243221734">024 322 17 34</a> of <a href="mailto:roelants@roelants.nl">roelants@roelants.nl</a>.</p>
       </div>
     </div>`;
