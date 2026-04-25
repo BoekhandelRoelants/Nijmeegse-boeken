@@ -124,8 +124,10 @@ function nbRenderKaart(b, toptienNr) {
     + '<meta itemprop="priceCurrency" content="EUR">'
     + '</span>'
     + '</div>'
-    + '<a class="nb-btn-bestel" href="' + escHtml(b.afrekenen) + '" target="_blank" rel="noopener"'
-    + ' onclick="event.stopPropagation()">Bestellen</a>'
+    + '<a class="nb-btn-bestel' + (b.uitverkocht ? ' nb-btn-uitverkocht' : '') + '"'
+    + (b.uitverkocht ? '' : ' href="' + escHtml(b.afrekenen) + '" target="_blank" rel="noopener"')
+    + ' onclick="event.stopPropagation()">'
+    + (b.uitverkocht ? 'Uitverkocht' : 'Bestellen') + '</a>'
     + '</div>'
     + '</div>'
     + '</div>';
@@ -165,8 +167,12 @@ async function nbLaadBoeken() {
     const vast   = r2 && r2.ok ? await r2.json() : [];
 
     // Voeg vaste boeken toe die nog niet in boeken.json staan (op ID)
-    const bestaandeIDs = new Set(boeken.map(b => b.id));
-    const nieuweVaste  = vast.filter(b => !bestaandeIDs.has(b.id));
+    const bestaandeIDs   = new Set(boeken.map(b => b.id));
+    const bestaandeISBNs = new Set(boeken.map(b => (b.isbn||'').replace(/-/g,'')).filter(Boolean));
+    const nieuweVaste = vast.filter(b => !bestaandeIDs.has(b.id)).map(b => {
+      const isbn = (b.isbn||'').replace(/-/g,'');
+      return { ...b, uitverkocht: isbn ? !bestaandeISBNs.has(isbn) : true };
+    });
     return [...boeken, ...nieuweVaste];
   } catch(e) {
     console.error('Kon boeken.json niet laden:', e);

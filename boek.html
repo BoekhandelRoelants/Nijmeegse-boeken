@@ -259,7 +259,16 @@
     ).join('');
   }
 
-  document.getElementById('btnBestellen').href = b.afrekenen;
+  const btnBestel = document.getElementById('btnBestellen');
+  if (b.uitverkocht) {
+    btnBestel.removeAttribute('href');
+    btnBestel.textContent = 'Momenteel uitverkocht';
+    btnBestel.style.background = 'var(--grijs-muted)';
+    btnBestel.style.cursor = 'default';
+    btnBestel.style.pointerEvents = 'none';
+  } else {
+    btnBestel.href = b.afrekenen;
+  }
 
   const bCats = nbCats(b);
   const gerelateerd = boeken.filter(x=>x.id!==b.id&&nbCats(x).some(c=>bCats.includes(c))).slice(0,4);
