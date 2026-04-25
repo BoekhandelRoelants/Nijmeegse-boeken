@@ -105,6 +105,8 @@
   const nieuwMax        = hpInst.nieuw_max        || 8;
   const aanbiedingenMax = hpInst.aanbiedingen_max || 0;
 
+  const sorteerHP = (arr) => [...arr].sort((a, b) => (b.jaar||0) - (a.jaar||0) || (b.id||0) - (a.id||0));
+
   const params = new URLSearchParams(window.location.search);
   const zoekQ = params.get('zoek');
   if (zoekQ) {
@@ -117,13 +119,13 @@
     const res = boeken.filter(b => [b.titel, b.auteur, b.beschrijving, ...nbCats(b), ...(b.trefwoorden||[])].some(v => (v||'').toLowerCase().includes(zoekQ.toLowerCase())));
     document.getElementById('gridZoek').innerHTML = res.length ? res.map(b => nbRenderKaart(b)).join('') : '<p class="nb-leeg">Geen resultaten gevonden voor "' + zoekQ + '".</p>';
   } else {
-    let uitgelicht = boeken.filter(b => b.uitgelicht);
+    let uitgelicht = sorteerHP(boeken.filter(b => b.uitgelicht));
     if (uitgelichtMax > 0) uitgelicht = uitgelicht.slice(0, uitgelichtMax);
 
-    let nieuw = boeken.filter(b => b.nieuw);
+    let nieuw = sorteerHP(boeken.filter(b => b.nieuw));
     if (nieuwMax > 0) nieuw = nieuw.slice(0, nieuwMax);
 
-    let aanbiedingen = boeken.filter(b => b.aanbieding);
+    let aanbiedingen = sorteerHP(boeken.filter(b => b.aanbieding));
     if (aanbiedingenMax > 0) aanbiedingen = aanbiedingen.slice(0, aanbiedingenMax);
 
     document.getElementById('gridUitgelicht').innerHTML = uitgelicht.length ? uitgelicht.map(b => nbRenderKaart(b)).join('') : '<p class="nb-leeg">Geen uitgelichte boeken.</p>';
