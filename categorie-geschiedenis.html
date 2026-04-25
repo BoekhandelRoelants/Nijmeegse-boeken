@@ -3,17 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Boeken over Geschiedenis – Nijmeegse Boeken</title>
-  <meta name="description" content="Bekijk alle boeken in de categorie Geschiedenis over Nijmegen en de regio. Bestel direct via Boekhandel Roelants.">
+  <title>Geschiedenisboeken over Nijmegen – Nijmeegse Boeken</title>
+  <meta name="description" content="Bekijk alle geschiedenisboeken over Nijmegen en de regio. Bestel direct via Boekhandel Roelants. Gratis verzending vanaf €30,-.">
   <link rel="canonical" href="https://nijmeegseboeken.nl/categorie-geschiedenis.html">
-  <meta property="og:title" content="Boeken over Geschiedenis – Nijmeegse Boeken">
+  <meta property="og:title" content="Geschiedenisboeken over Nijmegen – Nijmeegse Boeken">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="nl_NL">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Nijmeegse Boeken","item":"https://nijmeegseboeken.nl/"},
+    {"@type":"ListItem","position":2,"name":"Geschiedenis","item":"https://nijmeegseboeken.nl/categorie-geschiedenis.html"}
+  ]}
+  </script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="preload" href="nijmegen.js" as="script">
-  <link rel="preconnect" href="https://wscovers1.tlsecure.com">
   <link rel="stylesheet" href="nijmegen.css">
 </head>
 <body>
@@ -26,7 +30,7 @@
       </nav>
       <div class="nb-paginakop">
         <h1>Boeken over Nijmegen: Geschiedenis</h1>
-        <p id="paginaOndertitel">10 titels in deze categorie</p>
+        <p id="paginaOndertitel"></p>
       </div>
       <div id="nbSorteerBalk"></div>
       <div class="nb-grid" id="gridCategorie"><p class="nb-leeg">Laden…</p></div>
@@ -74,25 +78,10 @@
   const seoTekst = nbTekst('cat_geschiedenis_tekst', 'Ontdek ons aanbod boeken in de categorie geschiedenis. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.');
   const seoTekst2 = nbTekst('cat_geschiedenis_tekst2', '');
   document.getElementById('nbSeoBlok').innerHTML = '<h2>' + seoTitel + '</h2><p>' + seoTekst + '</p>' + (seoTekst2 ? '<p>' + seoTekst2 + '</p>' : '');
-
-  // ItemList schema
   const itemList = document.createElement('script'); itemList.type = 'application/ld+json';
-  itemList.textContent = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "Geschiedenisboeken over Nijmegen",
-    "url": "https://nijmeegseboeken.nl/categorie-geschiedenis.html",
-    "numberOfItems": gefilterd.length,
-    "itemListElement": gefilterd.slice(0,10).map((b, i) => ({
-      "@type": "ListItem",
-      "position": i + 1,
-      "url": "https://nijmeegseboeken.nl/boek.html?id=" + b.id,
-      "name": b.titel
-    }))
-  });
+  itemList.textContent = JSON.stringify({"@context":"https://schema.org","@type":"ItemList","name":"Geschiedenisboeken over Nijmegen","url":"https://nijmeegseboeken.nl/categorie-geschiedenis.html","numberOfItems":gefilterd.length,"itemListElement":gefilterd.slice(0,10).map((b,i)=>({  "@type":"ListItem","position":i+1,"url":"https://nijmeegseboeken.nl/boek.html?id="+b.id,"name":b.titel}))});
   document.head.appendChild(itemList);
-  nbFixCoverHoogtes();
-  setTimeout(nbFixCoverHoogtes, 300);
+  nbFixCoverHoogtes(); setTimeout(nbFixCoverHoogtes, 300);
 })();
 </script>
 </body>
