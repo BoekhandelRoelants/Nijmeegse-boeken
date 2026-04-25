@@ -3,22 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Geschiedenisboeken over Nijmegen – Nijmeegse Boeken</title>
-  <meta name="description" content="Bekijk alle geschiedenisboeken over Nijmegen en de regio. 7 titels beschikbaar bij Boekhandel Roelants. Gratis verzending vanaf €30,-.">
+  <title>Boeken over Geschiedenis – Nijmeegse Boeken</title>
+  <meta name="description" content="Bekijk alle boeken in de categorie Geschiedenis over Nijmegen en de regio. Bestel direct via Boekhandel Roelants.">
   <link rel="canonical" href="https://nijmeegseboeken.nl/categorie-geschiedenis.html">
-  <meta property="og:title" content="Geschiedenisboeken over Nijmegen – Nijmeegse Boeken">
-  <meta property="og:description" content="Bekijk alle geschiedenisboeken over Nijmegen. 7 titels bij Boekhandel Roelants.">
+  <meta property="og:title" content="Boeken over Geschiedenis – Nijmeegse Boeken">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="nl_NL">
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-    {"@type":"ListItem","position":1,"name":"Nijmeegse Boeken","item":"https://nijmeegseboeken.nl/"},
-    {"@type":"ListItem","position":2,"name":"Geschiedenis","item":"https://nijmeegseboeken.nl/categorie-geschiedenis.html"}
-  ]}
-  </script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preload" href="nijmegen.js" as="script">
+  <link rel="preconnect" href="https://wscovers1.tlsecure.com">
   <link rel="stylesheet" href="nijmegen.css">
 </head>
 <body>
@@ -31,15 +26,12 @@
       </nav>
       <div class="nb-paginakop">
         <h1>Boeken over Nijmegen: Geschiedenis</h1>
-        <p id="paginaOndertitel">7 titels in deze categorie</p>
+        <p id="paginaOndertitel">10 titels in deze categorie</p>
       </div>
       <div id="nbSorteerBalk"></div>
       <div class="nb-grid" id="gridCategorie"><p class="nb-leeg">Laden…</p></div>
       <div id="nbPaginering"></div>
-      <div class="nb-seo" id="nbSeoBlok">
-        <h2>Geschiedenis in en rond Nijmegen</h2>
-        <p>Ontdek ons aanbod boeken in de categorie geschiedenis. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.</p>
-      </div>
+      <div class="nb-seo" id="nbSeoBlok"></div>
     </div>
     <aside class="nb-sidebar">
       <div class="nb-sidebar-blok">
@@ -58,6 +50,7 @@
 <script>
 (async () => {
   const boeken = await nbLaadBoeken();
+  await nbLaadInstellingen();
   const cats = [...new Set(boeken.flatMap(b => (b.categorieën||b.categorie ? (Array.isArray(b.categorieën||b.categorie) ? (b.categorieën||b.categorie) : [b.categorieën||b.categorie]) : [])))].sort().map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1).replace(/-/g,' '), slug: s}));
   document.getElementById('nbHeader').innerHTML = nbHeaderHTML('categorie-geschiedenis.html', cats);
   document.getElementById('nbFooter').innerHTML = nbFooterHTML(cats);

@@ -1,51 +1,34 @@
 #!/usr/bin/env python3
-"""
-Genereert categoriepagina's vanuit boeken.json.
-
-Gebruik:
-    python genereer_categoriepaginas.py
-
-Plaatst dit script in dezelfde map als boeken.json en nijmegen.js.
-"""
+"""Genereert één HTML-pagina per categorie op basis van boeken.json."""
 
 import json
 from pathlib import Path
 
-BASIS = Path(__file__).parent
+BASIS      = Path(__file__).parent
 BOEKEN_JSON = BASIS / "boeken.json"
 
-
-def nbCats(boek):
-    """Ondersteunt zowel oud formaat (string) als nieuw (array)."""
-    c = boek.get("categorieën") or boek.get("categorie")
-    if isinstance(c, list):
-        return [x for x in c if x]
+def nbCats(b):
+    c = b.get("categorieën") or b.get("categorie")
+    if isinstance(c, list): return [x for x in c if x]
     return [c] if c else []
 
-
-def genereer_pagina(slug, naam, aantal):
-    meervoud = "s" if aantal != 1 else ""
-    return f"""<!DOCTYPE html>
+HTML_TEMPLATE = """\
+<!DOCTYPE html>
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{naam}boeken over Nijmegen – Nijmeegse Boeken</title>
-  <meta name="description" content="Bekijk alle {naam.lower()}boeken over Nijmegen en de regio. {aantal} titel{meervoud} beschikbaar bij Boekhandel Roelants. Gratis verzending vanaf €30,-.">
+  <title>Boeken over {naam} – Nijmeegse Boeken</title>
+  <meta name="description" content="Bekijk alle boeken in de categorie {naam} over Nijmegen en de regio. Bestel direct via Boekhandel Roelants.">
   <link rel="canonical" href="https://nijmeegseboeken.nl/categorie-{slug}.html">
-  <meta property="og:title" content="{naam}boeken over Nijmegen – Nijmeegse Boeken">
-  <meta property="og:description" content="Bekijk alle {naam.lower()}boeken over Nijmegen. {aantal} titel{meervoud} bij Boekhandel Roelants.">
+  <meta property="og:title" content="Boeken over {naam} – Nijmeegse Boeken">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="nl_NL">
-  <script type="application/ld+json">
-  {{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-    {{"@type":"ListItem","position":1,"name":"Nijmeegse Boeken","item":"https://nijmeegseboeken.nl/"}},
-    {{"@type":"ListItem","position":2,"name":"{naam}","item":"https://nijmeegseboeken.nl/categorie-{slug}.html"}}
-  ]}}
-  </script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preload" href="nijmegen.js" as="script">
+  <link rel="preconnect" href="https://wscovers1.tlsecure.com">
   <link rel="stylesheet" href="nijmegen.css">
 </head>
 <body>
@@ -63,10 +46,7 @@ def genereer_pagina(slug, naam, aantal):
       <div id="nbSorteerBalk"></div>
       <div class="nb-grid" id="gridCategorie"><p class="nb-leeg">Laden\u2026</p></div>
       <div id="nbPaginering"></div>
-      <div class="nb-seo" id="nbSeoBlok">
-        <h2>{naam} in en rond Nijmegen</h2>
-        <p>Ontdek ons aanbod boeken in de categorie {naam.lower()}. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.</p>
-      </div>
+      <div class="nb-seo" id="nbSeoBlok"></div>
     </div>
     <aside class="nb-sidebar">
       <div class="nb-sidebar-blok">
@@ -85,6 +65,7 @@ def genereer_pagina(slug, naam, aantal):
 <script>
 (async () => {{
   const boeken = await nbLaadBoeken();
+  await nbLaadInstellingen();
   const cats = [...new Set(boeken.flatMap(b => (b.categorie\u00ebn||b.categorie ? (Array.isArray(b.categorie\u00ebn||b.categorie) ? (b.categorie\u00ebn||b.categorie) : [b.categorie\u00ebn||b.categorie]) : [])))].sort().map(s => ({{naam: s.charAt(0).toUpperCase()+s.slice(1).replace(/-/g,' '), slug: s}}));
   document.getElementById('nbHeader').innerHTML = nbHeaderHTML('categorie-{slug}.html', cats);
   document.getElementById('nbFooter').innerHTML = nbFooterHTML(cats);
@@ -105,7 +86,7 @@ def genereer_pagina(slug, naam, aantal):
   }};
   nbHerrendeer('id-desc');
   const seoTitel = nbTekst('cat_{slug}_titel', '{naam} in en rond Nijmegen');
-  const seoTekst = nbTekst('cat_{slug}_tekst', 'Ontdek ons aanbod boeken in de categorie {naam.lower()}. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.');
+  const seoTekst = nbTekst('cat_{slug}_tekst', 'Ontdek ons aanbod boeken in de categorie {naam_lower}. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.');
   const seoTekst2 = nbTekst('cat_{slug}_tekst2', '');
   document.getElementById('nbSeoBlok').innerHTML = '<h2>' + seoTitel + '</h2><p>' + seoTekst + '</p>' + (seoTekst2 ? '<p>' + seoTekst2 + '</p>' : '');
 
@@ -133,9 +114,20 @@ def genereer_pagina(slug, naam, aantal):
 </html>"""
 
 
+def genereer_pagina(slug: str, naam: str, aantal: int) -> str:
+    meervoud = "s" if aantal != 1 else ""
+    return HTML_TEMPLATE.format(
+        slug=slug,
+        naam=naam,
+        naam_lower=naam.lower(),
+        aantal=aantal,
+        meervoud=meervoud,
+    )
+
+
 def main():
     if not BOEKEN_JSON.exists():
-        print(f"❌ {BOEKEN_JSON} niet gevonden.")
+        print("⚠️  boeken.json niet gevonden.")
         return
 
     boeken = json.loads(BOEKEN_JSON.read_text(encoding="utf-8"))

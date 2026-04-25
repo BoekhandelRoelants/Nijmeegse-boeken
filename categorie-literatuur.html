@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Boeken over Natuur – Nijmeegse Boeken</title>
-  <meta name="description" content="Bekijk alle boeken in de categorie Natuur over Nijmegen en de regio. Bestel direct via Boekhandel Roelants.">
-  <link rel="canonical" href="https://nijmeegseboeken.nl/categorie-natuur.html">
-  <meta property="og:title" content="Boeken over Natuur – Nijmeegse Boeken">
+  <title>Boeken over Literatuur – Nijmeegse Boeken</title>
+  <meta name="description" content="Bekijk alle boeken in de categorie Literatuur over Nijmegen en de regio. Bestel direct via Boekhandel Roelants.">
+  <link rel="canonical" href="https://nijmeegseboeken.nl/categorie-literatuur.html">
+  <meta property="og:title" content="Boeken over Literatuur – Nijmeegse Boeken">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="nl_NL">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -22,11 +22,11 @@
   <div class="nb-pagina nb-pagina-sub">
     <div class="nb-hoofd">
       <nav class="nb-breadcrumb" aria-label="Kruimelpad">
-        <a href="index.html">Nijmeegse Boeken</a> &rsaquo; <span>Natuur</span>
+        <a href="index.html">Nijmeegse Boeken</a> &rsaquo; <span>Literatuur</span>
       </nav>
       <div class="nb-paginakop">
-        <h1>Boeken over Nijmegen: Natuur</h1>
-        <p id="paginaOndertitel">7 titels in deze categorie</p>
+        <h1>Boeken over Nijmegen: Literatuur</h1>
+        <p id="paginaOndertitel">2 titels in deze categorie</p>
       </div>
       <div id="nbSorteerBalk"></div>
       <div class="nb-grid" id="gridCategorie"><p class="nb-leeg">Laden…</p></div>
@@ -52,10 +52,10 @@
   const boeken = await nbLaadBoeken();
   await nbLaadInstellingen();
   const cats = [...new Set(boeken.flatMap(b => (b.categorieën||b.categorie ? (Array.isArray(b.categorieën||b.categorie) ? (b.categorieën||b.categorie) : [b.categorieën||b.categorie]) : [])))].sort().map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1).replace(/-/g,' '), slug: s}));
-  document.getElementById('nbHeader').innerHTML = nbHeaderHTML('categorie-natuur.html', cats);
+  document.getElementById('nbHeader').innerHTML = nbHeaderHTML('categorie-literatuur.html', cats);
   document.getElementById('nbFooter').innerHTML = nbFooterHTML(cats);
-  nbVulSidebar(boeken, 'natuur');
-  const gefilterd = boeken.filter(b => nbInCategorie(b, 'natuur'));
+  nbVulSidebar(boeken, 'literatuur');
+  const gefilterd = boeken.filter(b => nbInCategorie(b, 'literatuur'));
   document.getElementById('paginaOndertitel').textContent = gefilterd.length + ' titel' + (gefilterd.length !== 1 ? 's' : '') + ' in deze categorie';
   document.getElementById('nbSorteerBalk').innerHTML = nbSorteerBalk('id-desc');
   window.nbHerrendeer = function(methode) {
@@ -70,9 +70,9 @@
     window.scrollTo({ top: document.getElementById('gridCategorie').offsetTop - 80, behavior: 'smooth' });
   };
   nbHerrendeer('id-desc');
-  const seoTitel = nbTekst('cat_natuur_titel', 'Natuur in en rond Nijmegen');
-  const seoTekst = nbTekst('cat_natuur_tekst', 'Ontdek ons aanbod boeken in de categorie natuur. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.');
-  const seoTekst2 = nbTekst('cat_natuur_tekst2', '');
+  const seoTitel = nbTekst('cat_literatuur_titel', 'Literatuur in en rond Nijmegen');
+  const seoTekst = nbTekst('cat_literatuur_tekst', 'Ontdek ons aanbod boeken in de categorie literatuur. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.');
+  const seoTekst2 = nbTekst('cat_literatuur_tekst2', '');
   document.getElementById('nbSeoBlok').innerHTML = '<h2>' + seoTitel + '</h2><p>' + seoTekst + '</p>' + (seoTekst2 ? '<p>' + seoTekst2 + '</p>' : '');
 
   // ItemList schema
@@ -80,8 +80,8 @@
   itemList.textContent = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "Natuurboeken over Nijmegen",
-    "url": "https://nijmeegseboeken.nl/categorie-natuur.html",
+    "name": "Literatuurboeken over Nijmegen",
+    "url": "https://nijmeegseboeken.nl/categorie-literatuur.html",
     "numberOfItems": gefilterd.length,
     "itemListElement": gefilterd.slice(0,10).map((b, i) => ({
       "@type": "ListItem",
