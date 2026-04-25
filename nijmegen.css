@@ -355,11 +355,6 @@ body {
   align-self: start;
 }
 
-/* Herstel grid-kolommen */
-.nb-pagina {
-  grid-template-columns: 200px 1fr;
-}
-
 .nb-sidebar::-webkit-scrollbar { width: 4px; }
 .nb-sidebar::-webkit-scrollbar-track { background: transparent; }
 .nb-sidebar::-webkit-scrollbar-thumb { background: var(--grijs-rand); border-radius: 2px; }
