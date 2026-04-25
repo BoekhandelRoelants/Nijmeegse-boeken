@@ -75,11 +75,14 @@ function nbCoverURL(b) {
   return null;
 }
 
+// Set van IDs van de 20 nieuwste boeken — wordt gevuld bij nbLaadBoeken
+let _nbNieuwIDs = new Set();
+
 function nbRenderKaart(b, toptienNr) {
   let label;
   if (toptienNr) {
     label = '<span class="nb-label-nr">' + toptienNr + '</span>';
-  } else if (b.nieuw) {
+  } else if (_nbNieuwIDs.has(b.id)) {
     label = '<span class="nb-label nb-label-nieuw">Nieuw</span>';
   } else if (b.aanbieding) {
     label = '<span class="nb-label nb-label-aanbieding">Aanbieding</span>';
@@ -173,7 +176,9 @@ async function nbLaadBoeken() {
       const isbn = (b.isbn||'').replace(/-/g,'');
       return { ...b, uitverkocht: isbn ? !bestaandeISBNs.has(isbn) : true };
     });
-    return [...boeken, ...nieuweVaste];
+    const alle = [...boeken, ...nieuweVaste];
+    _nbNieuwIDs = new Set(nbNieuwBoeken(alle, 20).map(b => b.id));
+    return alle;
   } catch(e) {
     console.error('Kon boeken.json niet laden:', e);
     return [];

@@ -1043,6 +1043,11 @@
       <span id="instMelding" style="font-size:0.82rem;color:var(--groen);display:none;">✓ Bestand gedownload</span>
     </div>
 
+    <div class="formulier-kaart" style="margin-top:1rem;">
+      <div class="formulier-kop">SEO-teksten per categorie <span>Titel en twee alinea's onderaan elke categoriepagina</span></div>
+      <div style="padding:1.5rem;display:flex;flex-direction:column;gap:1.5rem;" id="catSeoVelden"></div>
+    </div>
+
   </div>
 </div>
 
@@ -1954,6 +1959,34 @@ async function laadInstellingen() {
   document.getElementById('iTekstNieuwSeo').value        = t.nieuw_seo         || '';
   document.getElementById('iTekstAanbiedingenSeo').value = t.aanbiedingen_seo  || '';
   document.getElementById('iTekstToptienSeo').value      = t.toptien_seo       || '';
+
+  // Categorie SEO-velden dynamisch opbouwen
+  const cats = [...new Set(BOEKEN.flatMap(b => {
+    const c = b.categorieën || b.categorie;
+    return Array.isArray(c) ? c : (c ? [c] : []);
+  }))].sort();
+
+  const container = document.getElementById('catSeoVelden');
+  container.innerHTML = cats.map(slug => {
+    const naam = slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, ' ');
+    return `<div style="border:1px solid var(--grijs-rand);border-radius:6px;overflow:hidden;">
+      <div style="background:var(--zwart);color:white;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:0.5rem 0.9rem;">${escHtml(naam)}</div>
+      <div style="padding:1rem;display:flex;flex-direction:column;gap:0.75rem;">
+        <div class="veld">
+          <label>SEO-koptekst</label>
+          <input type="text" id="catSeo_${slug}_titel" value="${escHtml(t['cat_'+slug+'_titel']||'')}" style="width:100%;">
+        </div>
+        <div class="veld">
+          <label>Eerste alinea</label>
+          <textarea id="catSeo_${slug}_tekst" rows="2" style="width:100%;resize:vertical;">${escHtml(t['cat_'+slug+'_tekst']||'')}</textarea>
+        </div>
+        <div class="veld">
+          <label>Tweede alinea</label>
+          <textarea id="catSeo_${slug}_tekst2" rows="2" style="width:100%;resize:vertical;">${escHtml(t['cat_'+slug+'_tekst2']||'')}</textarea>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
 }
 
 function slaInstellingenOp() {
@@ -1981,6 +2014,20 @@ function slaInstellingenOp() {
       ),
     }
   };
+
+  // Voeg categorie SEO-velden toe
+  const cats = [...new Set(BOEKEN.flatMap(b => {
+    const c = b.categorieën || b.categorie;
+    return Array.isArray(c) ? c : (c ? [c] : []);
+  }))].sort();
+  cats.forEach(slug => {
+    const titel = document.getElementById('catSeo_' + slug + '_titel')?.value.trim() || '';
+    const tekst = document.getElementById('catSeo_' + slug + '_tekst')?.value.trim() || '';
+    const tekst2 = document.getElementById('catSeo_' + slug + '_tekst2')?.value.trim() || '';
+    if (titel) inst.teksten['cat_' + slug + '_titel'] = titel;
+    if (tekst) inst.teksten['cat_' + slug + '_tekst'] = tekst;
+    if (tekst2) inst.teksten['cat_' + slug + '_tekst2'] = tekst2;
+  });
   const blob = new Blob([JSON.stringify(inst, null, 2)], { type: 'application/json' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);

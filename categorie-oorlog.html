@@ -79,7 +79,8 @@
   nbHerrendeer('id-desc');
   const seoTitel = nbTekst('cat_oorlog_titel', 'Oorlog in en rond Nijmegen');
   const seoTekst = nbTekst('cat_oorlog_tekst', 'Ontdek ons aanbod boeken in de categorie oorlog. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.');
-  document.getElementById('nbSeoBlok').innerHTML = '<h2>' + seoTitel + '</h2><p>' + seoTekst + '</p>';
+  const seoTekst2 = nbTekst('cat_oorlog_tekst2', '');
+  document.getElementById('nbSeoBlok').innerHTML = '<h2>' + seoTitel + '</h2><p>' + seoTekst + '</p>' + (seoTekst2 ? '<p>' + seoTekst2 + '</p>' : '');
 
   // ItemList schema
   const itemList = document.createElement('script'); itemList.type = 'application/ld+json';

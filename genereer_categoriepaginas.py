@@ -106,7 +106,8 @@ def genereer_pagina(slug, naam, aantal):
   nbHerrendeer('id-desc');
   const seoTitel = nbTekst('cat_{slug}_titel', '{naam} in en rond Nijmegen');
   const seoTekst = nbTekst('cat_{slug}_tekst', 'Ontdek ons aanbod boeken in de categorie {naam.lower()}. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.');
-  document.getElementById('nbSeoBlok').innerHTML = '<h2>' + seoTitel + '</h2><p>' + seoTekst + '</p>';
+  const seoTekst2 = nbTekst('cat_{slug}_tekst2', '');
+  document.getElementById('nbSeoBlok').innerHTML = '<h2>' + seoTitel + '</h2><p>' + seoTekst + '</p>' + (seoTekst2 ? '<p>' + seoTekst2 + '</p>' : '');
 
   // ItemList schema
   const itemList = document.createElement('script'); itemList.type = 'application/ld+json';
