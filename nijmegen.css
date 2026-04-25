@@ -317,6 +317,7 @@ body {
   border: 1px solid var(--grijs-rand);
   border-radius: var(--radius);
   margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .nb-welkom-inner {
@@ -338,7 +339,7 @@ body {
 .nb-pagina {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 1.5rem 1.5rem;
+  padding: 0 1.5rem 1.5rem;
   display: grid;
   grid-template-columns: 1fr 200px;
   gap: 2rem;
@@ -353,6 +354,7 @@ body {
   height: calc(100vh - 60px);
   overflow: hidden;
   align-self: start;
+  margin-top: 1rem;
 }
 
 .nb-sidebar::-webkit-scrollbar { width: 4px; }
