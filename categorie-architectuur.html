@@ -18,6 +18,8 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preload" href="nijmegen.js" as="script">
+  <link rel="preconnect" href="https://wscovers1.tlsecure.com">
   <link rel="stylesheet" href="nijmegen.css">
 </head>
 <body>
@@ -78,10 +80,25 @@
   const seoTekst = nbTekst('cat_architectuur_tekst', 'Ontdek ons aanbod boeken in de categorie architectuur. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.');
   const seoTekst2 = nbTekst('cat_architectuur_tekst2', '');
   document.getElementById('nbSeoBlok').innerHTML = '<h2>' + seoTitel + '</h2><p>' + seoTekst + '</p>' + (seoTekst2 ? '<p>' + seoTekst2 + '</p>' : '');
+
+  // ItemList schema
   const itemList = document.createElement('script'); itemList.type = 'application/ld+json';
-  itemList.textContent = JSON.stringify({"@context":"https://schema.org","@type":"ItemList","name":"Architectuurboeken over Nijmegen","url":"https://nijmeegseboeken.nl/categorie-architectuur.html","numberOfItems":gefilterd.length,"itemListElement":gefilterd.slice(0,10).map((b,i)=({"@type":"ListItem","position":i+1,"url":"https://nijmeegseboeken.nl/boek.html?id="+b.id,"name":b.titel}))});
+  itemList.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Architectuurboeken over Nijmegen",
+    "url": "https://nijmeegseboeken.nl/categorie-architectuur.html",
+    "numberOfItems": gefilterd.length,
+    "itemListElement": gefilterd.slice(0,10).map((b, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "url": "https://nijmeegseboeken.nl/boek.html?id=" + b.id,
+      "name": b.titel
+    }))
+  });
   document.head.appendChild(itemList);
-  nbFixCoverHoogtes(); setTimeout(nbFixCoverHoogtes, 300);
+  nbFixCoverHoogtes();
+  setTimeout(nbFixCoverHoogtes, 300);
 })();
 </script>
 </body>
