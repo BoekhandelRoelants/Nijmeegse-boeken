@@ -836,12 +836,16 @@ body {
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .nb-pagina { grid-template-columns: 1fr; }
-  .nb-sidebar { position: static; }
+  .nb-sidebar { position: static; max-height: none; }
   .nb-hero-inhoud { flex-direction: column; align-items: flex-start; }
   .nb-hero-rechts { align-items: flex-start; width: 100%; }
   .nb-zoekbalk input { width: 100%; }
   .nb-zoekbalk { width: 100%; }
   .nb-badges { justify-content: flex-start; }
+
+  /* Op subpagina's: content boven sidebar op mobiel */
+  .nb-pagina-sub .nb-hoofd  { order: 1; }
+  .nb-pagina-sub .nb-sidebar { order: 2; }
 }
 
 /* ── PAGINERING ── */

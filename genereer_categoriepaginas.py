@@ -51,7 +51,7 @@ def genereer_pagina(slug, naam, aantal):
 <body>
 <div id="nbHeader"></div>
 <main>
-  <div class="nb-pagina">
+  <div class="nb-pagina nb-pagina-sub">
     <aside class="nb-sidebar">
       <div class="nb-sidebar-blok">
         <h3>Nieuwste boeken</h3>
