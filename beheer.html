@@ -939,6 +939,14 @@
 <div class="pagina" id="pagina-instellingen">
   <div class="wrapper">
 
+    <div style="padding:0.75rem 0 1.25rem;display:flex;gap:0.75rem;align-items:center;">
+      <label class="btn btn-outline" style="cursor:pointer;">
+        ↑ instellingen.json laden
+        <input type="file" accept=".json" style="display:none" onchange="laadInstellingenBestand(this)">
+      </label>
+      <span style="font-size:0.82rem;color:var(--grijs-muted);">Laad een eerder gedownloade instellingen.json</span>
+    </div>
+
     <div class="formulier-kaart">
       <div class="formulier-kop">Homepagina — secties <span>Aantal boeken per sectie (0 = geen limiet)</span></div>
       <div style="padding:1.5rem;display:flex;flex-direction:column;gap:1.25rem;">
@@ -2038,6 +2046,25 @@ function slaInstellingenOp() {
   const m = document.getElementById('instMelding');
   m.style.display = 'inline';
   setTimeout(() => m.style.display = 'none', 3000);
+}
+
+function laadInstellingenBestand(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (Array.isArray(data)) throw new Error('Dit is geen instellingen.json maar een boeken array');
+      INSTELLINGEN = data;
+      laadInstellingen();
+      toonMelding('instellingen.json geladen uit ' + file.name, 'succes');
+    } catch(err) {
+      toonMelding('Fout bij laden: ' + err.message, 'fout');
+    }
+  };
+  reader.readAsText(file);
+  input.value = '';
 }
 
 // ══════════════════════════════════════
