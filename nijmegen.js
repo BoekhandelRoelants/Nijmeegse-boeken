@@ -254,7 +254,7 @@ function nbHeaderHTML(actiefNav, categorieën) {
     + '</div>'
     + '<div class="nb-badges">'
     + '<span class="nb-badge">\u2713 Gratis verzending vanaf \u20ac30,-</span>'
-    + '<span class="nb-badge">\u2713 Afhalen bij Roelants</span>'
+    + '<span class="nb-badge"><img src="mol.png" alt="" class="nb-mol"> Afhalen bij Roelants</span>'
     + '</div></div></div></div>'
     + '<nav class="nb-nav" aria-label="Hoofdnavigatie">'
     + '<div class="nb-nav-inner">'
@@ -300,7 +300,7 @@ function nbFooterHTML(categorieën) {
         <div class="nb-footer-blok">
           <h4>Contact</h4>
           <p>
-            Boekhandel Roelants<br>
+            <img src="mol.png" alt="" class="nb-mol-contact"> Boekhandel Roelants<br>
             Van Broeckhuysenstraat 34<br>
             6511 PJ Nijmegen<br>
             <a href="tel:+31243221734">024 322 17 34</a><br>

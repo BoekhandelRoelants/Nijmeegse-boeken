@@ -915,3 +915,24 @@ body {
   font-size: 0.78rem;
   color: var(--grijs-muted);
 }
+
+/* ── MOL ── */
+.nb-mol {
+  height: 1em;
+  width: auto;
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 2px;
+  position: relative;
+  top: -1px;
+}
+
+.nb-mol-contact {
+  height: 1.2em;
+  width: auto;
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 3px;
+  position: relative;
+  top: -2px;
+}
