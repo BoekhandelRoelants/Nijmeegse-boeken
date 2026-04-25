@@ -356,6 +356,7 @@ body {
   scrollbar-width: thin;
   scrollbar-color: var(--grijs-rand) transparent;
   align-self: start;
+  will-change: transform;
 }
 
 /* Herstel grid-kolommen */

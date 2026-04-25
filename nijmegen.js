@@ -473,6 +473,50 @@ window.nbGaNaarPagina = function(nr) {
 };
 
 
+// ── SIDEBAR VASTZETTEN ──
+function nbFixSidebar() {
+  const sidebar = document.querySelector('.nb-sidebar');
+  if (!sidebar) return;
+
+  if (window.innerWidth <= 768) {
+    sidebar.style.cssText = '';
+    const ph = document.getElementById('nbSidebarPlaceholder');
+    if (ph) ph.style.display = 'none';
+    return;
+  }
+
+  const pagina = sidebar.closest('.nb-pagina');
+  if (!pagina) return;
+
+  const paginaRect = pagina.getBoundingClientRect();
+  const left = pagina.getBoundingClientRect().left + window.scrollX;
+  const navHoogte = document.querySelector('.nb-nav')?.offsetHeight || 48;
+  const top = navHoogte + 8;
+
+  sidebar.style.position = 'fixed';
+  sidebar.style.top = top + 'px';
+  sidebar.style.left = (pagina.getBoundingClientRect().left) + 'px';
+  sidebar.style.width = '200px';
+  sidebar.style.maxHeight = 'calc(100vh - ' + (top + 8) + 'px)';
+  sidebar.style.overflowY = 'auto';
+  sidebar.style.overflowX = 'hidden';
+  sidebar.style.zIndex = '10';
+
+  // Placeholder zodat grid niet inzakt
+  let ph = document.getElementById('nbSidebarPlaceholder');
+  if (!ph) {
+    ph = document.createElement('div');
+    ph.id = 'nbSidebarPlaceholder';
+    sidebar.parentNode.insertBefore(ph, sidebar);
+  }
+  ph.style.display = '';
+  ph.style.width = sidebar.offsetWidth + 'px';
+  ph.style.minHeight = '1px';
+}
+
+window.addEventListener('load', nbFixSidebar);
+window.addEventListener('resize', () => { clearTimeout(window._nbSbTimer); window._nbSbTimer = setTimeout(nbFixSidebar, 50); });
+
 function nbToggleDropdown(e) {
   e.stopPropagation();
   const menu = document.getElementById('nbCatMenu');
