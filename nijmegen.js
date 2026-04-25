@@ -228,7 +228,7 @@ function nbHeaderHTML(actiefNav, categorieën) {
     { href: 'toptien.html',      label: 'Top Tien' },
     { href: 'nieuw.html',        label: 'Nieuw' },
     { href: 'aanbiedingen.html', label: 'Aanbiedingen' },
-    { href: 'categorie-nijmegen-zo-mooi-als-het-was.html', label: 'Nijmegen vroeger' },
+    { href: 'categorie-nijmegen-zo-mooi-als-het-was.html', label: 'Nijmegen, zo mooi als het was' },
   ];
 
   const catItems = (categorieën || []).map(c =>
