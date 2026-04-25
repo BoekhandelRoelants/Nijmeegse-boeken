@@ -189,7 +189,8 @@
       "regio Nijmegen",
       "Landgoed Mookerheide"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789492576743/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789492576743/boek",
+    "ondertitel": "een veelzijdig verblijf"
   },
   {
     "id": 8,
@@ -311,7 +312,7 @@
     "jaar": 2025,
     "paginas": 170,
     "formaat": "Paperback",
-    "prijs": 20,
+    "prijs": 20.0,
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "50, 100 & 25 jaar filmavant-garde in Nijmegen",
@@ -355,7 +356,8 @@
       "kunst",
       "geschiedenis"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789090411163/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789090411163/boek",
+    "ondertitel": ""
   },
   {
     "id": 14,
@@ -783,7 +785,7 @@
     "jaar": 2021,
     "paginas": 88,
     "formaat": "Paperback",
-    "prijs": 17,
+    "prijs": 17.0,
     "categorieën": [
       "natuur",
       "regio-nijmegen",
@@ -937,7 +939,7 @@
     "jaar": 2025,
     "paginas": 164,
     "formaat": "Paperback",
-    "prijs": 23,
+    "prijs": 23.0,
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "Nijmegen was de belangrijkste stad in het aanzienlijkste gewest van de Nederlandse Republiek. Hoewel ver landinwaarts gelegen, was de stad innig verbonden met steden van waaruit schepen van de handelscompagnieën vertrokken om te handelen in specerijen, suiker en mensen. Welke Nijmeegse stadsbestuurders profiteerden van slavernij? Hoe gebruikten burgemeesters hun macht om slavernij te steunen? Hoe werd slavernij in Nijmegen besproken? En beïnvloedden koloniale belangengroepen het beleid? Dit boek werpt nieuw licht op de betrokkenheid van de Nijmeegse stadsbestuurders bij koloniale slavernij vanaf het einde van de zestiende eeuw tot en met 1873.",
@@ -1033,7 +1035,7 @@
     "jaar": 2014,
     "paginas": 200,
     "formaat": "Paperback",
-    "prijs": 15,
+    "prijs": 15.0,
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "Op 22 februari 1944 bombardeerden Amerikaanse vliegtuigen de stad Nijmegen. Het werd een van de grootste rampen die Nederland in de twintigste eeuw zou treffen. Bijna 800 doden, duizenden gewonden en een kwart van het centrum van de kaart geveegd. Over de reden van dit bombardement is lang en veel gespeculeerd. Een Amerikaanse commandant beweerde dat hij Nijmegen aanzag voor Goch. Maar was dat wel zo? Wat was de ware toedracht? Zeven maanden later startte operatie Market Garden en werd Nijmegen frontstad. Weer vielen er honderden doden en werden duizenden huizen verwoest of zwaar beschadigd. Inmiddels is over het bombardement veel bekend geworden, maar tegelijkertijd zijn ook vertekende verhalen in omloop gekomen. In The destruction of Nijmegen, 1944 ontrafelt Joost Rosendaal het verhaal van het unfriendly re én van de uiteindelijke bevrijding van Nijmegen. Joost Rosendaal studeerde geschiedenis in Nijmegen en Parijs. Hij is als universitair docent politieke-cultuurgeschiedenis verbonden aan de Radboud Universiteit Nijmegen. Bij Vantilt verschenen eerder onder andere Bataven! Nederlandse vluchtelingen in Frankrijk, 1787-1795, Tot Nut van Nederland, Uit de plooi en Nijmegen '44.",
@@ -1130,7 +1132,7 @@
     "jaar": 2025,
     "paginas": 312,
     "formaat": "Paperback",
-    "prijs": 15,
+    "prijs": 15.0,
     "categorieën": [
       "literatuur"
     ],
@@ -1202,7 +1204,7 @@
     "jaar": 2025,
     "paginas": 256,
     "formaat": "Gebonden",
-    "prijs": 20,
+    "prijs": 20.0,
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "‘Een roman die je langzaam de keel snoert.’ – **** de Volkskrant Mikael woont met zijn ouders op een afgelegen eiland tussen Schotland en Noorwegen. Op een dag verdwijnt zijn vader in zee en Mikael verzwijgt wat er is gebeurd. Schuld, troost en verwijten stapelen zich op, tot zijn moeder het onmogelijke van hem verlangt. ‘Jaap Robben behandelt kwetsbare en gevaarlijke materie met subtiliteit en inlevingsvermogen, maar ook met een scherp observatievermogen dat meesterlijk en onvergetelijk is.’ – Colm Tóibín",
@@ -1226,7 +1228,7 @@
     "jaar": 2023,
     "paginas": 316,
     "formaat": "Paperback",
-    "prijs": 20,
+    "prijs": 20.0,
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "De dertienjarige Brian woont bij zijn vader op een afgelegen terrein in een caravan. Brians verstandelijk en fysiek beperkte broer Lucien brengt zijn dagen door in een instelling. Een renovatie tijdens de zomer maakt het noodzakelijk dat Lucien elders wordt opgevangen. De vader, vooral gemotiveerd door de in het vooruitzicht gestelde vergoeding, haalt Lucien naar de caravan en maakt de jonge Brian verantwoordelijk voor de verzorging van zijn broer. Maar hoe praat je met iemand die niet spreekt? Hoe zorg je voor iemand van wie je niet weet wat hij nodig heeft? Hoe maak je de juiste keuzes als je zelf nog zo veel moet ontdekken?",
@@ -1395,7 +1397,7 @@
     "jaar": 2021,
     "paginas": 104,
     "formaat": "Paperback",
-    "prijs": 15,
+    "prijs": 15.0,
     "categorieën": [
       "overig"
     ],
@@ -1429,7 +1431,7 @@
     "isbn": "9789461480323",
     "trefwoorden": [],
     "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789461480323/boek",
-    "ondertitel": ""
+    "ondertitel": "een cultuurhistorische wandeling"
   },
   {
     "id": 57,
@@ -1467,7 +1469,7 @@
     "jaar": 2022,
     "paginas": 272,
     "formaat": "Paperback",
-    "prijs": 30,
+    "prijs": 30.0,
     "categorieën": [
       "overig"
     ],
@@ -1635,7 +1637,7 @@
     "jaar": 2021,
     "paginas": 232,
     "formaat": "Paperback",
-    "prijs": 20,
+    "prijs": 20.0,
     "categorieën": [
       "overig"
     ],
@@ -1659,7 +1661,7 @@
     "jaar": 2024,
     "paginas": null,
     "formaat": "Paperback",
-    "prijs": 20,
+    "prijs": 20.0,
     "categorieën": [
       "overig"
     ],
@@ -1683,7 +1685,7 @@
     "jaar": 2025,
     "paginas": 184,
     "formaat": "Paperback",
-    "prijs": 20,
+    "prijs": 20.0,
     "categorieën": [
       "overig"
     ],
@@ -1707,7 +1709,7 @@
     "jaar": 2019,
     "paginas": 224,
     "formaat": "Paperback",
-    "prijs": 5,
+    "prijs": 5.0,
     "categorieën": [
       "overig"
     ],
@@ -1779,7 +1781,7 @@
     "jaar": 2015,
     "paginas": null,
     "formaat": "Gebonden",
-    "prijs": 10,
+    "prijs": 10.0,
     "categorieën": [
       "overig"
     ],
@@ -1851,7 +1853,7 @@
     "jaar": 2024,
     "paginas": 350,
     "formaat": "Gebonden",
-    "prijs": 35,
+    "prijs": 35.0,
     "categorieën": [
       "overig"
     ],
@@ -1875,7 +1877,7 @@
     "jaar": 2022,
     "paginas": 200,
     "formaat": "Gebonden",
-    "prijs": 15,
+    "prijs": 15.0,
     "categorieën": [
       "overig"
     ],
@@ -1923,7 +1925,7 @@
     "jaar": 2023,
     "paginas": 154,
     "formaat": "Paperback",
-    "prijs": 15,
+    "prijs": 15.0,
     "categorieën": [
       "overig"
     ],
@@ -2043,7 +2045,7 @@
     "jaar": 2022,
     "paginas": 1280,
     "formaat": "Paperback",
-    "prijs": 100,
+    "prijs": 100.0,
     "categorieën": [
       "overig"
     ],
@@ -2068,7 +2070,7 @@
     "jaar": 2025,
     "paginas": 234,
     "formaat": "Gebonden",
-    "prijs": 25,
+    "prijs": 25.0,
     "categorieën": [
       "geschiedenis",
       "natuur",
@@ -2079,6 +2081,7 @@
     "beschrijving": "De Sint Jansberg bij Mook is een van de mooiste wandelgebieden van Nederland. Het golvende heuvellandschap, de bronnen en beken, de rijke natuur: het is een plek die al eeuwen tot de verbeelding spreekt. Achter het idyllische landschap gaat een rijke en boeiende geschiedenis schuil, die nu voor het eerst volledig wordt verteld. De Jansberg vormt de meest zuidelijke stuwwal van ons land, met veel reliëf en meerdere bronnen en beken. Op de flanken ervan stond de grootste Romeinse villa van Nederland. De adellijke familie Van Riemsdijk-van Verschuer kocht vanaf 1828 meerdere terreinen en voegde die samen tot een vooraanstaand landgoed met fraaie tuinen en parken, uitgestrekte bossen en een reeks van pachtboerderijen. Toeristen vonden hun weg naar de Jansberg en kunstenaars vormden er een kolonie – hun werk getuigt van de toenmalige schoonheid. Natuurvrienden uit het westen des lands, onder wie de beroemde natuurvorser Jacques P. Thijsse, vonden er een favoriete plek. In de twintigste eeuw kreeg het landgoed het economisch moeilijk; in de oorlogsjaren 1944-1945 volgde een dramatische verwoesting. In 1972 verkocht de familie het landgoed aan Natuurmonumenten. Daarmee blijft de Jansberg, met zijn zeldzame natuur en aantrekkelijke landschap, behouden voor de toekomst.",
     "isbn": "9789464551891",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789464551891/boek"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789464551891/boek",
+    "ondertitel": "Ontwikkeling en teloorgang van 'een der schoonste landgoederen van ons vaderland'"
   }
 ]

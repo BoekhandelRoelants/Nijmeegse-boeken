@@ -25,12 +25,23 @@ import requests
 from pathlib import Path
 from bs4 import BeautifulSoup
 
+# Playwright voor prijzen (laadt JavaScript)
+try:
+    from playwright.sync_api import sync_playwright
+    from playwright_stealth import Stealth
+    PLAYWRIGHT_BESCHIKBAAR = True
+except ImportError:
+    PLAYWRIGHT_BESCHIKBAAR = False
+    print("⚠️  Playwright niet geïnstalleerd. Prijzen worden via statische HTML opgehaald.")
+    print("   Installeer met: pip3 install playwright playwright-stealth && python3 -m playwright install chromium")
+
 # ─────────────────────────────────────────────
 # INSTELLINGEN
 # ─────────────────────────────────────────────
 BOEKEN_JSON         = Path(__file__).parent / "boeken.json"
-GELIJKTIJDIG        = 5
-VERTRAGING          = 1.0
+GELIJKTIJDIG        = 2          # Max 2 gelijktijdige verzoeken
+VERTRAGING          = 3.0        # 3 seconden tussen verzoeken
+VERTRAGING_PLAYWRIGHT = 4.0      # Extra wachttijd voor Playwright
 TIMEOUT             = 15
 MAX_POGINGEN        = 3
 
@@ -75,8 +86,7 @@ def jaar_uit_datum(datum: str) -> int | None:
 
 
 def prijs_uit_html(soup) -> float | None:
-    """Zoekt de prijs op in de HTML van Roelants."""
-    # Zoek naar prijspatronen zoals €\xa024,95 of € 24,95
+    """Statische fallback — zoekt prijs in al geladen HTML."""
     tekst = soup.get_text(" ", strip=True)
     match = re.search(r"€\s*([\d]+[,.][\d]{2})", tekst)
     if match:
@@ -84,6 +94,107 @@ def prijs_uit_html(soup) -> float | None:
         if 0 < prijs < 1000:
             return prijs
     return None
+
+
+def _parse_prijs(tekst: str) -> float | None:
+    """Parst een prijstekst naar float."""
+    match = re.search(r"([\d]+[,.][\d]{2})", tekst.replace("\xa0", ""))
+    if match:
+        prijs = float(match.group(1).replace(",", "."))
+        if 0 < prijs < 1000:
+            return prijs
+    return None
+
+
+# Gedeelde Playwright browser instantie — thread-local voor thread-veiligheid
+import threading
+_pw_local = threading.local()
+
+def _pw_start():
+    if not PLAYWRIGHT_BESCHIKBAAR:
+        return False
+    if not getattr(_pw_local, 'browser', None):
+        _pw_local.instance = sync_playwright().start()
+        _pw_local.browser  = _pw_local.instance.chromium.launch(headless=True)
+        _pw_local.stealth  = Stealth(
+            navigator_user_agent_override=(
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/124.0.0.0 Safari/537.36"
+            )
+        )
+    return True
+
+def _pw_stop():
+    if getattr(_pw_local, 'browser', None):
+        _pw_local.browser.close()
+        _pw_local.instance.stop()
+        _pw_local.browser  = None
+        _pw_local.instance = None
+        _pw_local.stealth  = None
+
+
+def haal_prijzen_playwright(isbn: str) -> tuple[float | None, float | None]:
+    """
+    Haalt actuele prijs (en eventuele van-prijs) op via Playwright.
+    Geeft terug: (prijs, prijs_oud) — prijs_oud is None als er geen aanbieding is.
+    """
+    if not _pw_start():
+        return None, None
+
+    url = f"https://www.roelants.nl/nl/boeken-page/{isbn}/boek"
+    try:
+        context = _pw_local.browser.new_context(
+            user_agent=(
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/124.0.0.0 Safari/537.36"
+            ),
+            viewport={"width": 1280, "height": 800},
+            locale="nl-NL",
+        )
+        page = context.new_page()
+        _pw_local.stealth.apply_stealth_sync(page)
+        page.goto(url, timeout=20000)
+        page.wait_for_timeout(int(VERTRAGING_PLAYWRIGHT * 1000))
+
+        prijs_oud = None
+        prijs = None
+
+        # Van-prijs (origineel, doorgestreept)
+        before = page.query_selector('.price-before-discount')
+        if before:
+            prijs_oud = _parse_prijs(before.inner_text())
+
+        # Huidige prijs — pak alle .price elementen
+        prijs_els = page.query_selector_all('.price')
+        for el in prijs_els:
+            # Sla parent-elementen over die beide prijzen bevatten
+            tekst = el.inner_text().strip()
+            if not tekst or len(tekst) > 20:
+                continue
+            # Sla price-before-discount over
+            klasse = el.get_attribute('class') or ''
+            if 'before-discount' in klasse or 'icon' in klasse:
+                continue
+            p = _parse_prijs(tekst)
+            if p:
+                prijs = p
+                break
+
+        context.close()
+
+        # Als er geen van-prijs was, is de gevonden prijs de normale prijs
+        if prijs_oud and prijs and prijs_oud == prijs:
+            prijs_oud = None
+
+        return prijs, prijs_oud
+
+    except Exception as e:
+        print(f"    ⚠️  Playwright fout voor {isbn}: {e}")
+        try: context.close()
+        except: pass
+        return None, None
 
 
 # ── De Slegte fallback ────────────────────────────────────────────────────────
@@ -315,6 +426,18 @@ async def haal_boekdata_async(
                 resultaat["beschrijving"] = beschrijving_deslegte
                 resultaat["bron_beschrijving"] = "De Slegte"
 
+        # Haal prijs op via Playwright in aparte thread (sync API in async context)
+        if PLAYWRIGHT_BESCHIKBAAR:
+            loop = asyncio.get_event_loop()
+            prijs_pw, prijs_oud_pw = await loop.run_in_executor(
+                None, haal_prijzen_playwright, isbn
+            )
+            if prijs_pw:
+                resultaat["prijs"]     = prijs_pw
+                resultaat["prijs_oud"] = prijs_oud_pw
+                if prijs_oud_pw:
+                    print(f"    💰 Van €{prijs_oud_pw:.2f} voor €{prijs_pw:.2f}")
+
     teller["verwerkt"] += 1
     if resultaat is None:
         teller["overgeslagen"] += 1
@@ -396,6 +519,8 @@ def verwerk_naar_json(resultaten: list[dict]):
                 "paginas":     r["paginas"] or b.get("paginas"),
                 "formaat":     formaat     or b.get("formaat", "Gebonden"),
                 "prijs":       r["prijs"]  if r["prijs"] else b.get("prijs", 0),
+                "prijsOud":    r.get("prijs_oud") if r.get("prijs_oud") else b.get("prijsOud"),
+                "aanbieding":  True if r.get("prijs_oud") else b.get("aanbieding", False),
                 "beschrijving": r["beschrijving"] or b.get("beschrijving", ""),
                 "isbn":        isbn,
                 "afrekenen":   r["url"],
@@ -407,8 +532,8 @@ def verwerk_naar_json(resultaten: list[dict]):
                 "id":          volgende_id,
                 "uitgelicht":  False,
                 "nieuw":       True,
-                "aanbieding":  False,
-                "prijsOud":    None,
+                "aanbieding":  True if r.get("prijs_oud") else False,
+                "prijsOud":    r.get("prijs_oud"),
                 "titel":       titel,
                 "ondertitel":  ondertitel,
                 "auteur":      r["auteur"],
@@ -476,6 +601,7 @@ def main():
 
     print(f"🚀 {len(isbns)} ISBN(s) verwerken via Roelants.nl...\n")
     resultaten = asyncio.run(run(isbns))
+    _pw_stop()
     verwerk_naar_json(resultaten)
 
 

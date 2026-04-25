@@ -57,7 +57,7 @@
   const toptien = boeken.filter(b => b.toptien);
   document.getElementById('paginaOndertitel').textContent = nbTekst('toptien_intro','') || (toptien.length
     ? 'Onze ' + toptien.length + ' aanbevolen boeken over Nijmegen'
-    : 'Binnenkort beschikbaar';
+    : 'Binnenkort beschikbaar');
   document.getElementById('gridToptien').innerHTML = toptien.length
     ? toptien.map(nbRenderKaart).join('')
     : '<p class="nb-leeg">Nog geen top tien samengesteld.</p>';

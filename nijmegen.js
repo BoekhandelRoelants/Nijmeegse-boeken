@@ -106,7 +106,7 @@ function nbRenderKaart(b) {
     + label + coverInhoud
     + '</div>'
     + '<div class="nb-kaart-info" style="' + infoStijl + '">'
-    + '<div class="nb-kaart-cat">' + escHtml(nbCatsLabel(b)) + '</div>'
+    + '<div class="nb-kaart-cat">' + escHtml(nbCatsLabel(b, 2)) + '</div>'
     + '<div class="nb-kaart-titel">' + escHtml(b.titel) + '</div>'
     + '<div class="nb-kaart-auteur">' + escHtml(b.auteur) + '</div>'
     + '<div class="nb-kaart-footer" style="' + footerStijl + '">'
@@ -138,8 +138,9 @@ function nbCats(b) {
   return c ? [c] : [];
 }
 
-function nbCatsLabel(b) {
-  return nbCats(b).map(c => c.charAt(0).toUpperCase() + c.slice(1)).join(', ');
+function nbCatsLabel(b, max) {
+  const cats = nbCats(b).slice(0, max || 999);
+  return cats.map(c => c.charAt(0).toUpperCase() + c.slice(1).replace(/-/g,' ')).join(', ');
 }
 
 function nbInCategorie(b, slug) {
@@ -432,7 +433,7 @@ function nbPaginering(boeken, paginaEl, gridEl, huidige) {
     html += '<button class="nb-pag-btn" disabled>Volgende &rsaquo;</button>';
   }
 
-  html += '<span class="nb-pag-info">' + van + 1 + '–' + tot + ' van ' + boeken.length + '</span>';
+  html += '<span class="nb-pag-info">' + (van + 1) + '–' + tot + ' van ' + boeken.length + '</span>';
   html += '</div>';
   paginaEl.innerHTML = html;
 }
