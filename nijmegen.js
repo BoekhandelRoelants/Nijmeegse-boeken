@@ -473,54 +473,6 @@ window.nbGaNaarPagina = function(nr) {
 };
 
 
-// ── SIDEBAR VASTZETTEN ──
-function nbFixSidebar() {
-  const sidebar = document.querySelector('.nb-sidebar');
-  if (!sidebar) return;
-
-  if (window.innerWidth <= 768) {
-    sidebar.style.cssText = '';
-    const ph = document.getElementById('nbSidebarPlaceholder');
-    if (ph) ph.style.display = 'none';
-    return;
-  }
-
-  const pagina = sidebar.closest('.nb-pagina');
-  if (!pagina) return;
-
-  const navHoogte = document.querySelector('.nb-nav')?.offsetHeight || 48;
-  const paginaTop = pagina.getBoundingClientRect().top + window.scrollY;
-  const paginaLeft = pagina.getBoundingClientRect().left;
-
-  // Bereken hoe ver de pagina al is gescrolld
-  const scrollY = window.scrollY;
-  const sidebarTop = Math.max(navHoogte + 8, paginaTop - scrollY);
-
-  sidebar.style.position = 'fixed';
-  sidebar.style.top = sidebarTop + 'px';
-  sidebar.style.left = paginaLeft + 'px';
-  sidebar.style.width = '200px';
-  sidebar.style.maxHeight = 'calc(100vh - ' + (sidebarTop + 8) + 'px)';
-  sidebar.style.overflowY = 'auto';
-  sidebar.style.overflowX = 'hidden';
-  sidebar.style.zIndex = '10';
-
-  // Placeholder zodat grid niet inzakt
-  let ph = document.getElementById('nbSidebarPlaceholder');
-  if (!ph) {
-    ph = document.createElement('div');
-    ph.id = 'nbSidebarPlaceholder';
-    sidebar.parentNode.insertBefore(ph, sidebar);
-  }
-  ph.style.display = '';
-  ph.style.width = '200px';
-  ph.style.minHeight = '1px';
-}
-
-window.addEventListener('load', nbFixSidebar);
-window.addEventListener('scroll', nbFixSidebar);
-window.addEventListener('resize', () => { clearTimeout(window._nbSbTimer); window._nbSbTimer = setTimeout(nbFixSidebar, 50); });
-
 function nbToggleDropdown(e) {
   e.stopPropagation();
   const menu = document.getElementById('nbCatMenu');

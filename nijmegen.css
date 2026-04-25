@@ -350,13 +350,9 @@ body {
 .nb-sidebar {
   position: sticky;
   top: 52px;
-  max-height: calc(100vh - 60px);
-  overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-width: thin;
-  scrollbar-color: var(--grijs-rand) transparent;
+  height: calc(100vh - 60px);
+  overflow: hidden;
   align-self: start;
-  will-change: transform;
 }
 
 /* Herstel grid-kolommen */
