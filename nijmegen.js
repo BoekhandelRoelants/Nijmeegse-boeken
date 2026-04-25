@@ -488,16 +488,19 @@ function nbFixSidebar() {
   const pagina = sidebar.closest('.nb-pagina');
   if (!pagina) return;
 
-  const paginaRect = pagina.getBoundingClientRect();
-  const left = pagina.getBoundingClientRect().left + window.scrollX;
   const navHoogte = document.querySelector('.nb-nav')?.offsetHeight || 48;
-  const top = navHoogte + 8;
+  const paginaTop = pagina.getBoundingClientRect().top + window.scrollY;
+  const paginaLeft = pagina.getBoundingClientRect().left;
+
+  // Bereken hoe ver de pagina al is gescrolld
+  const scrollY = window.scrollY;
+  const sidebarTop = Math.max(navHoogte + 8, paginaTop - scrollY);
 
   sidebar.style.position = 'fixed';
-  sidebar.style.top = top + 'px';
-  sidebar.style.left = (pagina.getBoundingClientRect().left) + 'px';
+  sidebar.style.top = sidebarTop + 'px';
+  sidebar.style.left = paginaLeft + 'px';
   sidebar.style.width = '200px';
-  sidebar.style.maxHeight = 'calc(100vh - ' + (top + 8) + 'px)';
+  sidebar.style.maxHeight = 'calc(100vh - ' + (sidebarTop + 8) + 'px)';
   sidebar.style.overflowY = 'auto';
   sidebar.style.overflowX = 'hidden';
   sidebar.style.zIndex = '10';
@@ -510,11 +513,12 @@ function nbFixSidebar() {
     sidebar.parentNode.insertBefore(ph, sidebar);
   }
   ph.style.display = '';
-  ph.style.width = sidebar.offsetWidth + 'px';
+  ph.style.width = '200px';
   ph.style.minHeight = '1px';
 }
 
 window.addEventListener('load', nbFixSidebar);
+window.addEventListener('scroll', nbFixSidebar);
 window.addEventListener('resize', () => { clearTimeout(window._nbSbTimer); window._nbSbTimer = setTimeout(nbFixSidebar, 50); });
 
 function nbToggleDropdown(e) {
