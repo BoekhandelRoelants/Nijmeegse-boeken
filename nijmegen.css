@@ -75,7 +75,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  overflow: hidden;
+  overflow: clip;
 }
 
 .nb-hero-overlay {
@@ -348,19 +348,19 @@ body {
 
 /* ── SIDEBAR ── */
 .nb-sidebar {
-  position: fixed;
+  position: sticky;
   top: 52px;
-  width: 200px;
   max-height: calc(100vh - 60px);
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: thin;
   scrollbar-color: var(--grijs-rand) transparent;
+  align-self: start;
 }
 
-/* Compenseer voor vaste sidebar breedte */
+/* Herstel grid-kolommen */
 .nb-pagina {
-  grid-template-columns: 216px 1fr;
+  grid-template-columns: 200px 1fr;
 }
 
 .nb-sidebar::-webkit-scrollbar { width: 4px; }
