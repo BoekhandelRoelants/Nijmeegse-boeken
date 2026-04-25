@@ -154,11 +154,20 @@ function nbInCategorie(b, slug) {
   return nbCats(b).includes(slug);
 }
 
-// ── BOEKEN LADEN ──
+// ── BOEKEN LADEN (inclusief vaste boeken) ──
 async function nbLaadBoeken() {
   try {
-    const r = await fetch('boeken.json');
-    return await r.json();
+    const [r1, r2] = await Promise.all([
+      fetch('boeken.json'),
+      fetch('boeken-vast.json').catch(() => null),
+    ]);
+    const boeken = await r1.json();
+    const vast   = r2 && r2.ok ? await r2.json() : [];
+
+    // Voeg vaste boeken toe die nog niet in boeken.json staan (op ID)
+    const bestaandeIDs = new Set(boeken.map(b => b.id));
+    const nieuweVaste  = vast.filter(b => !bestaandeIDs.has(b.id));
+    return [...boeken, ...nieuweVaste];
   } catch(e) {
     console.error('Kon boeken.json niet laden:', e);
     return [];
@@ -219,6 +228,7 @@ function nbHeaderHTML(actiefNav, categorieën) {
     { href: 'toptien.html',      label: 'Top Tien' },
     { href: 'nieuw.html',        label: 'Nieuw' },
     { href: 'aanbiedingen.html', label: 'Aanbiedingen' },
+    { href: 'categorie-nijmegen-zo-mooi-als-het-was.html', label: 'Nijmegen vroeger' },
   ];
 
   const catItems = (categorieën || []).map(c =>

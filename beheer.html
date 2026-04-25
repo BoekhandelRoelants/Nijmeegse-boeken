@@ -588,6 +588,7 @@
   <div class="tab" onclick="toonPagina('toevoegen', this)">Boek toevoegen</div>
   <div class="tab" onclick="toonPagina('categorieen', this)">Categorieën</div>
   <div class="tab" onclick="toonPagina('toptien', this)">Top Tien</div>
+  <div class="tab" onclick="toonPagina('vast', this)">Vaste boeken</div>
   <div class="tab" onclick="toonPagina('instellingen', this)">Instellingen</div>
   <div class="tab" onclick="toonPagina('json', this)">JSON bekijken</div>
 </div>
@@ -831,6 +832,94 @@
 
 <!-- ══════════════════════════════════════ -->
 <!-- PAGINA: JSON BEKIJKEN -->
+<!-- ══════════════════════════════════════ -->
+<!-- PAGINA: VASTE BOEKEN -->
+<!-- ══════════════════════════════════════ -->
+<div class="pagina" id="pagina-vast">
+  <div class="wrapper">
+    <div class="formulier-kaart">
+      <div class="formulier-kop">Vaste boeken <span>Deze boeken worden niet overschreven door het importscript</span></div>
+      <div style="padding:1rem 1.5rem;">
+        <div style="display:flex;gap:0.75rem;margin-bottom:1rem;">
+          <button class="btn btn-rood" onclick="nieuwVastBoek()">+ Boek toevoegen</button>
+          <button class="btn" onclick="importeerVastJSON()">↑ boeken-vast.json laden</button>
+          <input type="file" id="vastImportInput" accept=".json" style="display:none" onchange="laadVastJSONBestand(this)">
+          <button class="btn btn-groen" onclick="downloadVastJSON()">↓ boeken-vast.json downloaden</button>
+        </div>
+        <div id="vastTabel"></div>
+      </div>
+    </div>
+
+    <!-- Formulier voor vast boek -->
+    <div class="formulier-kaart" id="vastFormulier" style="margin-top:1rem;display:none;">
+      <div class="formulier-kop" id="vastFormTitel">Vast boek toevoegen</div>
+      <div style="padding:1.5rem;display:flex;flex-direction:column;gap:1rem;">
+        <input type="hidden" id="vvID">
+        <div class="veld-rij">
+          <div class="veld">
+            <label>Titel <span class="vereist">*</span></label>
+            <input type="text" id="vvTitel">
+          </div>
+          <div class="veld">
+            <label>Ondertitel</label>
+            <input type="text" id="vvOndertitel">
+          </div>
+        </div>
+        <div class="veld-rij">
+          <div class="veld">
+            <label>Auteur <span class="vereist">*</span></label>
+            <input type="text" id="vvAuteur">
+          </div>
+          <div class="veld">
+            <label>Uitgever</label>
+            <input type="text" id="vvUitgever">
+          </div>
+        </div>
+        <div class="veld-rij">
+          <div class="veld">
+            <label>Jaar</label>
+            <input type="number" id="vvJaar">
+          </div>
+          <div class="veld">
+            <label>Pagina's</label>
+            <input type="number" id="vvPaginas">
+          </div>
+          <div class="veld">
+            <label>Prijs <span class="vereist">*</span></label>
+            <input type="number" id="vvPrijs" step="0.01">
+          </div>
+        </div>
+        <div class="veld-rij">
+          <div class="veld">
+            <label>ISBN</label>
+            <input type="text" id="vvISBN">
+          </div>
+          <div class="veld">
+            <label>Formaat</label>
+            <select id="vvFormaat">
+              <option>Gebonden</option>
+              <option>Paperback</option>
+              <option>E-book</option>
+            </select>
+          </div>
+        </div>
+        <div class="veld">
+          <label>Beschrijving</label>
+          <textarea id="vvBeschrijving" rows="4" style="width:100%;resize:vertical;"></textarea>
+        </div>
+        <div class="veld">
+          <label>Bestelkoppeling <span class="vereist">*</span></label>
+          <input type="text" id="vvAfrekenen" placeholder="https://...">
+        </div>
+        <div style="display:flex;gap:0.75rem;padding-top:0.5rem;border-top:1px solid var(--grijs-mid);">
+          <button class="btn btn-rood" onclick="slaVastBoekOp()">Opslaan</button>
+          <button class="btn" onclick="document.getElementById('vastFormulier').style.display='none'">Annuleren</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ══════════════════════════════════════ -->
 <!-- PAGINA: TOP TIEN -->
 <!-- ══════════════════════════════════════ -->
@@ -1139,6 +1228,7 @@ function toonPagina(naam, tabEl) {
   if (naam === 'categorieen') verversCategorieLijst();
   if (naam === 'instellingen') laadInstellingen();
   if (naam === 'toptien') verversTopTien();
+  if (naam === 'vast') verversVast();
 }
 
 // ══════════════════════════════════════
@@ -1604,6 +1694,167 @@ function helderheid(hex) {
 
 function escHtml(t) {
   return String(t||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ══════════════════════════════════════
+// VASTE BOEKEN
+// ══════════════════════════════════════
+let VASTE_BOEKEN = [];
+let vastBewerkID = null;
+
+async function verversVast() {
+  // Probeer boeken-vast.json te laden
+  try {
+    const r = await fetch('boeken-vast.json');
+    if (r.ok) VASTE_BOEKEN = await r.json();
+  } catch(e) {}
+  renderVastTabel();
+}
+
+function renderVastTabel() {
+  const el = document.getElementById('vastTabel');
+  if (!VASTE_BOEKEN.length) {
+    el.innerHTML = '<p style="color:var(--grijs-muted);font-size:0.85rem;">Nog geen vaste boeken. Klik op "+ Boek toevoegen".</p>';
+    return;
+  }
+  el.innerHTML = '<table class="boek-tabel"><thead><tr>'
+    + '<th>Titel</th><th>Auteur</th><th>Prijs</th><th>ISBN</th><th></th>'
+    + '</tr></thead><tbody>'
+    + VASTE_BOEKEN.map(b => `<tr>
+        <td><strong>${escHtml(b.titel)}</strong></td>
+        <td>${escHtml(b.auteur||'')}</td>
+        <td>${b.prijs ? '€ ' + b.prijs.toFixed(2) : '—'}</td>
+        <td style="font-size:0.78rem;">${escHtml(b.isbn||'')}</td>
+        <td>
+          <button class="btn btn-klein" onclick="bewerkVastBoek(${b.id})">Bewerken</button>
+          <button class="btn btn-klein btn-rood-licht" onclick="verwijderVastBoek(${b.id})">Verwijderen</button>
+        </td>
+      </tr>`).join('')
+    + '</tbody></table>';
+}
+
+function nieuwVastBoek() {
+  vastBewerkID = null;
+  document.getElementById('vastFormTitel').textContent = 'Vast boek toevoegen';
+  ['vvID','vvTitel','vvOndertitel','vvAuteur','vvUitgever','vvISBN','vvBeschrijving','vvAfrekenen'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+  document.getElementById('vvJaar').value = new Date().getFullYear();
+  document.getElementById('vvPaginas').value = '';
+  document.getElementById('vvPrijs').value = '';
+  document.getElementById('vvFormaat').value = 'Gebonden';
+  document.getElementById('vastFormulier').style.display = '';
+  document.getElementById('vastFormulier').scrollIntoView({behavior:'smooth'});
+}
+
+function bewerkVastBoek(id) {
+  const b = VASTE_BOEKEN.find(x => x.id === id);
+  if (!b) return;
+  vastBewerkID = id;
+  document.getElementById('vastFormTitel').textContent = 'Vast boek bewerken';
+  document.getElementById('vvID').value       = b.id;
+  document.getElementById('vvTitel').value    = b.titel || '';
+  document.getElementById('vvOndertitel').value = b.ondertitel || '';
+  document.getElementById('vvAuteur').value   = b.auteur || '';
+  document.getElementById('vvUitgever').value = b.uitgever || '';
+  document.getElementById('vvJaar').value     = b.jaar || '';
+  document.getElementById('vvPaginas').value  = b.paginas || '';
+  document.getElementById('vvPrijs').value    = b.prijs || '';
+  document.getElementById('vvFormaat').value  = b.formaat || 'Gebonden';
+  document.getElementById('vvISBN').value     = b.isbn || '';
+  document.getElementById('vvBeschrijving').value = b.beschrijving || '';
+  document.getElementById('vvAfrekenen').value = b.afrekenen || '';
+  document.getElementById('vastFormulier').style.display = '';
+  document.getElementById('vastFormulier').scrollIntoView({behavior:'smooth'});
+}
+
+function slaVastBoekOp() {
+  const titel     = document.getElementById('vvTitel').value.trim();
+  const auteur    = document.getElementById('vvAuteur').value.trim();
+  const prijs     = parseFloat(document.getElementById('vvPrijs').value);
+  const afrekenen = document.getElementById('vvAfrekenen').value.trim();
+
+  if (!titel || !auteur || isNaN(prijs) || !afrekenen) {
+    toonMelding('Vul alle verplichte velden in: Titel, Auteur, Prijs en Bestelkoppeling.', 'fout');
+    return;
+  }
+
+  const boek = {
+    id:          vastBewerkID || (Math.max(...VASTE_BOEKEN.map(b => b.id), 0) + 1),
+    uitgelicht:  false,
+    nieuw:       false,
+    aanbieding:  false,
+    toptien:     false,
+    prijsOud:    null,
+    titel,
+    ondertitel:  document.getElementById('vvOndertitel').value.trim(),
+    auteur,
+    uitgever:    document.getElementById('vvUitgever').value.trim(),
+    jaar:        parseInt(document.getElementById('vvJaar').value) || null,
+    paginas:     parseInt(document.getElementById('vvPaginas').value) || null,
+    formaat:     document.getElementById('vvFormaat').value,
+    prijs,
+    categorieën: ['nijmegen-zo-mooi-als-het-was'],
+    omslag:      null,
+    kleur:       '#B21233',
+    beschrijving: document.getElementById('vvBeschrijving').value.trim(),
+    isbn:        document.getElementById('vvISBN').value.trim(),
+    trefwoorden: [],
+    afrekenen,
+  };
+
+  if (vastBewerkID) {
+    const idx = VASTE_BOEKEN.findIndex(b => b.id === vastBewerkID);
+    VASTE_BOEKEN[idx] = boek;
+    toonMelding('Vast boek bijgewerkt.', 'succes');
+  } else {
+    VASTE_BOEKEN.push(boek);
+    toonMelding('Vast boek toegevoegd.', 'succes');
+  }
+
+  document.getElementById('vastFormulier').style.display = 'none';
+  renderVastTabel();
+  nbMarkeerGewijzigd();
+}
+
+function verwijderVastBoek(id) {
+  const b = VASTE_BOEKEN.find(x => x.id === id);
+  if (!b || !confirm(`"${b.titel}" verwijderen uit vaste boeken?`)) return;
+  VASTE_BOEKEN = VASTE_BOEKEN.filter(x => x.id !== id);
+  renderVastTabel();
+  nbMarkeerGewijzigd();
+  toonMelding('Vast boek verwijderd.', 'succes');
+}
+
+function importeerVastJSON() {
+  document.getElementById('vastImportInput').click();
+}
+
+function laadVastJSONBestand(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      VASTE_BOEKEN = JSON.parse(e.target.result);
+      renderVastTabel();
+      toonMelding('boeken-vast.json geladen: ' + VASTE_BOEKEN.length + ' boeken.', 'succes');
+    } catch(err) {
+      toonMelding('Ongeldig JSON bestand.', 'fout');
+    }
+  };
+  reader.readAsText(file);
+}
+
+function downloadVastJSON() {
+  const blob = new Blob([JSON.stringify(VASTE_BOEKEN, null, 2)], {type: 'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'boeken-vast.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  nbMarkeerOpgeslagen();
+  toonMelding('boeken-vast.json gedownload.', 'succes');
 }
 
 // ══════════════════════════════════════

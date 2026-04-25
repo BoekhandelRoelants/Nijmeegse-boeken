@@ -480,11 +480,26 @@ def verwerk_naar_json(resultaten: list[dict]):
     else:
         print("\n📂 Nieuw boeken.json wordt aangemaakt")
 
+    # Laad vaste boeken — deze worden nooit overschreven
+    vast_json = BASIS / "boeken-vast.json"
+    vaste_isbns = set()
+    if vast_json.exists():
+        vast = json.loads(vast_json.read_text(encoding="utf-8"))
+        vaste_isbns = {normaliseer_isbn(b.get("isbn","")) for b in vast if b.get("isbn")}
+        print(f"🔒 {len(vaste_isbns)} vaste boeken beschermd tegen overschrijven")
+
     volgende_id = max((b.get("id", 0) for b in boeken), default=0) + 1
-    toegevoegd = bijgewerkt = 0
+    toegevoegd = bijgewerkt = overgeslagen_vast = 0
 
     for r in resultaten:
         isbn = normaliseer_isbn(r["isbn"])
+
+        # Sla vaste boeken over
+        if isbn in vaste_isbns:
+            overgeslagen_vast += 1
+            print(f"  🔒 {isbn} — beschermd (staat in boeken-vast.json)")
+            continue
+
         bestaand_idx = next(
             (i for i, b in enumerate(boeken) if normaliseer_isbn(b.get("isbn","")) == isbn),
             None
@@ -562,6 +577,8 @@ def verwerk_naar_json(resultaten: list[dict]):
     print(f"✅ Klaar!")
     print(f"   Nieuw toegevoegd : {toegevoegd}")
     print(f"   Bijgewerkt       : {bijgewerkt}")
+    if overgeslagen_vast:
+        print(f"   Beschermd (vast) : {overgeslagen_vast}")
     print(f"   Totaal in JSON   : {len(boeken)}")
     print(f"\n📄 boeken.json opgeslagen.")
     print(f"\n⚠️  Controleer daarna in beheer.html:")

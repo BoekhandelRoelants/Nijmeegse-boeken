@@ -1,0 +1,71 @@
+[
+  {
+    "id": 1,
+    "uitgelicht": false,
+    "nieuw": false,
+    "aanbieding": false,
+    "prijsOud": null,
+    "titel": "De Nijmeegse Gassen en Gasjes",
+    "auteur": "Kees Moerbeek",
+    "uitgever": null,
+    "jaar": 2025,
+    "paginas": null,
+    "formaat": "Paperback",
+    "prijs": 24.99,
+    "categorie": "nijmegen-zo-mooi-als-het-was",
+    "omslag": null,
+    "kleur": "#8b1a10",
+    "beschrijving": "",
+    "isbn": "2001000002344",
+    "trefwoorden": [
+      "Nijmegen zo mooi als het was"
+    ],
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/2001000002344"
+  },
+  {
+    "id": 2,
+    "uitgelicht": false,
+    "nieuw": false,
+    "aanbieding": false,
+    "prijsOud": null,
+    "titel": "De keizerstad die driemaal getroffen werd",
+    "auteur": "Kees Moerbeek",
+    "uitgever": null,
+    "jaar": 2023,
+    "paginas": null,
+    "formaat": "Paperback",
+    "prijs": 22.95,
+    "categorie": "nijmegen-zo-mooi-als-het-was",
+    "omslag": null,
+    "kleur": "#8b1a10",
+    "beschrijving": "",
+    "isbn": "2001000001880",
+    "trefwoorden": [
+      "Nijmegen zo mooi als het was"
+    ],
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/2001000001880"
+  },
+  {
+    "id": 3,
+    "uitgelicht": false,
+    "nieuw": false,
+    "aanbieding": false,
+    "prijsOud": null,
+    "titel": "Precies hetzelfde maar dan totaal anders",
+    "auteur": "Kees Moerbeek",
+    "uitgever": null,
+    "jaar": 2026,
+    "paginas": null,
+    "formaat": "Paperback",
+    "prijs": 24,
+    "categorie": "nijmegen-zo-mooi-als-het-was",
+    "omslag": null,
+    "kleur": "#8b1a10",
+    "beschrijving": "",
+    "isbn": "2001000002573",
+    "trefwoorden": [
+      "Nijmegen zo mooi als het was"
+    ],
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/2001000002573"
+  }
+]

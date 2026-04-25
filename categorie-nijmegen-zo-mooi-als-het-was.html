@@ -3,11 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nijmegen zo mooi als het was – Boeken over Nijmegen</title>
-  <meta name="description" content="Boeken over Nijmegen in de categorie Nijmegen zo mooi als het was. 3 titels over nijmegen zo mooi als het was in en rond Nijmegen.">
+  <title>Nijmegen zo mooi als het wasboeken over Nijmegen – Nijmeegse Boeken</title>
+  <meta name="description" content="Bekijk alle nijmegen zo mooi als het wasboeken over Nijmegen en de regio. 3 titels beschikbaar bij Boekhandel Roelants. Gratis verzending vanaf €30,-.">
   <link rel="canonical" href="https://nijmeegseboeken.nl/categorie-nijmegen-zo-mooi-als-het-was.html">
+  <meta property="og:title" content="Nijmegen zo mooi als het wasboeken over Nijmegen – Nijmeegse Boeken">
+  <meta property="og:description" content="Bekijk alle nijmegen zo mooi als het wasboeken over Nijmegen. 3 titels bij Boekhandel Roelants.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"CollectionPage","name":"Nijmegen zo mooi als het was – Nijmeegse Boeken","url":"https://nijmeegseboeken.nl/categorie-nijmegen-zo-mooi-als-het-was.html"}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Nijmeegse Boeken","item":"https://nijmeegseboeken.nl/"},
+    {"@type":"ListItem","position":2,"name":"Nijmegen zo mooi als het was","item":"https://nijmeegseboeken.nl/categorie-nijmegen-zo-mooi-als-het-was.html"}
+  ]}
   </script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -17,7 +24,7 @@
 <body>
 <div id="nbHeader"></div>
 <main>
-  <div class="nb-pagina">
+  <div class="nb-pagina nb-pagina-sub">
     <aside class="nb-sidebar">
       <div class="nb-sidebar-blok">
         <h3>Nieuwste boeken</h3>
@@ -38,7 +45,8 @@
       </div>
       <div id="nbSorteerBalk"></div>
       <div class="nb-grid" id="gridCategorie"><p class="nb-leeg">Laden…</p></div>
-      <div class="nb-seo">
+      <div id="nbPaginering"></div>
+      <div class="nb-seo" id="nbSeoBlok">
         <h2>Nijmegen zo mooi als het was in en rond Nijmegen</h2>
         <p>Ontdek ons aanbod boeken in de categorie nijmegen zo mooi als het was. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.</p>
       </div>
@@ -57,12 +65,38 @@
   const gefilterd = boeken.filter(b => nbInCategorie(b, 'nijmegen-zo-mooi-als-het-was'));
   document.getElementById('paginaOndertitel').textContent = gefilterd.length + ' titel' + (gefilterd.length !== 1 ? 's' : '') + ' in deze categorie';
   document.getElementById('nbSorteerBalk').innerHTML = nbSorteerBalk('id-desc');
-  function nbHerrendeer(methode) {
+  window.nbHerrendeer = function(methode) {
     const gesorteerd = nbSorteer(gefilterd, methode);
-    document.getElementById('gridCategorie').innerHTML = gesorteerd.length ? gesorteerd.map(nbRenderKaart).join('') : '<p class="nb-leeg">Geen boeken in deze categorie.</p>';
-    nbFixCoverHoogtes(); setTimeout(nbFixCoverHoogtes, 300);
+    window._nbPaginaBoeken = gesorteerd;
+    window._nbPaginaHuidig = 1;
+    nbPaginering(gesorteerd, document.getElementById('nbPaginering'), document.getElementById('gridCategorie'), 1);
   }
+  window.nbGaNaarPagina = function(nr) {
+    window._nbPaginaHuidig = nr;
+    nbPaginering(window._nbPaginaBoeken, document.getElementById('nbPaginering'), document.getElementById('gridCategorie'), nr);
+    window.scrollTo({ top: document.getElementById('gridCategorie').offsetTop - 80, behavior: 'smooth' });
+  };
   nbHerrendeer('id-desc');
+  const seoTitel = nbTekst('cat_nijmegen-zo-mooi-als-het-was_titel', 'Nijmegen zo mooi als het was in en rond Nijmegen');
+  const seoTekst = nbTekst('cat_nijmegen-zo-mooi-als-het-was_tekst', 'Ontdek ons aanbod boeken in de categorie nijmegen zo mooi als het was. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.');
+  document.getElementById('nbSeoBlok').innerHTML = '<h2>' + seoTitel + '</h2><p>' + seoTekst + '</p>';
+
+  // ItemList schema
+  const itemList = document.createElement('script'); itemList.type = 'application/ld+json';
+  itemList.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Nijmegen zo mooi als het wasboeken over Nijmegen",
+    "url": "https://nijmeegseboeken.nl/categorie-nijmegen-zo-mooi-als-het-was.html",
+    "numberOfItems": gefilterd.length,
+    "itemListElement": gefilterd.slice(0,10).map((b, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "url": "https://nijmeegseboeken.nl/boek.html?id=" + b.id,
+      "name": b.titel
+    }))
+  });
+  document.head.appendChild(itemList);
   nbFixCoverHoogtes();
   setTimeout(nbFixCoverHoogtes, 300);
 })();
