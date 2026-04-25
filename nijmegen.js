@@ -291,7 +291,7 @@ function nbFooterHTML(categorieën) {
       <div class="nb-footer-inner">
         <div class="nb-footer-blok">
           <h4>Nijmeegse Boeken</h4>
-          <p>' + nbTekst('footer', 'Het meest complete overzicht van boeken over Nijmegen en de regio. Een initiatief van Boekhandel Roelants.') + '</p>
+          <p>${nbTekst('footer', 'Het meest complete overzicht van boeken over Nijmegen en de regio. Een initiatief van Boekhandel Roelants.')}</p>
         </div>
         <div class="nb-footer-blok">
           <h4>Categorieën</h4>
