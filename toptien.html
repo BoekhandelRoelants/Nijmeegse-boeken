@@ -54,12 +54,14 @@
   document.getElementById('nbHeader').innerHTML = nbHeaderHTML('toptien.html', cats);
   document.getElementById('nbFooter').innerHTML = nbFooterHTML(cats);
   nbVulSidebar(boeken, null);
-  const toptien = boeken.filter(b => b.toptien);
+  const toptien = boeken
+    .filter(b => b.toptien)
+    .sort((a, b) => (a.toptienVolgorde || 99) - (b.toptienVolgorde || 99));
   document.getElementById('paginaOndertitel').textContent = nbTekst('toptien_intro','') || (toptien.length
     ? 'Onze ' + toptien.length + ' aanbevolen boeken over Nijmegen'
     : 'Binnenkort beschikbaar');
   document.getElementById('gridToptien').innerHTML = toptien.length
-    ? toptien.map(nbRenderKaart).join('')
+    ? toptien.map((b, i) => nbRenderKaart(b, i + 1)).join('')
     : '<p class="nb-leeg">Nog geen top tien samengesteld.</p>';
   nbFixCoverHoogtes();
   setTimeout(nbFixCoverHoogtes, 300);

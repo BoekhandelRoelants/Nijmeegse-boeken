@@ -75,10 +75,17 @@ function nbCoverURL(b) {
   return null;
 }
 
-function nbRenderKaart(b) {
-  const label = b.nieuw
-    ? '<span class="nb-label nb-label-nieuw">Nieuw</span>'
-    : b.aanbieding ? '<span class="nb-label nb-label-aanbieding">Aanbieding</span>' : '';
+function nbRenderKaart(b, toptienNr) {
+  let label;
+  if (toptienNr) {
+    label = '<span class="nb-label-nr">' + toptienNr + '</span>';
+  } else if (b.nieuw) {
+    label = '<span class="nb-label nb-label-nieuw">Nieuw</span>';
+  } else if (b.aanbieding) {
+    label = '<span class="nb-label nb-label-aanbieding">Aanbieding</span>';
+  } else {
+    label = '';
+  }
   const prijsOud = b.prijsOud ? nbPrijs(b.prijsOud) : null;
   const coverURL = nbCoverURL(b);
   const coverInhoud = coverURL

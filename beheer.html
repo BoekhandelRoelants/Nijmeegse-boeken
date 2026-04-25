@@ -346,6 +346,7 @@
     .veld textarea { resize: vertical; min-height: 80px; }
 
     .veld-hint { font-size: 0.73rem; color: var(--grijs-muted); }
+    .tt-over { border-color: var(--rood) !important; background: var(--rood-licht) !important; }
 
     .toggle-rij {
       display: grid;
@@ -586,6 +587,7 @@
   <div class="tab actief" onclick="toonPagina('overzicht', this)">Boekenoverzicht</div>
   <div class="tab" onclick="toonPagina('toevoegen', this)">Boek toevoegen</div>
   <div class="tab" onclick="toonPagina('categorieen', this)">Categorieën</div>
+  <div class="tab" onclick="toonPagina('toptien', this)">Top Tien</div>
   <div class="tab" onclick="toonPagina('instellingen', this)">Instellingen</div>
   <div class="tab" onclick="toonPagina('json', this)">JSON bekijken</div>
 </div>
@@ -829,6 +831,25 @@
 
 <!-- ══════════════════════════════════════ -->
 <!-- PAGINA: JSON BEKIJKEN -->
+<!-- ══════════════════════════════════════ -->
+<!-- PAGINA: TOP TIEN -->
+<!-- ══════════════════════════════════════ -->
+<div class="pagina" id="pagina-toptien">
+  <div class="wrapper">
+    <div class="formulier-kaart">
+      <div class="formulier-kop">Top Tien volgorde <span>Sleep boeken om de volgorde aan te passen</span></div>
+      <div style="padding:1rem 1.5rem;">
+        <div id="toptienLijst" style="display:flex;flex-direction:column;gap:6px;min-height:60px;"></div>
+        <p id="toptienLeeg" style="color:var(--grijs-muted);font-size:0.85rem;display:none;">Nog geen boeken aangevinkt als Top Tien. Vink boeken aan via het tabblad "Boek toevoegen".</p>
+      </div>
+      <div style="padding:0.75rem 1.5rem;border-top:1px solid var(--grijs-mid);display:flex;gap:0.75rem;align-items:center;">
+        <button class="btn btn-groen" onclick="slaTopTienVolgordOp()">✓ Volgorde opslaan</button>
+        <span id="toptienMelding" style="font-size:0.82rem;color:var(--groen);display:none;">✓ Opgeslagen in JSON</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ══════════════════════════════════════ -->
 <!-- PAGINA: INSTELLINGEN -->
 <!-- ══════════════════════════════════════ -->
@@ -1117,6 +1138,7 @@ function toonPagina(naam, tabEl) {
   if (naam === 'json') verversJSON();
   if (naam === 'categorieen') verversCategorieLijst();
   if (naam === 'instellingen') laadInstellingen();
+  if (naam === 'toptien') verversTopTien();
 }
 
 // ══════════════════════════════════════
@@ -1582,6 +1604,86 @@ function helderheid(hex) {
 
 function escHtml(t) {
   return String(t||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ══════════════════════════════════════
+// TOP TIEN VOLGORDE
+// ══════════════════════════════════════
+let _dragSrc = null;
+
+function verversTopTien() {
+  const lijst = document.getElementById('toptienLijst');
+  const leeg  = document.getElementById('toptienLeeg');
+  const boeken = BOEKEN.filter(b => b.toptien)
+    .sort((a, b) => (a.toptienVolgorde || 99) - (b.toptienVolgorde || 99));
+
+  if (!boeken.length) {
+    lijst.innerHTML = '';
+    leeg.style.display = '';
+    return;
+  }
+  leeg.style.display = 'none';
+
+  lijst.innerHTML = boeken.map((b, i) => `
+    <div class="tt-rij" draggable="true" data-id="${b.id}"
+         style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:var(--wit);border:1px solid var(--grijs-rand);border-radius:5px;cursor:grab;user-select:none;">
+      <span style="font-size:1rem;color:var(--grijs-muted);flex-shrink:0;">☰</span>
+      <span style="width:22px;height:22px;border-radius:50%;background:var(--rood);color:white;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">${i + 1}</span>
+      <span style="flex:1;font-size:0.88rem;font-weight:600;color:var(--zwart);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${escHtml(b.titel)}</span>
+      <span style="font-size:0.78rem;color:var(--grijs-muted);flex-shrink:0;">${escHtml(b.auteur)}</span>
+    </div>`
+  ).join('');
+
+  // Drag & drop events
+  lijst.querySelectorAll('.tt-rij').forEach(rij => {
+    rij.addEventListener('dragstart', e => {
+      _dragSrc = rij;
+      e.dataTransfer.effectAllowed = 'move';
+      rij.style.opacity = '0.4';
+    });
+    rij.addEventListener('dragend', () => {
+      rij.style.opacity = '';
+      lijst.querySelectorAll('.tt-rij').forEach(r => r.classList.remove('tt-over'));
+      herNummerTopTien();
+    });
+    rij.addEventListener('dragover', e => {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+      lijst.querySelectorAll('.tt-rij').forEach(r => r.classList.remove('tt-over'));
+      rij.classList.add('tt-over');
+    });
+    rij.addEventListener('drop', e => {
+      e.preventDefault();
+      if (_dragSrc !== rij) {
+        const rijen = [...lijst.querySelectorAll('.tt-rij')];
+        const srcIdx = rijen.indexOf(_dragSrc);
+        const dstIdx = rijen.indexOf(rij);
+        if (srcIdx < dstIdx) lijst.insertBefore(_dragSrc, rij.nextSibling);
+        else lijst.insertBefore(_dragSrc, rij);
+      }
+    });
+  });
+}
+
+function herNummerTopTien() {
+  document.getElementById('toptienLijst').querySelectorAll('.tt-rij').forEach((rij, i) => {
+    const nr = rij.querySelector('span:nth-child(2)');
+    if (nr) nr.textContent = i + 1;
+  });
+}
+
+function slaTopTienVolgordOp() {
+  const rijen = document.getElementById('toptienLijst').querySelectorAll('.tt-rij');
+  rijen.forEach((rij, i) => {
+    const id = parseInt(rij.dataset.id);
+    const boek = BOEKEN.find(b => b.id === id);
+    if (boek) boek.toptienVolgorde = i + 1;
+  });
+  nbMarkeerGewijzigd();
+  const m = document.getElementById('toptienMelding');
+  m.style.display = 'inline';
+  setTimeout(() => m.style.display = 'none', 3000);
+  toonMelding('Top Tien volgorde opgeslagen. Download boeken.json om te publiceren.', 'succes');
 }
 
 // ══════════════════════════════════════
