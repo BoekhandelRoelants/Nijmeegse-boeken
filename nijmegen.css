@@ -316,7 +316,7 @@ body {
   background: var(--wit);
   border: 1px solid var(--grijs-rand);
   border-radius: var(--radius);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .nb-welkom-inner {
@@ -338,7 +338,7 @@ body {
 .nb-pagina {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 1rem 1.5rem 1.5rem;
   display: grid;
   grid-template-columns: 200px 1fr;
   gap: 2rem;
@@ -348,14 +348,19 @@ body {
 
 /* ── SIDEBAR ── */
 .nb-sidebar {
-  position: sticky;
-  top: 48px;
+  position: fixed;
+  top: 52px;
+  width: 200px;
   max-height: calc(100vh - 60px);
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: thin;
   scrollbar-color: var(--grijs-rand) transparent;
-  align-self: start;
+}
+
+/* Compenseer voor vaste sidebar breedte */
+.nb-pagina {
+  grid-template-columns: 216px 1fr;
 }
 
 .nb-sidebar::-webkit-scrollbar { width: 4px; }
@@ -843,7 +848,11 @@ body {
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .nb-pagina { grid-template-columns: 1fr; }
-  .nb-sidebar { position: static; max-height: none; }
+  .nb-sidebar {
+    position: static;
+    width: auto;
+    max-height: none;
+  }
   .nb-hero-inhoud { flex-direction: column; align-items: flex-start; }
   .nb-hero-rechts { align-items: flex-start; width: 100%; }
   .nb-zoekbalk input { width: 100%; }
