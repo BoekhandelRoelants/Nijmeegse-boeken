@@ -1,21 +1,21 @@
 {
   "homepagina": {
-    "uitgelicht_max": 4,
-    "nieuw_max": 8,
-    "aanbiedingen_max": 4
+    "uitgelicht_max": 5,
+    "nieuw_max": 5,
+    "aanbiedingen_max": 5
   },
   "teksten": {
-    "welkom": "",
-    "welkom2": "",
-    "footer": "",
-    "homepagina_seo_titel": "",
-    "homepagina_seo": "",
-    "homepagina_seo2": "",
-    "nieuw_intro": "",
-    "aanbiedingen_intro": "",
-    "toptien_intro": "",
-    "nieuw_seo": "",
-    "aanbiedingen_seo": "",
-    "toptien_seo": ""
+    "welkom": "Welkom in de winkel voor Nijmeegse boeken, een initiatief van Boekhandel Roelants. Gratis verzending binnen Nederland bij bestellingen boven de €30,-, anders €4,95. Uiteraard kunt u uw bestelling zonder verzendkosten ook bij ons in de winkel komen afhalen. We doen ons best om onze voorraad en de website zo volledig mogelijk te houden. Wilt u zeker weten dat het boek op voorraad is, informeer dan vooraf even per mail of telefoon.",
+    "welkom2": "Voor relatiegeschenken in grotere hoeveelheden kunnen wij een aantrekkelijke korting bieden. Neem daarvoor rechtstreeks contact met ons op via 024 322 17 34 of roelants@roelants.nl.",
+    "footer": "Het meest complete overzicht van boeken over Nijmegen en de regio. Een initiatief van Boekhandel Roelants.",
+    "homepagina_seo_titel": "Boeken over Nijmegen – ontdek de rijke geschiedenis van de oudste stad van Nederland",
+    "homepagina_seo": "Nijmegen is de oudste stad van Nederland, met een geschiedenis die teruggaat tot de Romeinse tijd. Of u nu op zoek bent naar een gedegen geschiedeniswerk, een prachtig fotoboek, een gids door de Ooijpolder of een boek over het bombardement van 1944 — bij Nijmeegse Boeken vindt u het meest complete aanbod boeken over Nijmegen en de regio.",
+    "homepagina_seo2": "Alle titels zijn direct te bestellen via Boekhandel Roelants, de vertrouwde boekhandel van Nijmegen. Gratis verzending binnen Nederland bij bestellingen boven de €30,-. Liever zelf langskomen? U bent altijd welkom in onze winkel aan de Van Broeckhuysenstraat 34.",
+    "nieuw_intro": "De nieuwste aanwinsten voor liefhebbers van Nijmegen en de regio. Regelmatig aangevuld met verse titels.",
+    "aanbiedingen_intro": "Boeken over Nijmegen met een scherpe prijs. Zolang de voorraad strekt.",
+    "toptien_intro": "De tien boeken over Nijmegen die het meest verkocht worden.",
+    "nieuw_seo": "Ontdek de nieuwste boeken over Nijmegen en de regio. Van stadsgeschiedenis tot natuur en architectuur — wij houden ons aanbod actueel. Bestel direct via Boekhandel Roelants, met gratis verzending vanaf €30,-.",
+    "aanbiedingen_seo": "Boeken over Nijmegen tegen een aantrekkelijke prijs. Bekijk ons actuele aanbod en profiteer van scherpe kortingen op titels over de geschiedenis, natuur en cultuur van Nijmegen en omgeving.",
+    "toptien_seo": "De bestverkochte boeken over Nijmegen, samengesteld door Boekhandel Roelants. Van klassieke geschiedeniswerken tot prachtige fotoboeken — dit zijn de titels die Nijmegenaren het meest in huis halen."
   }
 }
