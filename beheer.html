@@ -617,7 +617,6 @@
       <select onchange="filterLijst(document.getElementById('zoekVeld').value)" id="statusFilter">
         <option value="">Alle statussen</option>
         <option value="uitgelicht">Uitgelicht</option>
-        <option value="nieuw">Nieuw</option>
         <option value="aanbieding">Aanbieding</option>
       </select>
       <button class="btn btn-rood" onclick="toonPagina('toevoegen', document.querySelectorAll('.tab')[1]); nieuwBoek()">+ Boek toevoegen</button>
@@ -750,12 +749,7 @@
                 <span class="toggle-dot"></span>
                 <span class="toggle-item-tekst">Uitgelicht</span>
               </label>
-              <label class="toggle-item">
-                <input type="checkbox" id="vNieuw" onchange="updatePreview()">
-                <span class="toggle-dot"></span>
-                <span class="toggle-item-tekst">Nieuw</span>
-              </label>
-              <label class="toggle-item">
+<label class="toggle-item">
                 <input type="checkbox" id="vAanbieding" onchange="updatePreview()">
                 <span class="toggle-dot"></span>
                 <span class="toggle-item-tekst">Aanbieding</span>
@@ -1237,7 +1231,6 @@ function toonPagina(naam, tabEl) {
 function verversStats() {
   const totaal = BOEKEN.length;
   const uitgelicht = BOEKEN.filter(b => b.uitgelicht).length;
-  const nieuw = BOEKEN.filter(b => b.nieuw).length;
   const aanbieding = BOEKEN.filter(b => b.aanbieding).length;
 
   document.getElementById('statsRij').innerHTML = `
@@ -1326,7 +1319,6 @@ function resetFormulier() {
   document.getElementById('vPrijs').value = '';
   document.getElementById('vKleur').value = '#8B1A10';
   document.getElementById('vUitgelicht').checked = false;
-  document.getElementById('vNieuw').checked = false;
   document.getElementById('vAanbieding').checked = false;
   document.getElementById('vToptien').checked = false;
   updatePreview();
@@ -1361,7 +1353,6 @@ function bewerkBoek(id) {
   document.getElementById('vOmslag').value = b.omslag || '';
   document.getElementById('vAfrekenen').value = b.afrekenen || '';
   document.getElementById('vUitgelicht').checked = !!b.uitgelicht;
-  document.getElementById('vNieuw').checked = !!b.nieuw;
   document.getElementById('vAanbieding').checked = !!b.aanbieding;
   document.getElementById('vToptien').checked = !!b.toptien;
 
@@ -1391,7 +1382,6 @@ function slaBoekOp() {
   const boek = {
     id: bewerkID || volgendeID,
     uitgelicht: document.getElementById('vUitgelicht').checked,
-    nieuw: document.getElementById('vNieuw').checked,
     aanbieding: document.getElementById('vAanbieding').checked,
     toptien: document.getElementById('vToptien').checked,
     prijsOud: prijsOudWaarde,

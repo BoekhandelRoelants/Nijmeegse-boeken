@@ -122,8 +122,7 @@
     let uitgelicht = sorteerHP(boeken.filter(b => b.uitgelicht));
     if (uitgelichtMax > 0) uitgelicht = uitgelicht.slice(0, uitgelichtMax);
 
-    let nieuw = sorteerHP(boeken.filter(b => b.nieuw));
-    if (nieuwMax > 0) nieuw = nieuw.slice(0, nieuwMax);
+    let nieuw = nbNieuwBoeken(boeken, nieuwMax > 0 ? nieuwMax : 8);
 
     let aanbiedingen = sorteerHP(boeken.filter(b => b.aanbieding));
     if (aanbiedingenMax > 0) aanbiedingen = aanbiedingen.slice(0, aanbiedingenMax);

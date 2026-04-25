@@ -338,7 +338,14 @@ window.addEventListener('resize', () => {
   window._nbResizeTimer = setTimeout(nbFixCoverHoogtes, 100);
 });
 
-// ── SORTEREN ──
+// ── NIEUWSTE BOEKEN (automatisch: top 20 op jaar desc, id desc) ──
+function nbNieuwBoeken(boeken, max) {
+  return [...boeken]
+    .sort((a, b) => (b.jaar||0) - (a.jaar||0) || (b.id||0) - (a.id||0))
+    .slice(0, max || 20);
+}
+
+
 function nbSorteer(boeken, methode) {
   const kopie = [...boeken];
   switch (methode) {

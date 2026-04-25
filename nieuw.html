@@ -55,8 +55,8 @@
   document.getElementById('nbHeader').innerHTML = nbHeaderHTML('nieuw.html', cats);
   document.getElementById('nbFooter').innerHTML = nbFooterHTML(cats);
   nbVulSidebar(boeken, null);
-  const nieuwBoeken = [...boeken.filter(b => b.nieuw)].sort((a, b) => (b.jaar||0) - (a.jaar||0) || (b.id||0) - (a.id||0));
-  document.getElementById('paginaOndertitel').textContent = nbTekst('nieuw_intro','Actuele nieuwe titels') || nieuwBoeken.length + ' titel' + (nieuwBoeken.length !== 1 ? 's' : '') + ' nieuw verschenen';
+  const nieuwBoeken = nbNieuwBoeken(boeken, 20);
+  document.getElementById('paginaOndertitel').textContent = nbTekst('nieuw_intro', 'De twintig meest recente titels over Nijmegen en de regio');
   nbPaginering(nieuwBoeken, document.getElementById('nbPaginering'), document.getElementById('gridNieuw'), 1);
   window.nbGaNaarPagina = function(nr) {
     nbPaginering(nieuwBoeken, document.getElementById('nbPaginering'), document.getElementById('gridNieuw'), nr);
