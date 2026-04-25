@@ -17,29 +17,37 @@
     "nieuw_seo": "Ontdek de nieuwste boeken over Nijmegen en de regio. Van stadsgeschiedenis tot natuur en architectuur — wij houden ons aanbod actueel. Bestel direct via Boekhandel Roelants, met gratis verzending vanaf €30,-.",
     "aanbiedingen_seo": "Boeken over Nijmegen tegen een aantrekkelijke prijs. Bekijk ons actuele aanbod en profiteer van scherpe kortingen op titels over de geschiedenis, natuur en cultuur van Nijmegen en omgeving.",
     "toptien_seo": "De bestverkochte boeken over Nijmegen, samengesteld door Boekhandel Roelants. Van klassieke geschiedeniswerken tot prachtige fotoboeken — dit zijn de titels die Nijmegenaren het meest in huis halen.",
-    "cat_architectuur_titel": "",
-    "cat_architectuur_tekst": "",
-    "cat_architectuur_tekst2": "",
-    "cat_fotografie_titel": "",
-    "cat_fotografie_tekst": "",
-    "cat_fotografie_tekst2": "",
-    "cat_geschiedenis_titel": "",
-    "cat_geschiedenis_tekst": "",
-    "cat_geschiedenis_tekst2": "",
-    "cat_kunst_titel": "",
-    "cat_kunst_tekst": "",
-    "cat_kunst_tekst2": "",
-    "cat_nijmegen-zo-mooi-als-het-was_titel": "",
-    "cat_nijmegen-zo-mooi-als-het-was_tekst": "",
-    "cat_nijmegen-zo-mooi-als-het-was_tekst2": "",
-    "cat_oorlog_titel": "",
-    "cat_oorlog_tekst": "",
-    "cat_oorlog_tekst2": "",
-    "cat_overig_titel": "",
-    "cat_overig_tekst": "",
-    "cat_overig_tekst2": "",
-    "cat_regio-nijmegen_titel": "",
-    "cat_regio-nijmegen_tekst": "",
-    "cat_regio-nijmegen_tekst2": ""
+
+    "cat_architectuur_titel": "Architectuur in Nijmegen – van Romeinse resten tot moderne binnenstad",
+    "cat_architectuur_tekst": "Nijmegen heeft een architectonisch erfgoed dat zijn weerga niet kent. Van middeleeuwse kerken en herenhuizen langs de Sterreschans tot de wederopbouw na het bombardement van 1944 — de stad draagt haar geschiedenis zichtbaar met zich mee. Onze architectuurboeken nemen u mee langs de meest bijzondere gebouwen, monumenten en stedenbouwkundige ontwikkelingen van Nijmegen.",
+    "cat_architectuur_tekst2": "Of u nu architect bent, geïnteresseerd in erfgoed of gewoon nieuwsgierig naar de gebouwde omgeving van de oudste stad van Nederland — ons aanbod biedt voor elk wat wils. Alle titels zijn direct te bestellen via Boekhandel Roelants.",
+
+    "cat_fotografie_titel": "Fotoboeken over Nijmegen – de stad in beeld",
+    "cat_fotografie_tekst": "Een foto zegt meer dan duizend woorden — zeker als het gaat om een stad met zoveel geschiedenis en karakter als Nijmegen. Onze fotoboeken laten de stad zien door de lens van getalenteerde fotografen: van de Waal en de kades tot de smalle straatjes en het bruisende stadscentrum. Elk boek is een visuele ontdekkingstocht door Nijmegen zoals u het kent, en zoals u het misschien nog niet kende.",
+    "cat_fotografie_tekst2": "Of u nu een mooi cadeau zoekt of zelf een liefhebber bent van stads- en documentairefotografie — in onze groeiende collectie Nijmeegse fotoboeken vindt u gegarandeerd iets dat u aanspreekt.",
+
+    "cat_geschiedenis_titel": "Geschiedenisboeken over Nijmegen – tweeduizend jaar oudste stad van Nederland",
+    "cat_geschiedenis_tekst": "Nijmegen is de oudste stad van Nederland, bewoond sinds de Romeinse tijd. Die rijke geschiedenis is terug te vinden in een indrukwekkende reeks boeken over de ontwikkeling van de stad door de eeuwen heen. Van de Bataafse opstand en het middeleeuwse graafschap Gelderland tot de rampzalige bombardementen in de Tweede Wereldoorlog en de naoorlogse wederopbouw — de geschiedenis van Nijmegen is even boeiend als bewogen.",
+    "cat_geschiedenis_tekst2": "Onze collectie geschiedenisboeken biedt zowel brede overzichtswerken als gespecialiseerde studies over deelonderwerpen. Ideaal voor de geschiedenisliefhebber, de student of iedereen die meer wil weten over de wortels van deze bijzondere stad.",
+
+    "cat_kunst_titel": "Kunstboeken over Nijmegen – beeldende kunst, cultuur en stadsleven",
+    "cat_kunst_tekst": "Nijmegen heeft een levendig cultureel klimaat met een rijke artistieke traditie. Onze kunstboeken belichten de beeldende kunst, het culturele erfgoed en het creatieve stadsleven van Nijmegen en omgeving. Van schilderijen en sculpturen tot hedendaagse kunst en bijzondere plekken die de stad vorm geven.",
+    "cat_kunst_tekst2": "Kunstliefhebbers, museumsgangers en iedereen die geïnteresseerd is in de culturele ziel van Nijmegen vinden in deze categorie titels die inspireren en verrassen. Alle boeken zijn te bestellen via Boekhandel Roelants.",
+
+    "cat_nijmegen-zo-mooi-als-het-was_titel": "Nijmegen vroeger – nostalgische boeken over hoe de stad er ooit uitzag",
+    "cat_nijmegen-zo-mooi-als-het-was_tekst": "Hoe zag Nijmegen er vroeger uit? In deze categorie vindt u boeken die de stad laten zien zoals zij was: de gassen en gasjes die allang verdwenen zijn, de keizerstad die driemaal door oorlog getroffen werd, de straten en gebouwen die het bombardement van 1944 niet overleefden. Deze titels zijn een waardevolle bron voor iedereen die de geschiedenis van Nijmegen een warm hart toedraagt.",
+    "cat_nijmegen-zo-mooi-als-het-was_tekst2": "De boeken in deze categorie zijn met zorg geselecteerd en blijven permanent in ons assortiment, ook als ze elders niet meer verkrijgbaar zijn. Een perfect cadeau voor Nijmegenaren met liefde voor hun stad.",
+
+    "cat_oorlog_titel": "Boeken over de Tweede Wereldoorlog in Nijmegen – bombardement, bezetting en bevrijding",
+    "cat_oorlog_tekst": "Op 22 februari 1944 werd Nijmegen zwaar getroffen door een vergissingsbombardement van geallieerde vliegtuigen, waarbij meer dan 750 mensen om het leven kwamen en grote delen van de binnenstad verwoest werden. Deze dramatische gebeurtenis, samen met de bezetting en de latere bevrijding tijdens Operatie Market Garden, vormt een cruciaal hoofdstuk in de geschiedenis van de stad.",
+    "cat_oorlog_tekst2": "Onze boeken over de oorlog in Nijmegen geven stem aan ooggetuigen, brengen de feiten nauwkeurig in kaart en herdenken de slachtoffers. Onmisbaar voor iedereen die de oorlogsgeschiedenis van Nijmegen wil begrijpen.",
+
+    "cat_overig_titel": "Boeken over Nijmegen – stadsgidsen, wandelroutes, literatuur en meer",
+    "cat_overig_tekst": "Nijmegen inspireert op vele manieren. In deze categorie vindt u een gevarieerd aanbod: van praktische stadsgidsen en wandelroutes tot literaire werken, culinaire uitgaven en bijzondere boeken die de stad vanuit een onverwachte hoek belichten. Of u nu op zoek bent naar de 111 plekken die u gezien moet hebben of naar een literaire verkenning van de stad — hier vindt u het.",
+    "cat_overig_tekst2": "Al deze titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen, met gratis verzending bij bestellingen boven de €30,-.",
+
+    "cat_regio-nijmegen_titel": "Boeken over de regio Nijmegen – Ooijpolder, Rijk van Nijmegen en omgeving",
+    "cat_regio-nijmegen_tekst": "Nijmegen ligt in een prachtige omgeving: de Ooijpolder, het Rijk van Nijmegen, de Mookerheide en de oevers van de Waal vormen samen een gebied met een rijke natuur- en cultuurhistorie. Onze boeken over de regio nemen u mee op ontdekkingstocht door dit gevarieerde landschap, van landgoederen en buitenplaatsen tot wandelroutes en historische verhalen.",
+    "cat_regio-nijmegen_tekst2": "Of u nu in de regio woont, er regelmatig wandelt of er meer over wilt weten — ons aanbod biedt een mooie ingang tot de rijke wereld rondom Nijmegen."
   }
 }
