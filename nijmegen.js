@@ -230,7 +230,7 @@ function nbVulSidebar(boeken, actiefSlug) {
 // ── GEDEELDE HEADER HTML ──
 function nbHeaderHTML(actiefNav, categorieën) {
   const nav = [
-    { href: 'index.html', label: '<svg viewBox="0 0 24 20" width="18" height="16" fill="currentColor" style="vertical-align:middle;position:relative;top:-1px" aria-label="Hoofdpagina"><polygon points="12,0 0,10 3,10 3,20 9,20 9,13 15,13 15,20 21,20 21,10 24,10"/></svg>' },
+    { href: 'index.html', label: '<img src="stevenskerk-wit.png" alt="Hoofdpagina" style="height:22px;width:auto;vertical-align:middle;position:relative;top:-1px;">' },
     { href: 'alleboeken.html',   label: 'Alle boeken' },
     { href: 'toptien.html',      label: 'Top Tien' },
     { href: 'nieuw.html',        label: 'Nieuw' },
