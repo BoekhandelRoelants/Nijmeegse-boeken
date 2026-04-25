@@ -3,11 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kunst – Boeken over Nijmegen</title>
-  <meta name="description" content="Boeken over Nijmegen in de categorie Kunst. 3 titels over kunst in en rond Nijmegen.">
+  <title>Kunstboeken over Nijmegen – Nijmeegse Boeken</title>
+  <meta name="description" content="Bekijk alle kunstboeken over Nijmegen en de regio. 3 titels beschikbaar bij Boekhandel Roelants. Gratis verzending vanaf €30,-.">
   <link rel="canonical" href="https://nijmeegseboeken.nl/categorie-kunst.html">
+  <meta property="og:title" content="Kunstboeken over Nijmegen – Nijmeegse Boeken">
+  <meta property="og:description" content="Bekijk alle kunstboeken over Nijmegen. 3 titels bij Boekhandel Roelants.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"CollectionPage","name":"Kunst – Nijmeegse Boeken","url":"https://nijmeegseboeken.nl/categorie-kunst.html"}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Nijmeegse Boeken","item":"https://nijmeegseboeken.nl/"},
+    {"@type":"ListItem","position":2,"name":"Kunst","item":"https://nijmeegseboeken.nl/categorie-kunst.html"}
+  ]}
   </script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -17,17 +24,7 @@
 <body>
 <div id="nbHeader"></div>
 <main>
-  <div class="nb-pagina">
-    <aside class="nb-sidebar">
-      <div class="nb-sidebar-blok">
-        <h3>Nieuwste boeken</h3>
-        <div id="nbSidebarNieuwste"></div>
-      </div>
-      <div class="nb-sidebar-blok">
-        <h3>Categorieën</h3>
-        <ul id="nbSidebarCats"></ul>
-      </div>
-    </aside>
+  <div class="nb-pagina nb-pagina-sub">
     <div class="nb-hoofd">
       <nav class="nb-breadcrumb" aria-label="Kruimelpad">
         <a href="index.html">Nijmeegse Boeken</a> &rsaquo; <span>Kunst</span>
@@ -38,11 +35,22 @@
       </div>
       <div id="nbSorteerBalk"></div>
       <div class="nb-grid" id="gridCategorie"><p class="nb-leeg">Laden…</p></div>
-      <div class="nb-seo">
+      <div id="nbPaginering"></div>
+      <div class="nb-seo" id="nbSeoBlok">
         <h2>Kunst in en rond Nijmegen</h2>
         <p>Ontdek ons aanbod boeken in de categorie kunst. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.</p>
       </div>
     </div>
+    <aside class="nb-sidebar">
+      <div class="nb-sidebar-blok">
+        <h3>Nieuwste boeken</h3>
+        <div id="nbSidebarNieuwste"></div>
+      </div>
+      <div class="nb-sidebar-blok">
+        <h3>Categorieën</h3>
+        <ul id="nbSidebarCats"></ul>
+      </div>
+    </aside>
   </div>
 </main>
 <div id="nbFooter"></div>
@@ -57,12 +65,38 @@
   const gefilterd = boeken.filter(b => nbInCategorie(b, 'kunst'));
   document.getElementById('paginaOndertitel').textContent = gefilterd.length + ' titel' + (gefilterd.length !== 1 ? 's' : '') + ' in deze categorie';
   document.getElementById('nbSorteerBalk').innerHTML = nbSorteerBalk('id-desc');
-  function nbHerrendeer(methode) {
+  window.nbHerrendeer = function(methode) {
     const gesorteerd = nbSorteer(gefilterd, methode);
-    document.getElementById('gridCategorie').innerHTML = gesorteerd.length ? gesorteerd.map(nbRenderKaart).join('') : '<p class="nb-leeg">Geen boeken in deze categorie.</p>';
-    nbFixCoverHoogtes(); setTimeout(nbFixCoverHoogtes, 300);
+    window._nbPaginaBoeken = gesorteerd;
+    window._nbPaginaHuidig = 1;
+    nbPaginering(gesorteerd, document.getElementById('nbPaginering'), document.getElementById('gridCategorie'), 1);
   }
+  window.nbGaNaarPagina = function(nr) {
+    window._nbPaginaHuidig = nr;
+    nbPaginering(window._nbPaginaBoeken, document.getElementById('nbPaginering'), document.getElementById('gridCategorie'), nr);
+    window.scrollTo({ top: document.getElementById('gridCategorie').offsetTop - 80, behavior: 'smooth' });
+  };
   nbHerrendeer('id-desc');
+  const seoTitel = nbTekst('cat_kunst_titel', 'Kunst in en rond Nijmegen');
+  const seoTekst = nbTekst('cat_kunst_tekst', 'Ontdek ons aanbod boeken in de categorie kunst. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.');
+  document.getElementById('nbSeoBlok').innerHTML = '<h2>' + seoTitel + '</h2><p>' + seoTekst + '</p>';
+
+  // ItemList schema
+  const itemList = document.createElement('script'); itemList.type = 'application/ld+json';
+  itemList.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Kunstboeken over Nijmegen",
+    "url": "https://nijmeegseboeken.nl/categorie-kunst.html",
+    "numberOfItems": gefilterd.length,
+    "itemListElement": gefilterd.slice(0,10).map((b, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "url": "https://nijmeegseboeken.nl/boek.html?id=" + b.id,
+      "name": b.titel
+    }))
+  });
+  document.head.appendChild(itemList);
   nbFixCoverHoogtes();
   setTimeout(nbFixCoverHoogtes, 300);
 })();

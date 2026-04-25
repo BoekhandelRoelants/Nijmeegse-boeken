@@ -340,7 +340,7 @@ body {
   margin: 0 auto;
   padding: 1rem 1.5rem 1.5rem;
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 1fr 200px;
   gap: 2rem;
   align-items: start;
   grid-auto-rows: max-content;
@@ -849,16 +849,14 @@ body {
     position: static;
     width: auto;
     max-height: none;
+    height: auto;
+    overflow: visible;
   }
   .nb-hero-inhoud { flex-direction: column; align-items: flex-start; }
   .nb-hero-rechts { align-items: flex-start; width: 100%; }
   .nb-zoekbalk input { width: 100%; }
   .nb-zoekbalk { width: 100%; }
   .nb-badges { justify-content: flex-start; }
-
-  /* Op subpagina's: content boven sidebar op mobiel */
-  .nb-pagina-sub .nb-hoofd  { order: 1; }
-  .nb-pagina-sub .nb-sidebar { order: 2; }
 }
 
 /* ── PAGINERING ── */
