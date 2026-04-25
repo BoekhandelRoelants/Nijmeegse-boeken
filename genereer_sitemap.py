@@ -43,6 +43,7 @@ def main():
 
     # Vaste pagina's
     urls.append(url("", "1.0", "daily"))
+    urls.append(url("alleboeken.html", "0.95", "weekly"))
     urls.append(url("nieuw.html", "0.9", "weekly"))
     urls.append(url("toptien.html", "0.8", "weekly"))
     urls.append(url("aanbiedingen.html", "0.8", "weekly"))
