@@ -49,6 +49,7 @@
       </div>
     </aside>
     <div class="nb-hoofd">
+      <div id="nbWelkom"></div>
       <section id="uitgelicht" aria-labelledby="kop-uitgelicht">
         <div class="nb-sectiekop">
           <h2 id="kop-uitgelicht">Uitgelicht</h2>
@@ -89,6 +90,7 @@
   const cats = [...new Set(boeken.flatMap(b => (b.categorieën||b.categorie ? (Array.isArray(b.categorieën||b.categorie) ? (b.categorieën||b.categorie) : [b.categorieën||b.categorie]) : [])))].sort().map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1).replace(/-/g,' '), slug: s}));
   document.getElementById('nbHeader').innerHTML = nbHeaderHTML('index.html', cats);
   document.getElementById('nbFooter').innerHTML = nbFooterHTML(cats);
+  document.getElementById('nbWelkom').innerHTML = nbWelkomHTML();
   nbVulSidebar(boeken, null);
 
   // Laad instellingen

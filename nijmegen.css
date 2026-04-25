@@ -180,10 +180,15 @@ body {
 .nb-nav {
   background: var(--rood);
   box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
 }
+
+/* Compenseer voor vaste navbar */
+.nb-welkom { margin-top: 48px; }
 
 .nb-nav-inner {
   max-width: 1200px;
@@ -309,12 +314,12 @@ body {
 /* ── WELKOM BLOK ── */
 .nb-welkom {
   background: var(--wit);
-  border-bottom: 1px solid var(--grijs-mid);
+  border: 1px solid var(--grijs-rand);
+  border-radius: var(--radius);
+  margin-bottom: 1.5rem;
 }
 
 .nb-welkom-inner {
-  max-width: 1200px;
-  margin: 0 auto;
   padding: 1.1rem 1.5rem;
 }
 
@@ -338,17 +343,19 @@ body {
   grid-template-columns: 200px 1fr;
   gap: 2rem;
   align-items: start;
+  grid-auto-rows: max-content;
 }
 
 /* ── SIDEBAR ── */
 .nb-sidebar {
   position: sticky;
-  top: 56px;
-  max-height: calc(100vh - 70px);
+  top: 48px;
+  max-height: calc(100vh - 60px);
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: thin;
   scrollbar-color: var(--grijs-rand) transparent;
+  align-self: start;
 }
 
 .nb-sidebar::-webkit-scrollbar { width: 4px; }

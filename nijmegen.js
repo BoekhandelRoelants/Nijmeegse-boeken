@@ -267,10 +267,16 @@ function nbHeaderHTML(actiefNav, categorieën) {
     + '<div class="nb-nav-dropdown-cols">' + catItems + '</div>'
     + '<a href="index.html" class="nb-nav-dropdown-alle">Alle categorieën →</a>'
     + '</div></div>'
-    + '</div></nav>'
-    + '<div class="nb-welkom"><div class="nb-welkom-inner">'
-    + '<p>' + nbTekst('welkom', 'Welkom in de winkel voor Nijmeegse boeken, een initiatief van <a href="https://roelants.nl" target="_blank" rel="noopener">Boekhandel Roelants</a>.') + '</p>'
-    + '<p>' + nbTekst('welkom2', '') + '</p>'
+    + '</div></nav>';
+}
+
+// Welkomsttekst apart — zodat index.html het in het grid kan plaatsen
+function nbWelkomHTML() {
+  const t1 = nbTekst('welkom', 'Welkom in de winkel voor Nijmeegse boeken, een initiatief van <a href="https://roelants.nl" target="_blank" rel="noopener">Boekhandel Roelants</a>.');
+  const t2 = nbTekst('welkom2', '');
+  return '<div class="nb-welkom"><div class="nb-welkom-inner">'
+    + '<p>' + t1 + '</p>'
+    + (t2 ? '<p>' + t2 + '</p>' : '')
     + '</div></div>';
 }
 
