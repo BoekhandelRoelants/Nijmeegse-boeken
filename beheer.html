@@ -1499,6 +1499,7 @@ function bewerkCategorie(slug) {
 }
 
 function slaCategoriOp() {
+  nbMarkeerGewijzigd();
   const naam = document.getElementById('catNaam').value.trim();
   const slug = document.getElementById('catSlug').value.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
 
@@ -1535,6 +1536,7 @@ function slaCategoriOp() {
 }
 
 function verwijderCategorie(slug) {
+  nbMarkeerGewijzigd();
   const c = CATEGORIEEN.find(x => x.slug === slug);
   const aantalBoeken = BOEKEN.filter(b => nbCats(b).includes(slug)).length;
   if (aantalBoeken > 0) {
@@ -1642,10 +1644,32 @@ function slaInstellingenOp() {
   a.download = 'instellingen.json';
   a.click();
   URL.revokeObjectURL(a.href);
+  nbMarkeerOpgeslagen();
   const m = document.getElementById('instMelding');
   m.style.display = 'inline';
   setTimeout(() => m.style.display = 'none', 3000);
 }
+
+// ══════════════════════════════════════
+// WAARSCHUWING BIJ ONOPGESLAGEN WIJZIGINGEN
+// ══════════════════════════════════════
+let nbHeeftWijzigingen = false;
+
+function nbMarkeerGewijzigd() {
+  nbHeeftWijzigingen = true;
+}
+
+function nbMarkeerOpgeslagen() {
+  nbHeeftWijzigingen = false;
+}
+
+window.addEventListener('beforeunload', e => {
+  if (nbHeeftWijzigingen) {
+    e.preventDefault();
+    e.returnValue = 'U heeft onopgeslagen wijzigingen. Weet u zeker dat u de pagina wilt verlaten?';
+    return e.returnValue;
+  }
+});
 
 // ══════════════════════════════════════
 // INIT

@@ -111,7 +111,7 @@
     document.getElementById('aanbiedingen').style.display = 'none';
     document.getElementById('kop-zoek').textContent = 'Zoekresultaten voor "' + zoekQ + '"';
     if (document.getElementById('nbZoekInput')) document.getElementById('nbZoekInput').value = zoekQ;
-    const res = boeken.filter(b => [b.titel,b.auteur,b.beschrijving,...(b.trefwoorden||[])].some(v => (v||'').toLowerCase().includes(zoekQ.toLowerCase())));
+    const res = boeken.filter(b => [b.titel, b.auteur, b.beschrijving, ...nbCats(b), ...(b.trefwoorden||[])].some(v => (v||'').toLowerCase().includes(zoekQ.toLowerCase())));
     document.getElementById('gridZoek').innerHTML = res.length ? res.map(nbRenderKaart).join('') : '<p class="nb-leeg">Geen resultaten gevonden voor "' + zoekQ + '".</p>';
   } else {
     let uitgelicht = boeken.filter(b => b.uitgelicht);

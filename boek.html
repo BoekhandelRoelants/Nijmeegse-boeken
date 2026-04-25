@@ -85,7 +85,9 @@
     .specs table td { padding: 0.5rem 1rem; vertical-align: top; }
     .specs table td:first-child { color: var(--grijs-muted); font-weight: 600; width: 38%; }
     .trefwoorden { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.75rem; }
-    .trefwoord { background: var(--grijs-licht); border: 1px solid var(--grijs-rand); border-radius: 4px; padding: 0.2rem 0.65rem; font-size: 0.78rem; color: var(--grijs-tekst); }
+    .trefwoord { background: var(--grijs-licht); border: 1px solid var(--grijs-rand); border-radius: 4px; padding: 0.2rem 0.65rem; font-size: 0.78rem; color: var(--grijs-tekst); text-decoration: none; transition: background 0.12s, color 0.12s; }
+    .trefwoord:hover { background: var(--rood-licht); color: var(--rood); border-color: var(--rood); }
+    .trefwoord-cat { background: var(--rood-licht); border-color: var(--rood); color: var(--rood); font-weight: 600; }
     .gerelateerd h2 { font-size: 1.05rem; font-weight: 700; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--rood); }
     #laadIndicator { max-width: 1200px; margin: 3rem auto; padding: 0 1.5rem; text-align: center; color: var(--grijs-muted); }
     #foutMelding { max-width: 600px; margin: 3rem auto; padding: 2rem; background: var(--wit); border: 1px solid var(--grijs-rand); border-radius: 8px; text-align: center; }
@@ -236,8 +238,24 @@
   const specs = [['Auteur',b.auteur],['Uitgever',b.uitgever],['Jaar',b.jaar],["Pagina's",b.paginas],['Formaat',b.formaat],['ISBN',(b.isbn||'').replace(/-/g,'')],['Categorie', nbCatsLabel(b)]];
   document.getElementById('specsTable').innerHTML = specs.filter(([,v])=>v).map(([k,v])=>'<tr><td>'+k+'</td><td>'+escHtml(String(v))+'</td></tr>').join('');
 
-  if (b.trefwoorden&&b.trefwoorden.length)
-    document.getElementById('trefwoorden').innerHTML = b.trefwoorden.map(t=>'<span class="trefwoord">'+escHtml(t)+'</span>').join('');
+  // Trefwoorden + categorieën als labels
+  const catLabels = nbCats(b).map((slug, i) => ({
+    tekst: slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g,' '),
+    href:  'categorie-' + slug + '.html',
+    isCat: true
+  }));
+  const trefLabels = (b.trefwoorden||[]).map(t => ({
+    tekst: t,
+    href:  'index.html?zoek=' + encodeURIComponent(t),
+    isCat: false
+  }));
+  const alleTrefwoorden = [...catLabels, ...trefLabels];
+  if (alleTrefwoorden.length) {
+    document.getElementById('trefwoorden').innerHTML = alleTrefwoorden.map(t =>
+      '<a href="' + t.href + '" class="trefwoord' + (t.isCat ? ' trefwoord-cat' : '') + '">'
+      + escHtml(t.tekst) + '</a>'
+    ).join('');
+  }
 
   document.getElementById('btnBestellen').href = b.afrekenen;
 
