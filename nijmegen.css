@@ -350,11 +350,10 @@ body {
 /* ── SIDEBAR ── */
 .nb-sidebar {
   position: sticky;
-  top: 52px;
-  height: calc(100vh - 60px);
+  top: 68px;
+  max-height: calc(100vh - 76px);
   overflow: hidden;
   align-self: start;
-  margin-top: 1rem;
 }
 
 .nb-sidebar::-webkit-scrollbar { width: 4px; }
