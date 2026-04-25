@@ -12,12 +12,15 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preload" href="nijmegen.js" as="script">
+  <link rel="preconnect" href="https://wscovers1.tlsecure.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="nijmegen.css">
 </head>
 <body>
 <div id="nbHeader"></div>
 <main>
-  <div class="nb-pagina">
+  <div class="nb-pagina nb-pagina-sub">
     <aside class="nb-sidebar">
       <div class="nb-sidebar-blok">
         <h3>Nieuwste boeken</h3>
@@ -49,13 +52,14 @@
 <script>
 (async () => {
   const boeken = await nbLaadBoeken();
-  document.getElementById('nbHeader').innerHTML = nbHeaderHTML('categorie-natuur.html', cats);
+  await nbLaadInstellingen();
   const cats = [...new Set(boeken.flatMap(b => (b.categorieën||b.categorie ? (Array.isArray(b.categorieën||b.categorie) ? (b.categorieën||b.categorie) : [b.categorieën||b.categorie]) : [])))].sort().map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1).replace(/-/g,' '), slug: s}));
+  document.getElementById('nbHeader').innerHTML = nbHeaderHTML('categorie-natuur.html', cats);
   document.getElementById('nbFooter').innerHTML = nbFooterHTML(cats);
   nbVulSidebar(boeken, 'natuur');
   const gefilterd = boeken.filter(b => nbInCategorie(b, 'natuur'));
   document.getElementById('paginaOndertitel').textContent = gefilterd.length + ' titel' + (gefilterd.length !== 1 ? 's' : '') + ' in deze categorie';
-  document.getElementById('gridCategorie').innerHTML = gefilterd.length ? gefilterd.map(nbRenderKaart).join('') : '<p class="nb-leeg">Geen boeken in deze categorie.</p>';
+  document.getElementById('gridCategorie').innerHTML = gefilterd.length ? gefilterd.map(b => nbRenderKaart(b)).join('') : '<p class="nb-leeg">Geen boeken in deze categorie.</p>';
   nbFixCoverHoogtes();
   setTimeout(nbFixCoverHoogtes, 300);
 })();

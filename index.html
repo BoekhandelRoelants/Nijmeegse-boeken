@@ -112,7 +112,7 @@
     document.getElementById('kop-zoek').textContent = 'Zoekresultaten voor "' + zoekQ + '"';
     if (document.getElementById('nbZoekInput')) document.getElementById('nbZoekInput').value = zoekQ;
     const res = boeken.filter(b => [b.titel, b.auteur, b.beschrijving, ...nbCats(b), ...(b.trefwoorden||[])].some(v => (v||'').toLowerCase().includes(zoekQ.toLowerCase())));
-    document.getElementById('gridZoek').innerHTML = res.length ? res.map(nbRenderKaart).join('') : '<p class="nb-leeg">Geen resultaten gevonden voor "' + zoekQ + '".</p>';
+    document.getElementById('gridZoek').innerHTML = res.length ? res.map(b => nbRenderKaart(b)).join('') : '<p class="nb-leeg">Geen resultaten gevonden voor "' + zoekQ + '".</p>';
   } else {
     let uitgelicht = boeken.filter(b => b.uitgelicht);
     if (uitgelichtMax > 0) uitgelicht = uitgelicht.slice(0, uitgelichtMax);
@@ -123,9 +123,9 @@
     let aanbiedingen = boeken.filter(b => b.aanbieding);
     if (aanbiedingenMax > 0) aanbiedingen = aanbiedingen.slice(0, aanbiedingenMax);
 
-    document.getElementById('gridUitgelicht').innerHTML = uitgelicht.length ? uitgelicht.map(nbRenderKaart).join('') : '<p class="nb-leeg">Geen uitgelichte boeken.</p>';
-    document.getElementById('gridNieuw').innerHTML = nieuw.length ? nieuw.map(nbRenderKaart).join('') : '<p class="nb-leeg">Geen nieuwe titels.</p>';
-    document.getElementById('gridAanbiedingen').innerHTML = aanbiedingen.length ? aanbiedingen.map(nbRenderKaart).join('') : '<p class="nb-leeg">Momenteel geen aanbiedingen.</p>';
+    document.getElementById('gridUitgelicht').innerHTML = uitgelicht.length ? uitgelicht.map(b => nbRenderKaart(b)).join('') : '<p class="nb-leeg">Geen uitgelichte boeken.</p>';
+    document.getElementById('gridNieuw').innerHTML = nieuw.length ? nieuw.map(b => nbRenderKaart(b)).join('') : '<p class="nb-leeg">Geen nieuwe titels.</p>';
+    document.getElementById('gridAanbiedingen').innerHTML = aanbiedingen.length ? aanbiedingen.map(b => nbRenderKaart(b)).join('') : '<p class="nb-leeg">Momenteel geen aanbiedingen.</p>';
   }
   document.getElementById('nbSeoBlok').innerHTML = '<h2>' + nbTekst('homepagina_seo_titel', 'Boeken over Nijmegen') + '</h2><p>' + nbTekst('homepagina_seo', '') + '</p><p>' + nbTekst('homepagina_seo2', '') + '</p>';
   nbFixCoverHoogtes();

@@ -264,7 +264,7 @@
   const bCats = nbCats(b);
   const gerelateerd = boeken.filter(x=>x.id!==b.id&&nbCats(x).some(c=>bCats.includes(c))).slice(0,4);
   if (gerelateerd.length) {
-    document.getElementById('gereleateerdGrid').innerHTML = gerelateerd.map(nbRenderKaart).join('');
+    document.getElementById('gereleateerdGrid').innerHTML = gerelateerd.map(b => nbRenderKaart(b)).join('');
   } else {
     document.getElementById('gereleateerdBlok').style.display='none';
   }

@@ -397,7 +397,7 @@ function nbPaginering(boeken, paginaEl, gridEl, huidige) {
 
   // Render boeken
   gridEl.innerHTML = pagina.length
-    ? pagina.map(nbRenderKaart).join('')
+    ? pagina.map(b => nbRenderKaart(b)).join('')
     : '<p class="nb-leeg">Geen boeken gevonden.</p>';
   nbFixCoverHoogtes();
   setTimeout(nbFixCoverHoogtes, 300);
