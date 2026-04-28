@@ -356,8 +356,8 @@ function nbSorteer(boeken, methode) {
   const kopie = [...boeken];
   switch (methode) {
     case 'id-desc':   return kopie.sort((a, b) => (b.id||0) - (a.id||0));
-    case 'jaar-desc': return kopie.sort((a, b) => (b.jaar||0) - (a.jaar||0));
-    case 'jaar-asc':  return kopie.sort((a, b) => (a.jaar||0) - (b.jaar||0));
+    case 'jaar-desc': return kopie.sort((a, b) => (b.jaar||0) - (a.jaar||0) || (b.id||0) - (a.id||0));
+    case 'jaar-asc':  return kopie.sort((a, b) => (a.jaar||0) - (b.jaar||0) || (a.id||0) - (b.id||0));
     case 'titel-asc': return kopie.sort((a, b) => (a.titel||'').localeCompare(b.titel||'', 'nl'));
     case 'prijs-asc': return kopie.sort((a, b) => (a.prijs||0) - (b.prijs||0));
     case 'prijs-desc':return kopie.sort((a, b) => (b.prijs||0) - (a.prijs||0));
