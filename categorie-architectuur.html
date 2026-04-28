@@ -3,18 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Architectuurboeken over Nijmegen – Nijmeegse Boeken</title>
-  <meta name="description" content="Bekijk alle architectuurboeken over Nijmegen en de regio. Bestel direct via Boekhandel Roelants. Gratis verzending vanaf €30,-.">
+  <title>Boeken over Architectuur – Nijmeegse Boeken</title>
+  <meta name="description" content="Bekijk alle boeken in de categorie Architectuur over Nijmegen en de regio. Bestel direct via Boekhandel Roelants.">
   <link rel="canonical" href="https://nijmeegseboeken.nl/categorie-architectuur.html">
-  <meta property="og:title" content="Architectuurboeken over Nijmegen – Nijmeegse Boeken">
+  <meta property="og:title" content="Boeken over Architectuur – Nijmeegse Boeken">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="nl_NL">
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-    {"@type":"ListItem","position":1,"name":"Nijmeegse Boeken","item":"https://nijmeegseboeken.nl/"},
-    {"@type":"ListItem","position":2,"name":"Architectuur","item":"https://nijmeegseboeken.nl/categorie-architectuur.html"}
-  ]}
-  </script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -32,12 +26,12 @@
       </nav>
       <div class="nb-paginakop">
         <h1>Boeken over Nijmegen: Architectuur</h1>
-        <p id="paginaOndertitel"></p>
+        <p id="paginaOndertitel">4 titels in deze categorie</p>
       </div>
+      <div class="nb-seo" id="nbSeoBlok"></div>
       <div id="nbSorteerBalk"></div>
       <div class="nb-grid" id="gridCategorie"><p class="nb-leeg">Laden…</p></div>
       <div id="nbPaginering"></div>
-      <div class="nb-seo" id="nbSeoBlok"></div>
     </div>
     <aside class="nb-sidebar">
       <div class="nb-sidebar-blok">
@@ -63,6 +57,10 @@
   nbVulSidebar(boeken, 'architectuur');
   const gefilterd = boeken.filter(b => nbInCategorie(b, 'architectuur'));
   document.getElementById('paginaOndertitel').textContent = gefilterd.length + ' titel' + (gefilterd.length !== 1 ? 's' : '') + ' in deze categorie';
+  const seoTitel = nbTekst('cat_architectuur_titel', 'Architectuur in en rond Nijmegen');
+  const seoTekst = nbTekst('cat_architectuur_tekst', 'Ontdek ons aanbod boeken in de categorie architectuur. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.');
+  const seoTekst2 = nbTekst('cat_architectuur_tekst2', '');
+  document.getElementById('nbSeoBlok').innerHTML = '<h2>' + seoTitel + '</h2><p>' + seoTekst + '</p>' + (seoTekst2 ? '<p>' + seoTekst2 + '</p>' : '');
   document.getElementById('nbSorteerBalk').innerHTML = nbSorteerBalk('id-desc');
   window.nbHerrendeer = function(methode) {
     const gesorteerd = nbSorteer(gefilterd, methode);
@@ -76,10 +74,6 @@
     window.scrollTo({ top: document.getElementById('gridCategorie').offsetTop - 80, behavior: 'smooth' });
   };
   nbHerrendeer('id-desc');
-  const seoTitel = nbTekst('cat_architectuur_titel', 'Architectuur in en rond Nijmegen');
-  const seoTekst = nbTekst('cat_architectuur_tekst', 'Ontdek ons aanbod boeken in de categorie architectuur. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.');
-  const seoTekst2 = nbTekst('cat_architectuur_tekst2', '');
-  document.getElementById('nbSeoBlok').innerHTML = '<h2>' + seoTitel + '</h2><p>' + seoTekst + '</p>' + (seoTekst2 ? '<p>' + seoTekst2 + '</p>' : '');
 
   // ItemList schema
   const itemList = document.createElement('script'); itemList.type = 'application/ld+json';

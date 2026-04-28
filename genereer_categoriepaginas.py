@@ -43,10 +43,10 @@ HTML_TEMPLATE = """\
         <h1>Boeken over Nijmegen: {naam}</h1>
         <p id="paginaOndertitel">{aantal} titel{meervoud} in deze categorie</p>
       </div>
+      <div class="nb-seo" id="nbSeoBlok"></div>
       <div id="nbSorteerBalk"></div>
       <div class="nb-grid" id="gridCategorie"><p class="nb-leeg">Laden\u2026</p></div>
       <div id="nbPaginering"></div>
-      <div class="nb-seo" id="nbSeoBlok"></div>
     </div>
     <aside class="nb-sidebar">
       <div class="nb-sidebar-blok">
@@ -72,6 +72,10 @@ HTML_TEMPLATE = """\
   nbVulSidebar(boeken, '{slug}');
   const gefilterd = boeken.filter(b => nbInCategorie(b, '{slug}'));
   document.getElementById('paginaOndertitel').textContent = gefilterd.length + ' titel' + (gefilterd.length !== 1 ? 's' : '') + ' in deze categorie';
+  const seoTitel = nbTekst('cat_{slug}_titel', '{naam} in en rond Nijmegen');
+  const seoTekst = nbTekst('cat_{slug}_tekst', 'Ontdek ons aanbod boeken in de categorie {naam_lower}. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.');
+  const seoTekst2 = nbTekst('cat_{slug}_tekst2', '');
+  document.getElementById('nbSeoBlok').innerHTML = '<h2>' + seoTitel + '</h2><p>' + seoTekst + '</p>' + (seoTekst2 ? '<p>' + seoTekst2 + '</p>' : '');
   document.getElementById('nbSorteerBalk').innerHTML = nbSorteerBalk('id-desc');
   window.nbHerrendeer = function(methode) {{
     const gesorteerd = nbSorteer(gefilterd, methode);
@@ -85,10 +89,6 @@ HTML_TEMPLATE = """\
     window.scrollTo({{ top: document.getElementById('gridCategorie').offsetTop - 80, behavior: 'smooth' }});
   }};
   nbHerrendeer('id-desc');
-  const seoTitel = nbTekst('cat_{slug}_titel', '{naam} in en rond Nijmegen');
-  const seoTekst = nbTekst('cat_{slug}_tekst', 'Ontdek ons aanbod boeken in de categorie {naam_lower}. Alle titels zijn direct te bestellen via Boekhandel Roelants in Nijmegen.');
-  const seoTekst2 = nbTekst('cat_{slug}_tekst2', '');
-  document.getElementById('nbSeoBlok').innerHTML = '<h2>' + seoTitel + '</h2><p>' + seoTekst + '</p>' + (seoTekst2 ? '<p>' + seoTekst2 + '</p>' : '');
 
   // ItemList schema
   const itemList = document.createElement('script'); itemList.type = 'application/ld+json';
