@@ -631,7 +631,7 @@
             <th>Categorie</th>
             <th>Prijs</th>
             <th>Status</th>
-            <th style="width:130px">Acties</th>
+            <th style="width:180px">Acties</th>
           </tr>
         </thead>
         <tbody id="boekTabel"></tbody>
@@ -1167,6 +1167,18 @@
   </div>
 </div>
 
+<!-- ── VAST MODAL ── -->
+<div class="modal-overlay" id="vastModal">
+  <div class="modal">
+    <h3>Boek vast maken?</h3>
+    <p id="vastModalTekst">Dit boek wordt verplaatst van <strong>boeken.json</strong> naar <strong>boeken-vast.json</strong>. Het importscript zal dit boek daarna niet meer overschrijven. Download na bevestiging beide bestanden.</p>
+    <div class="modal-btns">
+      <button class="btn btn-outline" onclick="sluitVastModal()">Annuleren</button>
+      <button class="btn btn-zwart" onclick="bevestigMaakVast()">🔒 Vast maken</button>
+    </div>
+  </div>
+</div>
+
 <script>
 // ══════════════════════════════════════
 // DATA
@@ -1292,6 +1304,7 @@ function verversTabel(data) {
       <td>
         <div class="acties">
           <button class="btn btn-outline btn-sm" onclick="bewerkBoek(${b.id})">✎ Bewerk</button>
+          <button class="btn btn-zwart btn-sm" onclick="vraagMaakVast(${b.id})" title="Verplaats naar vaste boeken">🔒 Vast</button>
           <button class="btn btn-danger btn-sm" onclick="vraagVerwijder(${b.id})">✕</button>
         </div>
       </td>
@@ -1456,6 +1469,47 @@ function sluitModal() {
 }
 
 // ══════════════════════════════════════
+// VAST MAKEN
+// ══════════════════════════════════════
+let vastMaakID = null;
+
+function vraagMaakVast(id) {
+  const b = BOEKEN.find(x => x.id === id);
+  if (!b) return;
+  // Controleer of het boek al in VASTE_BOEKEN staat
+  const bestaatAl = VASTE_BOEKEN.find(x => x.id === id || (b.isbn && b.isbn === x.isbn));
+  if (bestaatAl) {
+    toonMelding('"' + b.titel + '" staat al in vaste boeken.', 'info');
+    return;
+  }
+  vastMaakID = id;
+  document.getElementById('vastModalTekst').innerHTML = '"<strong>' + escHtml(b.titel) + '</strong>" wordt verplaatst van <strong>boeken.json</strong> naar <strong>boeken-vast.json</strong>. Het importscript zal dit boek daarna niet meer overschrijven. Download na bevestiging beide bestanden.';
+  document.getElementById('vastModal').classList.add('open');
+}
+
+function sluitVastModal() {
+  document.getElementById('vastModal').classList.remove('open');
+  vastMaakID = null;
+}
+
+function bevestigMaakVast() {
+  if (vastMaakID === null) return;
+  const b = BOEKEN.find(x => x.id === vastMaakID);
+  if (!b) { sluitVastModal(); return; }
+
+  // Voeg toe aan vaste boeken
+  VASTE_BOEKEN.push({ ...b });
+
+  // Verwijder uit gewone boeken
+  BOEKEN = BOEKEN.filter(x => x.id !== vastMaakID);
+
+  sluitVastModal();
+  verversAlles();
+  nbMarkeerGewijzigd();
+  toonMelding('"' + b.titel + '" is verplaatst naar vaste boeken. Download zowel boeken.json als boeken-vast.json.', 'succes');
+}
+
+// ══════════════════════════════════════
 // PREVIEW
 // ══════════════════════════════════════
 function updatePreview() {
@@ -1527,21 +1581,30 @@ function importeerJSON(input) {
     try {
       const data = JSON.parse(e.target.result);
       if (!Array.isArray(data)) throw new Error('Geen geldige array');
-      BOEKEN = data;
+
+      // Filter boeken die al in VASTE_BOEKEN staan (op ID of ISBN)
+      const vasteIDs   = new Set(VASTE_BOEKEN.map(b => b.id));
+      const vasteISBNs = new Set(VASTE_BOEKEN.map(b => (b.isbn||'').replace(/-/g,'')).filter(Boolean));
+      const gefilterd  = data.filter(b => {
+        const isbn = (b.isbn||'').replace(/-/g,'');
+        return !vasteIDs.has(b.id) && !(isbn && vasteISBNs.has(isbn));
+      });
+      const overgeslagen = data.length - gefilterd.length;
+
+      BOEKEN = gefilterd;
       volgendeID = Math.max(...BOEKEN.map(b => b.id), 0) + 1;
-      // Detecteer categorieën die nog niet bekend zijn
       BOEKEN.forEach(b => {
         nbCats(b).forEach(slug => {
           if (slug && !CATEGORIEEN.find(c => c.slug === slug)) {
             CATEGORIEEN.push({ naam: slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g,' '), slug });
           }
         });
-        if (false) {
-        }
       });
       verversAlles();
       verversCategorieLijst();
-      toonMelding(data.length + ' boeken geïmporteerd uit ' + file.name, 'succes');
+      let melding = gefilterd.length + ' boeken geïmporteerd uit ' + file.name;
+      if (overgeslagen > 0) melding += ' · ' + overgeslagen + ' boek' + (overgeslagen !== 1 ? 'en' : '') + ' overgeslagen (staan al in vaste boeken)';
+      toonMelding(melding, 'succes');
     } catch(err) {
       toonMelding('Fout bij importeren: ' + err.message, 'fout');
     }
@@ -1729,8 +1792,9 @@ function renderVastTabel() {
         <td>${b.prijs ? '€ ' + b.prijs.toFixed(2) : '—'}</td>
         <td style="font-size:0.78rem;">${escHtml(b.isbn||'')}</td>
         <td>
-          <button class="btn btn-klein" onclick="bewerkVastBoek(${b.id})">Bewerken</button>
-          <button class="btn btn-klein btn-rood-licht" onclick="verwijderVastBoek(${b.id})">Verwijderen</button>
+          <button class="btn btn-outline btn-sm" onclick="bewerkVastBoek(${b.id})">✎ Bewerk</button>
+          <button class="btn btn-zwart btn-sm" onclick="zetVastTerugNormaal(${b.id})" title="Terugzetten naar boeken.json">↩ Normaal</button>
+          <button class="btn btn-danger btn-sm" onclick="verwijderVastBoek(${b.id})">✕</button>
         </td>
       </tr>`).join('')
     + '</tbody></table>';
@@ -1818,6 +1882,33 @@ function slaVastBoekOp() {
   document.getElementById('vastFormulier').style.display = 'none';
   renderVastTabel();
   nbMarkeerGewijzigd();
+}
+
+function zetVastTerugNormaal(id) {
+  const b = VASTE_BOEKEN.find(x => x.id === id);
+  if (!b) return;
+
+  // Controleer of het boek al in BOEKEN staat (op ID of ISBN)
+  const bestaatAl = BOEKEN.find(x => x.id === id || (b.isbn && (b.isbn||'').replace(/-/g,'') === (x.isbn||'').replace(/-/g,'')));
+  if (bestaatAl) {
+    toonMelding('"' + b.titel + '" staat al in boeken.json.', 'info');
+    return;
+  }
+
+  // Verwijder uitverkocht-vlag indien aanwezig
+  const { uitverkocht, ...boekZonderUitverkocht } = b;
+
+  // Voeg toe aan normale boeken
+  BOEKEN.push({ ...boekZonderUitverkocht });
+  if (boekZonderUitverkocht.id >= volgendeID) volgendeID = boekZonderUitverkocht.id + 1;
+
+  // Verwijder uit vaste boeken
+  VASTE_BOEKEN = VASTE_BOEKEN.filter(x => x.id !== id);
+
+  renderVastTabel();
+  verversAlles();
+  nbMarkeerGewijzigd();
+  toonMelding('"' + b.titel + '" is teruggezet naar boeken.json. Download beide bestanden.', 'succes');
 }
 
 function verwijderVastBoek(id) {
