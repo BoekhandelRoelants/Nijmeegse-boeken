@@ -3,17 +3,16 @@
 Importeert boekdata van Roelants.nl naar boeken.json.
 
 Gebruik:
-    pip install aiohttp beautifulsoup4
-    python importeer_naar_json.py 9789000000001 9789000000002
-    python importeer_naar_json.py --bestand isbnlijst.txt
+    pip3 install aiohttp beautifulsoup4 playwright playwright-stealth --break-system-packages
+    python3 -m playwright install chromium
+    python3 importeer_naar_json.py
+    python3 importeer_naar_json.py 9789000000001 9789000000002
+    python3 importeer_naar_json.py --bestand isbnlijst.txt
 
-Het script haalt per ISBN op via https://www.roelants.nl/nl/boeken-page/{isbn}/boek:
-  - Titel, auteur, beschrijving, pagina's, uitgever, uitvoering
-  - Prijs
-  - Ondertitel via Google Books / Open Library
-
-Nieuwe boeken worden toegevoegd aan boeken.json.
-Bestaande boeken (zelfde ISBN) worden bijgewerkt.
+Bronnen (op volgorde van prioriteit):
+  1. Roelants.nl          — titel, auteur, prijs, uitvoering, beschrijving
+  2. Google Books API     — ondertitel, beschrijving (fallback)
+  3. Open Library API     — ondertitel (fallback)
 """
 
 import sys
@@ -21,7 +20,6 @@ import re
 import json
 import asyncio
 import aiohttp
-import requests
 from pathlib import Path
 from bs4 import BeautifulSoup
 
@@ -33,12 +31,13 @@ try:
 except ImportError:
     PLAYWRIGHT_BESCHIKBAAR = False
     print("⚠️  Playwright niet geïnstalleerd. Prijzen worden via statische HTML opgehaald.")
-    print("   Installeer met: pip3 install playwright playwright-stealth && python3 -m playwright install chromium")
+    print("   Installeer met: pip3 install playwright playwright-stealth --break-system-packages && python3 -m playwright install chromium")
 
 # ─────────────────────────────────────────────
 # INSTELLINGEN
 # ─────────────────────────────────────────────
-BOEKEN_JSON         = Path(__file__).parent / "boeken.json"
+BASIS               = Path(__file__).parent
+BOEKEN_JSON         = BASIS / "boeken.json"
 GELIJKTIJDIG        = 2          # Max 2 gelijktijdige verzoeken
 VERTRAGING          = 3.0        # 3 seconden tussen verzoeken
 VERTRAGING_PLAYWRIGHT = 4.0      # Extra wachttijd voor Playwright
@@ -61,8 +60,6 @@ HTTP_HEADERS = {
     "Connection": "keep-alive",
     "Upgrade-Insecure-Requests": "1",
 }
-
-DESLEGTE_BASIS = "https://www.deslegte.com"
 
 
 # ── Hulpfuncties ──────────────────────────────────────────────────────────────
@@ -169,11 +166,9 @@ def haal_prijzen_playwright(isbn: str) -> tuple[float | None, float | None]:
         # Huidige prijs — pak alle .price elementen
         prijs_els = page.query_selector_all('.price')
         for el in prijs_els:
-            # Sla parent-elementen over die beide prijzen bevatten
             tekst = el.inner_text().strip()
             if not tekst or len(tekst) > 20:
                 continue
-            # Sla price-before-discount over
             klasse = el.get_attribute('class') or ''
             if 'before-discount' in klasse or 'icon' in klasse:
                 continue
@@ -184,7 +179,6 @@ def haal_prijzen_playwright(isbn: str) -> tuple[float | None, float | None]:
 
         context.close()
 
-        # Als er geen van-prijs was, is de gevonden prijs de normale prijs
         if prijs_oud and prijs and prijs_oud == prijs:
             prijs_oud = None
 
@@ -197,40 +191,17 @@ def haal_prijzen_playwright(isbn: str) -> tuple[float | None, float | None]:
         return None, None
 
 
-# ── De Slegte fallback ────────────────────────────────────────────────────────
+# ── Google Books / Open Library ───────────────────────────────────────────────
 
-def haal_beschrijving_deslegte(isbn: str) -> str:
-    try:
-        zoek_url = f"{DESLEGTE_BASIS}/boeken/?q={isbn}"
-        r = requests.get(zoek_url, headers=HTTP_HEADERS, timeout=10)
-        r.raise_for_status()
-        zoek_soup = BeautifulSoup(r.text, "html.parser")
+async def haal_extra_data(sessie: aiohttp.ClientSession, isbn: str) -> dict:
+    """
+    Haalt ondertitel en (als fallback) beschrijving op via Google Books en Open Library.
+    Geeft dict terug met 'ondertitel' en 'beschrijving'.
+    """
+    ondertitel = ""
+    beschrijving = ""
 
-        isbn_span = zoek_soup.find("span", class_="list__item-isbn", string=isbn)
-        if not isbn_span:
-            return ""
-        link = isbn_span.find_parent("a", href=True)
-        if not link:
-            return ""
-
-        href = link["href"]
-        detail_url = DESLEGTE_BASIS + href if href.startswith("/") else href
-
-        r2 = requests.get(detail_url, headers=HTTP_HEADERS, timeout=10)
-        r2.raise_for_status()
-        detail_soup = BeautifulSoup(r2.text, "html.parser")
-
-        meta = detail_soup.find("meta", itemprop="description")
-        if meta and meta.get("content"):
-            return meta["content"].strip()
-    except Exception:
-        pass
-    return ""
-
-
-# ── Ondertitel ophalen ────────────────────────────────────────────────────────
-
-async def haal_ondertitel(sessie: aiohttp.ClientSession, isbn: str) -> str:
+    # Google Books
     try:
         url = f"https://www.googleapis.com/books/v1/volumes?q=isbn:{isbn}&maxResults=1"
         async with sessie.get(url, timeout=aiohttp.ClientTimeout(total=8)) as r:
@@ -238,25 +209,25 @@ async def haal_ondertitel(sessie: aiohttp.ClientSession, isbn: str) -> str:
                 data = await r.json()
                 items = data.get("items", [])
                 if items:
-                    ondertitel = items[0].get("volumeInfo", {}).get("subtitle", "")
-                    if ondertitel:
-                        return ondertitel.strip()
+                    info = items[0].get("volumeInfo", {})
+                    ondertitel   = info.get("subtitle", "").strip()
+                    beschrijving = info.get("description", "").strip()
     except Exception:
         pass
 
-    try:
-        url = f"https://openlibrary.org/isbn/{isbn}.json"
-        async with sessie.get(url, timeout=aiohttp.ClientTimeout(total=8),
-                              allow_redirects=True) as r:
-            if r.status == 200:
-                data = await r.json()
-                ondertitel = data.get("subtitle", "")
-                if ondertitel:
-                    return ondertitel.strip()
-    except Exception:
-        pass
+    # Open Library — alleen als Google Books niets opleverde
+    if not ondertitel:
+        try:
+            url = f"https://openlibrary.org/isbn/{isbn}.json"
+            async with sessie.get(url, timeout=aiohttp.ClientTimeout(total=8),
+                                  allow_redirects=True) as r:
+                if r.status == 200:
+                    data = await r.json()
+                    ondertitel = data.get("subtitle", "").strip()
+        except Exception:
+            pass
 
-    return ""
+    return {"ondertitel": ondertitel, "beschrijving": beschrijving}
 
 
 # ── HTML Parsen ───────────────────────────────────────────────────────────────
@@ -419,12 +390,14 @@ async def haal_boekdata_async(
     resultaat = parseer_html(html, eind_url, isbn)
 
     if resultaat is not None:
-        resultaat["ondertitel"] = await haal_ondertitel(sessie, isbn)
-        if not resultaat["beschrijving"]:
-            beschrijving_deslegte = haal_beschrijving_deslegte(isbn)
-            if beschrijving_deslegte:
-                resultaat["beschrijving"] = beschrijving_deslegte
-                resultaat["bron_beschrijving"] = "De Slegte"
+        # Haal ondertitel en eventuele fallback-beschrijving op via Google Books / Open Library
+        extra = await haal_extra_data(sessie, isbn)
+        resultaat["ondertitel"] = extra["ondertitel"]
+
+        # Gebruik Google Books beschrijving alleen als Roelants geen beschrijving heeft
+        if not resultaat["beschrijving"] and extra["beschrijving"]:
+            resultaat["beschrijving"]      = extra["beschrijving"]
+            resultaat["bron_beschrijving"] = "Google Books"
 
         # Haal prijs op via Playwright in aparte thread (sync API in async context)
         if PLAYWRIGHT_BESCHIKBAAR:
@@ -443,7 +416,9 @@ async def haal_boekdata_async(
         teller["overgeslagen"] += 1
     else:
         teller["gevonden"] += 1
-        print(f"  ✓  {isbn} — {resultaat['titel'][:50]}")
+        bron = resultaat.get("bron_beschrijving", "")
+        bron_label = f" [{bron}]" if bron else " [geen beschrijving]"
+        print(f"  ✓  {isbn} — {resultaat['titel'][:50]}{bron_label}")
 
     if teller["verwerkt"] % 10 == 0 or teller["verwerkt"] == totaal:
         pct = teller["verwerkt"] / totaal * 100
@@ -472,7 +447,6 @@ async def run(isbns: list[str]) -> list[dict]:
 # ── boeken.json bijwerken ─────────────────────────────────────────────────────
 
 def verwerk_naar_json(resultaten: list[dict]):
-    # Laad bestaand boeken.json
     boeken = []
     if BOEKEN_JSON.exists():
         boeken = json.loads(BOEKEN_JSON.read_text(encoding="utf-8"))
@@ -480,7 +454,6 @@ def verwerk_naar_json(resultaten: list[dict]):
     else:
         print("\n📂 Nieuw boeken.json wordt aangemaakt")
 
-    # Laad vaste boeken — deze worden nooit overschreven
     vast_json = BASIS / "boeken-vast.json"
     vaste_isbns = set()
     if vast_json.exists():
@@ -494,7 +467,6 @@ def verwerk_naar_json(resultaten: list[dict]):
     for r in resultaten:
         isbn = normaliseer_isbn(r["isbn"])
 
-        # Sla vaste boeken over
         if isbn in vaste_isbns:
             overgeslagen_vast += 1
             print(f"  🔒 {isbn} — beschermd (staat in boeken-vast.json)")
@@ -505,11 +477,9 @@ def verwerk_naar_json(resultaten: list[dict]):
             None
         )
 
-        # Titel en ondertitel apart bewaren
-        titel = r["titel"]
+        titel      = r["titel"]
         ondertitel = r.get("ondertitel", "") or ""
 
-        # Formaat afleiden uit uitvoering
         uitvoering = r.get("uitvoering", "")
         formaat = "Gebonden"
         if uitvoering:
@@ -521,7 +491,6 @@ def verwerk_naar_json(resultaten: list[dict]):
                 formaat = "Luisterboek"
 
         if bestaand_idx is not None:
-            # Bijwerken — behoud handmatig ingestelde velden
             b = boeken[bestaand_idx]
             boeken[bestaand_idx] = {
                 **b,
@@ -542,7 +511,6 @@ def verwerk_naar_json(resultaten: list[dict]):
             }
             bijgewerkt += 1
         else:
-            # Nieuw boek toevoegen
             boeken.append({
                 "id":          volgende_id,
                 "uitgelicht":  False,
@@ -592,9 +560,8 @@ def verwerk_naar_json(resultaten: list[dict]):
 def main():
     args = sys.argv[1:]
 
-    # Standaard: gebruik isbnlijst.txt in dezelfde map
     if not args:
-        args = ["--bestand", str(Path(__file__).parent / "isbnlijst.txt")]
+        args = ["--bestand", str(BASIS / "isbnlijst.txt")]
 
     isbns = []
     if args[0] == "--bestand":
