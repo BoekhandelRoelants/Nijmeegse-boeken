@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="paginaTitel">Boek – Nijmeegse Boeken</title>
-  <meta name="description" id="metaDesc" content="">
-  <link rel="canonical" id="canonical" href="">
-  <meta id="ogTitle" property="og:title" content="">
-  <meta id="ogDesc" property="og:description" content="">
-  <meta id="ogImage" property="og:image" content="">
+  <base href="../">
+  <title>Dichter en dichter bij Nijmegen – Victor Vroomkoning | Nijmeegse Boeken</title>
+  <meta name="description" content="Victor Vroomkoning viert zijn 40-jarig schrijverschap met de uitgave van dit boek met poëzie en proza. Voor het eerst is hier poëzie verzameld die hij wijd">
+  <link rel="canonical" href="https://nijmeegseboeken.nl/Boeken/dichter-en-dichter-bij-nijmegen-9789074241.html">
+  <meta property="og:title" content="Dichter en dichter bij Nijmegen – Victor Vroomkoning">
+  <meta property="og:description" content="Victor Vroomkoning viert zijn 40-jarig schrijverschap met de uitgave van dit boek met poëzie en proza. Voor het eerst is hier poëzie verzameld die hij wijd">
   <meta property="og:type" content="book">
   <meta property="og:locale" content="nl_NL">
+  <meta property="og:image" content="https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789074241526&size=l">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Book", "name": "Dichter en dichter bij Nijmegen", "author": {"@type": "Person", "name": "Victor Vroomkoning"}, "publisher": {"@type": "Organization", "name": "Vrije Uitgevers, De"}, "isbn": "9789074241526", "datePublished": "2023", "inLanguage": "nl", "description": "Victor Vroomkoning viert zijn 40-jarig schrijverschap met de uitgave van dit boek met poëzie en proza. Voor het eerst is hier poëzie verzameld die hij wijdde aan Nijmegen en wijde omgeving, inclusief het werk dat hij als stadsdichter (2006-2008) schreef. Tegelijk is er een vermoeden van een kleine autobiografie, een terugblik op zijn leven. Na de gedichten volgt 'Circuit des Souvenirs', Vroomkonings enige fictie in proza. Het is een liefdesgeschiedenis tegen de achtergrond van Wereldoorlog II. Vroomkoning publiceert meestal bij De Arbeiderspers in Amsterdam, nu bij Roelants in Nijmegen", "offers": {"@type": "Offer", "price": "24.99", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://www.roelants.nl/nl/boeken-page/9789074241526/boek"}, "numberOfPages": 200, "image": "https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789074241526&size=l"}</script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="nijmegen.js" as="script">
   <link rel="preconnect" href="https://wscovers1.tlsecure.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="nijmegen.css">
   <style>
     .detail-wrapper {
@@ -111,8 +112,8 @@
 <div id="paginaInhoud" style="display:none">
   <div style="max-width:1200px;margin:1rem auto 0;padding:0 1.5rem">
     <nav class="nb-breadcrumb" aria-label="Kruimelpad">
-      <a href="index.html">Nijmeegse Boeken</a> ›
-      <a id="bcCategorie" href="#">Categorie</a> ›
+      <a href="index.html">Nijmeegse Boeken</a> &rsaquo;
+      <a id="bcCategorie" href="#">Categorie</a> &rsaquo;
       <span id="bcTitel">Titel</span>
     </nav>
   </div>
@@ -122,7 +123,7 @@
       <a id="btnBestellen" href="#" target="_blank" rel="noopener" class="btn-bestellen">
         Bestellen bij Roelants &rarr;
       </a>
-      <p class="verzend-info">Gratis verzending vanaf €30,-<br>Anders €4,95 · Gratis afhalen bij Boekhandel Roelants</p>
+      <p class="verzend-info">Gratis verzending vanaf &euro;30,-<br>Anders &euro;4,95 &middot; Gratis afhalen bij Boekhandel Roelants</p>
     </div>
     <div class="info-kolom">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem" id="labelRij"></div>
@@ -142,18 +143,6 @@
 </div>
 <div id="nbFooter"></div>
 <script src="nijmegen.js"></script>
-<script>
-(async () => {
-  const params = new URLSearchParams(window.location.search);
-  const id   = parseInt(params.get('id')) || null;
-  const slug = params.get('slug') || null;
-  if (!id && !slug) {
-    document.getElementById('laadIndicator').style.display = 'none';
-    document.getElementById('foutMelding').style.display   = 'block';
-    return;
-  }
-  await nbLaadBoekPagina(id, slug);
-})();
-</script>
+<script>nbLaadBoekPagina(33, 'dichter-en-dichter-bij-nijmegen-9789074241');</script>
 </body>
 </html>

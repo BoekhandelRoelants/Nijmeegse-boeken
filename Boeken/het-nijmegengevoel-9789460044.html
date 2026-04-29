@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="paginaTitel">Boek – Nijmeegse Boeken</title>
-  <meta name="description" id="metaDesc" content="">
-  <link rel="canonical" id="canonical" href="">
-  <meta id="ogTitle" property="og:title" content="">
-  <meta id="ogDesc" property="og:description" content="">
-  <meta id="ogImage" property="og:image" content="">
+  <base href="../">
+  <title>Het Nijmegengevoel – Dolly Verhoeven | Nijmeegse Boeken</title>
+  <meta name="description" content="Nijmegen heeft een eigen uitstraling en een eigen karakter. Toch is het niet eenvoudig onder woorden te brengen wat de stad zo bijzonder maakt. Wat bepaalt">
+  <link rel="canonical" href="https://nijmeegseboeken.nl/Boeken/het-nijmegengevoel-9789460044.html">
+  <meta property="og:title" content="Het Nijmegengevoel – Dolly Verhoeven">
+  <meta property="og:description" content="Nijmegen heeft een eigen uitstraling en een eigen karakter. Toch is het niet eenvoudig onder woorden te brengen wat de stad zo bijzonder maakt. Wat bepaalt">
   <meta property="og:type" content="book">
   <meta property="og:locale" content="nl_NL">
+  <meta property="og:image" content="https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789460044847&size=l">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Book", "name": "Het Nijmegengevoel", "author": {"@type": "Person", "name": "Dolly Verhoeven"}, "publisher": {"@type": "Organization", "name": "Uitgeverij Vantilt"}, "isbn": "9789460044847", "datePublished": "2020", "inLanguage": "nl", "description": "Nijmegen heeft een eigen uitstraling en een eigen karakter. Toch is het niet eenvoudig onder woorden te brengen wat de stad zo bijzonder maakt. Wat bepaalt het Nijmegengevoel? Is dat de gehechtheid aan het landschap en aan iconische gebouwen als de Stevenstoren? Is het de liefde voor het Nimweegs, de trouw aan NEC? Zijn het de vele studenten en de linkse bestuurscolleges? Of spelen heel andere zaken een rol? Op zoek naar het Nijmegengevoel sprak de auteur met tientallen Nijmegenaren die in de afgelopen decennia een rol hebben gespeeld in het stedelijk leven. Deze gesprekken gingen over hun herinneringen aan de stad en over hun eigen Nijmegengevoel. Samen vormen de verhalen een verrassende en tegelijkertijd herkenbare geschiedenis van het naoorlogse Nijmegen. Het Nijmegengevoel schetst in tien hoofdstukken het gelaagde karakter vande stad, beginnend met het zwaar geschonden naoorlogse Nijmegen en eindigend met de bescheiden maar ook trotse stad van nu. Daarnaast laten meer dan honderd chronologisch gerangschikte foto’s zien hoe het openbare leven in Nijmegen in de afgelopen 75 jaar is veranderd. over de auteur Dolly Verhoeven (1959) was van 2008 tot en met 2019 bijzonder hoogleraar Nijmeegse geschiedenis aan de Radboud Universiteit. Sinds 2014 is zij daarnaast bijzonder hoogleraar Gelderse geschiedenis.", "offers": {"@type": "Offer", "price": "24.5", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://www.roelants.nl/nl/boeken-page/9789460044847/boek"}, "numberOfPages": 256, "image": "https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789460044847&size=l"}</script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="nijmegen.js" as="script">
   <link rel="preconnect" href="https://wscovers1.tlsecure.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="nijmegen.css">
   <style>
     .detail-wrapper {
@@ -111,8 +112,8 @@
 <div id="paginaInhoud" style="display:none">
   <div style="max-width:1200px;margin:1rem auto 0;padding:0 1.5rem">
     <nav class="nb-breadcrumb" aria-label="Kruimelpad">
-      <a href="index.html">Nijmeegse Boeken</a> ›
-      <a id="bcCategorie" href="#">Categorie</a> ›
+      <a href="index.html">Nijmeegse Boeken</a> &rsaquo;
+      <a id="bcCategorie" href="#">Categorie</a> &rsaquo;
       <span id="bcTitel">Titel</span>
     </nav>
   </div>
@@ -122,7 +123,7 @@
       <a id="btnBestellen" href="#" target="_blank" rel="noopener" class="btn-bestellen">
         Bestellen bij Roelants &rarr;
       </a>
-      <p class="verzend-info">Gratis verzending vanaf €30,-<br>Anders €4,95 · Gratis afhalen bij Boekhandel Roelants</p>
+      <p class="verzend-info">Gratis verzending vanaf &euro;30,-<br>Anders &euro;4,95 &middot; Gratis afhalen bij Boekhandel Roelants</p>
     </div>
     <div class="info-kolom">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem" id="labelRij"></div>
@@ -142,18 +143,6 @@
 </div>
 <div id="nbFooter"></div>
 <script src="nijmegen.js"></script>
-<script>
-(async () => {
-  const params = new URLSearchParams(window.location.search);
-  const id   = parseInt(params.get('id')) || null;
-  const slug = params.get('slug') || null;
-  if (!id && !slug) {
-    document.getElementById('laadIndicator').style.display = 'none';
-    document.getElementById('foutMelding').style.display   = 'block';
-    return;
-  }
-  await nbLaadBoekPagina(id, slug);
-})();
-</script>
+<script>nbLaadBoekPagina(21, 'het-nijmegengevoel-9789460044');</script>
 </body>
 </html>

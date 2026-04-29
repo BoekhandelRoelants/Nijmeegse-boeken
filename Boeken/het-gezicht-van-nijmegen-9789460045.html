@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="paginaTitel">Boek – Nijmeegse Boeken</title>
-  <meta name="description" id="metaDesc" content="">
-  <link rel="canonical" id="canonical" href="">
-  <meta id="ogTitle" property="og:title" content="">
-  <meta id="ogDesc" property="og:description" content="">
-  <meta id="ogImage" property="og:image" content="">
+  <base href="../">
+  <title>Het Gezicht van Nijmegen – Andreas Hetfeld-Paul van der Heijden-Chris Poulissen | Nijmeegse Boeken</title>
+  <meta name="description" content="Al meteen na plaatsing in april 2020 was het masker van kunstenaar Andreas Hetfeld niet meer weg te denken van het eiland Veur-Lent in Nijmegen. Bezoekers ">
+  <link rel="canonical" href="https://nijmeegseboeken.nl/Boeken/het-gezicht-van-nijmegen-9789460045.html">
+  <meta property="og:title" content="Het Gezicht van Nijmegen – Andreas Hetfeld-Paul van der Heijden-Chris Poulissen">
+  <meta property="og:description" content="Al meteen na plaatsing in april 2020 was het masker van kunstenaar Andreas Hetfeld niet meer weg te denken van het eiland Veur-Lent in Nijmegen. Bezoekers ">
   <meta property="og:type" content="book">
   <meta property="og:locale" content="nl_NL">
+  <meta property="og:image" content="https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789460045158&size=l">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Book", "name": "Het Gezicht van Nijmegen", "author": {"@type": "Person", "name": "Andreas Hetfeld-Paul van der Heijden-Chris Poulissen"}, "publisher": {"@type": "Organization", "name": "Uitgeverij Vantilt"}, "isbn": "9789460045158", "datePublished": "2024", "inLanguage": "nl", "description": "Al meteen na plaatsing in april 2020 was het masker van kunstenaar Andreas Hetfeld niet meer weg te denken van het eiland Veur-Lent in Nijmegen. Bezoekers deelden eindeloos foto’s van het zes meter hoge beeld, dat iedereen wilde gaan bekijken. Een Romeins ruitermasker in de collectie van Museum het Valkhof, begin twintigste eeuw opgebaggerd uit de Waal, heeft als voorbeeld gediend. Dit rijk geïllustreerde boek laat zien hoe het masker uitgroeide tot een landmark dat refereert aan de rijke geschiedenis van de stad: Het Gezicht van Nijmegen. Paul van der Heijden, kenner van de Romeinse tijd, schrijft over het originele masker uit de tweede helft van de eerste eeuw en over de totstandkoming van het kunstwerk op Veur-Lent. Ook positioneert hij Het Gezicht van Nijmegen in het oeuvre van Andreas Hetfeld. Een foto-essay van de kunstenaar en fotograaf Paul Breuker toont het maakproces, het spectaculaire transport over de Waal en de plaatsing op het stadseiland. Architect Chris Poulissen en dichter-classicus Piet Gerbrandy kijken door de ogen van het masker naar de stad en haar geschiedenis. Als bezoeker kan je, staande op een verhoging, letterlijk door de ogen van het masker kijken. Andreas Hetfeld maakt je zo tot onderdeel van zijn kunstwerk, een betoverende ervaring. Geen wonder dat Het Gezicht vanNijmegen zoveel mensen naar Veur-Lent lokt.", "offers": {"@type": "Offer", "price": "24.5", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://www.roelants.nl/nl/boeken-page/9789460045158/boek"}, "numberOfPages": 144, "image": "https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789460045158&size=l"}</script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="nijmegen.js" as="script">
   <link rel="preconnect" href="https://wscovers1.tlsecure.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="nijmegen.css">
   <style>
     .detail-wrapper {
@@ -111,8 +112,8 @@
 <div id="paginaInhoud" style="display:none">
   <div style="max-width:1200px;margin:1rem auto 0;padding:0 1.5rem">
     <nav class="nb-breadcrumb" aria-label="Kruimelpad">
-      <a href="index.html">Nijmeegse Boeken</a> ›
-      <a id="bcCategorie" href="#">Categorie</a> ›
+      <a href="index.html">Nijmeegse Boeken</a> &rsaquo;
+      <a id="bcCategorie" href="#">Categorie</a> &rsaquo;
       <span id="bcTitel">Titel</span>
     </nav>
   </div>
@@ -122,7 +123,7 @@
       <a id="btnBestellen" href="#" target="_blank" rel="noopener" class="btn-bestellen">
         Bestellen bij Roelants &rarr;
       </a>
-      <p class="verzend-info">Gratis verzending vanaf €30,-<br>Anders €4,95 · Gratis afhalen bij Boekhandel Roelants</p>
+      <p class="verzend-info">Gratis verzending vanaf &euro;30,-<br>Anders &euro;4,95 &middot; Gratis afhalen bij Boekhandel Roelants</p>
     </div>
     <div class="info-kolom">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem" id="labelRij"></div>
@@ -142,18 +143,6 @@
 </div>
 <div id="nbFooter"></div>
 <script src="nijmegen.js"></script>
-<script>
-(async () => {
-  const params = new URLSearchParams(window.location.search);
-  const id   = parseInt(params.get('id')) || null;
-  const slug = params.get('slug') || null;
-  if (!id && !slug) {
-    document.getElementById('laadIndicator').style.display = 'none';
-    document.getElementById('foutMelding').style.display   = 'block';
-    return;
-  }
-  await nbLaadBoekPagina(id, slug);
-})();
-</script>
+<script>nbLaadBoekPagina(6, 'het-gezicht-van-nijmegen-9789460045');</script>
 </body>
 </html>

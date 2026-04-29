@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="paginaTitel">Boek – Nijmeegse Boeken</title>
-  <meta name="description" id="metaDesc" content="">
-  <link rel="canonical" id="canonical" href="">
-  <meta id="ogTitle" property="og:title" content="">
-  <meta id="ogDesc" property="og:description" content="">
-  <meta id="ogImage" property="og:image" content="">
+  <base href="../">
+  <title>Zomervacht – Jaap Robben | Nijmeegse Boeken</title>
+  <meta name="description" content="De dertienjarige Brian woont bij zijn vader op een afgelegen terrein in een caravan. Brians verstandelijk en fysiek beperkte broer Lucien brengt zijn dagen">
+  <link rel="canonical" href="https://nijmeegseboeken.nl/Boeken/zomervacht-9789044549.html">
+  <meta property="og:title" content="Zomervacht – Jaap Robben">
+  <meta property="og:description" content="De dertienjarige Brian woont bij zijn vader op een afgelegen terrein in een caravan. Brians verstandelijk en fysiek beperkte broer Lucien brengt zijn dagen">
   <meta property="og:type" content="book">
   <meta property="og:locale" content="nl_NL">
+  <meta property="og:image" content="https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789044549478&size=l">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Book", "name": "Zomervacht", "author": {"@type": "Person", "name": "Jaap Robben"}, "publisher": {"@type": "Organization", "name": "Singel Uitgeverijen"}, "isbn": "9789044549478", "datePublished": "2023", "inLanguage": "nl", "description": "De dertienjarige Brian woont bij zijn vader op een afgelegen terrein in een caravan. Brians verstandelijk en fysiek beperkte broer Lucien brengt zijn dagen door in een instelling. Een renovatie tijdens de zomer maakt het noodzakelijk dat Lucien elders wordt opgevangen. De vader, vooral gemotiveerd door de in het vooruitzicht gestelde vergoeding, haalt Lucien naar de caravan en maakt de jonge Brian verantwoordelijk voor de verzorging van zijn broer. Maar hoe praat je met iemand die niet spreekt? Hoe zorg je voor iemand van wie je niet weet wat hij nodig heeft? Hoe maak je de juiste keuzes als je zelf nog zo veel moet ontdekken?", "offers": {"@type": "Offer", "price": "20.0", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://www.roelants.nl/nl/boeken-page/9789044549478/boek"}, "numberOfPages": 316, "image": "https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789044549478&size=l"}</script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="nijmegen.js" as="script">
   <link rel="preconnect" href="https://wscovers1.tlsecure.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="nijmegen.css">
   <style>
     .detail-wrapper {
@@ -111,8 +112,8 @@
 <div id="paginaInhoud" style="display:none">
   <div style="max-width:1200px;margin:1rem auto 0;padding:0 1.5rem">
     <nav class="nb-breadcrumb" aria-label="Kruimelpad">
-      <a href="index.html">Nijmeegse Boeken</a> ›
-      <a id="bcCategorie" href="#">Categorie</a> ›
+      <a href="index.html">Nijmeegse Boeken</a> &rsaquo;
+      <a id="bcCategorie" href="#">Categorie</a> &rsaquo;
       <span id="bcTitel">Titel</span>
     </nav>
   </div>
@@ -122,7 +123,7 @@
       <a id="btnBestellen" href="#" target="_blank" rel="noopener" class="btn-bestellen">
         Bestellen bij Roelants &rarr;
       </a>
-      <p class="verzend-info">Gratis verzending vanaf €30,-<br>Anders €4,95 · Gratis afhalen bij Boekhandel Roelants</p>
+      <p class="verzend-info">Gratis verzending vanaf &euro;30,-<br>Anders &euro;4,95 &middot; Gratis afhalen bij Boekhandel Roelants</p>
     </div>
     <div class="info-kolom">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem" id="labelRij"></div>
@@ -142,18 +143,6 @@
 </div>
 <div id="nbFooter"></div>
 <script src="nijmegen.js"></script>
-<script>
-(async () => {
-  const params = new URLSearchParams(window.location.search);
-  const id   = parseInt(params.get('id')) || null;
-  const slug = params.get('slug') || null;
-  if (!id && !slug) {
-    document.getElementById('laadIndicator').style.display = 'none';
-    document.getElementById('foutMelding').style.display   = 'block';
-    return;
-  }
-  await nbLaadBoekPagina(id, slug);
-})();
-</script>
+<script>nbLaadBoekPagina(48, 'zomervacht-9789044549');</script>
 </body>
 </html>

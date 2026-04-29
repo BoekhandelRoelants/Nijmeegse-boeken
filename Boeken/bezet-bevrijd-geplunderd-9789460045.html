@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="paginaTitel">Boek – Nijmeegse Boeken</title>
-  <meta name="description" id="metaDesc" content="">
-  <link rel="canonical" id="canonical" href="">
-  <meta id="ogTitle" property="og:title" content="">
-  <meta id="ogDesc" property="og:description" content="">
-  <meta id="ogImage" property="og:image" content="">
+  <base href="../">
+  <title>Bezet, bevrijd &amp; geplunderd – Paul Klinkenberg-Paul Thissen-Paul van der Heijden | Nijmeegse Boeken</title>
+  <meta name="description" content="Gewijzigde en aangevulde herdruk Al zolang oorlogen bestaan, wordt er geplunderd. Het zal daarom niemand verbazen dat ook geallieerde soldaten tijdens de T">
+  <link rel="canonical" href="https://nijmeegseboeken.nl/Boeken/bezet-bevrijd-geplunderd-9789460045.html">
+  <meta property="og:title" content="Bezet, bevrijd &amp; geplunderd – Paul Klinkenberg-Paul Thissen-Paul van der Heijden">
+  <meta property="og:description" content="Gewijzigde en aangevulde herdruk Al zolang oorlogen bestaan, wordt er geplunderd. Het zal daarom niemand verbazen dat ook geallieerde soldaten tijdens de T">
   <meta property="og:type" content="book">
   <meta property="og:locale" content="nl_NL">
+  <meta property="og:image" content="https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789460045059&size=l">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Book", "name": "Bezet, bevrijd & geplunderd", "author": {"@type": "Person", "name": "Paul Klinkenberg-Paul Thissen-Paul van der Heijden"}, "publisher": {"@type": "Organization", "name": "Uitgeverij Vantilt"}, "isbn": "9789460045059", "datePublished": "2022", "inLanguage": "nl", "description": "Gewijzigde en aangevulde herdruk Al zolang oorlogen bestaan, wordt er geplunderd. Het zal daarom niemand verbazen dat ook geallieerde soldaten tijdens de Tweede Wereldoorlog zich aan plundering schuldig maakten. Maar waarom deden ze dat op het grondgebied van een bevriende natie? Onderzoek naar wat zich afspeelde in de regio Nijmegen leidt tot een onthutsende conclusie: met name in de geëvacueerde gebieden van de gemeenten Ubbergen, Millingen, Groesbeek, Mook en Middelaar, Ottersum en Gennep blijken vrijwel alle gebouwen leeggehaald. Geallieerde troepen – Amerikanen, Britten en Canadezen – roofden niet alleen uit woonhuizen, maar ook uit fabrieken, hotels, banken, kloosters en kerken. Wat bezielde deze militairen? En waarom werd er nauwelijks tegen hen opgetreden? Bezet, bevrijd & geplunderd toont de bijzondere situatie in de regio Nijmegen, een militaire zone waar het oorlogsfront maandenlang dwars doorheen liep en waar tienduizenden militairen samengepakt leefden onder barre omstandigheden. Sommige militairen stalen goederen uit noodzaak, anderen uit zelfverrijking of simpelweg als ontlading. Na de oorlog kreeg plundering weinig aandacht, want dat paste niet in ons beeld van heroïsche bevrijders. Nu, driekwart eeuw later, is het tijd om deze donkere kant van de bevrijding eindelijk te belichten. Deze tweede editie bevat een compleet nieuw hoofdstuk over het spoor van plundering dat de bevrijders hebben achtergelaten van Zuid-Limburg tot Groningen.", "offers": {"@type": "Offer", "price": "24.5", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://www.roelants.nl/nl/boeken-page/9789460045059/boek"}, "numberOfPages": 228, "image": "https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789460045059&size=l"}</script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="nijmegen.js" as="script">
   <link rel="preconnect" href="https://wscovers1.tlsecure.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="nijmegen.css">
   <style>
     .detail-wrapper {
@@ -111,8 +112,8 @@
 <div id="paginaInhoud" style="display:none">
   <div style="max-width:1200px;margin:1rem auto 0;padding:0 1.5rem">
     <nav class="nb-breadcrumb" aria-label="Kruimelpad">
-      <a href="index.html">Nijmeegse Boeken</a> ›
-      <a id="bcCategorie" href="#">Categorie</a> ›
+      <a href="index.html">Nijmeegse Boeken</a> &rsaquo;
+      <a id="bcCategorie" href="#">Categorie</a> &rsaquo;
       <span id="bcTitel">Titel</span>
     </nav>
   </div>
@@ -122,7 +123,7 @@
       <a id="btnBestellen" href="#" target="_blank" rel="noopener" class="btn-bestellen">
         Bestellen bij Roelants &rarr;
       </a>
-      <p class="verzend-info">Gratis verzending vanaf €30,-<br>Anders €4,95 · Gratis afhalen bij Boekhandel Roelants</p>
+      <p class="verzend-info">Gratis verzending vanaf &euro;30,-<br>Anders &euro;4,95 &middot; Gratis afhalen bij Boekhandel Roelants</p>
     </div>
     <div class="info-kolom">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem" id="labelRij"></div>
@@ -142,18 +143,6 @@
 </div>
 <div id="nbFooter"></div>
 <script src="nijmegen.js"></script>
-<script>
-(async () => {
-  const params = new URLSearchParams(window.location.search);
-  const id   = parseInt(params.get('id')) || null;
-  const slug = params.get('slug') || null;
-  if (!id && !slug) {
-    document.getElementById('laadIndicator').style.display = 'none';
-    document.getElementById('foutMelding').style.display   = 'block';
-    return;
-  }
-  await nbLaadBoekPagina(id, slug);
-})();
-</script>
+<script>nbLaadBoekPagina(14, 'bezet-bevrijd-geplunderd-9789460045');</script>
 </body>
 </html>

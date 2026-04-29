@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="paginaTitel">Boek – Nijmeegse Boeken</title>
-  <meta name="description" id="metaDesc" content="">
-  <link rel="canonical" id="canonical" href="">
-  <meta id="ogTitle" property="og:title" content="">
-  <meta id="ogDesc" property="og:description" content="">
-  <meta id="ogImage" property="og:image" content="">
+  <base href="../">
+  <title>Vacht! – Cobi van Baars | Nijmeegse Boeken</title>
+  <meta name="description" content="Eline van der Veer werkt in een archief dat is gevestigd in een voormalig klooster. Bij aantreden voelde die plek als de hemel, de jaren daarna gewoon als ">
+  <link rel="canonical" href="https://nijmeegseboeken.nl/Boeken/vacht-9789025477.html">
+  <meta property="og:title" content="Vacht! – Cobi van Baars">
+  <meta property="og:description" content="Eline van der Veer werkt in een archief dat is gevestigd in een voormalig klooster. Bij aantreden voelde die plek als de hemel, de jaren daarna gewoon als ">
   <meta property="og:type" content="book">
   <meta property="og:locale" content="nl_NL">
+  <meta property="og:image" content="https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789025477257&size=l">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Book", "name": "Vacht!", "author": {"@type": "Person", "name": "Cobi van Baars"}, "publisher": {"@type": "Organization", "name": "Atlas Contact, Uitgeverij"}, "isbn": "9789025477257", "datePublished": "2025", "inLanguage": "nl", "description": "Eline van der Veer werkt in een archief dat is gevestigd in een voormalig klooster. Bij aantreden voelde die plek als de hemel, de jaren daarna gewoon als de aarde en sinds kort als de hel. Hoe houd je je staande in een wereld die zich tegen je lijkt te keren? Vacht! is een invoelende, geestige en ontroerende roman over verlangen. Over de behoefte ergens bij te horen. Het verlangen één te worden. Maar ja, waarmee? ‘Elíne een relátie?’ Niemand op de werkvloer gelooft het. Zelfs Machteld, zelfverklaard spiritueel begaafd, blijkt de tekenen gemist te hebben – maar ach wat gúnt ze dit haar collega! Helemaal onterecht is al dat wantrouwen niet en Eline voelt zich genoodzaakt haar leugen steeds dikker aan te zetten. Intussen dwingen de koffiemomenten tot openhartigheid en verwart hoofdarchivaris Reinier zijn opendeurenbeleid met controle.", "offers": {"@type": "Offer", "price": "22.99", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://www.roelants.nl/nl/boeken-page/9789025477257/boek"}, "numberOfPages": 224, "image": "https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789025477257&size=l"}</script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="nijmegen.js" as="script">
   <link rel="preconnect" href="https://wscovers1.tlsecure.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="nijmegen.css">
   <style>
     .detail-wrapper {
@@ -111,8 +112,8 @@
 <div id="paginaInhoud" style="display:none">
   <div style="max-width:1200px;margin:1rem auto 0;padding:0 1.5rem">
     <nav class="nb-breadcrumb" aria-label="Kruimelpad">
-      <a href="index.html">Nijmeegse Boeken</a> ›
-      <a id="bcCategorie" href="#">Categorie</a> ›
+      <a href="index.html">Nijmeegse Boeken</a> &rsaquo;
+      <a id="bcCategorie" href="#">Categorie</a> &rsaquo;
       <span id="bcTitel">Titel</span>
     </nav>
   </div>
@@ -122,7 +123,7 @@
       <a id="btnBestellen" href="#" target="_blank" rel="noopener" class="btn-bestellen">
         Bestellen bij Roelants &rarr;
       </a>
-      <p class="verzend-info">Gratis verzending vanaf €30,-<br>Anders €4,95 · Gratis afhalen bij Boekhandel Roelants</p>
+      <p class="verzend-info">Gratis verzending vanaf &euro;30,-<br>Anders &euro;4,95 &middot; Gratis afhalen bij Boekhandel Roelants</p>
     </div>
     <div class="info-kolom">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem" id="labelRij"></div>
@@ -142,18 +143,6 @@
 </div>
 <div id="nbFooter"></div>
 <script src="nijmegen.js"></script>
-<script>
-(async () => {
-  const params = new URLSearchParams(window.location.search);
-  const id   = parseInt(params.get('id')) || null;
-  const slug = params.get('slug') || null;
-  if (!id && !slug) {
-    document.getElementById('laadIndicator').style.display = 'none';
-    document.getElementById('foutMelding').style.display   = 'block';
-    return;
-  }
-  await nbLaadBoekPagina(id, slug);
-})();
-</script>
+<script>nbLaadBoekPagina(50, 'vacht-9789025477');</script>
 </body>
 </html>

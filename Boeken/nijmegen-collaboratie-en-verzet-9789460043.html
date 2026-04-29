@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="paginaTitel">Boek – Nijmeegse Boeken</title>
-  <meta name="description" id="metaDesc" content="">
-  <link rel="canonical" id="canonical" href="">
-  <meta id="ogTitle" property="og:title" content="">
-  <meta id="ogDesc" property="og:description" content="">
-  <meta id="ogImage" property="og:image" content="">
+  <base href="../">
+  <title>Nijmegen. Collaboratie en verzet – Lennert Savenije | Nijmeegse Boeken</title>
+  <meta name="description" content="Wat gebeurt er als een stad door een vijandelijk leger wordt bezet? Is het noodzakelijk en verstandig om samen te werken met de nieuwe machthebber? Of moet">
+  <link rel="canonical" href="https://nijmeegseboeken.nl/Boeken/nijmegen-collaboratie-en-verzet-9789460043.html">
+  <meta property="og:title" content="Nijmegen. Collaboratie en verzet – Lennert Savenije">
+  <meta property="og:description" content="Wat gebeurt er als een stad door een vijandelijk leger wordt bezet? Is het noodzakelijk en verstandig om samen te werken met de nieuwe machthebber? Of moet">
   <meta property="og:type" content="book">
   <meta property="og:locale" content="nl_NL">
+  <meta property="og:image" content="https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789460043789&size=l">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Book", "name": "Nijmegen. Collaboratie en verzet", "author": {"@type": "Person", "name": "Lennert Savenije"}, "publisher": {"@type": "Organization", "name": "Uitgeverij Vantilt"}, "isbn": "9789460043789", "datePublished": "2018", "inLanguage": "nl", "description": "Wat gebeurt er als een stad door een vijandelijk leger wordt bezet? Is het noodzakelijk en verstandig om samen te werken met de nieuwe machthebber? Of moet er weerstand worden geboden tegen zijn aanwezigheid en beleid? Deze vragen speelden voortdurend tijdens de Duitse bezetting van Nederland tussen 1940 en 1945, toen de spanning tussen collaboratie en verzet zich in het dagelijks leven manifesteerde. In Nijmegen, collaboratie en verzet wordt deze beladen thematiek onderzocht door te kijken naar de oorlogsgeschiedenis van Nijmegen, een stad met een veelzijdig en ook dramatisch oorlogsverleden. Wat bewoog de inwoners tot samenwerking met de bezetter? Wanneer, waarom en op welke manieren kwamen ze in verzet? Welke factoren speelden daarbij een rol? Tegelijkertijd schenkt Lennert Savenije aandacht aan personen en standpunten die niet gemakkelijk binnen dit kader zijn te plaatsen. Door de ogen van burgemeesters, fabrieksdirecteuren en politieagenten, maar ook priesters, studenten en werklozen zet hij de geschiedenis van de Duitse bezetting van een middelgrote Nederlandse stad in al haar veelzijdigheid uiteen. Het resulteert in een inspirerende, frisse kijk op de Tweede Wereldoorlog.", "offers": {"@type": "Offer", "price": "34.5", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://www.roelants.nl/nl/boeken-page/9789460043789/boek"}, "image": "https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789460043789&size=l"}</script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="nijmegen.js" as="script">
   <link rel="preconnect" href="https://wscovers1.tlsecure.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="nijmegen.css">
   <style>
     .detail-wrapper {
@@ -111,8 +112,8 @@
 <div id="paginaInhoud" style="display:none">
   <div style="max-width:1200px;margin:1rem auto 0;padding:0 1.5rem">
     <nav class="nb-breadcrumb" aria-label="Kruimelpad">
-      <a href="index.html">Nijmeegse Boeken</a> ›
-      <a id="bcCategorie" href="#">Categorie</a> ›
+      <a href="index.html">Nijmeegse Boeken</a> &rsaquo;
+      <a id="bcCategorie" href="#">Categorie</a> &rsaquo;
       <span id="bcTitel">Titel</span>
     </nav>
   </div>
@@ -122,7 +123,7 @@
       <a id="btnBestellen" href="#" target="_blank" rel="noopener" class="btn-bestellen">
         Bestellen bij Roelants &rarr;
       </a>
-      <p class="verzend-info">Gratis verzending vanaf €30,-<br>Anders €4,95 · Gratis afhalen bij Boekhandel Roelants</p>
+      <p class="verzend-info">Gratis verzending vanaf &euro;30,-<br>Anders &euro;4,95 &middot; Gratis afhalen bij Boekhandel Roelants</p>
     </div>
     <div class="info-kolom">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem" id="labelRij"></div>
@@ -142,18 +143,6 @@
 </div>
 <div id="nbFooter"></div>
 <script src="nijmegen.js"></script>
-<script>
-(async () => {
-  const params = new URLSearchParams(window.location.search);
-  const id   = parseInt(params.get('id')) || null;
-  const slug = params.get('slug') || null;
-  if (!id && !slug) {
-    document.getElementById('laadIndicator').style.display = 'none';
-    document.getElementById('foutMelding').style.display   = 'block';
-    return;
-  }
-  await nbLaadBoekPagina(id, slug);
-})();
-</script>
+<script>nbLaadBoekPagina(43, 'nijmegen-collaboratie-en-verzet-9789460043');</script>
 </body>
 </html>

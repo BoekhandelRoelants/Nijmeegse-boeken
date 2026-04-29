@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="paginaTitel">Boek – Nijmeegse Boeken</title>
-  <meta name="description" id="metaDesc" content="">
-  <link rel="canonical" id="canonical" href="">
-  <meta id="ogTitle" property="og:title" content="">
-  <meta id="ogDesc" property="og:description" content="">
-  <meta id="ogImage" property="og:image" content="">
+  <base href="../">
+  <title>De Magische Tijdpoort – Diane Busink | Nijmeegse Boeken</title>
+  <meta name="description" content="De verborgen erfenis van de familie Van Lymborch-Maelwael Twee tieners vloggen in een museumkelder over de middeleeuwen. Ineens gebeuren er bizarre dingen.">
+  <link rel="canonical" href="https://nijmeegseboeken.nl/Boeken/de-magische-tijdpoort-9789493366.html">
+  <meta property="og:title" content="De Magische Tijdpoort – Diane Busink">
+  <meta property="og:description" content="De verborgen erfenis van de familie Van Lymborch-Maelwael Twee tieners vloggen in een museumkelder over de middeleeuwen. Ineens gebeuren er bizarre dingen.">
   <meta property="og:type" content="book">
   <meta property="og:locale" content="nl_NL">
+  <meta property="og:image" content="https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789493366893&size=l">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Book", "name": "De Magische Tijdpoort", "author": {"@type": "Person", "name": "Diane Busink"}, "publisher": {"@type": "Organization", "name": "Ambilicious LLP"}, "isbn": "9789493366893", "datePublished": "2026", "inLanguage": "nl", "description": "De verborgen erfenis van de familie Van Lymborch-Maelwael Twee tieners vloggen in een museumkelder over de middeleeuwen. Ineens gebeuren er bizarre dingen. Greta Van Lymborch duikt op en vertelt hoe haar broers in 1398 in Parijs miniaturen voor de Franse adel moeten maken. De roem en rijkdom van de jongens heeft een schaduwkant. En niet alleen voor de familie Van Lymborch-Maelwael, want ineens is één van de vloggers spoorloos verdwenen … Hoe is het om je los te maken van je ouders en omgeving, van verwachtingen, de schaduw van anderen en soms zelfs van je eigen dromen? “Het is fantastisch dat juist jongeren worden betrokken bij de meest boeiende, en soms nog onbekende, verhalen van de gebroeders Van Lymborch. Een verhaal om als stad trots op te zijn.” Tobias van Elferen, wethouder Nijmegen. ‘Spannend, vlot en historisch onderbouwd geschreven. Middeleeuws Nijmegen komt tot leven!’ Martijn Pieters, kunsthistoricus. Diane Busink (1969) Haar achtergrond als gedragswetenschapper voedt haar nieuwsgierigheid naar wat mensen drijft. Emoties, angsten en dromen maken haar personages herkenbaar en tijdloos. Inspiratie haalt ze overal vandaan, vaak beginnend in oude archieven en volksverhalen. Vanuit een stevige historische basis weeft ze haar verhalen, altijd met passie en oog voor detail.", "offers": {"@type": "Offer", "price": "22.5", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://www.roelants.nl/nl/boeken-page/9789493366893/boek"}, "numberOfPages": 278, "image": "https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789493366893&size=l"}</script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="nijmegen.js" as="script">
   <link rel="preconnect" href="https://wscovers1.tlsecure.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="nijmegen.css">
   <style>
     .detail-wrapper {
@@ -111,8 +112,8 @@
 <div id="paginaInhoud" style="display:none">
   <div style="max-width:1200px;margin:1rem auto 0;padding:0 1.5rem">
     <nav class="nb-breadcrumb" aria-label="Kruimelpad">
-      <a href="index.html">Nijmeegse Boeken</a> ›
-      <a id="bcCategorie" href="#">Categorie</a> ›
+      <a href="index.html">Nijmeegse Boeken</a> &rsaquo;
+      <a id="bcCategorie" href="#">Categorie</a> &rsaquo;
       <span id="bcTitel">Titel</span>
     </nav>
   </div>
@@ -122,7 +123,7 @@
       <a id="btnBestellen" href="#" target="_blank" rel="noopener" class="btn-bestellen">
         Bestellen bij Roelants &rarr;
       </a>
-      <p class="verzend-info">Gratis verzending vanaf €30,-<br>Anders €4,95 · Gratis afhalen bij Boekhandel Roelants</p>
+      <p class="verzend-info">Gratis verzending vanaf &euro;30,-<br>Anders &euro;4,95 &middot; Gratis afhalen bij Boekhandel Roelants</p>
     </div>
     <div class="info-kolom">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem" id="labelRij"></div>
@@ -142,18 +143,6 @@
 </div>
 <div id="nbFooter"></div>
 <script src="nijmegen.js"></script>
-<script>
-(async () => {
-  const params = new URLSearchParams(window.location.search);
-  const id   = parseInt(params.get('id')) || null;
-  const slug = params.get('slug') || null;
-  if (!id && !slug) {
-    document.getElementById('laadIndicator').style.display = 'none';
-    document.getElementById('foutMelding').style.display   = 'block';
-    return;
-  }
-  await nbLaadBoekPagina(id, slug);
-})();
-</script>
+<script>nbLaadBoekPagina(85, 'de-magische-tijdpoort-9789493366');</script>
 </body>
 </html>

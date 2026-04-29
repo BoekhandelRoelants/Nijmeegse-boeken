@@ -20,7 +20,6 @@ function nbTekst(sleutel, standaard) {
 
 // ── PLACEHOLDER: Nijmeegse vlag met boeknaam in zwart vlak ──
 function nbPlaceholder(titel) {
-  // Wikkel lange titels over meerdere regels (max 16 tekens per regel)
   const woorden = titel.split(' ');
   const regels = [];
   let huidig = '';
@@ -33,18 +32,13 @@ function nbPlaceholder(titel) {
     }
   });
   if (huidig) regels.push(huidig.trim());
-  // Max 4 regels
   const zichtbaar = regels.slice(0, 4);
-
   const regelH = 22;
   const totaalH = zichtbaar.length * regelH;
-  // Gecentreerd in het zwarte vlak (onderste 50% = y 150 t/m 300 in viewBox 0-300)
   const startY = 225 - totaalH / 2;
-
   const tekstRegels = zichtbaar.map((r, i) =>
     `<text x="100" y="${startY + i * regelH}" text-anchor="middle" font-family="'Nunito','Museo Sans',sans-serif" font-size="14" font-weight="700" fill="white" opacity="0.9">${escHtml(r)}</text>`
   ).join('');
-
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" style="position:absolute;inset:0;width:100%;height:100%;display:block;">
     <rect width="200" height="150" fill="#B21233"/>
     <rect y="150" width="200" height="150" fill="#1a1a1a"/>
@@ -52,7 +46,6 @@ function nbPlaceholder(titel) {
     ${tekstRegels}
   </svg>`;
 }
-
 
 function nbKleurVoor(hex) {
   if (!hex) return '#fff';
@@ -65,19 +58,23 @@ function nbPrijs(p) {
   return '€\u202F' + p.toFixed(2).replace('.', ',');
 }
 
-// ── BOEK KAART RENDEREN ──
+// ── BOEK URL (slug of id-fallback) ──
+function nbBoekUrl(b) {
+  return b.slug ? 'Boeken/' + b.slug + '.html' : 'boek.html?id=' + b.id;
+}
+
+// ── COVER URL ──
 function nbCoverURL(b) {
-  // Gebruik handmatig opgegeven omslag als dat er is
   if (b.omslag) return b.omslag;
-  // Haal automatisch cover op via ISBN (streepjes verwijderen)
   const isbn = (b.isbn || '').replace(/-/g, '');
   if (isbn) return 'https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=' + isbn + '&size=l';
   return null;
 }
 
-// Set van IDs van de 20 nieuwste boeken — wordt gevuld bij nbLaadBoeken
+// Set van IDs van de 20 nieuwste boeken
 let _nbNieuwIDs = new Set();
 
+// ── BOEK KAART RENDEREN ──
 function nbRenderKaart(b, toptienNr) {
   let label;
   if (toptienNr) {
@@ -91,21 +88,20 @@ function nbRenderKaart(b, toptienNr) {
   }
   const prijsOud = b.prijsOud ? nbPrijs(b.prijsOud) : null;
   const coverURL = nbCoverURL(b);
+  const boekUrl  = nbBoekUrl(b);
   const coverInhoud = coverURL
     ? '<img src="' + escHtml(coverURL) + '" alt="Omslag ' + escHtml(b.titel) + '" loading="lazy"'
       + ' onerror="this.style.display=\'none\';this.nextSibling.style.display=\'block\'">'
       + '<div style="display:none;width:100%;height:100%;position:absolute;top:0;left:0;">' + nbPlaceholder(b.titel) + '</div>'
     : nbPlaceholder(b.titel);
 
-  const kaartStijl = 'display:flex;flex-direction:column;overflow:hidden;background:white;'
-    + 'border:1px solid #d6d2ca;border-radius:6px;cursor:pointer;'
-    + 'transition:transform 0.2s,box-shadow 0.2s;';
-  const coverStijl = 'width:100%;flex-shrink:0;overflow:hidden;position:relative;display:block;';
-  const infoStijl  = 'padding:0.7rem;display:flex;flex-direction:column;flex:1;border-top:1px solid #e8e4dc;';
+  const kaartStijl  = 'display:flex;flex-direction:column;overflow:hidden;background:white;border:1px solid #d6d2ca;border-radius:6px;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;';
+  const coverStijl  = 'width:100%;flex-shrink:0;overflow:hidden;position:relative;display:block;';
+  const infoStijl   = 'padding:0.7rem;display:flex;flex-direction:column;flex:1;border-top:1px solid #e8e4dc;';
   const footerStijl = 'display:flex;align-items:center;justify-content:space-between;gap:0.4rem;margin-top:auto;';
 
-  let html = '<div class="nb-kaart" style="' + kaartStijl + '"'
-    + ' onclick="location.href=\'boek.html?id=' + b.id + '\'"'
+  return '<div class="nb-kaart" style="' + kaartStijl + '"'
+    + ' onclick="location.href=\'' + escHtml(boekUrl) + '\'"'
     + ' itemscope itemtype="https://schema.org/Book"'
     + ' role="link" tabindex="0"'
     + ' aria-label="' + escHtml(b.titel) + ' — ' + escHtml(b.auteur) + ' — ' + nbPrijs(b.prijs) + '">'
@@ -134,7 +130,6 @@ function nbRenderKaart(b, toptienNr) {
     + '</div>'
     + '</div>'
     + '</div>';
-  return html;
 }
 
 // ── HTML ESCAPEN ──
@@ -144,7 +139,6 @@ function escHtml(t) {
 
 // ── CATEGORIEËN HULPFUNCTIES ──
 function nbCats(b) {
-  // Ondersteunt zowel oud formaat (string) als nieuw (array)
   const c = b.categorieën || b.categorie;
   if (Array.isArray(c)) return c.filter(Boolean);
   return c ? [c] : [];
@@ -169,7 +163,6 @@ async function nbLaadBoeken() {
     const boeken = await r1.json();
     const vast   = r2 && r2.ok ? await r2.json() : [];
 
-    // Voeg vaste boeken toe die nog niet in boeken.json staan (op ID)
     const bestaandeIDs   = new Set(boeken.map(b => b.id));
     const bestaandeISBNs = new Set(boeken.map(b => (b.isbn||'').replace(/-/g,'')).filter(Boolean));
     const nieuweVaste = vast.filter(b => !bestaandeIDs.has(b.id)).map(b => {
@@ -185,18 +178,14 @@ async function nbLaadBoeken() {
   }
 }
 
-// ── SIDEBAR CATEGORIEËN VULLEN ──
+// ── SIDEBAR VULLEN ──
 function nbVulSidebar(boeken, actiefSlug) {
   const el = document.getElementById('nbSidebarCats');
   if (!el) return;
 
-  // Tel boeken per categorie (elk boek telt mee voor elke categorie)
   const tellingen = {};
-  boeken.forEach(b => {
-    nbCats(b).forEach(c => { tellingen[c] = (tellingen[c]||0) + 1; });
-  });
+  boeken.forEach(b => { nbCats(b).forEach(c => { tellingen[c] = (tellingen[c]||0) + 1; }); });
 
-  // Unieke categorieën gesorteerd op naam
   const cats = [...new Set(boeken.flatMap(b => nbCats(b)))].sort();
 
   el.innerHTML = '<li><a href="index.html" class="' + (!actiefSlug ? 'actief' : '') + '">'
@@ -209,15 +198,14 @@ function nbVulSidebar(boeken, actiefSlug) {
         + '</a></li>'
       ).join('');
 
-  // Nieuwste boeken in sidebar
   const nieuwsteEl = document.getElementById('nbSidebarNieuwste');
   if (nieuwsteEl) {
     const nieuwste = [...boeken].sort((a, b) => b.id - a.id).slice(0, 5);
     nieuwsteEl.innerHTML = nieuwste.map(b => {
-    const cover = nbCoverURL(b)
+      const cover = nbCoverURL(b)
         ? '<img src="' + escHtml(nbCoverURL(b)) + '" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.outerHTML=\'<svg viewBox=\\\"0 0 28 42\\\" xmlns=\\\"http://www.w3.org/2000/svg\\\"><rect width=\\\"28\\\" height=\\\"21\\\" fill=\\\"#B21233\\\"/><rect y=\\\"21\\\" width=\\\"28\\\" height=\\\"21\\\" fill=\\\"#1a1a1a\\\"/></svg>\'">'
         : '<svg viewBox="0 0 28 42" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="21" fill="#B21233"/><rect y="21" width="28" height="21" fill="#1a1a1a"/></svg>';
-      return '<a href="boek.html?id=' + b.id + '" class="nb-sb-nieuwste-item">'
+      return '<a href="' + escHtml(nbBoekUrl(b)) + '" class="nb-sb-nieuwste-item">'
         + '<div class="nb-sb-nieuwste-cover">' + cover + '</div>'
         + '<div class="nb-sb-nieuwste-tekst">'
         + '<div class="nb-sb-nieuwste-titel">' + escHtml(b.titel) + '</div>'
@@ -228,7 +216,6 @@ function nbVulSidebar(boeken, actiefSlug) {
     }).join('');
   }
 
-  // Fix coverhoogtes na renderen
   setTimeout(nbFixCoverHoogtes, 150);
 }
 
@@ -244,9 +231,7 @@ function nbHeaderHTML(actiefNav, categorieën) {
   ];
 
   const catItems = (categorieën || []).map(c =>
-    '<a href="categorie-' + escHtml(c.slug) + '.html">'
-    + escHtml(c.naam)
-    + '</a>'
+    '<a href="categorie-' + escHtml(c.slug) + '.html">' + escHtml(c.naam) + '</a>'
   ).join('');
 
   return '<div class="nb-topbar">'
@@ -282,7 +267,6 @@ function nbHeaderHTML(actiefNav, categorieën) {
     + '</div></nav>';
 }
 
-// Welkomsttekst apart — zodat index.html het in het grid kan plaatsen
 function nbWelkomHTML() {
   const t1 = nbTekst('welkom', 'Welkom in de winkel voor Nijmeegse boeken, een initiatief van <a href="https://roelants.nl" target="_blank" rel="noopener">Boekhandel Roelants</a>.');
   const t2 = nbTekst('welkom2', '');
@@ -297,7 +281,6 @@ function nbFooterHTML(categorieën) {
   const catLinks = (categorieën || []).map(c =>
     `<li><a href="categorie-${escHtml(c.slug)}.html">${escHtml(c.naam)}</a></li>`
   ).join('');
-
   return `
     <footer class="nb-footer">
       <div class="nb-footer-inner">
@@ -327,7 +310,6 @@ function nbFooterHTML(categorieën) {
 }
 
 // ── COVER HOOGTE FIXER ──
-// Zet de hoogte van elke cover expliciet op 1.5x de breedte (2:3 verhouding)
 function nbFixCoverHoogtes() {
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
@@ -344,24 +326,24 @@ window.addEventListener('resize', () => {
   window._nbResizeTimer = setTimeout(nbFixCoverHoogtes, 100);
 });
 
-// ── NIEUWSTE BOEKEN (automatisch: top 20 op jaar desc, id desc) ──
+// ── NIEUWSTE BOEKEN (top 20 op jaar desc, id desc) ──
 function nbNieuwBoeken(boeken, max) {
   return [...boeken]
     .sort((a, b) => (b.jaar||0) - (a.jaar||0) || (b.id||0) - (a.id||0))
     .slice(0, max || 20);
 }
 
-
+// ── SORTEREN ──
 function nbSorteer(boeken, methode) {
   const kopie = [...boeken];
   switch (methode) {
-    case 'id-desc':   return kopie.sort((a, b) => (b.id||0) - (a.id||0));
-    case 'jaar-desc': return kopie.sort((a, b) => (b.jaar||0) - (a.jaar||0) || (b.id||0) - (a.id||0));
-    case 'jaar-asc':  return kopie.sort((a, b) => (a.jaar||0) - (b.jaar||0) || (a.id||0) - (b.id||0));
-    case 'titel-asc': return kopie.sort((a, b) => (a.titel||'').localeCompare(b.titel||'', 'nl'));
-    case 'prijs-asc': return kopie.sort((a, b) => (a.prijs||0) - (b.prijs||0));
-    case 'prijs-desc':return kopie.sort((a, b) => (b.prijs||0) - (a.prijs||0));
-    default:          return kopie.sort((a, b) => (b.id||0) - (a.id||0));
+    case 'id-desc':    return kopie.sort((a, b) => (b.id||0) - (a.id||0));
+    case 'jaar-desc':  return kopie.sort((a, b) => (b.jaar||0) - (a.jaar||0) || (b.id||0) - (a.id||0));
+    case 'jaar-asc':   return kopie.sort((a, b) => (a.jaar||0) - (b.jaar||0) || (a.id||0) - (b.id||0));
+    case 'titel-asc':  return kopie.sort((a, b) => (a.titel||'').localeCompare(b.titel||'', 'nl'));
+    case 'prijs-asc':  return kopie.sort((a, b) => (a.prijs||0) - (b.prijs||0));
+    case 'prijs-desc': return kopie.sort((a, b) => (b.prijs||0) - (a.prijs||0));
+    default:           return kopie.sort((a, b) => (b.id||0) - (a.id||0));
   }
 }
 
@@ -404,19 +386,14 @@ document.addEventListener('click', () => {
   document.querySelector('.nb-sorteer-btn')?.setAttribute('aria-expanded', 'false');
 });
 
-// Huidige sortering bijhouden per pagina
 let nbHuidigeSorteer = 'id-desc';
 
 function nbKiesSorteer(methode) {
   nbHuidigeSorteer = methode;
   document.getElementById('nbSorteerMenu')?.classList.remove('open');
-
-  // Update knoptekst
   const label = NB_SORTEER_OPTIES.find(o => o.waarde === methode)?.label || '';
   const btn = document.querySelector('.nb-sorteer-btn strong');
   if (btn) btn.textContent = label;
-
-  // Herrender alle zichtbare grids
   if (typeof nbHerrendeer === 'function') nbHerrendeer(methode);
 }
 
@@ -425,62 +402,42 @@ const NB_PER_PAGINA = 24;
 
 function nbPaginering(boeken, paginaEl, gridEl, huidige) {
   huidige = huidige || 1;
-  const totaal  = Math.ceil(boeken.length / NB_PER_PAGINA);
-  const van     = (huidige - 1) * NB_PER_PAGINA;
-  const tot     = Math.min(van + NB_PER_PAGINA, boeken.length);
-  const pagina  = boeken.slice(van, tot);
+  const totaal = Math.ceil(boeken.length / NB_PER_PAGINA);
+  const van    = (huidige - 1) * NB_PER_PAGINA;
+  const tot    = Math.min(van + NB_PER_PAGINA, boeken.length);
+  const pagina = boeken.slice(van, tot);
 
-  // Render boeken
   gridEl.innerHTML = pagina.length
     ? pagina.map(b => nbRenderKaart(b)).join('')
     : '<p class="nb-leeg">Geen boeken gevonden.</p>';
   nbFixCoverHoogtes();
   setTimeout(nbFixCoverHoogtes, 300);
 
-  // Render paginering
   if (totaal <= 1) { paginaEl.innerHTML = ''; return; }
 
   let html = '<div class="nb-paginering">';
+  html += huidige > 1
+    ? '<button class="nb-pag-btn" onclick="nbGaNaarPagina(' + (huidige-1) + ')">&lsaquo; Vorige</button>'
+    : '<button class="nb-pag-btn" disabled>&lsaquo; Vorige</button>';
 
-  // Vorige
-  if (huidige > 1) {
-    html += '<button class="nb-pag-btn" onclick="nbGaNaarPagina(' + (huidige - 1) + ')">&lsaquo; Vorige</button>';
-  } else {
-    html += '<button class="nb-pag-btn" disabled>&lsaquo; Vorige</button>';
-  }
-
-  // Paginanummers — toon max 7, met ... voor grote lijsten
   const nummers = [];
   for (let i = 1; i <= totaal; i++) {
-    if (i === 1 || i === totaal || (i >= huidige - 2 && i <= huidige + 2)) {
-      nummers.push(i);
-    } else if (nummers[nummers.length - 1] !== '...') {
-      nummers.push('...');
-    }
+    if (i === 1 || i === totaal || (i >= huidige - 2 && i <= huidige + 2)) nummers.push(i);
+    else if (nummers[nummers.length - 1] !== '...') nummers.push('...');
   }
-
   nummers.forEach(n => {
-    if (n === '...') {
-      html += '<span class="nb-pag-sep">&hellip;</span>';
-    } else {
-      html += '<button class="nb-pag-btn nb-pag-num' + (n === huidige ? ' actief' : '') + '"'
-        + ' onclick="nbGaNaarPagina(' + n + ')">' + n + '</button>';
-    }
+    if (n === '...') html += '<span class="nb-pag-sep">&hellip;</span>';
+    else html += '<button class="nb-pag-btn nb-pag-num' + (n === huidige ? ' actief' : '') + '" onclick="nbGaNaarPagina(' + n + ')">' + n + '</button>';
   });
 
-  // Volgende
-  if (huidige < totaal) {
-    html += '<button class="nb-pag-btn" onclick="nbGaNaarPagina(' + (huidige + 1) + ')">Volgende &rsaquo;</button>';
-  } else {
-    html += '<button class="nb-pag-btn" disabled>Volgende &rsaquo;</button>';
-  }
-
-  html += '<span class="nb-pag-info">' + (van + 1) + '–' + tot + ' van ' + boeken.length + '</span>';
+  html += huidige < totaal
+    ? '<button class="nb-pag-btn" onclick="nbGaNaarPagina(' + (huidige+1) + ')">Volgende &rsaquo;</button>'
+    : '<button class="nb-pag-btn" disabled>Volgende &rsaquo;</button>';
+  html += '<span class="nb-pag-info">' + (van+1) + '–' + tot + ' van ' + boeken.length + '</span>';
   html += '</div>';
   paginaEl.innerHTML = html;
 }
 
-// Wordt overschreven door de pagina zelf
 window.nbGaNaarPagina = function(nr) {
   window._nbPaginaHuidig = nr;
   const grid  = document.querySelector('.nb-grid[id]');
@@ -490,7 +447,6 @@ window.nbGaNaarPagina = function(nr) {
     window.scrollTo({ top: grid.offsetTop - 80, behavior: 'smooth' });
   }
 };
-
 
 function nbToggleDropdown(e) {
   e.stopPropagation();
@@ -507,7 +463,6 @@ document.addEventListener('click', () => {
   if (btn)  btn.setAttribute('aria-expanded', 'false');
 });
 
-// ── ZOEKEN (navigeert naar index met query) ──
 function nbZoek() {
   const q = document.getElementById('nbZoekInput')?.value?.trim();
   if (q) window.location.href = `index.html?zoek=${encodeURIComponent(q)}`;
@@ -516,3 +471,160 @@ function nbZoek() {
 document.addEventListener('keydown', e => {
   if (e.key === 'Enter' && document.activeElement?.id === 'nbZoekInput') nbZoek();
 });
+
+
+// ══════════════════════════════════════════════════════════
+// BOEKPAGINA LADEN
+// Gedeelde functie voor boek.html en Boeken/{slug}.html pagina's
+// ══════════════════════════════════════════════════════════
+async function nbLaadBoekPagina(zoekId, zoekSlug) {
+  const boeken = await nbLaadBoeken();
+  await nbLaadInstellingen();
+  const cats = [...new Set(boeken.flatMap(b => (b.categorieën||b.categorie
+    ? (Array.isArray(b.categorieën||b.categorie) ? (b.categorieën||b.categorie) : [b.categorieën||b.categorie])
+    : [])))].sort().map(s => ({naam: s.charAt(0).toUpperCase()+s.slice(1).replace(/-/g,' '), slug: s}));
+
+  // Zoek het boek (slug heeft voorrang, daarna id)
+  let b;
+  if (zoekSlug) b = boeken.find(x => x.slug === zoekSlug);
+  if (!b && zoekId) b = boeken.find(x => x.id === zoekId);
+
+  document.getElementById('nbHeader').innerHTML = nbHeaderHTML('', cats);
+  document.getElementById('nbFooter').innerHTML = nbFooterHTML(cats);
+
+  if (!b) {
+    document.getElementById('laadIndicator').style.display = 'none';
+    document.getElementById('foutMelding').style.display = 'block';
+    return;
+  }
+
+  // SEO — dynamisch instellen (voor boek.html; in Boeken/*.html al hardcoded maar vernieuw voor zekerheid)
+  const boekUrl      = nbBoekUrl(b);
+  const canonicalURL = 'https://nijmeegseboeken.nl/' + boekUrl;
+  const pageTitel    = b.titel + ' \u2013 ' + b.auteur + ' | Nijmeegse Boeken';
+  const isbn         = (b.isbn||'').replace(/-/g,'');
+
+  document.title = pageTitel;
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.content = (b.beschrijving||'').substring(0,155);
+  const canonical = document.querySelector('link[rel="canonical"]');
+  if (canonical) canonical.href = canonicalURL;
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.content = b.titel + ' \u2013 ' + b.auteur;
+  const ogDesc = document.querySelector('meta[property="og:description"]');
+  if (ogDesc) ogDesc.content = (b.beschrijving||'').substring(0,155);
+  if (isbn) {
+    const ogImg = document.querySelector('meta[property="og:image"]');
+    if (ogImg) ogImg.content = 'https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=' + isbn + '&size=l';
+  }
+
+  // Schema.org (alleen toevoegen als nog niet aanwezig via hardcoded tag)
+  if (!document.querySelector('script[type="application/ld+json"]')) {
+    const s = document.createElement('script'); s.type = 'application/ld+json';
+    s.textContent = JSON.stringify({
+      "@context": "https://schema.org", "@type": "Book",
+      "name": b.titel,
+      "author": {"@type": "Person", "name": b.auteur},
+      "publisher": {"@type": "Organization", "name": b.uitgever},
+      "isbn": isbn, "datePublished": String(b.jaar||''),
+      "numberOfPages": b.paginas, "inLanguage": "nl",
+      "description": b.beschrijving,
+      "image": isbn ? 'https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=' + isbn + '&size=l' : '',
+      "offers": {"@type":"Offer","price":b.prijs,"priceCurrency":"EUR","availability":"https://schema.org/InStock","url":b.afrekenen}
+    });
+    document.head.appendChild(s);
+  }
+
+  // Breadcrumb
+  const eersteCat = nbCats(b)[0] || 'overig';
+  const catNaam   = eersteCat.charAt(0).toUpperCase() + eersteCat.slice(1).replace(/-/g,' ');
+  const bcCat = document.getElementById('bcCategorie');
+  if (bcCat) { bcCat.textContent = catNaam; bcCat.href = 'categorie-' + eersteCat + '.html'; }
+  const bcTit = document.getElementById('bcTitel');
+  if (bcTit) bcTit.textContent = b.titel;
+
+  // Breadcrumb schema
+  const bc = document.createElement('script'); bc.type = 'application/ld+json';
+  bc.textContent = JSON.stringify({
+    "@context": "https://schema.org", "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Nijmeegse Boeken","item":"https://nijmeegseboeken.nl/"},
+      {"@type":"ListItem","position":2,"name":catNaam,"item":"https://nijmeegseboeken.nl/categorie-"+eersteCat+".html"},
+      {"@type":"ListItem","position":3,"name":b.titel,"item":canonicalURL}
+    ]
+  });
+  document.head.appendChild(bc);
+
+  // Labels
+  const lr = document.getElementById('labelRij');
+  if (lr) {
+    if (_nbNieuwIDs.has(b.id)) lr.innerHTML += '<span class="label-pill label-nieuw">Nieuw</span>';
+    if (b.aanbieding) lr.innerHTML += '<span class="label-pill label-aanbieding">Aanbieding</span>';
+    nbCats(b).forEach(c => { lr.innerHTML += '<span class="label-pill label-cat">'+escHtml(c.charAt(0).toUpperCase()+c.slice(1).replace(/-/g,' '))+'</span>'; });
+  }
+
+  // Cover
+  const coverURL = nbCoverURL(b);
+  const cc = document.getElementById('coverContainer');
+  if (cc) {
+    cc.innerHTML = coverURL
+      ? '<img src="'+escHtml(coverURL)+'" alt="Omslag van '+escHtml(b.titel)+'" style="width:100%;height:100%;object-fit:cover;"'
+        + ' onerror="this.style.display=\'none\';this.parentNode.appendChild(Object.assign(document.createElement(\'div\'),{innerHTML:nbPlaceholder(\''+escHtml(b.titel)+'\'),style:\'width:100%;height:100%\'}))">'
+      : nbPlaceholder(b.titel);
+  }
+
+  const boekTitelEl = document.getElementById('boekTitel');
+  if (boekTitelEl) boekTitelEl.textContent = b.titel;
+  const ondertitelEl = document.getElementById('boekOndertitel');
+  if (ondertitelEl && b.ondertitel) { ondertitelEl.textContent = b.ondertitel; ondertitelEl.style.display = ''; }
+  const auteurEl = document.getElementById('boekAuteur');
+  if (auteurEl) auteurEl.textContent = b.auteur;
+
+  const prijsRij = document.getElementById('prijsRij');
+  if (prijsRij) {
+    const po = b.prijsOud ? '<span class="prijs-oud-groot">'+nbPrijs(b.prijsOud)+'</span>' : '';
+    prijsRij.innerHTML = po + '<span class="prijs-groot">'+nbPrijs(b.prijs)+'</span><span style="font-size:0.8rem;color:var(--grijs-muted);align-self:center">incl. BTW</span>';
+  }
+
+  const beschEl = document.getElementById('boekBeschrijving');
+  if (beschEl) beschEl.textContent = b.beschrijving||'';
+
+  const specs = [['Auteur',b.auteur],['Uitgever',b.uitgever],['Jaar',b.jaar],["Pagina's",b.paginas],['Formaat',b.formaat],['ISBN',(b.isbn||'').replace(/-/g,'')],['Categorie',nbCatsLabel(b)]];
+  const specsTable = document.getElementById('specsTable');
+  if (specsTable) specsTable.innerHTML = specs.filter(([,v])=>v).map(([k,v])=>'<tr><td>'+k+'</td><td>'+escHtml(String(v))+'</td></tr>').join('');
+
+  // Trefwoorden + categorie-labels
+  const catLabels  = nbCats(b).map(slug => ({ tekst: slug.charAt(0).toUpperCase()+slug.slice(1).replace(/-/g,' '), href: 'categorie-'+slug+'.html', isCat: true }));
+  const trefLabels = (b.trefwoorden||[]).map(t => ({ tekst: t, href: 'index.html?zoek='+encodeURIComponent(t), isCat: false }));
+  const trefEl = document.getElementById('trefwoorden');
+  if (trefEl) {
+    const alle = [...catLabels, ...trefLabels];
+    if (alle.length) trefEl.innerHTML = alle.map(t => '<a href="'+t.href+'" class="trefwoord'+(t.isCat?' trefwoord-cat':'')+'">' + escHtml(t.tekst)+'</a>').join('');
+  }
+
+  const btnBestel = document.getElementById('btnBestellen');
+  if (btnBestel) {
+    if (b.uitverkocht) {
+      btnBestel.removeAttribute('href');
+      btnBestel.textContent = 'Momenteel uitverkocht';
+      btnBestel.style.background = 'var(--grijs-muted)';
+      btnBestel.style.cursor = 'default';
+      btnBestel.style.pointerEvents = 'none';
+    } else {
+      btnBestel.href = b.afrekenen;
+    }
+  }
+
+  // Gerelateerde boeken
+  const bCats = nbCats(b);
+  const gerelateerd = boeken.filter(x => x.id !== b.id && nbCats(x).some(c => bCats.includes(c))).slice(0, 4);
+  const gerGrid = document.getElementById('gereleateerdGrid');
+  const gerBlok = document.getElementById('gereleateerdBlok');
+  if (gerGrid && gerBlok) {
+    if (gerelateerd.length) gerGrid.innerHTML = gerelateerd.map(x => nbRenderKaart(x)).join('');
+    else gerBlok.style.display = 'none';
+  }
+
+  document.getElementById('laadIndicator').style.display = 'none';
+  document.getElementById('paginaInhoud').style.display  = 'block';
+}

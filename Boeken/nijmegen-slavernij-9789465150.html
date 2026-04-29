@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="paginaTitel">Boek – Nijmeegse Boeken</title>
-  <meta name="description" id="metaDesc" content="">
-  <link rel="canonical" id="canonical" href="">
-  <meta id="ogTitle" property="og:title" content="">
-  <meta id="ogDesc" property="og:description" content="">
-  <meta id="ogImage" property="og:image" content="">
+  <base href="../">
+  <title>Nijmegen &amp; Slavernij – Luc Meijboom-Lianne Wilhelmus-Joris van den Tol-Coen van Galen | Nijmeegse Boeken</title>
+  <meta name="description" content="Nijmegen was de belangrijkste stad in het aanzienlijkste gewest van de Nederlandse Republiek. Hoewel ver landinwaarts gelegen, was de stad innig verbonden ">
+  <link rel="canonical" href="https://nijmeegseboeken.nl/Boeken/nijmegen-slavernij-9789465150.html">
+  <meta property="og:title" content="Nijmegen &amp; Slavernij – Luc Meijboom-Lianne Wilhelmus-Joris van den Tol-Coen van Galen">
+  <meta property="og:description" content="Nijmegen was de belangrijkste stad in het aanzienlijkste gewest van de Nederlandse Republiek. Hoewel ver landinwaarts gelegen, was de stad innig verbonden ">
   <meta property="og:type" content="book">
   <meta property="og:locale" content="nl_NL">
+  <meta property="og:image" content="https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789465150734&size=l">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Book", "name": "Nijmegen & Slavernij", "author": {"@type": "Person", "name": "Luc Meijboom-Lianne Wilhelmus-Joris van den Tol-Coen van Galen"}, "publisher": {"@type": "Organization", "name": "Pumbo.nl B.V."}, "isbn": "9789465150734", "datePublished": "2025", "inLanguage": "nl", "description": "Nijmegen was de belangrijkste stad in het aanzienlijkste gewest van de Nederlandse Republiek. Hoewel ver landinwaarts gelegen, was de stad innig verbonden met steden van waaruit schepen van de handelscompagnieën vertrokken om te handelen in specerijen, suiker en mensen. Welke Nijmeegse stadsbestuurders profiteerden van slavernij? Hoe gebruikten burgemeesters hun macht om slavernij te steunen? Hoe werd slavernij in Nijmegen besproken? En beïnvloedden koloniale belangengroepen het beleid? Dit boek werpt nieuw licht op de betrokkenheid van de Nijmeegse stadsbestuurders bij koloniale slavernij vanaf het einde van de zestiende eeuw tot en met 1873.", "offers": {"@type": "Offer", "price": "23.0", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://www.roelants.nl/nl/boeken-page/9789465150734/boek"}, "numberOfPages": 164, "image": "https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789465150734&size=l"}</script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="nijmegen.js" as="script">
   <link rel="preconnect" href="https://wscovers1.tlsecure.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="nijmegen.css">
   <style>
     .detail-wrapper {
@@ -111,8 +112,8 @@
 <div id="paginaInhoud" style="display:none">
   <div style="max-width:1200px;margin:1rem auto 0;padding:0 1.5rem">
     <nav class="nb-breadcrumb" aria-label="Kruimelpad">
-      <a href="index.html">Nijmeegse Boeken</a> ›
-      <a id="bcCategorie" href="#">Categorie</a> ›
+      <a href="index.html">Nijmeegse Boeken</a> &rsaquo;
+      <a id="bcCategorie" href="#">Categorie</a> &rsaquo;
       <span id="bcTitel">Titel</span>
     </nav>
   </div>
@@ -122,7 +123,7 @@
       <a id="btnBestellen" href="#" target="_blank" rel="noopener" class="btn-bestellen">
         Bestellen bij Roelants &rarr;
       </a>
-      <p class="verzend-info">Gratis verzending vanaf €30,-<br>Anders €4,95 · Gratis afhalen bij Boekhandel Roelants</p>
+      <p class="verzend-info">Gratis verzending vanaf &euro;30,-<br>Anders &euro;4,95 &middot; Gratis afhalen bij Boekhandel Roelants</p>
     </div>
     <div class="info-kolom">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem" id="labelRij"></div>
@@ -142,18 +143,6 @@
 </div>
 <div id="nbFooter"></div>
 <script src="nijmegen.js"></script>
-<script>
-(async () => {
-  const params = new URLSearchParams(window.location.search);
-  const id   = parseInt(params.get('id')) || null;
-  const slug = params.get('slug') || null;
-  if (!id && !slug) {
-    document.getElementById('laadIndicator').style.display = 'none';
-    document.getElementById('foutMelding').style.display   = 'block';
-    return;
-  }
-  await nbLaadBoekPagina(id, slug);
-})();
-</script>
+<script>nbLaadBoekPagina(36, 'nijmegen-slavernij-9789465150');</script>
 </body>
 </html>

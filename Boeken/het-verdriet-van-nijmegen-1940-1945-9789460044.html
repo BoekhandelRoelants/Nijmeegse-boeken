@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="paginaTitel">Boek – Nijmeegse Boeken</title>
-  <meta name="description" id="metaDesc" content="">
-  <link rel="canonical" id="canonical" href="">
-  <meta id="ogTitle" property="og:title" content="">
-  <meta id="ogDesc" property="og:description" content="">
-  <meta id="ogImage" property="og:image" content="">
+  <base href="../">
+  <title>Het verdriet van Nijmegen 1940-1945 – Bart Janssen | Nijmeegse Boeken</title>
+  <meta name="description" content="Met het indrukwekkende De pijn die blijft. Ooggetuigenverslagen van het bombardement van Nijmegen, 22 februari 1944, richtte Bart Janssen in 2005 een monum">
+  <link rel="canonical" href="https://nijmeegseboeken.nl/Boeken/het-verdriet-van-nijmegen-1940-1945-9789460044.html">
+  <meta property="og:title" content="Het verdriet van Nijmegen 1940-1945 – Bart Janssen">
+  <meta property="og:description" content="Met het indrukwekkende De pijn die blijft. Ooggetuigenverslagen van het bombardement van Nijmegen, 22 februari 1944, richtte Bart Janssen in 2005 een monum">
   <meta property="og:type" content="book">
   <meta property="og:locale" content="nl_NL">
+  <meta property="og:image" content="https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789460044274&size=l">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Book", "name": "Het verdriet van Nijmegen 1940-1945", "author": {"@type": "Person", "name": "Bart Janssen"}, "publisher": {"@type": "Organization", "name": "Uitgeverij Vantilt"}, "isbn": "9789460044274", "datePublished": "2019", "inLanguage": "nl", "description": "Met het indrukwekkende De pijn die blijft. Ooggetuigenverslagen van het bombardement van Nijmegen, 22 februari 1944, richtte Bart Janssen in 2005 een monument op voor honderden oorlogsslachtoffers. Maar zijn werk was niet af. Het grote aantal gevallenen uit de periode dat Nijmegen frontstad was, van september 1944 tot maart 1945, de slachtoffers van kleinere bombardementen, van de jodenvervolging, van de Arbeitseinsatz, van ongelukken met Duitse en geallieerde legervoertuigen, maar ook kinderen die met gevonden munitie speelden. Zij allen verdienen een plaats in het collectieve geheugen van de stad. Dus trok Bart Janssen dertien jaar lang opnieuw door het land om de herinneringen en verhalen van nabestaanden op te tekenen en foto’s van Nijmeegse oorlogsslachtoffers te verzamelen. Het resultaat is nog omvangrijker dan De pijn die blijft en minstens zo imponerend.", "offers": {"@type": "Offer", "price": "34.5", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://www.roelants.nl/nl/boeken-page/9789460044274/boek"}, "numberOfPages": 1396, "image": "https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789460044274&size=l"}</script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="nijmegen.js" as="script">
   <link rel="preconnect" href="https://wscovers1.tlsecure.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="nijmegen.css">
   <style>
     .detail-wrapper {
@@ -111,8 +112,8 @@
 <div id="paginaInhoud" style="display:none">
   <div style="max-width:1200px;margin:1rem auto 0;padding:0 1.5rem">
     <nav class="nb-breadcrumb" aria-label="Kruimelpad">
-      <a href="index.html">Nijmeegse Boeken</a> ›
-      <a id="bcCategorie" href="#">Categorie</a> ›
+      <a href="index.html">Nijmeegse Boeken</a> &rsaquo;
+      <a id="bcCategorie" href="#">Categorie</a> &rsaquo;
       <span id="bcTitel">Titel</span>
     </nav>
   </div>
@@ -122,7 +123,7 @@
       <a id="btnBestellen" href="#" target="_blank" rel="noopener" class="btn-bestellen">
         Bestellen bij Roelants &rarr;
       </a>
-      <p class="verzend-info">Gratis verzending vanaf €30,-<br>Anders €4,95 · Gratis afhalen bij Boekhandel Roelants</p>
+      <p class="verzend-info">Gratis verzending vanaf &euro;30,-<br>Anders &euro;4,95 &middot; Gratis afhalen bij Boekhandel Roelants</p>
     </div>
     <div class="info-kolom">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem" id="labelRij"></div>
@@ -142,18 +143,6 @@
 </div>
 <div id="nbFooter"></div>
 <script src="nijmegen.js"></script>
-<script>
-(async () => {
-  const params = new URLSearchParams(window.location.search);
-  const id   = parseInt(params.get('id')) || null;
-  const slug = params.get('slug') || null;
-  if (!id && !slug) {
-    document.getElementById('laadIndicator').style.display = 'none';
-    document.getElementById('foutMelding').style.display   = 'block';
-    return;
-  }
-  await nbLaadBoekPagina(id, slug);
-})();
-</script>
+<script>nbLaadBoekPagina(31, 'het-verdriet-van-nijmegen-1940-1945-9789460044');</script>
 </body>
 </html>

@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="paginaTitel">Boek – Nijmeegse Boeken</title>
-  <meta name="description" id="metaDesc" content="">
-  <link rel="canonical" id="canonical" href="">
-  <meta id="ogTitle" property="og:title" content="">
-  <meta id="ogDesc" property="og:description" content="">
-  <meta id="ogImage" property="og:image" content="">
+  <base href="../">
+  <title>Met de pen door Nijmegen – A.M. Janssen | Nijmeegse Boeken</title>
+  <meta name="description" content="Nijmegen, de oudste stad van ons land, veranderde ingrijpend door het bombardement van 1944 en door de afbraak van de verkrotte benedenstad. Toon Janssen t">
+  <link rel="canonical" href="https://nijmeegseboeken.nl/Boeken/met-de-pen-door-nijmegen-9789465445.html">
+  <meta property="og:title" content="Met de pen door Nijmegen – A.M. Janssen">
+  <meta property="og:description" content="Nijmegen, de oudste stad van ons land, veranderde ingrijpend door het bombardement van 1944 en door de afbraak van de verkrotte benedenstad. Toon Janssen t">
   <meta property="og:type" content="book">
   <meta property="og:locale" content="nl_NL">
+  <meta property="og:image" content="https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789465445106&size=l">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Book", "name": "Met de pen door Nijmegen", "author": {"@type": "Person", "name": "A.M. Janssen"}, "publisher": {"@type": "Organization", "name": "Boekscout"}, "isbn": "9789465445106", "datePublished": "2026", "inLanguage": "nl", "description": "Nijmegen, de oudste stad van ons land, veranderde ingrijpend door het bombardement van 1944 en door de afbraak van de verkrotte benedenstad. Toon Janssen tekende de straten van de binnenstad rond 1900. Aangevuld met hedendaagse afbeeldingen, historische context en verrassende weetjes neemt ‘Met de pen door Nijmegen’ de lezer mee door het Nijmegen van toen en nu.", "offers": {"@type": "Offer", "price": "28.99", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://www.roelants.nl/nl/boeken-page/9789465445106/boek"}, "numberOfPages": 146, "image": "https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789465445106&size=l"}</script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="nijmegen.js" as="script">
   <link rel="preconnect" href="https://wscovers1.tlsecure.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="nijmegen.css">
   <style>
     .detail-wrapper {
@@ -111,8 +112,8 @@
 <div id="paginaInhoud" style="display:none">
   <div style="max-width:1200px;margin:1rem auto 0;padding:0 1.5rem">
     <nav class="nb-breadcrumb" aria-label="Kruimelpad">
-      <a href="index.html">Nijmeegse Boeken</a> ›
-      <a id="bcCategorie" href="#">Categorie</a> ›
+      <a href="index.html">Nijmeegse Boeken</a> &rsaquo;
+      <a id="bcCategorie" href="#">Categorie</a> &rsaquo;
       <span id="bcTitel">Titel</span>
     </nav>
   </div>
@@ -122,7 +123,7 @@
       <a id="btnBestellen" href="#" target="_blank" rel="noopener" class="btn-bestellen">
         Bestellen bij Roelants &rarr;
       </a>
-      <p class="verzend-info">Gratis verzending vanaf €30,-<br>Anders €4,95 · Gratis afhalen bij Boekhandel Roelants</p>
+      <p class="verzend-info">Gratis verzending vanaf &euro;30,-<br>Anders &euro;4,95 &middot; Gratis afhalen bij Boekhandel Roelants</p>
     </div>
     <div class="info-kolom">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem" id="labelRij"></div>
@@ -142,18 +143,6 @@
 </div>
 <div id="nbFooter"></div>
 <script src="nijmegen.js"></script>
-<script>
-(async () => {
-  const params = new URLSearchParams(window.location.search);
-  const id   = parseInt(params.get('id')) || null;
-  const slug = params.get('slug') || null;
-  if (!id && !slug) {
-    document.getElementById('laadIndicator').style.display = 'none';
-    document.getElementById('foutMelding').style.display   = 'block';
-    return;
-  }
-  await nbLaadBoekPagina(id, slug);
-})();
-</script>
+<script>nbLaadBoekPagina(25, 'met-de-pen-door-nijmegen-9789465445');</script>
 </body>
 </html>

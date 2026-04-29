@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="paginaTitel">Boek – Nijmeegse Boeken</title>
-  <meta name="description" id="metaDesc" content="">
-  <link rel="canonical" id="canonical" href="">
-  <meta id="ogTitle" property="og:title" content="">
-  <meta id="ogDesc" property="og:description" content="">
-  <meta id="ogImage" property="og:image" content="">
+  <base href="../">
+  <title>Mariënbosch 100 jaar – Martin Bosch | Nijmeegse Boeken</title>
+  <meta name="description" content="De eerste katholieke middelbare meisjesschool in Nederland, te weten MMS Mariënbosch van de zusters van Jezus, Maria en Jozef, is vele decennia een begrip ">
+  <link rel="canonical" href="https://nijmeegseboeken.nl/Boeken/marienbosch-100-jaar-9789074241.html">
+  <meta property="og:title" content="Mariënbosch 100 jaar – Martin Bosch">
+  <meta property="og:description" content="De eerste katholieke middelbare meisjesschool in Nederland, te weten MMS Mariënbosch van de zusters van Jezus, Maria en Jozef, is vele decennia een begrip ">
   <meta property="og:type" content="book">
   <meta property="og:locale" content="nl_NL">
+  <meta property="og:image" content="https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789074241588&size=l">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Book", "name": "Mariënbosch 100 jaar", "author": {"@type": "Person", "name": "Martin Bosch"}, "publisher": {"@type": "Organization", "name": "Vrije Uitgevers, De"}, "isbn": "9789074241588", "datePublished": "2025", "inLanguage": "nl", "description": "De eerste katholieke middelbare meisjesschool in Nederland, te weten MMS Mariënbosch van de zusters van Jezus, Maria en Jozef, is vele decennia een begrip geweest in de onderwijswereld. Katholieke meisjes van doorgaans gegoede stand uit Nijmegen, verdere omgeving en zelfs uit heel Nederland werden door hun ouders naar deze middelbare school aan de Groesbeekseweg gestuurd. Aanvankelijk allemaal als internaatskinderen maar vanaf de jaren 50 in toenemende mate als externen. Zij kregen er een opleiding en vorming, waarmee zij in hun latere leven als echtgenote of in een beroep van betekenis waren. Een oud-conrector kon het tijdens een reünie in 2007 dan ook niet laten om te verzuchten: “Wanneer ik zo naar al die prachtige en pientere dames kijk, voel ik mij beretrots dat ik aan hun opvoeding een steentje heb mogen bijdragen”. De komst van de Mammoetwet in 1968 maakte een einde aan deze MMS en Mariënbosch fuseerde achtereenvolgens een aantal malen met andere Nijmeegse middelbare scholen tot de school die nu Kandinsky College heet. Bij het vertrek van de leerlingen en later ook van de zusters kwam het imposante gebouw – ondertussen een Rijksmonument - aan de Groesbeekseweg geleidelijk leeg te staan. In 2014 werd het gekocht door SSH& en Mooiland Vastgoed BV. Zij realiseerden er een complex met 349 zelfstandige woningen voor studenten. Zij studeren er in een stijlvolle omgeving en in een sfeer die Charles Estourgie, de ontwerper van het gebouw, en die de zusters van JMJ al een eeuw geleden voor ogen hadden", "offers": {"@type": "Offer", "price": "22.5", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://www.roelants.nl/nl/boeken-page/9789074241588/boek"}, "numberOfPages": 192, "image": "https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789074241588&size=l"}</script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="nijmegen.js" as="script">
   <link rel="preconnect" href="https://wscovers1.tlsecure.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="nijmegen.css">
   <style>
     .detail-wrapper {
@@ -111,8 +112,8 @@
 <div id="paginaInhoud" style="display:none">
   <div style="max-width:1200px;margin:1rem auto 0;padding:0 1.5rem">
     <nav class="nb-breadcrumb" aria-label="Kruimelpad">
-      <a href="index.html">Nijmeegse Boeken</a> ›
-      <a id="bcCategorie" href="#">Categorie</a> ›
+      <a href="index.html">Nijmeegse Boeken</a> &rsaquo;
+      <a id="bcCategorie" href="#">Categorie</a> &rsaquo;
       <span id="bcTitel">Titel</span>
     </nav>
   </div>
@@ -122,7 +123,7 @@
       <a id="btnBestellen" href="#" target="_blank" rel="noopener" class="btn-bestellen">
         Bestellen bij Roelants &rarr;
       </a>
-      <p class="verzend-info">Gratis verzending vanaf €30,-<br>Anders €4,95 · Gratis afhalen bij Boekhandel Roelants</p>
+      <p class="verzend-info">Gratis verzending vanaf &euro;30,-<br>Anders &euro;4,95 &middot; Gratis afhalen bij Boekhandel Roelants</p>
     </div>
     <div class="info-kolom">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem" id="labelRij"></div>
@@ -142,18 +143,6 @@
 </div>
 <div id="nbFooter"></div>
 <script src="nijmegen.js"></script>
-<script>
-(async () => {
-  const params = new URLSearchParams(window.location.search);
-  const id   = parseInt(params.get('id')) || null;
-  const slug = params.get('slug') || null;
-  if (!id && !slug) {
-    document.getElementById('laadIndicator').style.display = 'none';
-    document.getElementById('foutMelding').style.display   = 'block';
-    return;
-  }
-  await nbLaadBoekPagina(id, slug);
-})();
-</script>
+<script>nbLaadBoekPagina(28, 'marienbosch-100-jaar-9789074241');</script>
 </body>
 </html>

@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="paginaTitel">Boek – Nijmeegse Boeken</title>
-  <meta name="description" id="metaDesc" content="">
-  <link rel="canonical" id="canonical" href="">
-  <meta id="ogTitle" property="og:title" content="">
-  <meta id="ogDesc" property="og:description" content="">
-  <meta id="ogImage" property="og:image" content="">
+  <base href="../">
+  <title>De mooiste netwerkwandelingen: Rijk van Nijmegen – Mari Smits | Nijmeegse Boeken</title>
+  <meta name="description" content="De reeks ‘De mooiste netwerkwandelingen&#x27; heeft zijn succes te danken aan een heldere formule waarmee iedereen een mooie wandeling in Nederland kan maken. Z">
+  <link rel="canonical" href="https://nijmeegseboeken.nl/Boeken/de-mooiste-netwerkwandelingen-rijk-van-nijmegen-9789054725.html">
+  <meta property="og:title" content="De mooiste netwerkwandelingen: Rijk van Nijmegen – Mari Smits">
+  <meta property="og:description" content="De reeks ‘De mooiste netwerkwandelingen&#x27; heeft zijn succes te danken aan een heldere formule waarmee iedereen een mooie wandeling in Nederland kan maken. Z">
   <meta property="og:type" content="book">
   <meta property="og:locale" content="nl_NL">
+  <meta property="og:image" content="https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789054725114&size=l">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Book", "name": "De mooiste netwerkwandelingen: Rijk van Nijmegen", "author": {"@type": "Person", "name": "Mari Smits"}, "publisher": {"@type": "Organization", "name": "Arko Sports Media BV"}, "isbn": "9789054725114", "datePublished": "2026", "inLanguage": "nl", "description": "De reeks ‘De mooiste netwerkwandelingen' heeft zijn succes te danken aan een heldere formule waarmee iedereen een mooie wandeling in Nederland kan maken. Zowel voor de ervaren wandelaar als voor de wandelaar met wat minder meters in de benen bieden deze gidsen een prachtige ervaring in de natuur. Op basis van eigen ervaringen hebben de auteurs de leukste wandelrondjes en lijnwandelingen geselecteerd. Het resultaat is gebundeld in gidsjes per regio met 15 wandelpareltjes van tussen de 5 en 15 km, waarvan minstens 50% uit half- of onverharde paden bestaat. De routes zijn zo beschreven, in kaart en beeld gebracht dat de lezer zin krijgt om zelf te voet de polder in te gaan. De kernwaardes van deze reeks: • 15 wandelingen van 5 tot 16 km, zoveel mogelijk onverhard • Uitsluitend routes uit gemarkeerde wandelnetwerken • Topografische routekaartjes • Landschapsfoto’s & historische illustraties • Downloadbare GPS-tracks", "offers": {"@type": "Offer", "price": "16.99", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://www.roelants.nl/nl/boeken-page/9789054725114/boek"}, "numberOfPages": 136, "image": "https://wscovers1.tlsecure.com/cover?action=img&source=88300&ean=9789054725114&size=l"}</script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="nijmegen.js" as="script">
   <link rel="preconnect" href="https://wscovers1.tlsecure.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="nijmegen.css">
   <style>
     .detail-wrapper {
@@ -111,8 +112,8 @@
 <div id="paginaInhoud" style="display:none">
   <div style="max-width:1200px;margin:1rem auto 0;padding:0 1.5rem">
     <nav class="nb-breadcrumb" aria-label="Kruimelpad">
-      <a href="index.html">Nijmeegse Boeken</a> ›
-      <a id="bcCategorie" href="#">Categorie</a> ›
+      <a href="index.html">Nijmeegse Boeken</a> &rsaquo;
+      <a id="bcCategorie" href="#">Categorie</a> &rsaquo;
       <span id="bcTitel">Titel</span>
     </nav>
   </div>
@@ -122,7 +123,7 @@
       <a id="btnBestellen" href="#" target="_blank" rel="noopener" class="btn-bestellen">
         Bestellen bij Roelants &rarr;
       </a>
-      <p class="verzend-info">Gratis verzending vanaf €30,-<br>Anders €4,95 · Gratis afhalen bij Boekhandel Roelants</p>
+      <p class="verzend-info">Gratis verzending vanaf &euro;30,-<br>Anders &euro;4,95 &middot; Gratis afhalen bij Boekhandel Roelants</p>
     </div>
     <div class="info-kolom">
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem" id="labelRij"></div>
@@ -142,18 +143,6 @@
 </div>
 <div id="nbFooter"></div>
 <script src="nijmegen.js"></script>
-<script>
-(async () => {
-  const params = new URLSearchParams(window.location.search);
-  const id   = parseInt(params.get('id')) || null;
-  const slug = params.get('slug') || null;
-  if (!id && !slug) {
-    document.getElementById('laadIndicator').style.display = 'none';
-    document.getElementById('foutMelding').style.display   = 'block';
-    return;
-  }
-  await nbLaadBoekPagina(id, slug);
-})();
-</script>
+<script>nbLaadBoekPagina(27, 'de-mooiste-netwerkwandelingen-rijk-van-nijmegen-9789054725');</script>
 </body>
 </html>
