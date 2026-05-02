@@ -24,7 +24,8 @@
       "Nijmegen zo mooi als het was"
     ],
     "afrekenen": "https://www.roelants.nl/nl/boeken-page/2001000002344",
-    "slug": "de-nijmeegse-gassen-en-gasjes-2001000002"
+    "slug": "de-nijmeegse-gassen-en-gasjes-2001000002",
+    "toptienVolgorde": 2
   },
   {
     "id": 2,
@@ -106,7 +107,8 @@
     ],
     "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789074241441/boek",
     "ondertitel": "hoe een stad gevormd werd",
-    "slug": "nijmegen-historische-grond-9789074241"
+    "slug": "nijmegen-historische-grond-9789074241",
+    "toptienVolgorde": 1
   },
   {
     "id": 5,
@@ -164,7 +166,8 @@
     ],
     "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789460045158/boek",
     "ondertitel": "",
-    "slug": "het-gezicht-van-nijmegen-9789460045"
+    "slug": "het-gezicht-van-nijmegen-9789460045",
+    "toptienVolgorde": 5
   },
   {
     "id": 7,
@@ -313,9 +316,9 @@
   },
   {
     "id": 12,
-    "uitgelicht": false,
-    "nieuw": false,
+    "uitgelicht": true,
     "aanbieding": false,
+    "toptien": true,
     "prijsOud": null,
     "titel": "Gewoon goeie films",
     "auteur": "André Stufkens",
@@ -323,7 +326,10 @@
     "jaar": 2025,
     "paginas": 170,
     "formaat": "Paperback",
-    "prijs": 20.0,
+    "prijs": 20,
+    "categorieën": [
+      "geschiedenis"
+    ],
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "50, 100 & 25 jaar filmavant-garde in Nijmegen",
@@ -333,12 +339,7 @@
       "film",
       "filmhuis LUX"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789460045189/boek",
-    "categorieën": [
-      "overig"
-    ],
-    "ondertitel": "",
-    "slug": "gewoon-goeie-films-9789460045"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789460045189/boek"
   },
   {
     "id": 13,
@@ -459,8 +460,8 @@
   {
     "id": 17,
     "uitgelicht": false,
-    "nieuw": false,
     "aanbieding": false,
+    "toptien": false,
     "prijsOud": null,
     "titel": "Gelderland als zelfstandig graafschap en hertogdom (van 1025 tot 1543)",
     "auteur": "...",
@@ -469,19 +470,21 @@
     "paginas": 320,
     "formaat": "Paperback",
     "prijs": 29.9,
+    "categorieën": [
+      "geschiedenis",
+      "middeleeuwen"
+    ],
     "omslag": null,
     "kleur": "#8b1a10",
     "beschrijving": "Verhaal van Gelderland van 1025 tot 1543",
     "isbn": "9789024442522",
     "trefwoorden": [
       "geschiedenis",
-      "Gelderland"
+      "Gelderland",
+      "Verhaal van Gelderland",
+      "Dolly Verhoeven"
     ],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789024442522",
-    "categorieën": [
-      "geschiedenis"
-    ],
-    "slug": "gelderland-als-zelfstandig-graafschap-en-hertogdom-van-9789024442"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789024442522"
   },
   {
     "id": 18,
@@ -565,7 +568,8 @@
     ],
     "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789068687774/boek",
     "ondertitel": "",
-    "slug": "111-plekken-in-nijmegen-die-je-gezien-moet-hebben-9789068687"
+    "slug": "111-plekken-in-nijmegen-die-je-gezien-moet-hebben-9789068687",
+    "toptienVolgorde": 6
   },
   {
     "id": 21,
@@ -626,8 +630,8 @@
   {
     "id": 23,
     "uitgelicht": false,
-    "nieuw": true,
     "aanbieding": false,
+    "toptien": false,
     "prijsOud": null,
     "titel": "Verborgen vensters op Nijmegen",
     "auteur": "Jo Berden-Diederik Schönau",
@@ -636,17 +640,17 @@
     "paginas": null,
     "formaat": "Gebonden",
     "prijs": 19.95,
+    "categorieën": [
+      "geschiedenis",
+      "architectuur",
+      "kunst"
+    ],
     "omslag": null,
-    "kleur": "#B21233",
+    "kleur": "#b21233",
     "beschrijving": "De ramen van Joan Collette in het Nijmeegse Stadhuis Op 17 april 1942, midden in de Tweede Wereldoorlog, werd de nieuwe raadzaal van het stadhuis in Nijmegen geopend. In deze zaal bevonden zich tien monumentale gebrandschilderde ramen, aangeboden door de Nijmeegse burgerij aan het stadsbestuur. Elk raam bestaat uit zes vensters die gebeurtenissen, tradities, thema’s, personen en monumenten uit de Nijmeegse samenleving en geschiedenis laten zien. Deze ramen zijn het belangrijkste niet-religieuze werk van de Nijmeegse kunstenaar Joan Collette. Ze vormen ook binnen Nederland een uniek artistiek en historisch kunstwerk. Bij het bombardement van Nijmegen op 22 februari 1944 werden de ramen zwaar beschadigd, maar Collette heeft alle ramen weer in hun oude luister kunnen herstellen. Eind jaren zeventig werd de raadzaal gesloopt en kregen de ramen een plaats in de gangen van de nieuwbouw. Daar leiden ze nu een verborgen leven, onzichtbaar voor de bevolking die deze ramen veertig jaar eerder had aangeboden. Deze boekuitgave bevat een reconstructie van de oorspron­kelijke opzet van de ramenmet een geactualiseerde bespreking van alle zestig vensters. Het boek vormt hiermee, 82 jaar na de oplevering, de eerste voor iedereen toegankelijke en blijvende presentatie van dit bijzondere kunstwerk.",
     "isbn": "9789074241595",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789074241595/boek",
-    "categorieën": [
-      "overig"
-    ],
-    "ondertitel": "de ramen van Joan Collette in het Nijmeegse Stadhuis",
-    "slug": "verborgen-vensters-op-nijmegen-9789074241"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789074241595/boek"
   },
   {
     "id": 24,
@@ -675,9 +679,9 @@
   },
   {
     "id": 25,
-    "uitgelicht": false,
-    "nieuw": true,
+    "uitgelicht": true,
     "aanbieding": false,
+    "toptien": false,
     "prijsOud": null,
     "titel": "Met de pen door Nijmegen",
     "auteur": "A.M. Janssen",
@@ -686,23 +690,22 @@
     "paginas": 146,
     "formaat": "Gebonden",
     "prijs": 28.99,
+    "categorieën": [
+      "geschiedenis",
+      "architectuur"
+    ],
     "omslag": null,
-    "kleur": "#B21233",
+    "kleur": "#b21233",
     "beschrijving": "Nijmegen, de oudste stad van ons land, veranderde ingrijpend door het bombardement van 1944 en door de afbraak van de verkrotte benedenstad. Toon Janssen tekende de straten van de binnenstad rond 1900. Aangevuld met hedendaagse afbeeldingen, historische context en verrassende weetjes neemt ‘Met de pen door Nijmegen’ de lezer mee door het Nijmegen van toen en nu.",
     "isbn": "9789465445106",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789465445106/boek",
-    "categorieën": [
-      "overig"
-    ],
-    "ondertitel": "",
-    "slug": "met-de-pen-door-nijmegen-9789465445"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789465445106/boek"
   },
   {
     "id": 26,
     "uitgelicht": false,
-    "nieuw": true,
     "aanbieding": false,
+    "toptien": false,
     "prijsOud": null,
     "titel": "Onbekend Nijmegen",
     "auteur": "...",
@@ -711,17 +714,15 @@
     "paginas": 140,
     "formaat": "Paperback",
     "prijs": 16.95,
+    "categorieën": [
+      "wandel-en-natuurgidsen"
+    ],
     "omslag": null,
-    "kleur": "#B21233",
+    "kleur": "#b21233",
     "beschrijving": "Nijmegen ken je misschien als de oudste stad van Nederland, maar de échte stad verbergt zich achter de drukke straten en bekende bezienswaardigheden. In Onbekend Nijmegen duik je in de vergeten hoeken, de stille steegjes en de verhalen die de meeste bewoners en bezoekers nooit horen. Je ontdekt hoe middeleeuwse structuren schuilgaan onder moderne gevels, welke plekken een bewogen geschiedenis dragen die zelden wordt verteld, en waarom sommige stadsparels al generaties lang over het hoofd worden gezien. Dit boek laat je zien dat Nijmegen veel meer is dan je dacht, en dat de mooiste ontdekkingen beginnen op de plekken waar je gewoonlijk zomaar voorbijloopt.",
     "isbn": "9789465481944",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789465481944/boek",
-    "categorieën": [
-      "overig"
-    ],
-    "ondertitel": "",
-    "slug": "onbekend-nijmegen-9789465481"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789465481944/boek"
   },
   {
     "id": 27,
@@ -754,8 +755,8 @@
   {
     "id": 28,
     "uitgelicht": false,
-    "nieuw": true,
     "aanbieding": false,
+    "toptien": false,
     "prijsOud": null,
     "titel": "Mariënbosch 100 jaar",
     "auteur": "Martin Bosch",
@@ -764,17 +765,16 @@
     "paginas": 192,
     "formaat": "Gebonden",
     "prijs": 22.5,
+    "categorieën": [
+      "geschiedenis",
+      "architectuur"
+    ],
     "omslag": null,
-    "kleur": "#B21233",
+    "kleur": "#b21233",
     "beschrijving": "De eerste katholieke middelbare meisjesschool in Nederland, te weten MMS Mariënbosch van de zusters van Jezus, Maria en Jozef, is vele decennia een begrip geweest in de onderwijswereld. Katholieke meisjes van doorgaans gegoede stand uit Nijmegen, verdere omgeving en zelfs uit heel Nederland werden door hun ouders naar deze middelbare school aan de Groesbeekseweg gestuurd. Aanvankelijk allemaal als internaatskinderen maar vanaf de jaren 50 in toenemende mate als externen. Zij kregen er een opleiding en vorming, waarmee zij in hun latere leven als echtgenote of in een beroep van betekenis waren. Een oud-conrector kon het tijdens een reünie in 2007 dan ook niet laten om te verzuchten: “Wanneer ik zo naar al die prachtige en pientere dames kijk, voel ik mij beretrots dat ik aan hun opvoeding een steentje heb mogen bijdragen”. De komst van de Mammoetwet in 1968 maakte een einde aan deze MMS en Mariënbosch fuseerde achtereenvolgens een aantal malen met andere Nijmeegse middelbare scholen tot de school die nu Kandinsky College heet. Bij het vertrek van de leerlingen en later ook van de zusters kwam het imposante gebouw – ondertussen een Rijksmonument - aan de Groesbeekseweg geleidelijk leeg te staan. In 2014 werd het gekocht door SSH& en Mooiland Vastgoed BV. Zij realiseerden er een complex met 349 zelfstandige woningen voor studenten. Zij studeren er in een stijlvolle omgeving en in een sfeer die Charles Estourgie, de ontwerper van het gebouw, en die de zusters van JMJ al een eeuw geleden voor ogen hadden",
     "isbn": "9789074241588",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789074241588/boek",
-    "categorieën": [
-      "overig"
-    ],
-    "ondertitel": "MMS - Katholiek, Keurig en Kunstzinnig : 1924 - 1972",
-    "slug": "marienbosch-100-jaar-9789074241"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789074241588/boek"
   },
   {
     "id": 29,
@@ -814,7 +814,7 @@
     "jaar": 2021,
     "paginas": 88,
     "formaat": "Paperback",
-    "prijs": 17.0,
+    "prijs": 17,
     "categorieën": [
       "natuur",
       "regio-nijmegen",
@@ -935,13 +935,14 @@
     "trefwoorden": [],
     "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789078641834/boek",
     "ondertitel": "15 rondwandelingen van 15 km",
-    "slug": "wandelen-in-het-rijk-van-nijmegen-9789078641"
+    "slug": "wandelen-in-het-rijk-van-nijmegen-9789078641",
+    "toptienVolgorde": 7
   },
   {
     "id": 35,
     "uitgelicht": false,
-    "nieuw": true,
     "aanbieding": false,
+    "toptien": false,
     "prijsOud": null,
     "titel": "Wandelen buiten de binnenstad van Nijmegen",
     "auteur": "Kees Volkers",
@@ -950,23 +951,22 @@
     "paginas": 112,
     "formaat": "Paperback",
     "prijs": 19.95,
+    "categorieën": [
+      "geschiedenis",
+      "wandel-en-natuurgidsen"
+    ],
     "omslag": null,
-    "kleur": "#B21233",
+    "kleur": "#b21233",
     "beschrijving": "Kees Volkers is naast begenadigd cultuurhistoricus inmiddels ook geroutineerd stadswandelaar. Na Utrecht, Rotterdam en Eindhoven voert hij de wandelaar door het veelzijdige Nijmegen en verhaalt hij van Romeinen, Duitsers, industriëlen en pelgrims. In acht wandelingen ontdekt de wandelaar dat Nijmegen naar iedere windrichting een geheel eigen gezicht heeft. Naar het oosten de prachtige Elyzeese Velden op de stuwwal, naar het zuiden de universiteit en de Goffert. Naar het westen het industrieel erfgoed en het hippe Honigcomplex en over de rivier naar het Noorden de prachtige bruggen over de Spiegelwaal en de nieuwe wijk de Waalsprong. Een duidelijke routebeschrijving, een routekaartje en heel veel informatie over alles wat je onderweg tegenkomt maken deze gids tot een feest van herkenning voor de Nijmegenaar en een heuse ontdekkingstocht voor hen die er nieuw zijn.",
     "isbn": "9789078641728",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789078641728/boek",
-    "categorieën": [
-      "overig"
-    ],
-    "ondertitel": "",
-    "slug": "wandelen-buiten-de-binnenstad-van-nijmegen-9789078641"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789078641728/boek"
   },
   {
     "id": 36,
     "uitgelicht": false,
-    "nieuw": true,
     "aanbieding": false,
+    "toptien": false,
     "prijsOud": null,
     "titel": "Nijmegen & Slavernij",
     "auteur": "Luc Meijboom-Lianne Wilhelmus-Joris van den Tol-Coen van Galen",
@@ -974,18 +974,16 @@
     "jaar": 2025,
     "paginas": 164,
     "formaat": "Paperback",
-    "prijs": 23.0,
+    "prijs": 23,
+    "categorieën": [
+      "geschiedenis"
+    ],
     "omslag": null,
-    "kleur": "#B21233",
+    "kleur": "#b21233",
     "beschrijving": "Nijmegen was de belangrijkste stad in het aanzienlijkste gewest van de Nederlandse Republiek. Hoewel ver landinwaarts gelegen, was de stad innig verbonden met steden van waaruit schepen van de handelscompagnieën vertrokken om te handelen in specerijen, suiker en mensen. Welke Nijmeegse stadsbestuurders profiteerden van slavernij? Hoe gebruikten burgemeesters hun macht om slavernij te steunen? Hoe werd slavernij in Nijmegen besproken? En beïnvloedden koloniale belangengroepen het beleid? Dit boek werpt nieuw licht op de betrokkenheid van de Nijmeegse stadsbestuurders bij koloniale slavernij vanaf het einde van de zestiende eeuw tot en met 1873.",
     "isbn": "9789465150734",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789465150734/boek",
-    "categorieën": [
-      "overig"
-    ],
-    "ondertitel": "Publiek bestuur en persoonlijk profijt, 1596-1873",
-    "slug": "nijmegen-slavernij-9789465150"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789465150734/boek"
   },
   {
     "id": 37,
@@ -1015,8 +1013,8 @@
   {
     "id": 38,
     "uitgelicht": false,
-    "nieuw": true,
     "aanbieding": false,
+    "toptien": false,
     "prijsOud": null,
     "titel": "Voor Joden verboden",
     "auteur": "Frank Eliens.",
@@ -1025,17 +1023,16 @@
     "paginas": 360,
     "formaat": "Gebonden",
     "prijs": 39.5,
+    "categorieën": [
+      "geschiedenis",
+      "oorlog"
+    ],
     "omslag": null,
-    "kleur": "#B21233",
+    "kleur": "#b21233",
     "beschrijving": "De zwartste bladzijde van de Nijmeegse geschiedenis is eindelijk beschreven: de stelselmatige vervolging van de Joodse gemeenschap in de Tweede Wereldoorlog. De schrijnende verhalen die Frank Eliëns in de afgelopen jaren verzamelde, laten zien op welke gruwelijke wijze de Joodse inwoners van de oudste stad van Nederland werden opgejaagd, beroofd, opgepakt en gedeporteerd. Slechts heel weinigen keerden terug. Voor Joden verboden brengt al die honderden slachtoffers op indrukwekkende wijze bij elkaar en geeft ze een gezicht in persoonlijke verhalen van woede, wanhoop, ongeloof, niet te bevatten verdriet, maar soms ook geluk en hoop in deze donkere jaren. Zo veel mogelijk zijn ook foto’s afgedrukt van al deze mensen, die nooit de kans kregen om de lente, zomer, herfst en winter van het leven te beleven, en geslachtofferd werden door de nazi’s en hun trawanten. Frank Eliëns is beleidsmedewerker bij de gemeente Nijmegen en schrijft veel over de geschiedenis van de stad. Hij deed ruim een kwarteeuw onderzoek naar het tragische lot van de Nijmeegse Joden.",
     "isbn": "9789024435463",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789024435463/boek",
-    "categorieën": [
-      "overig"
-    ],
-    "ondertitel": "",
-    "slug": "voor-joden-verboden-9789024435"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789024435463/boek"
   },
   {
     "id": 39,
@@ -1074,7 +1071,7 @@
     "jaar": 2014,
     "paginas": 200,
     "formaat": "Paperback",
-    "prijs": 15.0,
+    "prijs": 15,
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "Op 22 februari 1944 bombardeerden Amerikaanse vliegtuigen de stad Nijmegen. Het werd een van de grootste rampen die Nederland in de twintigste eeuw zou treffen. Bijna 800 doden, duizenden gewonden en een kwart van het centrum van de kaart geveegd. Over de reden van dit bombardement is lang en veel gespeculeerd. Een Amerikaanse commandant beweerde dat hij Nijmegen aanzag voor Goch. Maar was dat wel zo? Wat was de ware toedracht? Zeven maanden later startte operatie Market Garden en werd Nijmegen frontstad. Weer vielen er honderden doden en werden duizenden huizen verwoest of zwaar beschadigd. Inmiddels is over het bombardement veel bekend geworden, maar tegelijkertijd zijn ook vertekende verhalen in omloop gekomen. In The destruction of Nijmegen, 1944 ontrafelt Joost Rosendaal het verhaal van het unfriendly re én van de uiteindelijke bevrijding van Nijmegen. Joost Rosendaal studeerde geschiedenis in Nijmegen en Parijs. Hij is als universitair docent politieke-cultuurgeschiedenis verbonden aan de Radboud Universiteit Nijmegen. Bij Vantilt verschenen eerder onder andere Bataven! Nederlandse vluchtelingen in Frankrijk, 1787-1795, Tot Nut van Nederland, Uit de plooi en Nijmegen '44.",
@@ -1175,7 +1172,7 @@
     "jaar": 2025,
     "paginas": 312,
     "formaat": "Paperback",
-    "prijs": 15.0,
+    "prijs": 15,
     "categorieën": [
       "literatuur"
     ],
@@ -1186,7 +1183,8 @@
     "trefwoorden": [],
     "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789044549874/boek",
     "ondertitel": "",
-    "slug": "schemerleven-9789044549"
+    "slug": "schemerleven-9789044549",
+    "toptienVolgorde": 8
   },
   {
     "id": 45,
@@ -1216,8 +1214,8 @@
   {
     "id": 46,
     "uitgelicht": false,
-    "nieuw": true,
     "aanbieding": false,
+    "toptien": false,
     "prijsOud": null,
     "titel": "Wantij",
     "auteur": "Jaap Robben",
@@ -1226,17 +1224,17 @@
     "paginas": 64,
     "formaat": "Paperback",
     "prijs": 13.5,
+    "categorieën": [
+      "natuur",
+      "literatuur",
+      "wandel-en-natuurgidsen"
+    ],
     "omslag": null,
-    "kleur": "#B21233",
+    "kleur": "#b21233",
     "beschrijving": "De Waddenzee verdrinkt. Veel delen van het wad komen steeds vaker en langer onder water te staan, waardoor het wadlopen misschien binnen tien jaar al onmogelijk zou kunnen zijn. Reden dus voor Jaap Robben om voor het eerst te gaan wadlopen naar Schiermonnikoog. Hij verwacht een kalme, haast meditatieve tocht, omringd door niets anders dan wat luierende zeehonden en talloze verborgen schatten die de zee heeft achtergelaten. Maar al snel wordt duidelijk dat hij zich heeft vergist: met laconieke gidsen en een tiental mede-wadlopers, waaronder iemand die luid met zijn moeder beeldbelt en een groep vrijgezellenfeestvierders, blijkt de tocht allesbehalve meditatief. Robben zoekt de rust op achteraan de stoet en verbaast zich daar over hoe weinig er eigenlijk te zien is: geen zeehonden en krioelende beestjes in het zand, alleen maar een enorme, uitgestrekte vlakte zompige modder. En terwijl hij voort baggert naar het noordelijkste puntje van Nederland, probeert Jaap te zien wat onzichtbaar is.",
     "isbn": "9789028214163",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789028214163/boek",
-    "categorieën": [
-      "overig"
-    ],
-    "ondertitel": "",
-    "slug": "wantij-9789028214"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789028214163/boek"
   },
   {
     "id": 47,
@@ -1250,7 +1248,7 @@
     "jaar": 2025,
     "paginas": 256,
     "formaat": "Gebonden",
-    "prijs": 20.0,
+    "prijs": 20,
     "omslag": null,
     "kleur": "#B21233",
     "beschrijving": "‘Een roman die je langzaam de keel snoert.’ – **** de Volkskrant Mikael woont met zijn ouders op een afgelegen eiland tussen Schotland en Noorwegen. Op een dag verdwijnt zijn vader in zee en Mikael verzwijgt wat er is gebeurd. Schuld, troost en verwijten stapelen zich op, tot zijn moeder het onmogelijke van hem verlangt. ‘Jaap Robben behandelt kwetsbare en gevaarlijke materie met subtiliteit en inlevingsvermogen, maar ook met een scherp observatievermogen dat meesterlijk en onvergetelijk is.’ – Colm Tóibín",
@@ -1266,8 +1264,8 @@
   {
     "id": 48,
     "uitgelicht": false,
-    "nieuw": true,
     "aanbieding": false,
+    "toptien": false,
     "prijsOud": null,
     "titel": "Zomervacht",
     "auteur": "Jaap Robben",
@@ -1275,18 +1273,16 @@
     "jaar": 2023,
     "paginas": 316,
     "formaat": "Paperback",
-    "prijs": 20.0,
+    "prijs": 20,
+    "categorieën": [
+      "literatuur"
+    ],
     "omslag": null,
-    "kleur": "#B21233",
+    "kleur": "#b21233",
     "beschrijving": "De dertienjarige Brian woont bij zijn vader op een afgelegen terrein in een caravan. Brians verstandelijk en fysiek beperkte broer Lucien brengt zijn dagen door in een instelling. Een renovatie tijdens de zomer maakt het noodzakelijk dat Lucien elders wordt opgevangen. De vader, vooral gemotiveerd door de in het vooruitzicht gestelde vergoeding, haalt Lucien naar de caravan en maakt de jonge Brian verantwoordelijk voor de verzorging van zijn broer. Maar hoe praat je met iemand die niet spreekt? Hoe zorg je voor iemand van wie je niet weet wat hij nodig heeft? Hoe maak je de juiste keuzes als je zelf nog zo veel moet ontdekken?",
     "isbn": "9789044549478",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789044549478/boek",
-    "categorieën": [
-      "overig"
-    ],
-    "ondertitel": "",
-    "slug": "zomervacht-9789044549"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789044549478/boek"
   },
   {
     "id": 49,
@@ -1316,7 +1312,6 @@
   {
     "id": 50,
     "uitgelicht": false,
-    "nieuw": true,
     "aanbieding": false,
     "toptien": true,
     "prijsOud": null,
@@ -1336,14 +1331,13 @@
     "isbn": "9789025477257",
     "trefwoorden": [],
     "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789025477257/boek",
-    "ondertitel": "roman",
-    "slug": "vacht-9789025477"
+    "toptienVolgorde": 9
   },
   {
     "id": 51,
     "uitgelicht": false,
-    "nieuw": true,
     "aanbieding": false,
+    "toptien": false,
     "prijsOud": null,
     "titel": "De onbedoelden",
     "auteur": "Cobi van Baars",
@@ -1352,23 +1346,21 @@
     "paginas": 224,
     "formaat": "Paperback",
     "prijs": 17.5,
+    "categorieën": [
+      "literatuur"
+    ],
     "omslag": null,
-    "kleur": "#B21233",
+    "kleur": "#b21233",
     "beschrijving": "Een jonge vrouw bevalt van een tweeling. Ze is ongetrouwd en moet van haar ouders haar dochters afstaan. De tweeling wordt daarna ook van elkaar gescheiden en weet niet van elkaars bestaan af. Als dit geheim jaren later wordt onthuld begint hun zoektocht, eerst naar elkaar, en dan naar hun gemiste verleden. De onbedoelden is een pageturner, gebaseerd op waargebeurde feiten.",
     "isbn": "9789025474713",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789025474713/boek",
-    "categorieën": [
-      "overig"
-    ],
-    "ondertitel": "",
-    "slug": "de-onbedoelden-9789025474"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789025474713/boek"
   },
   {
     "id": 52,
     "uitgelicht": false,
-    "nieuw": true,
     "aanbieding": false,
+    "toptien": false,
     "prijsOud": null,
     "titel": "Branduren",
     "auteur": "Cobi van Baars",
@@ -1377,17 +1369,15 @@
     "paginas": 256,
     "formaat": "Paperback",
     "prijs": 18.99,
+    "categorieën": [
+      "literatuur"
+    ],
     "omslag": null,
-    "kleur": "#B21233",
+    "kleur": "#b21233",
     "beschrijving": "‘Naomi is van na de brand. Van haar bestaat alles nog.’ Een geboorte en een sterfdag. Twee gebeurtenissen waarbij Naomi’s familie samenkomt in een veel te kleine ruimte. Uren waarin groot en klein leed door elkaar lopen, de onderlinge verhoudingen op scherp komen te staan en een dramatisch geheim tegelijk met de baby naar buiten breekt. In deze beklemmende en ontroerende familieroman sleept Cobi van Baars je mee in een wereld waarin je wilt blijven maar tegelijk uit wil verdwijnen.",
     "isbn": "9789025475819",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789025475819/boek",
-    "categorieën": [
-      "overig"
-    ],
-    "ondertitel": "roman",
-    "slug": "branduren-9789025475"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789025475819/boek"
   },
   {
     "id": 53,
@@ -1451,7 +1441,7 @@
     "jaar": 2021,
     "paginas": 104,
     "formaat": "Paperback",
-    "prijs": 15.0,
+    "prijs": 15,
     "categorieën": [
       "overig"
     ],
@@ -1467,8 +1457,8 @@
   {
     "id": 56,
     "uitgelicht": false,
-    "nieuw": true,
     "aanbieding": false,
+    "toptien": false,
     "prijsOud": null,
     "titel": "Sint-Jansberg",
     "auteur": "Joyce Penninkhof-Paul Klinkenberg-Patrick Jansen",
@@ -1478,16 +1468,16 @@
     "formaat": "Gebonden",
     "prijs": 9.95,
     "categorieën": [
-      "overig"
+      "geschiedenis",
+      "natuur",
+      "regio-nijmegen"
     ],
     "omslag": null,
-    "kleur": "#B21233",
+    "kleur": "#b21233",
     "beschrijving": "",
     "isbn": "9789461480323",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789461480323/boek",
-    "ondertitel": "een cultuurhistorische wandeling",
-    "slug": "sint-jansberg-9789461480"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789461480323/boek"
   },
   {
     "id": 57,
@@ -1526,7 +1516,7 @@
     "jaar": 2022,
     "paginas": 272,
     "formaat": "Paperback",
-    "prijs": 30.0,
+    "prijs": 30,
     "categorieën": [
       "overig"
     ],
@@ -1701,7 +1691,7 @@
     "jaar": 2021,
     "paginas": 232,
     "formaat": "Paperback",
-    "prijs": 20.0,
+    "prijs": 20,
     "categorieën": [
       "overig"
     ],
@@ -1726,7 +1716,7 @@
     "jaar": 2024,
     "paginas": null,
     "formaat": "Paperback",
-    "prijs": 20.0,
+    "prijs": 20,
     "categorieën": [
       "overig"
     ],
@@ -1751,7 +1741,7 @@
     "jaar": 2025,
     "paginas": 184,
     "formaat": "Paperback",
-    "prijs": 20.0,
+    "prijs": 20,
     "categorieën": [
       "overig"
     ],
@@ -1776,7 +1766,7 @@
     "jaar": 2019,
     "paginas": 224,
     "formaat": "Paperback",
-    "prijs": 5.0,
+    "prijs": 5,
     "categorieën": [
       "overig"
     ],
@@ -1851,7 +1841,7 @@
     "jaar": 2015,
     "paginas": null,
     "formaat": "Gebonden",
-    "prijs": 10.0,
+    "prijs": 10,
     "categorieën": [
       "overig"
     ],
@@ -1926,7 +1916,7 @@
     "jaar": 2024,
     "paginas": 350,
     "formaat": "Gebonden",
-    "prijs": 35.0,
+    "prijs": 35,
     "categorieën": [
       "overig"
     ],
@@ -1951,7 +1941,7 @@
     "jaar": 2022,
     "paginas": 200,
     "formaat": "Gebonden",
-    "prijs": 15.0,
+    "prijs": 15,
     "categorieën": [
       "overig"
     ],
@@ -1967,8 +1957,8 @@
   {
     "id": 76,
     "uitgelicht": false,
-    "nieuw": true,
     "aanbieding": false,
+    "toptien": false,
     "prijsOud": null,
     "titel": "Ik, Maria van Gelre",
     "auteur": "Johan Oosterman",
@@ -1978,22 +1968,21 @@
     "formaat": "Paperback",
     "prijs": 12.5,
     "categorieën": [
-      "overig"
+      "geschiedenis",
+      "middeleeuwen"
     ],
     "omslag": null,
-    "kleur": "#B21233",
+    "kleur": "#b21233",
     "beschrijving": "Haar gebedenboek is een van de grootste Nederlandse kunstschatten van kort na 1400. Het verhaal van haar leven was tot voor kort vrijwel onbekend. Maria, hertogin van Gulik en Gelre en gravin van Zutphen, was een bijzondere vrouw. Ze is geboren in Normandië in 1380 en opgegroeid aan het Franse hof. Jarenlang was ze hofdame van Valentina Visconti, moeder van de beroemde dichter Charles d’Orléans. Die Franse wereld van geleerdheid, schoonheid en zelfverzekerdheid heeft haar gevormd. Ze had smaak, was intelligent en daadkrachtig als bestuurder, wanneer ze daarvoor de ruimte kreeg. Ik, Maria van Gelre. De hertogin en haar uitzonderlijke gebedenboek vertelt voor het eerst het levensverhaal van deze sterke vrouw van 600 jaar geleden, laat de rijke wereld zien waarin zij leefde en biedt de tot nu toe meest uitvoerige kennismaking met haar spectaculaire gebedenboek.",
     "isbn": "9789462622012",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789462622012/boek",
-    "ondertitel": "de hertogin en haar uitzonderlijke gebedenboek (1380-1429)",
-    "slug": "ik-maria-van-gelre-9789462622"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789462622012/boek"
   },
   {
     "id": 77,
     "uitgelicht": false,
-    "nieuw": true,
     "aanbieding": false,
+    "toptien": false,
     "prijsOud": null,
     "titel": "Wat maakt Radboud?",
     "auteur": "Walter Breukers-Jaap Godrie",
@@ -2001,24 +1990,22 @@
     "jaar": 2023,
     "paginas": 154,
     "formaat": "Paperback",
-    "prijs": 15.0,
+    "prijs": 15,
     "categorieën": [
-      "overig"
+      "geschiedenis"
     ],
     "omslag": null,
-    "kleur": "#B21233",
+    "kleur": "#b21233",
     "beschrijving": "Hoe ziet de universiteit van de toekomst eruit? Welke rol is er de komende eeuw voor de academie weggelegd? In dit persoonlijke essay gaan Walter Breukers en Jaap Godrie terug naar de plek waar hun creatieve vriendschap begon, de Radboud Universiteit. Hier proberen ze de academie van de toekomst vorm te geven. Een academie waarin creativiteit, samenwerking en verbeelding centraal staan. Een academie op de grens van kunst en wetenschap. Walter Breukers is schrijver en filosoof. Jaap Godrie is kunstenaar en historicus. Ze leerden elkaar kennen op de Radboud Universiteit en hebben sindsdien samengewerkt aan talloze creatieve projecten, waaronder het boek Verslaafd aan Oneindigheid.",
     "isbn": "9789083327303",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789083327303/boek",
-    "ondertitel": "",
-    "slug": "wat-maakt-radboud-9789083327"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789083327303/boek"
   },
   {
     "id": 78,
     "uitgelicht": false,
-    "nieuw": true,
     "aanbieding": false,
+    "toptien": false,
     "prijsOud": null,
     "titel": "Erfgoed in Gelderland. Kastelen en tuinen",
     "auteur": "Rosa Boer",
@@ -2028,16 +2015,16 @@
     "formaat": "Paperback",
     "prijs": 12.5,
     "categorieën": [
-      "overig"
+      "geschiedenis",
+      "architectuur",
+      "natuur"
     ],
     "omslag": null,
-    "kleur": "#B21233",
+    "kleur": "#b21233",
     "beschrijving": "Wie aan de provincie Gelderland denkt, stelt zich al gauw een streek voor met statige kastelen langs grote rivieren. Veel van deze burchten vinden hun oorsprong al in de middeleeuwen en zijn dus eeuwenlang getuigen geweest van de gebeurtenissen in Gelderland. De verhalen duiden op een roemrijke geschiedenis, waarbij de honderden intacte kastelen vandaag de dag zelf al tot de verbeelding spreken. In geen enkele provincie zijn heden en verleden zo zichtbaar met elkaar verwikkeld als in Gelderland.00Door de eeuwen heen was Gelderland een strijdtoneel van oorlogen en heksenvervolgingen, maar vormde het ook een luxueus oord voor buitenhuizen. Hoewel de verscheidenheid van kasteeltypen er groot is, ligt er aan elk bouwwerk wel een interessant verhaal ten grondslag. Achter sommige middeleeuwse muren verschuilt zich een onheilspellende volkslegende, terwijl er van andere burchten na een fatale veldslag slechts een mysterieuze ruïne rest. De Gelderse kastelen dienen echter stuk voor stuk als herinnering aan een levendig verleden.00'Erfgoed in Gelderland. Kastelen en tuinen' biedt een rijk geïllustreerd cultuurhistorisch overzicht, met aandacht voor de veelzijdige geschiedenis van dit Gelderse erfgoed, maar met de focus op wat er vandaag de dag nog te bewonderen valt.",
     "isbn": "9789461481061",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789461481061/boek",
-    "ondertitel": "kastelen en tuinen",
-    "slug": "erfgoed-in-gelderland-kastelen-en-tuinen-9789461481"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789461481061/boek"
   },
   {
     "id": 79,
@@ -2067,8 +2054,8 @@
   {
     "id": 80,
     "uitgelicht": false,
-    "nieuw": true,
     "aanbieding": false,
+    "toptien": false,
     "prijsOud": null,
     "titel": "Wapenboek Gelre",
     "auteur": "Klaas Padberg Evenboer-André Stufkens",
@@ -2078,22 +2065,22 @@
     "formaat": "Paperback",
     "prijs": 19.95,
     "categorieën": [
-      "overig"
+      "geschiedenis",
+      "kunst",
+      "middeleeuwen"
     ],
     "omslag": null,
-    "kleur": "#B21233",
+    "kleur": "#b21233",
     "beschrijving": "",
     "isbn": "9789082569520",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789082569520/boek",
-    "ondertitel": "",
-    "slug": "wapenboek-gelre-9789082569"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789082569520/boek"
   },
   {
     "id": 81,
     "uitgelicht": false,
-    "nieuw": true,
     "aanbieding": false,
+    "toptien": false,
     "prijsOud": null,
     "titel": "Ten minste houdbaar tot...",
     "auteur": "Joris Jan Voermans-Merel van den Nieuwenhof-Mirjam van Zelst",
@@ -2103,22 +2090,20 @@
     "formaat": "Gebonden",
     "prijs": 24.95,
     "categorieën": [
-      "overig"
+      "architectuur"
     ],
     "omslag": null,
-    "kleur": "#B21233",
+    "kleur": "#b21233",
     "beschrijving": "",
     "isbn": "9789090353562",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789090353562/boek",
-    "ondertitel": "van soep tot hotspot",
-    "slug": "ten-minste-houdbaar-tot-9789090353"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789090353562/boek"
   },
   {
     "id": 82,
     "uitgelicht": false,
-    "nieuw": true,
     "aanbieding": false,
+    "toptien": false,
     "prijsOud": null,
     "titel": "Verhaal van Gelderland",
     "auteur": "...",
@@ -2126,18 +2111,17 @@
     "jaar": 2022,
     "paginas": 1280,
     "formaat": "Paperback",
-    "prijs": 100.0,
+    "prijs": 100,
     "categorieën": [
-      "overig"
+      "geschiedenis",
+      "regio-nijmegen"
     ],
     "omslag": null,
-    "kleur": "#B21233",
+    "kleur": "#b21233",
     "beschrijving": "De rijke geschiedenis van Gelderland in een compleet en prachtig geïllustreerd overzicht. In vier boeken behandelt Verhaal van Gelderland alle belangrijke thema’s uit het Gelderse verleden, van de vroegste tijden tot nu. Van de mysterieuze grafheuvels op de Veluwe tot de machtige hertogen van Gelre. Van ordelijke Romeinse legerkampen tot weelderige adellijke landgoederen. Van de gewelddadige verovering van Grol tot de mislukte slag om Arnhem. Op deskundige en toegankelijke wijze schetsen de auteurs van Verhaal van Gelderland het eigen karakter van de Gelderse geschiedenis. Daarin is een centrale rol weggelegd voor het landschap: de hoge en droge zandgebieden van de Veluwe, de vruchtbare en woeste gronden van de Achterhoek, en de grote rivieren die van Gelderland een permanente doorvoerregio maakten. Het waren ook de rivieren die Gelderland verdeelden in vier (later drie) bestuurlijke kwartieren, een indeling die na duizend jaar nog steeds voelbaar is in de provincie. Verhaal van Gelderland is een integrale en chronologische geschiedenis, waarin politieke, economische, sociale en culturele processen per periode in onderlinge samenhang beschreven worden. Elk boek bestrijkt een eigen tijdvak en is rijk geïllustreerd met honderden afbeeldingen, waaronder tientallen nieuwe kaarten en tekeningen. Aan Verhaal van Gelderland werken ruim dertig auteurs en redactieleden mee: allen kenners van hun specifieke tijdsperiode en van de regionale geschiedenis van Gelderland. Zo schrijft Paul van der Heijden over de Romeinen in Gelderland, vertellen Johan Oosterman en Rudolf Bosch over het middeleeuwse hertogdom Gelre, neemt Ronald de Graaf ons mee naar de Tachtigjarige Oorlog en beschrijft Joost Rosendaal Gelderland in de woelige Bataafs-Franse tijd. Dolly Verhoeven sluit de boekenreeks af met het verhaal over Gelderland in de twintigste eeuw.",
     "isbn": "9789024442560",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789024442560/boek",
-    "ondertitel": "",
-    "slug": "verhaal-van-gelderland-9789024442"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789024442560/boek"
   },
   {
     "id": 83,
@@ -2152,7 +2136,7 @@
     "jaar": 2025,
     "paginas": 234,
     "formaat": "Gebonden",
-    "prijs": 25.0,
+    "prijs": 25,
     "categorieën": [
       "geschiedenis",
       "natuur",
@@ -2165,16 +2149,16 @@
     "trefwoorden": [],
     "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789464551891/boek",
     "ondertitel": "Ontwikkeling en teloorgang van 'een der schoonste landgoederen van ons vaderland'",
-    "slug": "de-sint-jansberg-9789464551"
+    "slug": "de-sint-jansberg-9789464551",
+    "toptienVolgorde": 4
   },
   {
     "id": 84,
-    "uitgelicht": false,
-    "nieuw": true,
+    "uitgelicht": true,
     "aanbieding": false,
+    "toptien": true,
     "prijsOud": null,
     "titel": "Johan Maelwael en de gebroeders Van Lymborch",
-    "ondertitel": "grondleggers van de Nederlandse schilderkunst",
     "auteur": "André Stufkens-Clemens Verhoeven",
     "uitgever": "Amsterdam University Press",
     "jaar": 2023,
@@ -2182,24 +2166,24 @@
     "formaat": "Gebonden",
     "prijs": 30.99,
     "categorieën": [
-      "overig"
+      "geschiedenis",
+      "kunst"
     ],
     "omslag": null,
-    "kleur": "#B21233",
+    "kleur": "#b21233",
     "beschrijving": "De maandbladen uit de Très Riches Heures du duc de Berry behoren wereldwijd tot de bekendste miniaturen uit de middeleeuwen. Veel minder bekend is dat de kunstenaars hiervan uit Nijmegen komen. Zij zijn de eerste Noord-Nederlandse schilders van Europese allure. De ateliers van de schilders-dynastie Maelwael- Van Lymborch waren vanaf 1366 in de hoofdstad van het hertogdom Gelre gevestigd. Rond 1400 traden Johan Maelwael en zijn drie jonge neven Herman, Paul en Johan van Lymborch in dienst van de Franse koninklijke familie. Ze maakten pijlsnel carrière en werden de bestbetaalde kunstenaars van hun tijd. Spraakmakende tentoonstellingen in het Louvre, J. Paul Getty Museum, Metropolitan Museum of Art, Valkhof Museum en Rijksmuseum hebben hun roem vergroot. Recent onderzoek heeft nieuwe inzichten opgeleverd waarvan vele voor het eerst worden gepubliceerd. Dit boek toont tientallen hoogtepunten uit hun fenomenale oeuvre en vertelt het fascinerende verhaal van hun dramatische tijd en hun korte, maar veelbewogen levens. André Stufkens en Clemens Verhoeven namen in 2002 het initiatief voor de terugkeer van de Maelwael-Van Lymborchs naar Nederland. Het resulteerde in de oprichting van de Stichting Maelwael Van Lymborch, waarin beiden bestuursfuncties bekle(ed)den, een keten van publieksactiviteiten, exposities, festivals, onderzoek, publicaties en de oprichting van het museum Gebroeders Van Lymborch Huis.",
     "isbn": "9789464563313",
     "trefwoorden": [],
     "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789464563313/boek",
-    "slug": "johan-maelwael-en-de-gebroeders-van-lymborch-9789464563"
+    "toptienVolgorde": 3
   },
   {
     "id": 85,
     "uitgelicht": false,
-    "nieuw": true,
     "aanbieding": false,
+    "toptien": false,
     "prijsOud": null,
     "titel": "De Magische Tijdpoort",
-    "ondertitel": "",
     "auteur": "Diane Busink",
     "uitgever": "Ambilicious LLP",
     "jaar": 2026,
@@ -2207,14 +2191,15 @@
     "formaat": "Paperback",
     "prijs": 22.5,
     "categorieën": [
-      "overig"
+      "geschiedenis",
+      "architectuur",
+      "kinderboeken"
     ],
     "omslag": null,
-    "kleur": "#B21233",
+    "kleur": "#b21233",
     "beschrijving": "De verborgen erfenis van de familie Van Lymborch-Maelwael Twee tieners vloggen in een museumkelder over de middeleeuwen. Ineens gebeuren er bizarre dingen. Greta Van Lymborch duikt op en vertelt hoe haar broers in 1398 in Parijs miniaturen voor de Franse adel moeten maken. De roem en rijkdom van de jongens heeft een schaduwkant. En niet alleen voor de familie Van Lymborch-Maelwael, want ineens is één van de vloggers spoorloos verdwenen … Hoe is het om je los te maken van je ouders en omgeving, van verwachtingen, de schaduw van anderen en soms zelfs van je eigen dromen? “Het is fantastisch dat juist jongeren worden betrokken bij de meest boeiende, en soms nog onbekende, verhalen van de gebroeders Van Lymborch. Een verhaal om als stad trots op te zijn.” Tobias van Elferen, wethouder Nijmegen. ‘Spannend, vlot en historisch onderbouwd geschreven. Middeleeuws Nijmegen komt tot leven!’ Martijn Pieters, kunsthistoricus. Diane Busink (1969) Haar achtergrond als gedragswetenschapper voedt haar nieuwsgierigheid naar wat mensen drijft. Emoties, angsten en dromen maken haar personages herkenbaar en tijdloos. Inspiratie haalt ze overal vandaan, vaak beginnend in oude archieven en volksverhalen. Vanuit een stevige historische basis weeft ze haar verhalen, altijd met passie en oog voor detail.",
     "isbn": "9789493366893",
     "trefwoorden": [],
-    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789493366893/boek",
-    "slug": "de-magische-tijdpoort-9789493366"
+    "afrekenen": "https://www.roelants.nl/nl/boeken-page/9789493366893/boek"
   }
 ]

@@ -36,7 +36,6 @@
       line-height: 1.6;
     }
 
-    /* ── TOPBAR ── */
     .topbar {
       background: var(--zwart);
       color: white;
@@ -47,31 +46,12 @@
       justify-content: space-between;
       font-size: 0.8rem;
     }
-
     .topbar-links { display: flex; gap: 1.25rem; align-items: center; }
     .topbar a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.78rem; }
     .topbar a:hover { color: white; }
-    .topbar-badge {
-      background: var(--rood);
-      color: white;
-      font-size: 0.65rem;
-      font-weight: 700;
-      padding: 1px 7px;
-      border-radius: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
+    .topbar-badge { background: var(--rood); color: white; font-size: 0.65rem; font-weight: 700; padding: 1px 7px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.05em; }
 
-    /* ── HEADER ── */
-    header {
-      background: var(--rood);
-      padding: 1rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
+    header { background: var(--rood); padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
     .header-links { display: flex; align-items: center; gap: 1rem; }
     .header-titel { color: white; font-size: 1.2rem; font-weight: 700; }
     .header-sub { color: rgba(255,255,255,0.7); font-size: 0.78rem; margin-top: 1px; }
@@ -91,376 +71,87 @@
     .btn-danger { background: #c62828; color: white; }
     .btn-danger:hover { background: #8b0000; }
 
-    /* ── TABS ── */
-    .tabs {
-      background: white;
-      border-bottom: 1px solid var(--grijs-rand);
-      display: flex;
-      padding: 0 1.5rem;
-    }
-
-    .tab {
-      padding: 0.85rem 1.25rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--grijs-muted);
-      cursor: pointer;
-      border-bottom: 2px solid transparent;
-      margin-bottom: -1px;
-      transition: all 0.15s;
-    }
-
+    .tabs { background: white; border-bottom: 1px solid var(--grijs-rand); display: flex; padding: 0 1.5rem; }
+    .tab { padding: 0.85rem 1.25rem; font-size: 0.85rem; font-weight: 600; color: var(--grijs-muted); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.15s; }
     .tab:hover { color: var(--rood); }
     .tab.actief { color: var(--rood); border-bottom-color: var(--rood); }
 
-    /* ── LAYOUT ── */
-    .wrapper {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 1.5rem;
-    }
-
+    .wrapper { max-width: 1300px; margin: 0 auto; padding: 1.5rem; }
     .pagina { display: none; }
     .pagina.actief { display: block; }
 
-    /* ── STATS ── */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .stat-kaart {
-      background: white;
-      border: 1px solid var(--grijs-rand);
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
-    }
-
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+    .stat-kaart { background: white; border: 1px solid var(--grijs-rand); border-radius: 8px; padding: 1rem 1.25rem; }
     .stat-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--grijs-muted); font-weight: 600; margin-bottom: 0.3rem; }
     .stat-getal { font-size: 1.75rem; font-weight: 700; color: var(--zwart); line-height: 1; }
     .stat-sub { font-size: 0.75rem; color: var(--grijs-muted); margin-top: 0.2rem; }
-
     .stat-kaart.rood .stat-getal { color: var(--rood); }
     .stat-kaart.groen .stat-getal { color: var(--groen); }
 
-    /* ── TOOLBAR ── */
-    .toolbar {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .toolbar-zoek {
-      flex: 1;
-      min-width: 200px;
-      position: relative;
-    }
-
-    .toolbar-zoek input {
-      width: 100%;
-      padding: 0.5rem 1rem 0.5rem 2.2rem;
-      border: 1px solid var(--grijs-rand);
-      border-radius: 5px;
-      font-family: var(--font);
-      font-size: 0.88rem;
-      background: white;
-    }
-
+    .toolbar { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .toolbar-zoek { flex: 1; min-width: 200px; position: relative; }
+    .toolbar-zoek input { width: 100%; padding: 0.5rem 1rem 0.5rem 2.2rem; border: 1px solid var(--grijs-rand); border-radius: 5px; font-family: var(--font); font-size: 0.88rem; background: white; }
     .toolbar-zoek input:focus { outline: none; border-color: var(--rood); }
-    .toolbar-zoek-icon {
-      position: absolute;
-      left: 0.7rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--grijs-muted);
-      font-size: 0.9rem;
-      pointer-events: none;
-    }
+    .toolbar-zoek-icon { position: absolute; left: 0.7rem; top: 50%; transform: translateY(-50%); color: var(--grijs-muted); font-size: 0.9rem; pointer-events: none; }
+    .toolbar select { padding: 0.5rem 0.85rem; border: 1px solid var(--grijs-rand); border-radius: 5px; font-family: var(--font); font-size: 0.85rem; background: white; cursor: pointer; }
 
-    .toolbar select {
-      padding: 0.5rem 0.85rem;
-      border: 1px solid var(--grijs-rand);
-      border-radius: 5px;
-      font-family: var(--font);
-      font-size: 0.85rem;
-      background: white;
-      cursor: pointer;
-    }
-
-    /* ── BOEKENLIJST ── */
-    .boeken-tabel {
-      background: white;
-      border: 1px solid var(--grijs-rand);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .boeken-tabel table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .boeken-tabel thead th {
-      background: var(--grijs-licht);
-      padding: 0.65rem 1rem;
-      text-align: left;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--grijs-muted);
-      font-weight: 700;
-      border-bottom: 1px solid var(--grijs-rand);
-      white-space: nowrap;
-    }
-
-    .boeken-tabel tbody tr {
-      border-bottom: 1px solid var(--grijs-mid);
-      transition: background 0.1s;
-    }
-
+    .boeken-tabel { background: white; border: 1px solid var(--grijs-rand); border-radius: 8px; overflow: hidden; }
+    .boeken-tabel table { width: 100%; border-collapse: collapse; }
+    .boeken-tabel thead th { background: var(--grijs-licht); padding: 0.65rem 1rem; text-align: left; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--grijs-muted); font-weight: 700; border-bottom: 1px solid var(--grijs-rand); white-space: nowrap; }
+    .boeken-tabel tbody tr { border-bottom: 1px solid var(--grijs-mid); transition: background 0.1s; }
     .boeken-tabel tbody tr:last-child { border-bottom: none; }
     .boeken-tabel tbody tr:hover { background: #fafaf8; }
-
-    .boeken-tabel td {
-      padding: 0.65rem 1rem;
-      font-size: 0.88rem;
-      vertical-align: middle;
-    }
-
-    .cover-mini {
-      width: 32px;
-      height: 48px;
-      border-radius: 3px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-
+    .boeken-tabel td { padding: 0.65rem 1rem; font-size: 0.88rem; vertical-align: middle; }
+    .cover-mini { width: 32px; height: 48px; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
     .boek-naam { font-weight: 700; color: var(--zwart); font-size: 0.9rem; }
     .boek-auteur-klein { color: var(--grijs-muted); font-size: 0.78rem; }
-
-    .badge {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 10px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
     .badge-nieuw { background: var(--rood-licht); color: var(--rood); }
     .badge-aanbieding { background: var(--oranje-licht); color: var(--oranje); }
     .badge-uitgelicht { background: #fff8e1; color: #f57f17; }
     .badge-cat { background: var(--grijs-mid); color: var(--grijs-tekst); }
-
     .prijs-cel { font-weight: 700; color: var(--rood); white-space: nowrap; }
     .prijs-oud-klein { font-size: 0.72rem; color: var(--grijs-muted); text-decoration: line-through; }
-
     .acties { display: flex; gap: 0.4rem; white-space: nowrap; }
 
-    /* ── LEEG ── */
-    .leeg {
-      text-align: center;
-      padding: 3rem 1.5rem;
-      color: var(--grijs-muted);
-    }
-
+    .leeg { text-align: center; padding: 3rem 1.5rem; color: var(--grijs-muted); }
     .leeg-icon { font-size: 2.5rem; margin-bottom: 0.75rem; opacity: 0.4; }
     .leeg p { font-size: 0.9rem; }
 
-    /* ── FORMULIER PANEEL ── */
-    .formulier-paneel {
-      display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 1.5rem;
-      align-items: start;
-    }
-
-    .formulier-kaart {
-      background: white;
-      border: 1px solid var(--grijs-rand);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .formulier-kop {
-      background: var(--zwart);
-      color: white;
-      padding: 0.85rem 1.25rem;
-      font-size: 0.85rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
+    .formulier-paneel { display: grid; grid-template-columns: 1fr 320px; gap: 1.5rem; align-items: start; }
+    .formulier-kaart { background: white; border: 1px solid var(--grijs-rand); border-radius: 8px; overflow: hidden; }
+    .formulier-kop { background: var(--zwart); color: white; padding: 0.85rem 1.25rem; font-size: 0.85rem; font-weight: 700; display: flex; align-items: center; justify-content: space-between; }
     .formulier-kop span { color: rgba(255,255,255,0.6); font-size: 0.75rem; font-weight: 400; }
-
     .formulier-body { padding: 1.25rem; }
-
-    .veld-rij {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
+    .veld-rij { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
     .veld-rij.enkel { grid-template-columns: 1fr; }
     .veld-rij.driekolom { grid-template-columns: 1fr 1fr 1fr; }
-
     .veld { display: flex; flex-direction: column; gap: 0.3rem; }
-
-    .veld label {
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--grijs-tekst);
-    }
-
+    .veld label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--grijs-tekst); }
     .veld label .vereist { color: var(--rood); }
-
-    .veld input, .veld select, .veld textarea {
-      padding: 0.5rem 0.75rem;
-      border: 1px solid var(--grijs-rand);
-      border-radius: 5px;
-      font-family: var(--font);
-      font-size: 0.88rem;
-      color: var(--zwart);
-      background: white;
-      transition: border-color 0.15s;
-    }
-
-    .veld input:focus, .veld select:focus, .veld textarea:focus {
-      outline: none;
-      border-color: var(--rood);
-    }
-
+    .veld input, .veld select, .veld textarea { padding: 0.5rem 0.75rem; border: 1px solid var(--grijs-rand); border-radius: 5px; font-family: var(--font); font-size: 0.88rem; color: var(--zwart); background: white; transition: border-color 0.15s; }
+    .veld input:focus, .veld select:focus, .veld textarea:focus { outline: none; border-color: var(--rood); }
     .veld textarea { resize: vertical; min-height: 80px; }
-
     .veld-hint { font-size: 0.73rem; color: var(--grijs-muted); }
     .tt-over { border-color: var(--rood) !important; background: var(--rood-licht) !important; }
-
-    .toggle-rij {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.75rem;
-      margin-bottom: 1rem;
-    }
-
-    .toggle-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 0.85rem;
-      border: 1px solid var(--grijs-rand);
-      border-radius: 5px;
-      cursor: pointer;
-      transition: all 0.15s;
-      user-select: none;
-    }
-
-    .toggle-item:has(input:checked) {
-      border-color: var(--rood);
-      background: var(--rood-licht);
-    }
-
+    .toggle-rij { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1rem; }
+    .toggle-item { display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 0.85rem; border: 1px solid var(--grijs-rand); border-radius: 5px; cursor: pointer; transition: all 0.15s; user-select: none; }
+    .toggle-item:has(input:checked) { border-color: var(--rood); background: var(--rood-licht); }
     .toggle-item input { display: none; }
     .toggle-item-tekst { font-size: 0.85rem; font-weight: 600; }
-
-    .toggle-dot {
-      width: 14px; height: 14px;
-      border-radius: 50%;
-      border: 2px solid var(--grijs-rand);
-      flex-shrink: 0;
-      transition: all 0.15s;
-    }
-
-    .toggle-item:has(input:checked) .toggle-dot {
-      background: var(--rood);
-      border-color: var(--rood);
-    }
-
-    .sectie-label {
-      font-size: 0.73rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      color: var(--grijs-muted);
-      margin-bottom: 0.6rem;
-      padding-bottom: 0.4rem;
-      border-bottom: 1px solid var(--grijs-mid);
-    }
-
-    .formulier-footer {
-      padding: 1rem 1.25rem;
-      border-top: 1px solid var(--grijs-mid);
-      display: flex;
-      gap: 0.75rem;
-      align-items: center;
-    }
-
+    .toggle-dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--grijs-rand); flex-shrink: 0; transition: all 0.15s; }
+    .toggle-item:has(input:checked) .toggle-dot { background: var(--rood); border-color: var(--rood); }
+    .sectie-label { font-size: 0.73rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--grijs-muted); margin-bottom: 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--grijs-mid); }
+    .formulier-footer { padding: 1rem 1.25rem; border-top: 1px solid var(--grijs-mid); display: flex; gap: 0.75rem; align-items: center; }
     .formulier-id { font-size: 0.75rem; color: var(--grijs-muted); margin-left: auto; }
 
-    /* ── PREVIEW KAART ── */
     .preview-sticky { position: sticky; top: 1rem; }
-
-    .preview-kaart {
-      background: white;
-      border: 1px solid var(--grijs-rand);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .preview-kop {
-      background: var(--grijs-licht);
-      padding: 0.65rem 1rem;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--grijs-muted);
-    }
-
+    .preview-kaart { background: white; border: 1px solid var(--grijs-rand); border-radius: 8px; overflow: hidden; }
+    .preview-kop { background: var(--grijs-licht); padding: 0.65rem 1rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--grijs-muted); }
     .preview-body { padding: 1rem; }
-
-    .preview-boek-kaart {
-      border: 1px solid var(--grijs-rand);
-      border-radius: 5px;
-      overflow: hidden;
-      max-width: 200px;
-      margin: 0 auto;
-    }
-
-    .preview-cover {
-      aspect-ratio: 2/3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      font-size: 2.5rem;
-    }
-
-    .preview-label {
-      position: absolute;
-      top: 6px;
-      left: 6px;
-      background: var(--rood);
-      color: white;
-      font-size: 0.65rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      padding: 2px 6px;
-      border-radius: 2px;
-    }
-
+    .preview-boek-kaart { border: 1px solid var(--grijs-rand); border-radius: 5px; overflow: hidden; max-width: 200px; margin: 0 auto; }
+    .preview-cover { aspect-ratio: 2/3; display: flex; align-items: center; justify-content: center; position: relative; font-size: 2.5rem; }
+    .preview-label { position: absolute; top: 6px; left: 6px; background: var(--rood); color: white; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; padding: 2px 6px; border-radius: 2px; }
     .preview-info { padding: 0.75rem; }
     .preview-cat-tekst { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--grijs-muted); font-weight: 600; margin-bottom: 3px; }
     .preview-titel-tekst { font-size: 0.85rem; font-weight: 700; color: var(--zwart); line-height: 1.3; margin-bottom: 2px; }
@@ -468,95 +159,28 @@
     .preview-footer { display: flex; justify-content: space-between; align-items: center; }
     .preview-prijs-tekst { font-size: 0.95rem; font-weight: 700; color: var(--rood); }
     .preview-btn { background: var(--rood); color: white; border: none; border-radius: 3px; padding: 3px 8px; font-size: 0.72rem; font-weight: 700; }
+    .preview-json { margin-top: 1rem; background: var(--grijs-licht); border: 1px solid var(--grijs-rand); border-radius: 5px; padding: 0.75rem; font-size: 0.72rem; font-family: monospace; color: var(--grijs-tekst); white-space: pre; overflow-x: auto; max-height: 200px; overflow-y: auto; }
 
-    .preview-json {
-      margin-top: 1rem;
-      background: var(--grijs-licht);
-      border: 1px solid var(--grijs-rand);
-      border-radius: 5px;
-      padding: 0.75rem;
-      font-size: 0.72rem;
-      font-family: monospace;
-      color: var(--grijs-tekst);
-      white-space: pre;
-      overflow-x: auto;
-      max-height: 200px;
-      overflow-y: auto;
-    }
-
-    /* ── DOWNLOAD SECTIE ── */
-    .download-kaart {
-      background: white;
-      border: 1px solid var(--grijs-rand);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .download-rij {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
+    .download-kaart { background: white; border: 1px solid var(--grijs-rand); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; }
+    .download-rij { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
     .download-info h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem; }
     .download-info p { font-size: 0.85rem; color: var(--grijs-muted); }
 
-    /* ── MELDING ── */
-    .melding {
-      display: none;
-      padding: 0.75rem 1rem;
-      border-radius: 5px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
+    .melding { display: none; padding: 0.75rem 1rem; border-radius: 5px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; align-items: center; gap: 0.5rem; }
     .melding.zichtbaar { display: flex; }
     .melding.succes { background: var(--groen-licht); color: var(--groen); border: 1px solid #a5d6a7; }
     .melding.fout { background: #ffebee; color: #c62828; border: 1px solid #ef9a9a; }
     .melding.info { background: #e3f2fd; color: #1565c0; border: 1px solid #90caf9; }
 
-    /* ── MODAL ── */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-    }
-
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center; }
     .modal-overlay.open { display: flex; }
-
-    .modal {
-      background: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      max-width: 420px;
-      width: 90%;
-    }
-
+    .modal { background: white; border-radius: 8px; padding: 1.5rem; max-width: 420px; width: 90%; }
     .modal h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
     .modal p { font-size: 0.88rem; color: var(--grijs-tekst); margin-bottom: 1.25rem; }
     .modal-btns { display: flex; gap: 0.75rem; justify-content: flex-end; }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .formulier-paneel { grid-template-columns: 1fr; }
-      .preview-sticky { position: static; }
-    }
-
-    @media (max-width: 600px) {
-      .veld-rij { grid-template-columns: 1fr; }
-      .veld-rij.driekolom { grid-template-columns: 1fr; }
-      .toggle-rij { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 900px) { .formulier-paneel { grid-template-columns: 1fr; } .preview-sticky { position: static; } }
+    @media (max-width: 600px) { .veld-rij { grid-template-columns: 1fr; } .veld-rij.driekolom { grid-template-columns: 1fr; } .toggle-rij { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -593,19 +217,14 @@
   <div class="tab" onclick="toonPagina('json', this)">JSON bekijken</div>
 </div>
 
-<!-- ── MELDINGEN ── -->
 <div class="wrapper">
   <div class="melding" id="melding"></div>
 </div>
 
-<!-- ══════════════════════════════════════ -->
-<!-- PAGINA: OVERZICHT -->
-<!-- ══════════════════════════════════════ -->
+<!-- OVERZICHT -->
 <div class="pagina actief" id="pagina-overzicht">
   <div class="wrapper">
-
     <div class="stats" id="statsRij"></div>
-
     <div class="toolbar">
       <div class="toolbar-zoek">
         <span class="toolbar-zoek-icon">⌕</span>
@@ -621,7 +240,6 @@
       </select>
       <button class="btn btn-rood" onclick="toonPagina('toevoegen', document.querySelectorAll('.tab')[1]); nieuwBoek()">+ Boek toevoegen</button>
     </div>
-
     <div class="boeken-tabel">
       <table>
         <thead>
@@ -637,18 +255,13 @@
         <tbody id="boekTabel"></tbody>
       </table>
     </div>
-
   </div>
 </div>
 
-<!-- ══════════════════════════════════════ -->
-<!-- PAGINA: TOEVOEGEN / BEWERKEN -->
-<!-- ══════════════════════════════════════ -->
+<!-- TOEVOEGEN / BEWERKEN -->
 <div class="pagina" id="pagina-toevoegen">
   <div class="wrapper">
     <div class="formulier-paneel">
-
-      <!-- FORMULIER -->
       <div>
         <div class="formulier-kaart">
           <div class="formulier-kop">
@@ -656,16 +269,13 @@
             <span id="formulierSubtitel">Vul alle verplichte velden in</span>
           </div>
           <div class="formulier-body">
-
             <div class="sectie-label">Basisgegevens</div>
-
             <div class="veld-rij enkel">
               <div class="veld">
                 <label>Titel <span class="vereist">*</span></label>
                 <input type="text" id="vTitel" placeholder="bijv. Nijmegen: Twee Millennia Stadsgeschiedenis" oninput="updatePreview()">
               </div>
             </div>
-
             <div class="veld-rij">
               <div class="veld">
                 <label>Auteur <span class="vereist">*</span></label>
@@ -676,7 +286,6 @@
                 <input type="text" id="vUitgever" placeholder="bijv. Vantilt">
               </div>
             </div>
-
             <div class="veld-rij driekolom">
               <div class="veld">
                 <label>Jaar</label>
@@ -696,12 +305,10 @@
                 </select>
               </div>
             </div>
-
             <div class="veld-rij">
               <div class="veld">
                 <label>Categorieën <span class="vereist">*</span></label>
-                <select id="vCategorie" multiple onchange="updatePreview()" style="height:120px;">
-                </select>
+                <select id="vCategorie" multiple onchange="updatePreview()" style="height:120px;"></select>
                 <span class="veld-hint">Houd Cmd (Mac) of Ctrl (Windows) ingedrukt voor meerdere categorieën</span>
               </div>
               <div class="veld">
@@ -709,25 +316,20 @@
                 <input type="text" id="vISBN" placeholder="978-90-…">
               </div>
             </div>
-
             <div class="veld-rij enkel">
               <div class="veld">
                 <label>Beschrijving</label>
-                <textarea id="vBeschrijving" placeholder="Korte beschrijving van het boek (verschijnt op de detailpagina en in zoekmachines)…" oninput="updatePreview()"></textarea>
+                <textarea id="vBeschrijving" placeholder="Korte beschrijving van het boek…" oninput="updatePreview()"></textarea>
                 <span class="veld-hint">Tip: 100–160 tekens is ideaal voor Google-zoekresultaten</span>
               </div>
             </div>
-
             <div class="veld-rij enkel">
               <div class="veld">
                 <label>Trefwoorden</label>
                 <input type="text" id="vTrefwoorden" placeholder="geschiedenis, Nijmegen, middeleeuwen (komma-gescheiden)">
-                <span class="veld-hint">Komma-gescheiden, bijv: geschiedenis, Nijmegen, Valkhof</span>
               </div>
             </div>
-
             <div class="sectie-label" style="margin-top:1rem">Prijs</div>
-
             <div class="veld-rij">
               <div class="veld">
                 <label>Prijs (incl. BTW) <span class="vereist">*</span></label>
@@ -736,20 +338,16 @@
               <div class="veld">
                 <label>Oude prijs (bij aanbieding)</label>
                 <input type="number" id="vPrijsOud" placeholder="29.95 — leeg laten als geen aanbieding" step="0.01" min="0" oninput="updatePreview()">
-                <span class="veld-hint">Alleen invullen als dit boek in de aanbieding is</span>
               </div>
             </div>
-
             <div class="sectie-label" style="margin-top:1rem">Weergave & links</div>
-
-            <div class="sectie-label" style="margin-top:0.5rem;font-size:0.7rem;border:none;padding:0;margin-bottom:0.4rem">Status</div>
             <div class="toggle-rij">
               <label class="toggle-item">
                 <input type="checkbox" id="vUitgelicht" onchange="updatePreview()">
                 <span class="toggle-dot"></span>
                 <span class="toggle-item-tekst">Uitgelicht</span>
               </label>
-<label class="toggle-item">
+              <label class="toggle-item">
                 <input type="checkbox" id="vAanbieding" onchange="updatePreview()">
                 <span class="toggle-dot"></span>
                 <span class="toggle-item-tekst">Aanbieding</span>
@@ -760,27 +358,22 @@
                 <span class="toggle-item-tekst">Top Tien</span>
               </label>
             </div>
-
             <div class="veld-rij">
               <div class="veld">
                 <label>Omslagkleur (placeholder)</label>
                 <input type="color" id="vKleur" value="#8B1A10" oninput="updatePreview()" style="height:38px;padding:3px;">
-                <span class="veld-hint">Zichtbaar als er nog geen omslagfoto is</span>
               </div>
               <div class="veld">
                 <label>Omslagfoto (bestandsnaam)</label>
                 <input type="text" id="vOmslag" placeholder="omslagen/mijn-boek.jpg">
-                <span class="veld-hint">Relatief pad naar afbeelding</span>
               </div>
             </div>
-
             <div class="veld-rij enkel">
               <div class="veld">
-                <label>Bestelkoppeling (URL naar Roelants.nl) <span class="vereist">*</span></label>
+                <label>Bestelkoppeling <span class="vereist">*</span></label>
                 <input type="url" id="vAfrekenen" placeholder="https://roelants.nl/boek/…">
               </div>
             </div>
-
           </div>
           <div class="formulier-footer">
             <button class="btn btn-rood" onclick="slaBoekOp()">✓ Boek opslaan</button>
@@ -789,8 +382,6 @@
           </div>
         </div>
       </div>
-
-      <!-- PREVIEW -->
       <div class="preview-sticky">
         <div class="preview-kaart">
           <div class="preview-kop">Live voorvertoning</div>
@@ -811,7 +402,6 @@
             </div>
           </div>
         </div>
-
         <div class="preview-kaart" style="margin-top:1rem">
           <div class="preview-kop">JSON-uitvoer (dit boek)</div>
           <div class="preview-body" style="padding:0">
@@ -819,16 +409,11 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════ -->
-<!-- PAGINA: JSON BEKIJKEN -->
-<!-- ══════════════════════════════════════ -->
-<!-- PAGINA: VASTE BOEKEN -->
-<!-- ══════════════════════════════════════ -->
+<!-- VASTE BOEKEN -->
 <div class="pagina" id="pagina-vast">
   <div class="wrapper">
     <div class="formulier-kaart">
@@ -843,76 +428,37 @@
         <div id="vastTabel"></div>
       </div>
     </div>
-
-    <!-- Formulier voor vast boek -->
     <div class="formulier-kaart" id="vastFormulier" style="margin-top:1rem;display:none;">
       <div class="formulier-kop" id="vastFormTitel">Vast boek toevoegen</div>
       <div style="padding:1.5rem;display:flex;flex-direction:column;gap:1rem;">
         <input type="hidden" id="vvID">
         <div class="veld-rij">
-          <div class="veld">
-            <label>Titel <span class="vereist">*</span></label>
-            <input type="text" id="vvTitel">
-          </div>
-          <div class="veld">
-            <label>Ondertitel</label>
-            <input type="text" id="vvOndertitel">
-          </div>
+          <div class="veld"><label>Titel <span class="vereist">*</span></label><input type="text" id="vvTitel"></div>
+          <div class="veld"><label>Ondertitel</label><input type="text" id="vvOndertitel"></div>
         </div>
         <div class="veld-rij">
-          <div class="veld">
-            <label>Auteur <span class="vereist">*</span></label>
-            <input type="text" id="vvAuteur">
-          </div>
-          <div class="veld">
-            <label>Uitgever</label>
-            <input type="text" id="vvUitgever">
-          </div>
+          <div class="veld"><label>Auteur <span class="vereist">*</span></label><input type="text" id="vvAuteur"></div>
+          <div class="veld"><label>Uitgever</label><input type="text" id="vvUitgever"></div>
         </div>
         <div class="veld-rij">
-          <div class="veld">
-            <label>Jaar</label>
-            <input type="number" id="vvJaar">
-          </div>
-          <div class="veld">
-            <label>Pagina's</label>
-            <input type="number" id="vvPaginas">
-          </div>
-          <div class="veld">
-            <label>Prijs <span class="vereist">*</span></label>
-            <input type="number" id="vvPrijs" step="0.01">
-          </div>
+          <div class="veld"><label>Jaar</label><input type="number" id="vvJaar"></div>
+          <div class="veld"><label>Pagina's</label><input type="number" id="vvPaginas"></div>
+          <div class="veld"><label>Prijs <span class="vereist">*</span></label><input type="number" id="vvPrijs" step="0.01"></div>
         </div>
         <div class="veld-rij">
-          <div class="veld">
-            <label>ISBN</label>
-            <input type="text" id="vvISBN">
-          </div>
-          <div class="veld">
-            <label>Formaat</label>
-            <select id="vvFormaat">
-              <option>Gebonden</option>
-              <option>Paperback</option>
-              <option>E-book</option>
-            </select>
-          </div>
+          <div class="veld"><label>ISBN</label><input type="text" id="vvISBN"></div>
+          <div class="veld"><label>Formaat</label><select id="vvFormaat"><option>Gebonden</option><option>Paperback</option><option>E-book</option></select></div>
         </div>
-        <div class="veld">
-          <label>Beschrijving</label>
-          <textarea id="vvBeschrijving" rows="4" style="width:100%;resize:vertical;"></textarea>
-        </div>
-        <div class="veld">
-          <label>Bestelkoppeling <span class="vereist">*</span></label>
-          <input type="text" id="vvAfrekenen" placeholder="https://...">
-        </div>
+        <div class="veld"><label>Beschrijving</label><textarea id="vvBeschrijving" rows="4" style="width:100%;resize:vertical;"></textarea></div>
+        <div class="veld"><label>Bestelkoppeling <span class="vereist">*</span></label><input type="text" id="vvAfrekenen" placeholder="https://..."></div>
         <div class="veld">
           <label>Omslagafbeelding</label>
           <div style="display:flex;gap:0.75rem;align-items:flex-start;">
             <div style="flex:1;">
               <input type="text" id="vvOmslag" placeholder="omslagen/bestandsnaam.jpg" oninput="updateVastPreview()" style="width:100%;margin-bottom:0.4rem;">
-              <span class="veld-hint">Sla het afbeeldingsbestand op in de map <code>omslagen/</code> in uw projectmap en typ hier de bestandsnaam. Vb: <code>omslagen/mijn-boek.jpg</code></span>
+              <span class="veld-hint">Sla de afbeelding op in de map <code>omslagen/</code> en typ hier de bestandsnaam.</span>
             </div>
-            <div id="vvOmslagPreview" style="width:60px;height:90px;background:var(--grijs-mid);border:1px solid var(--grijs-rand);border-radius:4px;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--grijs-muted);">📖</div>
+            <div id="vvOmslagPreview" style="width:60px;height:90px;background:var(--grijs-mid);border:1px solid var(--grijs-rand);border-radius:4px;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem;">📖</div>
           </div>
         </div>
         <div style="display:flex;gap:0.75rem;padding-top:0.5rem;border-top:1px solid var(--grijs-mid);">
@@ -924,31 +470,26 @@
   </div>
 </div>
 
-<!-- ══════════════════════════════════════ -->
-<!-- PAGINA: TOP TIEN -->
-<!-- ══════════════════════════════════════ -->
+<!-- TOP TIEN -->
 <div class="pagina" id="pagina-toptien">
   <div class="wrapper">
     <div class="formulier-kaart">
       <div class="formulier-kop">Top Tien volgorde <span>Sleep boeken om de volgorde aan te passen</span></div>
       <div style="padding:1rem 1.5rem;">
         <div id="toptienLijst" style="display:flex;flex-direction:column;gap:6px;min-height:60px;"></div>
-        <p id="toptienLeeg" style="color:var(--grijs-muted);font-size:0.85rem;display:none;">Nog geen boeken aangevinkt als Top Tien. Vink boeken aan via het tabblad "Boek toevoegen".</p>
+        <p id="toptienLeeg" style="color:var(--grijs-muted);font-size:0.85rem;display:none;">Nog geen boeken aangevinkt als Top Tien.</p>
       </div>
       <div style="padding:0.75rem 1.5rem;border-top:1px solid var(--grijs-mid);display:flex;gap:0.75rem;align-items:center;">
         <button class="btn btn-groen" onclick="slaTopTienVolgordOp()">✓ Volgorde opslaan</button>
-        <span id="toptienMelding" style="font-size:0.82rem;color:var(--groen);display:none;">✓ Opgeslagen in JSON</span>
+        <span id="toptienMelding" style="font-size:0.82rem;color:var(--groen);display:none;">✓ Opgeslagen</span>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════ -->
-<!-- PAGINA: INSTELLINGEN -->
-<!-- ══════════════════════════════════════ -->
+<!-- INSTELLINGEN -->
 <div class="pagina" id="pagina-instellingen">
   <div class="wrapper">
-
     <div style="padding:0.75rem 0 1.25rem;display:flex;gap:0.75rem;align-items:center;">
       <label class="btn btn-outline" style="cursor:pointer;">
         ↑ instellingen.json laden
@@ -956,129 +497,68 @@
       </label>
       <span style="font-size:0.82rem;color:var(--grijs-muted);">Laad een eerder gedownloade instellingen.json</span>
     </div>
-
     <div class="formulier-kaart">
       <div class="formulier-kop">Homepagina — secties <span>Aantal boeken per sectie (0 = geen limiet)</span></div>
       <div style="padding:1.5rem;display:flex;flex-direction:column;gap:1.25rem;">
-        <div class="veld">
-          <label>Uitgelicht — maximaal aantal</label>
-          <input type="number" id="iUitgelichtMax" min="0" value="0" style="width:120px;">
-          <span class="veld-hint">0 = alle uitgelichte boeken tonen</span>
-        </div>
-        <div class="veld">
-          <label>Nieuw verschenen — maximaal aantal</label>
-          <input type="number" id="iNieuwMax" min="0" value="8" style="width:120px;">
-          <span class="veld-hint">0 = alle nieuwe boeken tonen</span>
-        </div>
-        <div class="veld">
-          <label>Aanbiedingen — maximaal aantal</label>
-          <input type="number" id="iAanbiedingenMax" min="0" value="0" style="width:120px;">
-          <span class="veld-hint">0 = alle aanbiedingen tonen</span>
-        </div>
+        <div class="veld"><label>Uitgelicht — maximaal</label><input type="number" id="iUitgelichtMax" min="0" value="0" style="width:120px;"><span class="veld-hint">0 = alle uitgelichte boeken</span></div>
+        <div class="veld"><label>Nieuw verschenen — maximaal</label><input type="number" id="iNieuwMax" min="0" value="8" style="width:120px;"></div>
+        <div class="veld"><label>Aanbiedingen — maximaal</label><input type="number" id="iAanbiedingenMax" min="0" value="0" style="width:120px;"></div>
       </div>
     </div>
-
     <div class="formulier-kaart" style="margin-top:1rem;">
-      <div class="formulier-kop">Welkomsttekst <span>Wordt getoond onder het zoekvak op elke pagina</span></div>
+      <div class="formulier-kop">Welkomsttekst</div>
       <div style="padding:1.5rem;display:flex;flex-direction:column;gap:1.25rem;">
-        <div class="veld">
-          <label>Eerste alinea</label>
-          <textarea id="iTekstWelkom" rows="3" style="width:100%;resize:vertical;"></textarea>
-        </div>
-        <div class="veld">
-          <label>Tweede alinea</label>
-          <textarea id="iTekstWelkom2" rows="2" style="width:100%;resize:vertical;"></textarea>
-        </div>
+        <div class="veld"><label>Eerste alinea</label><textarea id="iTekstWelkom" rows="3" style="width:100%;resize:vertical;"></textarea></div>
+        <div class="veld"><label>Tweede alinea</label><textarea id="iTekstWelkom2" rows="2" style="width:100%;resize:vertical;"></textarea></div>
       </div>
     </div>
-
     <div class="formulier-kaart" style="margin-top:1rem;">
-      <div class="formulier-kop">Footer <span>Tekst in de voettekst van de website</span></div>
-      <div style="padding:1.5rem;">
-        <div class="veld">
-          <label>Beschrijving</label>
-          <textarea id="iTekstFooter" rows="2" style="width:100%;resize:vertical;"></textarea>
-        </div>
-      </div>
+      <div class="formulier-kop">Footer</div>
+      <div style="padding:1.5rem;"><div class="veld"><label>Beschrijving</label><textarea id="iTekstFooter" rows="2" style="width:100%;resize:vertical;"></textarea></div></div>
     </div>
-
     <div class="formulier-kaart" style="margin-top:1rem;">
-      <div class="formulier-kop">SEO-teksten — homepagina <span>Tekst onderaan de homepagina</span></div>
+      <div class="formulier-kop">SEO-teksten — homepagina</div>
       <div style="padding:1.5rem;display:flex;flex-direction:column;gap:1.25rem;">
-        <div class="veld">
-          <label>Koptekst</label>
-          <input type="text" id="iTekstHomeSeoTitel" style="width:100%;">
-        </div>
-        <div class="veld">
-          <label>Eerste alinea</label>
-          <textarea id="iTekstHomeSeo" rows="3" style="width:100%;resize:vertical;"></textarea>
-        </div>
-        <div class="veld">
-          <label>Tweede alinea</label>
-          <textarea id="iTekstHomeSeo2" rows="2" style="width:100%;resize:vertical;"></textarea>
-        </div>
+        <div class="veld"><label>Koptekst</label><input type="text" id="iTekstHomeSeoTitel" style="width:100%;"></div>
+        <div class="veld"><label>Eerste alinea</label><textarea id="iTekstHomeSeo" rows="3" style="width:100%;resize:vertical;"></textarea></div>
+        <div class="veld"><label>Tweede alinea</label><textarea id="iTekstHomeSeo2" rows="2" style="width:100%;resize:vertical;"></textarea></div>
       </div>
     </div>
-
     <div class="formulier-kaart" style="margin-top:1rem;">
-      <div class="formulier-kop">Pagina-intro's <span>Introductietekst bovenaan elke pagina</span></div>
+      <div class="formulier-kop">Pagina-intro's</div>
       <div style="padding:1.5rem;display:flex;flex-direction:column;gap:1.25rem;">
-        <div class="veld">
-          <label>Nieuw verschenen</label>
-          <input type="text" id="iTekstNieuwIntro" style="width:100%;">
-        </div>
-        <div class="veld">
-          <label>Aanbiedingen</label>
-          <input type="text" id="iTekstAanbiedingenIntro" style="width:100%;">
-        </div>
-        <div class="veld">
-          <label>Top Tien</label>
-          <input type="text" id="iTekstToptienIntro" style="width:100%;">
-        </div>
+        <div class="veld"><label>Nieuw verschenen</label><input type="text" id="iTekstNieuwIntro" style="width:100%;"></div>
+        <div class="veld"><label>Aanbiedingen</label><input type="text" id="iTekstAanbiedingenIntro" style="width:100%;"></div>
+        <div class="veld"><label>Top Tien</label><input type="text" id="iTekstToptienIntro" style="width:100%;"></div>
       </div>
     </div>
-
     <div class="formulier-kaart" style="margin-top:1rem;">
-      <div class="formulier-kop">SEO-teksten — overige pagina's <span>Tekst onderaan de pagina</span></div>
+      <div class="formulier-kop">SEO-teksten — overige pagina's</div>
       <div style="padding:1.5rem;display:flex;flex-direction:column;gap:1.25rem;">
-        <div class="veld">
-          <label>Nieuw verschenen</label>
-          <textarea id="iTekstNieuwSeo" rows="2" style="width:100%;resize:vertical;"></textarea>
-        </div>
-        <div class="veld">
-          <label>Aanbiedingen</label>
-          <textarea id="iTekstAanbiedingenSeo" rows="2" style="width:100%;resize:vertical;"></textarea>
-        </div>
-        <div class="veld">
-          <label>Top Tien</label>
-          <textarea id="iTekstToptienSeo" rows="2" style="width:100%;resize:vertical;"></textarea>
-        </div>
+        <div class="veld"><label>Nieuw verschenen</label><textarea id="iTekstNieuwSeo" rows="2" style="width:100%;resize:vertical;"></textarea></div>
+        <div class="veld"><label>Aanbiedingen</label><textarea id="iTekstAanbiedingenSeo" rows="2" style="width:100%;resize:vertical;"></textarea></div>
+        <div class="veld"><label>Top Tien</label><textarea id="iTekstToptienSeo" rows="2" style="width:100%;resize:vertical;"></textarea></div>
       </div>
     </div>
-
     <div style="padding:1rem 0;display:flex;gap:0.75rem;align-items:center;">
       <button class="btn btn-groen" onclick="slaInstellingenOp()">↓ Downloaden als instellingen.json</button>
       <span id="instMelding" style="font-size:0.82rem;color:var(--groen);display:none;">✓ Bestand gedownload</span>
     </div>
-
     <div class="formulier-kaart" style="margin-top:1rem;">
       <div class="formulier-kop">SEO-teksten per categorie <span>Titel en twee alinea's onderaan elke categoriepagina</span></div>
       <div style="padding:1.5rem;display:flex;flex-direction:column;gap:1.5rem;" id="catSeoVelden"></div>
     </div>
-
   </div>
 </div>
 
-<!-- ══════════════════════════════════════ -->
-<!-- PAGINA: JSON -->
-<!-- ══════════════════════════════════════ -->
+<!-- JSON -->
 <div class="pagina" id="pagina-json">
   <div class="wrapper">
     <div class="download-kaart">
       <div class="download-rij">
         <div class="download-info">
           <h3>boeken.json</h3>
-          <p id="jsonInfo">Bevat 0 boeken · Upload dit bestand naar uw hostingomgeving na elke wijziging</p>
+          <p id="jsonInfo">Bevat 0 boeken</p>
         </div>
         <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
           <button class="btn btn-outline" onclick="kopieerJSON()">Kopiëren</button>
@@ -1095,25 +575,18 @@
   </div>
 </div>
 
-<!-- ══════════════════════════════════════ -->
-<!-- PAGINA: CATEGORIEËN -->
-<!-- ══════════════════════════════════════ -->
+<!-- CATEGORIEËN -->
 <div class="pagina" id="pagina-categorieen">
   <div class="wrapper">
     <div style="display:grid;grid-template-columns:1fr 380px;gap:1.5rem;align-items:start">
-
-      <!-- LIJST -->
       <div class="formulier-kaart">
-        <div class="formulier-kop">
-          Categorieën beheren
-          <span id="catAantal">0 categorieën</span>
-        </div>
+        <div class="formulier-kop">Categorieën beheren <span id="catAantal">0 categorieën</span></div>
         <div class="formulier-body" style="padding:0">
           <table style="width:100%;border-collapse:collapse" id="catTabel">
             <thead>
               <tr style="background:var(--grijs-licht);border-bottom:1px solid var(--grijs-rand)">
                 <th style="padding:0.6rem 1rem;text-align:left;font-size:0.73rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--grijs-muted);font-weight:700">Naam</th>
-                <th style="padding:0.6rem 1rem;text-align:left;font-size:0.73rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--grijs-muted);font-weight:700">Slug (URL)</th>
+                <th style="padding:0.6rem 1rem;text-align:left;font-size:0.73rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--grijs-muted);font-weight:700">Slug</th>
                 <th style="padding:0.6rem 1rem;text-align:center;font-size:0.73rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--grijs-muted);font-weight:700">Boeken</th>
                 <th style="padding:0.6rem 1rem;width:140px"></th>
               </tr>
@@ -1122,31 +595,22 @@
           </table>
         </div>
       </div>
-
-      <!-- FORMULIER -->
       <div style="position:sticky;top:1rem">
         <div class="formulier-kaart">
-          <div class="formulier-kop">
-            <span id="catFormTitel">Nieuwe categorie</span>
-          </div>
+          <div class="formulier-kop"><span id="catFormTitel">Nieuwe categorie</span></div>
           <div class="formulier-body">
-
             <div class="veld" style="margin-bottom:1rem">
               <label>Naam <span class="vereist">*</span></label>
               <input type="text" id="catNaam" placeholder="bijv. Sport" oninput="catNaamNaarSlug()">
-              <span class="veld-hint">De naam zoals zichtbaar op de website</span>
             </div>
-
             <div class="veld" style="margin-bottom:1.25rem">
               <label>Slug (URL) <span class="vereist">*</span></label>
               <input type="text" id="catSlug" placeholder="bijv. sport">
-              <span class="veld-hint">Kleine letters, geen spaties — wordt automatisch ingevuld</span>
+              <span class="veld-hint">Automatisch ingevuld</span>
             </div>
-
             <div style="background:var(--grijs-licht);border:1px solid var(--grijs-rand);border-radius:5px;padding:0.75rem;font-size:0.8rem;color:var(--grijs-muted);margin-bottom:1rem">
-              URL op de website: <code style="color:var(--zwart)" id="catUrlVoorb">nijmeegse-boeken.nl/categorie-….html</code>
+              URL: <code style="color:var(--zwart)" id="catUrlVoorb">nijmeegse-boeken.nl/categorie-….html</code>
             </div>
-
           </div>
           <div class="formulier-footer">
             <button class="btn btn-rood" onclick="slaCategoriOp()">✓ Opslaan</button>
@@ -1154,34 +618,27 @@
             <span class="formulier-id" id="catBewerkSlug"></span>
           </div>
         </div>
-
-        <div style="margin-top:1rem;background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:1rem;font-size:0.82rem;color:#5f4400;line-height:1.6">
-          <strong style="display:block;margin-bottom:0.3rem">Let op bij hernoemen</strong>
-          Als u de slug van een bestaande categorie wijzigt, moet u ook alle boeken in die categorie bijwerken. De slug wordt gebruikt als waarde in <code>boeken.json</code>.
-        </div>
       </div>
-
     </div>
   </div>
 </div>
 
-<!-- ── VERWIJDER MODAL ── -->
+<!-- MODALS -->
 <div class="modal-overlay" id="verwijderModal">
   <div class="modal">
     <h3>Boek verwijderen?</h3>
-    <p id="verwijderTekst">Weet u zeker dat u dit boek wilt verwijderen? Dit kan niet ongedaan worden gemaakt.</p>
+    <p id="verwijderTekst">Weet u zeker dat u dit boek wilt verwijderen?</p>
     <div class="modal-btns">
       <button class="btn btn-outline" onclick="sluitModal()">Annuleren</button>
-      <button class="btn btn-danger" id="verwijderBevestig" onclick="bevestigVerwijder()">Verwijderen</button>
+      <button class="btn btn-danger" onclick="bevestigVerwijder()">Verwijderen</button>
     </div>
   </div>
 </div>
 
-<!-- ── VAST MODAL ── -->
 <div class="modal-overlay" id="vastModal">
   <div class="modal">
     <h3>Boek vast maken?</h3>
-    <p id="vastModalTekst">Dit boek wordt verplaatst van <strong>boeken.json</strong> naar <strong>boeken-vast.json</strong>. Het importscript zal dit boek daarna niet meer overschrijven. Download na bevestiging beide bestanden.</p>
+    <p id="vastModalTekst">Dit boek wordt verplaatst naar boeken-vast.json.</p>
     <div class="modal-btns">
       <button class="btn btn-outline" onclick="sluitVastModal()">Annuleren</button>
       <button class="btn btn-zwart" onclick="bevestigMaakVast()">🔒 Vast maken</button>
@@ -1190,9 +647,6 @@
 </div>
 
 <script>
-// ══════════════════════════════════════
-// DATA
-// ══════════════════════════════════════
 // ── CATEGORIEËN HULPFUNCTIES ──
 function nbCats(b) {
   const c = b.categorieën || b.categorie;
@@ -1219,7 +673,6 @@ let verwijderID = null;
 let volgendeID = 1;
 let catBewerkSlug = null;
 
-// Probeer boeken.json te laden bij opstarten
 async function laadJSON() {
   try {
     const r = await fetch('boeken.json');
@@ -1227,7 +680,6 @@ async function laadJSON() {
       const data = await r.json();
       BOEKEN = data;
       volgendeID = Math.max(...BOEKEN.map(b => b.id), 0) + 1;
-      // Extra categorieën die in boeken.json voorkomen maar nog niet in CATEGORIEEN staan
       BOEKEN.forEach(b => {
         nbCats(b).forEach(slug => {
           if (slug && !CATEGORIEEN.find(c => c.slug === slug)) {
@@ -1238,16 +690,13 @@ async function laadJSON() {
       toonMelding('boeken.json geladen — ' + BOEKEN.length + ' boeken gevonden.', 'succes');
     }
   } catch(e) {
-    toonMelding('Geen boeken.json gevonden. Begin met een leeg overzicht, of importeer een bestaand bestand.', 'info');
+    toonMelding('Geen boeken.json gevonden. Importeer een bestaand bestand.', 'info');
   }
   verversAlles();
   verversCategorieLijst();
   verversCatSelects();
 }
 
-// ══════════════════════════════════════
-// NAVIGATIE
-// ══════════════════════════════════════
 function toonPagina(naam, tabEl) {
   document.querySelectorAll('.pagina').forEach(p => p.classList.remove('actief'));
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('actief'));
@@ -1260,56 +709,42 @@ function toonPagina(naam, tabEl) {
   if (naam === 'vast') verversVast();
 }
 
-// ══════════════════════════════════════
-// STATS
-// ══════════════════════════════════════
+// ── STATS ──
 function verversStats() {
-  const totaal = BOEKEN.length;
+  const totaal     = BOEKEN.length;
   const uitgelicht = BOEKEN.filter(b => b.uitgelicht).length;
+  const nieuwAantal = BOEKEN.filter(b => b.nieuw).length;
   const aanbieding = BOEKEN.filter(b => b.aanbieding).length;
 
   document.getElementById('statsRij').innerHTML = `
     <div class="stat-kaart"><div class="stat-label">Totaal boeken</div><div class="stat-getal">${totaal}</div></div>
     <div class="stat-kaart rood"><div class="stat-label">Uitgelicht</div><div class="stat-getal">${uitgelicht}</div><div class="stat-sub">op de homepage</div></div>
-    <div class="stat-kaart groen"><div class="stat-label">Nieuw</div><div class="stat-getal">${nieuw}</div></div>
+    <div class="stat-kaart groen"><div class="stat-label">Nieuw</div><div class="stat-getal">${nieuwAantal}</div></div>
     <div class="stat-kaart"><div class="stat-label">Aanbiedingen</div><div class="stat-getal">${aanbieding}</div></div>
   `;
   document.getElementById('topbarAantal').textContent = totaal + ' boek' + (totaal !== 1 ? 'en' : '') + ' in database';
 }
 
-// ══════════════════════════════════════
-// TABEL
-// ══════════════════════════════════════
+// ── TABEL ──
 function verversTabel(data) {
   const tbody = document.getElementById('boekTabel');
   if (!data || data.length === 0) {
     tbody.innerHTML = `<tr><td colspan="6"><div class="leeg"><div class="leeg-icon">📚</div><p>Geen boeken gevonden</p></div></td></tr>`;
     return;
   }
-
   tbody.innerHTML = data.map(b => {
     const badges = [
       b.uitgelicht ? '<span class="badge badge-uitgelicht">Uitgelicht</span>' : '',
-      b.nieuw ? '<span class="badge badge-nieuw">Nieuw</span>' : '',
-      b.aanbieding ? '<span class="badge badge-aanbieding">Aanbieding</span>' : '',
+      b.nieuw      ? '<span class="badge badge-nieuw">Nieuw</span>'          : '',
+      b.aanbieding ? '<span class="badge badge-aanbieding">Aanbieding</span>': '',
     ].filter(Boolean).join(' ') || '<span style="color:var(--grijs-muted);font-size:0.78rem">—</span>';
-
     const prijsOud = b.prijsOud ? `<div class="prijs-oud-klein">was €${b.prijsOud.toFixed(2).replace('.',',')}</div>` : '';
     const fg = helderheid(b.kleur || '#555') > 140 ? '#222' : '#fff';
-
     return `<tr>
-      <td>
-        <div class="cover-mini" style="background:${b.kleur||'#888'};color:${fg}">📖</div>
-      </td>
-      <td>
-        <div class="boek-naam">${escHtml(b.titel)}</div>
-        <div class="boek-auteur-klein">${escHtml(b.auteur)}</div>
-      </td>
+      <td><div class="cover-mini" style="background:${b.kleur||'#888'};color:${fg}">📖</div></td>
+      <td><div class="boek-naam">${escHtml(b.titel)}</div><div class="boek-auteur-klein">${escHtml(b.auteur)}</div></td>
       <td><span class="badge badge-cat">${escHtml(nbCatsLabel(b))}</span></td>
-      <td>
-        <div class="prijs-cel">€${(b.prijs||0).toFixed(2).replace('.',',')}</div>
-        ${prijsOud}
-      </td>
+      <td><div class="prijs-cel">€${(b.prijs||0).toFixed(2).replace('.',',')}</div>${prijsOud}</td>
       <td>${badges}</td>
       <td>
         <div class="acties">
@@ -1323,18 +758,16 @@ function verversTabel(data) {
 }
 
 function filterLijst(q) {
-  const cat = document.getElementById('catFilter').value;
+  const cat    = document.getElementById('catFilter').value;
   const status = document.getElementById('statusFilter').value;
   let data = BOEKEN;
-  if (q) data = data.filter(b => b.titel.toLowerCase().includes(q.toLowerCase()) || b.auteur.toLowerCase().includes(q.toLowerCase()));
-  if (cat) data = data.filter(b => nbCats(b).includes(cat));
+  if (q)      data = data.filter(b => b.titel.toLowerCase().includes(q.toLowerCase()) || b.auteur.toLowerCase().includes(q.toLowerCase()));
+  if (cat)    data = data.filter(b => nbCats(b).includes(cat));
   if (status) data = data.filter(b => b[status]);
   verversTabel(data);
 }
 
-// ══════════════════════════════════════
-// FORMULIER
-// ══════════════════════════════════════
+// ── FORMULIER ──
 function nieuwBoek() {
   bewerkID = null;
   resetFormulier();
@@ -1348,15 +781,15 @@ function resetFormulier() {
     const el = document.getElementById(id);
     if (el) el.value = '';
   });
-  document.getElementById('vJaar').value = new Date().getFullYear();
+  document.getElementById('vJaar').value    = new Date().getFullYear();
   document.getElementById('vPaginas').value = '';
   document.getElementById('vFormaat').value = 'Gebonden';
   Array.from(document.getElementById('vCategorie').options).forEach(o => o.selected = false);
-  document.getElementById('vPrijs').value = '';
-  document.getElementById('vKleur').value = '#8B1A10';
+  document.getElementById('vPrijs').value   = '';
+  document.getElementById('vKleur').value   = '#8B1A10';
   document.getElementById('vUitgelicht').checked = false;
   document.getElementById('vAanbieding').checked = false;
-  document.getElementById('vToptien').checked = false;
+  document.getElementById('vToptien').checked    = false;
   updatePreview();
 }
 
@@ -1364,98 +797,79 @@ function bewerkBoek(id) {
   const b = BOEKEN.find(x => x.id === id);
   if (!b) return;
   bewerkID = id;
-
   toonPagina('toevoegen', document.querySelectorAll('.tab')[1]);
-  document.getElementById('formulierTitel').textContent = 'Boek bewerken';
+  document.getElementById('formulierTitel').textContent    = 'Boek bewerken';
   document.getElementById('formulierSubtitel').textContent = b.titel;
-  document.getElementById('formulierID').textContent = 'ID: ' + b.id;
-
-  document.getElementById('vTitel').value = b.titel || '';
-  document.getElementById('vAuteur').value = b.auteur || '';
-  document.getElementById('vUitgever').value = b.uitgever || '';
-  document.getElementById('vJaar').value = b.jaar || '';
-  document.getElementById('vPaginas').value = b.paginas || '';
-  document.getElementById('vFormaat').value = b.formaat || 'Gebonden';
-  const geselecteerd = (b.categorieën || (b.categorie ? [b.categorie] : []));
-  Array.from(document.getElementById('vCategorie').options).forEach(o => {
-    o.selected = geselecteerd.includes(o.value);
-  });
-  document.getElementById('vISBN').value = b.isbn || '';
+  document.getElementById('formulierID').textContent       = 'ID: ' + b.id;
+  document.getElementById('vTitel').value     = b.titel      || '';
+  document.getElementById('vAuteur').value    = b.auteur     || '';
+  document.getElementById('vUitgever').value  = b.uitgever   || '';
+  document.getElementById('vJaar').value      = b.jaar       || '';
+  document.getElementById('vPaginas').value   = b.paginas    || '';
+  document.getElementById('vFormaat').value   = b.formaat    || 'Gebonden';
+  const geselecteerd = nbCats(b);
+  Array.from(document.getElementById('vCategorie').options).forEach(o => { o.selected = geselecteerd.includes(o.value); });
+  document.getElementById('vISBN').value        = b.isbn        || '';
   document.getElementById('vBeschrijving').value = b.beschrijving || '';
-  document.getElementById('vTrefwoorden').value = (b.trefwoorden || []).join(', ');
-  document.getElementById('vPrijs').value = b.prijs || '';
-  document.getElementById('vPrijsOud').value = b.prijsOud || '';
-  document.getElementById('vKleur').value = b.kleur || '#8B1A10';
-  document.getElementById('vOmslag').value = b.omslag || '';
-  document.getElementById('vAfrekenen').value = b.afrekenen || '';
+  document.getElementById('vTrefwoorden').value  = (b.trefwoorden||[]).join(', ');
+  document.getElementById('vPrijs').value        = b.prijs      || '';
+  document.getElementById('vPrijsOud').value     = b.prijsOud   || '';
+  document.getElementById('vKleur').value        = b.kleur      || '#8B1A10';
+  document.getElementById('vOmslag').value       = b.omslag     || '';
+  document.getElementById('vAfrekenen').value    = b.afrekenen  || '';
   document.getElementById('vUitgelicht').checked = !!b.uitgelicht;
   document.getElementById('vAanbieding').checked = !!b.aanbieding;
-  document.getElementById('vToptien').checked = !!b.toptien;
-
+  document.getElementById('vToptien').checked    = !!b.toptien;
   updatePreview();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function slaBoekOp() {
-  const titel = document.getElementById('vTitel').value.trim();
-  const auteur = document.getElementById('vAuteur').value.trim();
-  const prijs = parseFloat(document.getElementById('vPrijs').value);
+  const titel      = document.getElementById('vTitel').value.trim();
+  const auteur     = document.getElementById('vAuteur').value.trim();
+  const prijs      = parseFloat(document.getElementById('vPrijs').value);
   const categorieën = Array.from(document.getElementById('vCategorie').selectedOptions).map(o => o.value);
-  const afrekenen = document.getElementById('vAfrekenen').value.trim();
-
+  const afrekenen  = document.getElementById('vAfrekenen').value.trim();
   if (!titel || !auteur || !prijs || categorieën.length === 0 || !afrekenen) {
-    toonMelding('Vul alle verplichte velden in: Titel, Auteur, Prijs, minimaal één Categorie en Bestelkoppeling.', 'fout');
+    toonMelding('Vul alle verplichte velden in: Titel, Auteur, Prijs, Categorie en Bestelkoppeling.', 'fout');
     return;
   }
-
-  const trefwoorden = document.getElementById('vTrefwoorden').value
-    .split(',').map(t => t.trim()).filter(Boolean);
-
+  const trefwoorden  = document.getElementById('vTrefwoorden').value.split(',').map(t => t.trim()).filter(Boolean);
   const prijsOudWaarde = parseFloat(document.getElementById('vPrijsOud').value) || null;
-  const jaar = parseInt(document.getElementById('vJaar').value) || null;
-  const paginas = parseInt(document.getElementById('vPaginas').value) || null;
-
   const boek = {
-    id: bewerkID || volgendeID,
-    uitgelicht: document.getElementById('vUitgelicht').checked,
-    aanbieding: document.getElementById('vAanbieding').checked,
-    toptien: document.getElementById('vToptien').checked,
-    prijsOud: prijsOudWaarde,
-    titel,
-    auteur,
-    uitgever: document.getElementById('vUitgever').value.trim() || null,
-    jaar,
-    paginas,
-    formaat: document.getElementById('vFormaat').value,
-    prijs,
-    categorieën,
-    omslag: document.getElementById('vOmslag').value.trim() || null,
-    kleur: document.getElementById('vKleur').value,
+    id:          bewerkID || volgendeID,
+    uitgelicht:  document.getElementById('vUitgelicht').checked,
+    aanbieding:  document.getElementById('vAanbieding').checked,
+    toptien:     document.getElementById('vToptien').checked,
+    prijsOud:    prijsOudWaarde,
+    titel, auteur,
+    uitgever:    document.getElementById('vUitgever').value.trim() || null,
+    jaar:        parseInt(document.getElementById('vJaar').value) || null,
+    paginas:     parseInt(document.getElementById('vPaginas').value) || null,
+    formaat:     document.getElementById('vFormaat').value,
+    prijs, categorieën,
+    omslag:      document.getElementById('vOmslag').value.trim() || null,
+    kleur:       document.getElementById('vKleur').value,
     beschrijving: document.getElementById('vBeschrijving').value.trim(),
-    isbn: document.getElementById('vISBN').value.trim(),
-    trefwoorden,
-    afrekenen,
+    isbn:        document.getElementById('vISBN').value.trim(),
+    trefwoorden, afrekenen,
   };
-
   if (bewerkID) {
-    const idx = BOEKEN.findIndex(b => b.id === bewerkID);
-    BOEKEN[idx] = boek;
-    toonMelding('"' + titel + '" is bijgewerkt. Vergeet niet het JSON-bestand te downloaden.', 'succes');
+    BOEKEN[BOEKEN.findIndex(b => b.id === bewerkID)] = boek;
+    toonMelding('"' + titel + '" bijgewerkt.', 'succes');
   } else {
     BOEKEN.push(boek);
     volgendeID++;
-    toonMelding('"' + titel + '" is toegevoegd. Vergeet niet het JSON-bestand te downloaden.', 'succes');
+    toonMelding('"' + titel + '" toegevoegd.', 'succes');
   }
-
   bewerkID = null;
   resetFormulier();
   toonPagina('overzicht', document.querySelectorAll('.tab')[0]);
   verversAlles();
+  nbMarkeerGewijzigd();
 }
 
-// ══════════════════════════════════════
-// VERWIJDEREN
-// ══════════════════════════════════════
+// ── VERWIJDEREN ──
 function vraagVerwijder(id) {
   const b = BOEKEN.find(x => x.id === id);
   if (!b) return;
@@ -1463,126 +877,87 @@ function vraagVerwijder(id) {
   document.getElementById('verwijderTekst').textContent = 'Weet u zeker dat u "' + b.titel + '" wilt verwijderen?';
   document.getElementById('verwijderModal').classList.add('open');
 }
-
 function bevestigVerwijder() {
   if (verwijderID === null) return;
   const b = BOEKEN.find(x => x.id === verwijderID);
   BOEKEN = BOEKEN.filter(x => x.id !== verwijderID);
   sluitModal();
-  toonMelding('"' + (b ? b.titel : 'Boek') + '" is verwijderd.', 'succes');
+  toonMelding('"' + (b ? b.titel : 'Boek') + '" verwijderd.', 'succes');
   verversAlles();
+  nbMarkeerGewijzigd();
 }
-
 function sluitModal() {
   document.getElementById('verwijderModal').classList.remove('open');
   verwijderID = null;
 }
 
-// ══════════════════════════════════════
-// VAST MAKEN
-// ══════════════════════════════════════
+// ── VAST MAKEN ──
 let vastMaakID = null;
-
 function vraagMaakVast(id) {
   const b = BOEKEN.find(x => x.id === id);
   if (!b) return;
-  // Controleer of het boek al in VASTE_BOEKEN staat
   const bestaatAl = VASTE_BOEKEN.find(x => x.id === id || (b.isbn && b.isbn === x.isbn));
-  if (bestaatAl) {
-    toonMelding('"' + b.titel + '" staat al in vaste boeken.', 'info');
-    return;
-  }
+  if (bestaatAl) { toonMelding('"' + b.titel + '" staat al in vaste boeken.', 'info'); return; }
   vastMaakID = id;
-  document.getElementById('vastModalTekst').innerHTML = '"<strong>' + escHtml(b.titel) + '</strong>" wordt verplaatst van <strong>boeken.json</strong> naar <strong>boeken-vast.json</strong>. Het importscript zal dit boek daarna niet meer overschrijven. Download na bevestiging beide bestanden.';
+  document.getElementById('vastModalTekst').innerHTML = '"<strong>' + escHtml(b.titel) + '</strong>" wordt verplaatst naar <strong>boeken-vast.json</strong>. Download na bevestiging beide bestanden.';
   document.getElementById('vastModal').classList.add('open');
 }
-
 function sluitVastModal() {
   document.getElementById('vastModal').classList.remove('open');
   vastMaakID = null;
 }
-
 function bevestigMaakVast() {
   if (vastMaakID === null) return;
   const b = BOEKEN.find(x => x.id === vastMaakID);
   if (!b) { sluitVastModal(); return; }
-
-  // Voeg toe aan vaste boeken
   VASTE_BOEKEN.push({ ...b });
-
-  // Verwijder uit gewone boeken
   BOEKEN = BOEKEN.filter(x => x.id !== vastMaakID);
-
   sluitVastModal();
   verversAlles();
   nbMarkeerGewijzigd();
-  toonMelding('"' + b.titel + '" is verplaatst naar vaste boeken. Download zowel boeken.json als boeken-vast.json.', 'succes');
+  toonMelding('"' + b.titel + '" verplaatst naar vaste boeken. Download beide bestanden.', 'succes');
 }
 
-// ══════════════════════════════════════
-// PREVIEW
-// ══════════════════════════════════════
+// ── PREVIEW ──
 function updatePreview() {
-  const titel = document.getElementById('vTitel').value || 'Titel van het boek';
-  const auteur = document.getElementById('vAuteur').value || 'Auteur';
-  const prijs = parseFloat(document.getElementById('vPrijs').value);
-  const cat = document.getElementById('vCategorie').value || 'categorie';
-  const kleur = document.getElementById('vKleur').value || '#8B1A10';
-  const nieuw = document.getElementById('vNieuw').checked;
+  const titel      = document.getElementById('vTitel').value      || 'Titel van het boek';
+  const auteur     = document.getElementById('vAuteur').value     || 'Auteur';
+  const prijs      = parseFloat(document.getElementById('vPrijs').value);
+  const cat        = Array.from(document.getElementById('vCategorie').selectedOptions).map(o => o.value).join(', ') || 'categorie';
+  const kleur      = document.getElementById('vKleur').value      || '#8B1A10';
   const aanbieding = document.getElementById('vAanbieding').checked;
-  const prijsOud = parseFloat(document.getElementById('vPrijsOud').value);
-
+  const prijsOud   = parseFloat(document.getElementById('vPrijsOud').value);
   const fg = helderheid(kleur) > 140 ? '#222' : '#fff';
   const cover = document.getElementById('prevCover');
   cover.style.background = kleur;
-  cover.innerHTML = (nieuw ? `<span class="preview-label">Nieuw</span>` : aanbieding ? `<span class="preview-label" style="background:#1a1a1a">Aanbieding</span>` : '') +
+  cover.innerHTML = (aanbieding ? `<span class="preview-label" style="background:#1a1a1a">Aanbieding</span>` : '') +
     `<span style="font-size:2.5rem;opacity:0.3;color:${fg}">📖</span>`;
-
-  document.getElementById('prevCat').textContent = cat;
+  document.getElementById('prevCat').textContent   = cat;
   document.getElementById('prevTitel').textContent = titel;
   document.getElementById('prevAuteur').textContent = auteur;
-
   let prijsHtml = prijs ? '€\u202F' + prijs.toFixed(2).replace('.', ',') : '€ —';
   if (prijsOud) prijsHtml = `<span style="font-size:0.72rem;text-decoration:line-through;color:var(--grijs-muted);margin-right:3px">€${prijsOud.toFixed(2).replace('.',',')}</span>` + prijsHtml;
   document.getElementById('prevPrijs').innerHTML = prijsHtml;
-
-  // JSON preview
-  const boek = {
-    id: bewerkID || volgendeID,
-    titel: document.getElementById('vTitel').value.trim() || 'Titel',
-    auteur: document.getElementById('vAuteur').value.trim() || 'Auteur',
-    prijs: prijs || 0,
-    categorie: cat,
-    uitgelicht: document.getElementById('vUitgelicht').checked,
-    nieuw,
-    aanbieding: document.getElementById('vAanbieding').checked,
-  };
-  document.getElementById('prevJSON').textContent = JSON.stringify(boek, null, 2);
+  document.getElementById('prevJSON').textContent = JSON.stringify({ id: bewerkID || volgendeID, titel: document.getElementById('vTitel').value.trim() || 'Titel', auteur: document.getElementById('vAuteur').value.trim() || 'Auteur', prijs: prijs || 0 }, null, 2);
 }
 
-// ══════════════════════════════════════
-// JSON
-// ══════════════════════════════════════
+// ── JSON ──
 function verversJSON() {
-  const json = JSON.stringify(BOEKEN, null, 2);
-  document.getElementById('jsonWeergave').textContent = json;
-  document.getElementById('jsonInfo').textContent = 'Bevat ' + BOEKEN.length + ' boeken · Upload dit bestand naar uw hostingomgeving na elke wijziging';
+  document.getElementById('jsonWeergave').textContent = JSON.stringify(BOEKEN, null, 2);
+  document.getElementById('jsonInfo').textContent = 'Bevat ' + BOEKEN.length + ' boeken';
 }
-
 function downloadJSON() {
   const blob = new Blob([JSON.stringify(BOEKEN, null, 2)], { type: 'application/json' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = 'boeken.json';
   a.click();
-  toonMelding('boeken.json gedownload. Vervang het bestand op uw hostingomgeving.', 'succes');
+  nbMarkeerOpgeslagen();
+  toonMelding('boeken.json gedownload.', 'succes');
 }
-
 function kopieerJSON() {
-  navigator.clipboard.writeText(JSON.stringify(BOEKEN, null, 2))
-    .then(() => toonMelding('JSON gekopieerd naar klembord.', 'succes'));
+  navigator.clipboard.writeText(JSON.stringify(BOEKEN, null, 2)).then(() => toonMelding('JSON gekopieerd.', 'succes'));
 }
-
 function importeerJSON(input) {
   const file = input.files[0];
   if (!file) return;
@@ -1591,8 +966,6 @@ function importeerJSON(input) {
     try {
       const data = JSON.parse(e.target.result);
       if (!Array.isArray(data)) throw new Error('Geen geldige array');
-
-      // Filter boeken die al in VASTE_BOEKEN staan (op ID of ISBN)
       const vasteIDs   = new Set(VASTE_BOEKEN.map(b => b.id));
       const vasteISBNs = new Set(VASTE_BOEKEN.map(b => (b.isbn||'').replace(/-/g,'')).filter(Boolean));
       const gefilterd  = data.filter(b => {
@@ -1600,20 +973,18 @@ function importeerJSON(input) {
         return !vasteIDs.has(b.id) && !(isbn && vasteISBNs.has(isbn));
       });
       const overgeslagen = data.length - gefilterd.length;
-
       BOEKEN = gefilterd;
       volgendeID = Math.max(...BOEKEN.map(b => b.id), 0) + 1;
       BOEKEN.forEach(b => {
         nbCats(b).forEach(slug => {
-          if (slug && !CATEGORIEEN.find(c => c.slug === slug)) {
+          if (slug && !CATEGORIEEN.find(c => c.slug === slug))
             CATEGORIEEN.push({ naam: slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g,' '), slug });
-          }
         });
       });
       verversAlles();
       verversCategorieLijst();
       let melding = gefilterd.length + ' boeken geïmporteerd uit ' + file.name;
-      if (overgeslagen > 0) melding += ' · ' + overgeslagen + ' boek' + (overgeslagen !== 1 ? 'en' : '') + ' overgeslagen (staan al in vaste boeken)';
+      if (overgeslagen > 0) melding += ' · ' + overgeslagen + ' overgeslagen (al in vaste boeken)';
       toonMelding(melding, 'succes');
     } catch(err) {
       toonMelding('Fout bij importeren: ' + err.message, 'fout');
@@ -1623,138 +994,82 @@ function importeerJSON(input) {
   input.value = '';
 }
 
-// ══════════════════════════════════════
-// CATEGORIEEN BEHEER
-// ══════════════════════════════════════
+// ── CATEGORIEËN ──
 function verversCatSelects() {
   const opties = CATEGORIEEN.map(c => `<option value="${escHtml(c.slug)}">${escHtml(c.naam)}</option>`).join('');
   document.getElementById('catFilter').innerHTML = '<option value="">Alle categorieën</option>' + opties;
-  const huidig = document.getElementById('vCategorie').value;
-  document.getElementById('vCategorie').innerHTML = '<option value="">— kies categorie —</option>' + opties;
-  if (huidig) document.getElementById('vCategorie').value = huidig;
+  document.getElementById('vCategorie').innerHTML = opties;
 }
-
 function verversCategorieLijst() {
   const tbody = document.getElementById('catLijstBody');
   if (!tbody) return;
   document.getElementById('catAantal').textContent = CATEGORIEEN.length + ' categorie' + (CATEGORIEEN.length !== 1 ? 'ën' : '');
-
-  if (CATEGORIEEN.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="4"><div class="leeg"><div class="leeg-icon">🏷️</div><p>Nog geen categorieën</p></div></td></tr>`;
-    return;
-  }
-
+  if (!CATEGORIEEN.length) { tbody.innerHTML = `<tr><td colspan="4"><div class="leeg"><div class="leeg-icon">🏷️</div><p>Nog geen categorieën</p></div></td></tr>`; return; }
   tbody.innerHTML = CATEGORIEEN.map(c => {
-    const aantalBoeken = BOEKEN.filter(b => nbCats(b).includes(c.slug)).length;
+    const n = BOEKEN.filter(b => nbCats(b).includes(c.slug)).length;
     return `<tr style="border-bottom:1px solid var(--grijs-mid)">
-      <td style="padding:0.65rem 1rem;font-weight:700;font-size:0.9rem">${escHtml(c.naam)}</td>
-      <td style="padding:0.65rem 1rem"><code style="font-size:0.8rem;background:var(--grijs-licht);padding:2px 6px;border-radius:3px;border:1px solid var(--grijs-rand)">${escHtml(c.slug)}</code></td>
-      <td style="padding:0.65rem 1rem;text-align:center">
-        <span class="badge badge-cat">${aantalBoeken}</span>
-      </td>
+      <td style="padding:0.65rem 1rem;font-weight:700">${escHtml(c.naam)}</td>
+      <td style="padding:0.65rem 1rem"><code style="font-size:0.8rem;background:var(--grijs-licht);padding:2px 6px;border-radius:3px">${escHtml(c.slug)}</code></td>
+      <td style="padding:0.65rem 1rem;text-align:center"><span class="badge badge-cat">${n}</span></td>
       <td style="padding:0.65rem 1rem">
         <div class="acties">
           <button class="btn btn-outline btn-sm" onclick="bewerkCategorie('${escHtml(c.slug)}')">✎ Bewerk</button>
-          ${aantalBoeken === 0 ? `<button class="btn btn-danger btn-sm" onclick="verwijderCategorie('${escHtml(c.slug)}')">✕</button>` : `<button class="btn btn-sm" style="background:var(--grijs-mid);color:var(--grijs-muted);cursor:default" title="Verwijder eerst alle boeken in deze categorie">✕</button>`}
+          ${n === 0 ? `<button class="btn btn-danger btn-sm" onclick="verwijderCategorie('${escHtml(c.slug)}')">✕</button>` : `<button class="btn btn-sm" style="background:var(--grijs-mid);color:var(--grijs-muted);cursor:default">✕</button>`}
         </div>
       </td>
     </tr>`;
   }).join('');
 }
-
 function catNaamNaarSlug() {
-  if (catBewerkSlug) return; // bij bewerken slug niet automatisch overschrijven
-  const naam = document.getElementById('catNaam').value;
-  const slug = naam.toLowerCase()
-    .replace(/\s+/g, '-')
-    .replace(/[àáâãäå]/g, 'a').replace(/[èéêë]/g, 'e')
-    .replace(/[ìíîï]/g, 'i').replace(/[òóôõö]/g, 'o')
-    .replace(/[ùúûü]/g, 'u').replace(/ñ/g, 'n').replace(/ç/g, 'c')
-    .replace(/[^a-z0-9-]/g, '').replace(/-+/g, '-').replace(/^-|-$/g, '');
+  if (catBewerkSlug) return;
+  const slug = document.getElementById('catNaam').value.toLowerCase().replace(/\s+/g,'-').replace(/[àáâãäå]/g,'a').replace(/[èéêë]/g,'e').replace(/[ìíîï]/g,'i').replace(/[òóôõö]/g,'o').replace(/[ùúûü]/g,'u').replace(/[^a-z0-9-]/g,'').replace(/-+/g,'-').replace(/^-|-$/g,'');
   document.getElementById('catSlug').value = slug;
   document.getElementById('catUrlVoorb').textContent = 'nijmeegse-boeken.nl/categorie-' + (slug || '…') + '.html';
 }
-
 function bewerkCategorie(slug) {
   const c = CATEGORIEEN.find(x => x.slug === slug);
   if (!c) return;
   catBewerkSlug = slug;
   document.getElementById('catFormTitel').textContent = 'Categorie bewerken';
-  document.getElementById('catNaam').value = c.naam;
-  document.getElementById('catSlug').value = c.slug;
-  document.getElementById('catBewerkSlug').textContent = 'Oorspronkelijke slug: ' + c.slug;
-  document.getElementById('catUrlVoorb').textContent = 'nijmeegse-boeken.nl/categorie-' + c.slug + '.html';
+  document.getElementById('catNaam').value  = c.naam;
+  document.getElementById('catSlug').value  = c.slug;
+  document.getElementById('catBewerkSlug').textContent = 'Slug: ' + c.slug;
+  document.getElementById('catUrlVoorb').textContent   = 'nijmeegse-boeken.nl/categorie-' + c.slug + '.html';
 }
-
 function slaCategoriOp() {
-  nbMarkeerGewijzigd();
   const naam = document.getElementById('catNaam').value.trim();
-  const slug = document.getElementById('catSlug').value.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-
-  if (!naam || !slug) {
-    toonMelding('Vul zowel een naam als een slug in.', 'fout');
-    return;
-  }
-
-  const bestaatAl = CATEGORIEEN.find(c => c.slug === slug && c.slug !== catBewerkSlug);
-  if (bestaatAl) {
-    toonMelding('Er bestaat al een categorie met de slug "' + slug + '".', 'fout');
-    return;
-  }
-
+  const slug = document.getElementById('catSlug').value.trim().toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'');
+  if (!naam || !slug) { toonMelding('Vul naam en slug in.', 'fout'); return; }
+  if (CATEGORIEEN.find(c => c.slug === slug && c.slug !== catBewerkSlug)) { toonMelding('Slug "' + slug + '" bestaat al.', 'fout'); return; }
   if (catBewerkSlug) {
-    const idx = CATEGORIEEN.findIndex(c => c.slug === catBewerkSlug);
-    // Als slug verandert: ook boeken bijwerken
-    if (catBewerkSlug !== slug) {
-      BOEKEN.forEach(b => { const cats = nbCats(b); const idx = cats.indexOf(catBewerkSlug); if (idx > -1) { cats[idx] = slug; b.categorieën = cats; delete b.categorie; } });
-      toonMelding('Categorie bijgewerkt. Slugs van gekoppelde boeken zijn ook bijgewerkt. Download het JSON-bestand.', 'succes');
-    } else {
-      toonMelding('Categorie "' + naam + '" bijgewerkt.', 'succes');
-    }
-    CATEGORIEEN[idx] = { naam, slug };
+    if (catBewerkSlug !== slug) BOEKEN.forEach(b => { const cats = nbCats(b); const i = cats.indexOf(catBewerkSlug); if (i > -1) { cats[i] = slug; b.categorieën = cats; delete b.categorie; } });
+    CATEGORIEEN[CATEGORIEEN.findIndex(c => c.slug === catBewerkSlug)] = { naam, slug };
+    toonMelding('Categorie bijgewerkt.', 'succes');
   } else {
     CATEGORIEEN.push({ naam, slug });
     toonMelding('Categorie "' + naam + '" toegevoegd.', 'succes');
   }
-
-  resetCatFormulier();
-  verversCategorieLijst();
-  verversCatSelects();
-  verversAlles();
+  resetCatFormulier(); verversCategorieLijst(); verversCatSelects(); verversAlles(); nbMarkeerGewijzigd();
 }
-
 function verwijderCategorie(slug) {
-  nbMarkeerGewijzigd();
+  const n = BOEKEN.filter(b => nbCats(b).includes(slug)).length;
+  if (n > 0) { toonMelding('Verplaats eerst de ' + n + ' boeken uit deze categorie.', 'fout'); return; }
   const c = CATEGORIEEN.find(x => x.slug === slug);
-  const aantalBoeken = BOEKEN.filter(b => nbCats(b).includes(slug)).length;
-  if (aantalBoeken > 0) {
-    toonMelding('Verplaats of verwijder eerst de ' + aantalBoeken + ' boeken in deze categorie.', 'fout');
-    return;
-  }
   CATEGORIEEN = CATEGORIEEN.filter(x => x.slug !== slug);
   toonMelding('Categorie "' + (c ? c.naam : slug) + '" verwijderd.', 'succes');
-  verversCategorieLijst();
-  verversCatSelects();
+  verversCategorieLijst(); verversCatSelects(); nbMarkeerGewijzigd();
 }
-
 function resetCatFormulier() {
   catBewerkSlug = null;
-  document.getElementById('catFormTitel').textContent = 'Nieuwe categorie';
-  document.getElementById('catNaam').value = '';
-  document.getElementById('catSlug').value = '';
-  document.getElementById('catBewerkSlug').textContent = '';
-  document.getElementById('catUrlVoorb').textContent = 'nijmeegse-boeken.nl/categorie-….html';
+  document.getElementById('catFormTitel').textContent   = 'Nieuwe categorie';
+  document.getElementById('catNaam').value              = '';
+  document.getElementById('catSlug').value              = '';
+  document.getElementById('catBewerkSlug').textContent  = '';
+  document.getElementById('catUrlVoorb').textContent    = 'nijmeegse-boeken.nl/categorie-….html';
 }
 
-// ══════════════════════════════════════
-// HULPFUNCTIES
-// ══════════════════════════════════════
-function verversAlles() {
-  verversStats();
-  filterLijst(document.getElementById('zoekVeld')?.value || '');
-  verversCatSelects();
-}
-
+// ── HULPFUNCTIES ──
+function verversAlles() { verversStats(); filterLijst(document.getElementById('zoekVeld')?.value || ''); verversCatSelects(); }
 function toonMelding(tekst, type) {
   const el = document.getElementById('melding');
   el.textContent = tekst;
@@ -1762,362 +1077,222 @@ function toonMelding(tekst, type) {
   clearTimeout(el._timer);
   el._timer = setTimeout(() => el.classList.remove('zichtbaar'), 5000);
 }
-
 function helderheid(hex) {
-  const r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16);
-  return 0.299*r + 0.587*g + 0.114*b;
+  try { const r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16); return 0.299*r + 0.587*g + 0.114*b; } catch(e) { return 100; }
 }
+function escHtml(t) { return String(t||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
-function escHtml(t) {
-  return String(t||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
-// ══════════════════════════════════════
-// VASTE BOEKEN
-// ══════════════════════════════════════
+// ── VASTE BOEKEN ──
 let VASTE_BOEKEN = [];
 let vastBewerkID = null;
 
 async function verversVast() {
-  // Probeer boeken-vast.json te laden
-  try {
-    const r = await fetch('boeken-vast.json');
-    if (r.ok) VASTE_BOEKEN = await r.json();
-  } catch(e) {}
+  try { const r = await fetch('boeken-vast.json'); if (r.ok) VASTE_BOEKEN = await r.json(); } catch(e) {}
   renderVastTabel();
 }
-
 function renderVastTabel() {
   const el = document.getElementById('vastTabel');
-  if (!VASTE_BOEKEN.length) {
-    el.innerHTML = '<p style="color:var(--grijs-muted);font-size:0.85rem;">Nog geen vaste boeken. Klik op "+ Boek toevoegen".</p>';
-    return;
-  }
-  el.innerHTML = '<table class="boek-tabel"><thead><tr>'
-    + '<th>Titel</th><th>Auteur</th><th>Prijs</th><th>ISBN</th><th></th>'
+  if (!VASTE_BOEKEN.length) { el.innerHTML = '<p style="color:var(--grijs-muted);font-size:0.85rem;">Nog geen vaste boeken.</p>'; return; }
+  el.innerHTML = '<table style="width:100%;border-collapse:collapse"><thead><tr>'
+    + '<th style="padding:0.5rem 0.75rem;text-align:left;font-size:0.75rem;text-transform:uppercase;color:var(--grijs-muted);border-bottom:1px solid var(--grijs-rand)">Titel</th>'
+    + '<th style="padding:0.5rem 0.75rem;text-align:left;font-size:0.75rem;text-transform:uppercase;color:var(--grijs-muted);border-bottom:1px solid var(--grijs-rand)">Auteur</th>'
+    + '<th style="padding:0.5rem 0.75rem;text-align:left;font-size:0.75rem;text-transform:uppercase;color:var(--grijs-muted);border-bottom:1px solid var(--grijs-rand)">Prijs</th>'
+    + '<th style="padding:0.5rem 0.75rem;text-align:left;font-size:0.75rem;text-transform:uppercase;color:var(--grijs-muted);border-bottom:1px solid var(--grijs-rand)">ISBN</th>'
+    + '<th style="padding:0.5rem 0.75rem;border-bottom:1px solid var(--grijs-rand)"></th>'
     + '</tr></thead><tbody>'
-    + VASTE_BOEKEN.map(b => `<tr>
-        <td><strong>${escHtml(b.titel)}</strong></td>
-        <td>${escHtml(b.auteur||'')}</td>
-        <td>${b.prijs ? '€ ' + b.prijs.toFixed(2) : '—'}</td>
-        <td style="font-size:0.78rem;">${escHtml(b.isbn||'')}</td>
-        <td>
-          <button class="btn btn-outline btn-sm" onclick="bewerkVastBoek(${b.id})">✎ Bewerk</button>
-          <button class="btn btn-zwart btn-sm" onclick="zetVastTerugNormaal(${b.id})" title="Terugzetten naar boeken.json">↩ Normaal</button>
-          <button class="btn btn-danger btn-sm" onclick="verwijderVastBoek(${b.id})">✕</button>
+    + VASTE_BOEKEN.map(b => `<tr style="border-bottom:1px solid var(--grijs-mid)">
+        <td style="padding:0.5rem 0.75rem"><strong>${escHtml(b.titel)}</strong></td>
+        <td style="padding:0.5rem 0.75rem">${escHtml(b.auteur||'')}</td>
+        <td style="padding:0.5rem 0.75rem">${b.prijs ? '€ ' + b.prijs.toFixed(2) : '—'}</td>
+        <td style="padding:0.5rem 0.75rem;font-size:0.78rem">${escHtml(b.isbn||'')}</td>
+        <td style="padding:0.5rem 0.75rem">
+          <div class="acties">
+            <button class="btn btn-outline btn-sm" onclick="bewerkVastBoek(${b.id})">✎ Bewerk</button>
+            <button class="btn btn-zwart btn-sm" onclick="zetVastTerugNormaal(${b.id})">↩ Normaal</button>
+            <button class="btn btn-danger btn-sm" onclick="verwijderVastBoek(${b.id})">✕</button>
+          </div>
         </td>
       </tr>`).join('')
     + '</tbody></table>';
 }
-
 function nieuwVastBoek() {
   vastBewerkID = null;
   document.getElementById('vastFormTitel').textContent = 'Vast boek toevoegen';
-  ['vvID','vvTitel','vvOndertitel','vvAuteur','vvUitgever','vvISBN','vvBeschrijving','vvAfrekenen','vvOmslag'].forEach(id => {
-    document.getElementById(id).value = '';
-  });
-  document.getElementById('vvJaar').value = new Date().getFullYear();
+  ['vvID','vvTitel','vvOndertitel','vvAuteur','vvUitgever','vvISBN','vvBeschrijving','vvAfrekenen','vvOmslag'].forEach(id => { document.getElementById(id).value = ''; });
+  document.getElementById('vvJaar').value    = new Date().getFullYear();
   document.getElementById('vvPaginas').value = '';
-  document.getElementById('vvPrijs').value = '';
+  document.getElementById('vvPrijs').value   = '';
   document.getElementById('vvFormaat').value = 'Gebonden';
   document.getElementById('vastFormulier').style.display = '';
   document.getElementById('vastFormulier').scrollIntoView({behavior:'smooth'});
 }
-
 function bewerkVastBoek(id) {
   const b = VASTE_BOEKEN.find(x => x.id === id);
   if (!b) return;
   vastBewerkID = id;
-  document.getElementById('vastFormTitel').textContent = 'Vast boek bewerken';
-  document.getElementById('vvID').value       = b.id;
-  document.getElementById('vvTitel').value    = b.titel || '';
+  document.getElementById('vastFormTitel').textContent  = 'Vast boek bewerken';
+  document.getElementById('vvID').value        = b.id;
+  document.getElementById('vvTitel').value     = b.titel       || '';
   document.getElementById('vvOndertitel').value = b.ondertitel || '';
-  document.getElementById('vvAuteur').value   = b.auteur || '';
-  document.getElementById('vvUitgever').value = b.uitgever || '';
-  document.getElementById('vvJaar').value     = b.jaar || '';
-  document.getElementById('vvPaginas').value  = b.paginas || '';
-  document.getElementById('vvPrijs').value    = b.prijs || '';
-  document.getElementById('vvFormaat').value  = b.formaat || 'Gebonden';
-  document.getElementById('vvISBN').value     = b.isbn || '';
+  document.getElementById('vvAuteur').value    = b.auteur      || '';
+  document.getElementById('vvUitgever').value  = b.uitgever    || '';
+  document.getElementById('vvJaar').value      = b.jaar        || '';
+  document.getElementById('vvPaginas').value   = b.paginas     || '';
+  document.getElementById('vvPrijs').value     = b.prijs       || '';
+  document.getElementById('vvFormaat').value   = b.formaat     || 'Gebonden';
+  document.getElementById('vvISBN').value      = b.isbn        || '';
   document.getElementById('vvBeschrijving').value = b.beschrijving || '';
-  document.getElementById('vvAfrekenen').value = b.afrekenen || '';
-  document.getElementById('vvOmslag').value   = b.omslag || '';
+  document.getElementById('vvAfrekenen').value = b.afrekenen   || '';
+  document.getElementById('vvOmslag').value    = b.omslag      || '';
   updateVastPreview();
   document.getElementById('vastFormulier').style.display = '';
   document.getElementById('vastFormulier').scrollIntoView({behavior:'smooth'});
 }
-
 function slaVastBoekOp() {
   const titel     = document.getElementById('vvTitel').value.trim();
   const auteur    = document.getElementById('vvAuteur').value.trim();
   const prijs     = parseFloat(document.getElementById('vvPrijs').value);
   const afrekenen = document.getElementById('vvAfrekenen').value.trim();
-
-  if (!titel || !auteur || isNaN(prijs) || !afrekenen) {
-    toonMelding('Vul alle verplichte velden in: Titel, Auteur, Prijs en Bestelkoppeling.', 'fout');
-    return;
-  }
-
+  if (!titel || !auteur || isNaN(prijs) || !afrekenen) { toonMelding('Vul alle verplichte velden in.', 'fout'); return; }
   const boek = {
     id:          vastBewerkID || (Math.max(...VASTE_BOEKEN.map(b => b.id), 0) + 1),
-    uitgelicht:  false,
-    nieuw:       false,
-    aanbieding:  false,
-    toptien:     false,
-    prijsOud:    null,
-    titel,
-    ondertitel:  document.getElementById('vvOndertitel').value.trim(),
-    auteur,
+    uitgelicht: false, nieuw: false, aanbieding: false, toptien: false, prijsOud: null,
+    titel, ondertitel: document.getElementById('vvOndertitel').value.trim(), auteur,
     uitgever:    document.getElementById('vvUitgever').value.trim(),
     jaar:        parseInt(document.getElementById('vvJaar').value) || null,
     paginas:     parseInt(document.getElementById('vvPaginas').value) || null,
-    formaat:     document.getElementById('vvFormaat').value,
-    prijs,
+    formaat:     document.getElementById('vvFormaat').value, prijs,
     categorieën: ['nijmegen-zo-mooi-als-het-was'],
-    omslag:      null,
-    kleur:       '#B21233',
+    kleur: '#B21233',
     beschrijving: document.getElementById('vvBeschrijving').value.trim(),
     isbn:        document.getElementById('vvISBN').value.trim(),
     omslag:      document.getElementById('vvOmslag').value.trim() || null,
-    trefwoorden: [],
-    afrekenen,
+    trefwoorden: [], afrekenen,
   };
-
-  if (vastBewerkID) {
-    const idx = VASTE_BOEKEN.findIndex(b => b.id === vastBewerkID);
-    VASTE_BOEKEN[idx] = boek;
-    toonMelding('Vast boek bijgewerkt.', 'succes');
-  } else {
-    VASTE_BOEKEN.push(boek);
-    toonMelding('Vast boek toegevoegd.', 'succes');
-  }
-
+  if (vastBewerkID) { VASTE_BOEKEN[VASTE_BOEKEN.findIndex(b => b.id === vastBewerkID)] = boek; toonMelding('Vast boek bijgewerkt.', 'succes'); }
+  else { VASTE_BOEKEN.push(boek); toonMelding('Vast boek toegevoegd.', 'succes'); }
   document.getElementById('vastFormulier').style.display = 'none';
-  renderVastTabel();
-  nbMarkeerGewijzigd();
+  renderVastTabel(); nbMarkeerGewijzigd();
 }
-
 function updateVastPreview() {
   const pad = document.getElementById('vvOmslag')?.value.trim();
   const el  = document.getElementById('vvOmslagPreview');
   if (!el) return;
-  if (pad) {
-    el.innerHTML = `<img src="${escHtml(pad)}" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentNode.innerHTML='❌'">`;
-  } else {
-    el.innerHTML = '📖';
-  }
+  el.innerHTML = pad ? `<img src="${escHtml(pad)}" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentNode.innerHTML='❌'">` : '📖';
 }
-
 function zetVastTerugNormaal(id) {
   const b = VASTE_BOEKEN.find(x => x.id === id);
   if (!b) return;
-
-  // Controleer of het boek al in BOEKEN staat (op ID of ISBN)
   const bestaatAl = BOEKEN.find(x => x.id === id || (b.isbn && (b.isbn||'').replace(/-/g,'') === (x.isbn||'').replace(/-/g,'')));
-  if (bestaatAl) {
-    toonMelding('"' + b.titel + '" staat al in boeken.json.', 'info');
-    return;
-  }
-
-  // Verwijder uitverkocht-vlag indien aanwezig
-  const { uitverkocht, ...boekZonderUitverkocht } = b;
-
-  // Voeg toe aan normale boeken
-  BOEKEN.push({ ...boekZonderUitverkocht });
-  if (boekZonderUitverkocht.id >= volgendeID) volgendeID = boekZonderUitverkocht.id + 1;
-
-  // Verwijder uit vaste boeken
+  if (bestaatAl) { toonMelding('"' + b.titel + '" staat al in boeken.json.', 'info'); return; }
+  const { uitverkocht, ...boekZonder } = b;
+  BOEKEN.push({ ...boekZonder });
+  if (boekZonder.id >= volgendeID) volgendeID = boekZonder.id + 1;
   VASTE_BOEKEN = VASTE_BOEKEN.filter(x => x.id !== id);
-
-  renderVastTabel();
-  verversAlles();
-  nbMarkeerGewijzigd();
-  toonMelding('"' + b.titel + '" is teruggezet naar boeken.json. Download beide bestanden.', 'succes');
+  renderVastTabel(); verversAlles(); nbMarkeerGewijzigd();
+  toonMelding('"' + b.titel + '" teruggezet naar boeken.json. Download beide bestanden.', 'succes');
 }
-
 function verwijderVastBoek(id) {
   const b = VASTE_BOEKEN.find(x => x.id === id);
-  if (!b || !confirm(`"${b.titel}" verwijderen uit vaste boeken?`)) return;
+  if (!b || !confirm(`"${b.titel}" verwijderen?`)) return;
   VASTE_BOEKEN = VASTE_BOEKEN.filter(x => x.id !== id);
-  renderVastTabel();
-  nbMarkeerGewijzigd();
+  renderVastTabel(); nbMarkeerGewijzigd();
   toonMelding('Vast boek verwijderd.', 'succes');
 }
-
-function importeerVastJSON() {
-  document.getElementById('vastImportInput').click();
-}
-
+function importeerVastJSON() { document.getElementById('vastImportInput').click(); }
 function laadVastJSONBestand(input) {
-  const file = input.files[0];
-  if (!file) return;
+  const file = input.files[0]; if (!file) return;
   const reader = new FileReader();
-  reader.onload = e => {
-    try {
-      VASTE_BOEKEN = JSON.parse(e.target.result);
-      renderVastTabel();
-      toonMelding('boeken-vast.json geladen: ' + VASTE_BOEKEN.length + ' boeken.', 'succes');
-    } catch(err) {
-      toonMelding('Ongeldig JSON bestand.', 'fout');
-    }
-  };
+  reader.onload = e => { try { VASTE_BOEKEN = JSON.parse(e.target.result); renderVastTabel(); toonMelding('boeken-vast.json geladen: ' + VASTE_BOEKEN.length + ' boeken.', 'succes'); } catch(err) { toonMelding('Ongeldig JSON bestand.', 'fout'); } };
   reader.readAsText(file);
 }
-
 function downloadVastJSON() {
-  const blob = new Blob([JSON.stringify(VASTE_BOEKEN, null, 2)], {type: 'application/json'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'boeken-vast.json';
-  a.click();
-  URL.revokeObjectURL(a.href);
-  nbMarkeerOpgeslagen();
+  const blob = new Blob([JSON.stringify(VASTE_BOEKEN, null, 2)], {type:'application/json'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'boeken-vast.json'; a.click();
+  URL.revokeObjectURL(a.href); nbMarkeerOpgeslagen();
   toonMelding('boeken-vast.json gedownload.', 'succes');
 }
 
-// ══════════════════════════════════════
-// TOP TIEN VOLGORDE
-// ══════════════════════════════════════
+// ── TOP TIEN ──
 let _dragSrc = null;
-
 function verversTopTien() {
   const lijst = document.getElementById('toptienLijst');
   const leeg  = document.getElementById('toptienLeeg');
-  const boeken = BOEKEN.filter(b => b.toptien)
-    .sort((a, b) => (a.toptienVolgorde || 99) - (b.toptienVolgorde || 99));
-
-  if (!boeken.length) {
-    lijst.innerHTML = '';
-    leeg.style.display = '';
-    return;
-  }
+  const boeken = BOEKEN.filter(b => b.toptien).sort((a,b) => (a.toptienVolgorde||99) - (b.toptienVolgorde||99));
+  if (!boeken.length) { lijst.innerHTML = ''; leeg.style.display = ''; return; }
   leeg.style.display = 'none';
-
-  lijst.innerHTML = boeken.map((b, i) => `
-    <div class="tt-rij" draggable="true" data-id="${b.id}"
-         style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:var(--wit);border:1px solid var(--grijs-rand);border-radius:5px;cursor:grab;user-select:none;">
-      <span style="font-size:1rem;color:var(--grijs-muted);flex-shrink:0;">☰</span>
-      <span style="width:22px;height:22px;border-radius:50%;background:var(--rood);color:white;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">${i + 1}</span>
-      <span style="flex:1;font-size:0.88rem;font-weight:600;color:var(--zwart);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${escHtml(b.titel)}</span>
-      <span style="font-size:0.78rem;color:var(--grijs-muted);flex-shrink:0;">${escHtml(b.auteur)}</span>
-    </div>`
-  ).join('');
-
-  // Drag & drop events
+  lijst.innerHTML = boeken.map((b,i) => `
+    <div class="tt-rij" draggable="true" data-id="${b.id}" style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:var(--wit);border:1px solid var(--grijs-rand);border-radius:5px;cursor:grab;user-select:none;">
+      <span style="color:var(--grijs-muted)">☰</span>
+      <span style="width:22px;height:22px;border-radius:50%;background:var(--rood);color:white;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;">${i+1}</span>
+      <span style="flex:1;font-size:0.88rem;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${escHtml(b.titel)}</span>
+      <span style="font-size:0.78rem;color:var(--grijs-muted)">${escHtml(b.auteur)}</span>
+    </div>`).join('');
   lijst.querySelectorAll('.tt-rij').forEach(rij => {
-    rij.addEventListener('dragstart', e => {
-      _dragSrc = rij;
-      e.dataTransfer.effectAllowed = 'move';
-      rij.style.opacity = '0.4';
-    });
-    rij.addEventListener('dragend', () => {
-      rij.style.opacity = '';
-      lijst.querySelectorAll('.tt-rij').forEach(r => r.classList.remove('tt-over'));
-      herNummerTopTien();
-    });
-    rij.addEventListener('dragover', e => {
-      e.preventDefault();
-      e.dataTransfer.dropEffect = 'move';
-      lijst.querySelectorAll('.tt-rij').forEach(r => r.classList.remove('tt-over'));
-      rij.classList.add('tt-over');
-    });
-    rij.addEventListener('drop', e => {
-      e.preventDefault();
-      if (_dragSrc !== rij) {
-        const rijen = [...lijst.querySelectorAll('.tt-rij')];
-        const srcIdx = rijen.indexOf(_dragSrc);
-        const dstIdx = rijen.indexOf(rij);
-        if (srcIdx < dstIdx) lijst.insertBefore(_dragSrc, rij.nextSibling);
-        else lijst.insertBefore(_dragSrc, rij);
-      }
-    });
+    rij.addEventListener('dragstart', e => { _dragSrc = rij; e.dataTransfer.effectAllowed = 'move'; rij.style.opacity = '0.4'; });
+    rij.addEventListener('dragend',   () => { rij.style.opacity = ''; lijst.querySelectorAll('.tt-rij').forEach(r => r.classList.remove('tt-over')); herNummerTopTien(); });
+    rij.addEventListener('dragover',  e => { e.preventDefault(); lijst.querySelectorAll('.tt-rij').forEach(r => r.classList.remove('tt-over')); rij.classList.add('tt-over'); });
+    rij.addEventListener('drop', e => { e.preventDefault(); if (_dragSrc !== rij) { const rs = [...lijst.querySelectorAll('.tt-rij')]; rs.indexOf(_dragSrc) < rs.indexOf(rij) ? lijst.insertBefore(_dragSrc, rij.nextSibling) : lijst.insertBefore(_dragSrc, rij); } });
   });
 }
-
-function herNummerTopTien() {
-  document.getElementById('toptienLijst').querySelectorAll('.tt-rij').forEach((rij, i) => {
-    const nr = rij.querySelector('span:nth-child(2)');
-    if (nr) nr.textContent = i + 1;
-  });
-}
-
+function herNummerTopTien() { document.getElementById('toptienLijst').querySelectorAll('.tt-rij').forEach((r,i) => { const n = r.querySelector('span:nth-child(2)'); if (n) n.textContent = i+1; }); }
 function slaTopTienVolgordOp() {
-  const rijen = document.getElementById('toptienLijst').querySelectorAll('.tt-rij');
-  rijen.forEach((rij, i) => {
-    const id = parseInt(rij.dataset.id);
-    const boek = BOEKEN.find(b => b.id === id);
-    if (boek) boek.toptienVolgorde = i + 1;
-  });
+  document.getElementById('toptienLijst').querySelectorAll('.tt-rij').forEach((r,i) => { const b = BOEKEN.find(x => x.id === parseInt(r.dataset.id)); if (b) b.toptienVolgorde = i+1; });
   nbMarkeerGewijzigd();
-  const m = document.getElementById('toptienMelding');
-  m.style.display = 'inline';
-  setTimeout(() => m.style.display = 'none', 3000);
-  toonMelding('Top Tien volgorde opgeslagen. Download boeken.json om te publiceren.', 'succes');
+  const m = document.getElementById('toptienMelding'); m.style.display = 'inline'; setTimeout(() => m.style.display = 'none', 3000);
+  toonMelding('Volgorde opgeslagen. Download boeken.json.', 'succes');
 }
 
-// ══════════════════════════════════════
-// INSTELLINGEN
-// ══════════════════════════════════════
+// ── INSTELLINGEN ──
 let INSTELLINGEN = { homepagina: { uitgelicht_max: 0, nieuw_max: 8, aanbiedingen_max: 0 }, teksten: {} };
-
 async function laadInstellingen() {
-  try {
-    const r = await fetch('instellingen.json');
-    if (r.ok) INSTELLINGEN = await r.json();
-  } catch(e) {}
+  try { const r = await fetch('instellingen.json'); if (r.ok) INSTELLINGEN = await r.json(); } catch(e) {}
   const hp = INSTELLINGEN.homepagina || {};
   const t  = INSTELLINGEN.teksten    || {};
-  document.getElementById('iUitgelichtMax').value        = hp.uitgelicht_max   ?? 0;
-  document.getElementById('iNieuwMax').value             = hp.nieuw_max        ?? 8;
-  document.getElementById('iAanbiedingenMax').value      = hp.aanbiedingen_max ?? 0;
-  document.getElementById('iTekstWelkom').value          = t.welkom            || '';
-  document.getElementById('iTekstWelkom2').value         = t.welkom2           || '';
-  document.getElementById('iTekstFooter').value          = t.footer            || '';
-  document.getElementById('iTekstHomeSeoTitel').value    = t.homepagina_seo_titel || '';
-  document.getElementById('iTekstHomeSeo').value         = t.homepagina_seo    || '';
-  document.getElementById('iTekstHomeSeo2').value        = t.homepagina_seo2   || '';
-  document.getElementById('iTekstNieuwIntro').value      = t.nieuw_intro       || '';
+  document.getElementById('iUitgelichtMax').value          = hp.uitgelicht_max   ?? 0;
+  document.getElementById('iNieuwMax').value               = hp.nieuw_max        ?? 8;
+  document.getElementById('iAanbiedingenMax').value        = hp.aanbiedingen_max ?? 0;
+  document.getElementById('iTekstWelkom').value            = t.welkom            || '';
+  document.getElementById('iTekstWelkom2').value           = t.welkom2           || '';
+  document.getElementById('iTekstFooter').value            = t.footer            || '';
+  document.getElementById('iTekstHomeSeoTitel').value      = t.homepagina_seo_titel || '';
+  document.getElementById('iTekstHomeSeo').value           = t.homepagina_seo    || '';
+  document.getElementById('iTekstHomeSeo2').value          = t.homepagina_seo2   || '';
+  document.getElementById('iTekstNieuwIntro').value        = t.nieuw_intro       || '';
   document.getElementById('iTekstAanbiedingenIntro').value = t.aanbiedingen_intro || '';
-  document.getElementById('iTekstToptienIntro').value    = t.toptien_intro     || '';
-  document.getElementById('iTekstNieuwSeo').value        = t.nieuw_seo         || '';
-  document.getElementById('iTekstAanbiedingenSeo').value = t.aanbiedingen_seo  || '';
-  document.getElementById('iTekstToptienSeo').value      = t.toptien_seo       || '';
-
-  // Categorie SEO-velden dynamisch opbouwen
-  const cats = [...new Set(BOEKEN.flatMap(b => {
-    const c = b.categorieën || b.categorie;
-    return Array.isArray(c) ? c : (c ? [c] : []);
-  }))].sort();
-
-  const container = document.getElementById('catSeoVelden');
-  container.innerHTML = cats.map(slug => {
-    const naam = slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, ' ');
+  document.getElementById('iTekstToptienIntro').value      = t.toptien_intro     || '';
+  document.getElementById('iTekstNieuwSeo').value          = t.nieuw_seo         || '';
+  document.getElementById('iTekstAanbiedingenSeo').value   = t.aanbiedingen_seo  || '';
+  document.getElementById('iTekstToptienSeo').value        = t.toptien_seo       || '';
+  const cats = [...new Set(BOEKEN.flatMap(b => nbCats(b)))].sort();
+  document.getElementById('catSeoVelden').innerHTML = cats.map(slug => {
+    const naam = slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g,' ');
     return `<div style="border:1px solid var(--grijs-rand);border-radius:6px;overflow:hidden;">
       <div style="background:var(--zwart);color:white;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:0.5rem 0.9rem;">${escHtml(naam)}</div>
       <div style="padding:1rem;display:flex;flex-direction:column;gap:0.75rem;">
-        <div class="veld">
-          <label>SEO-koptekst</label>
-          <input type="text" id="catSeo_${slug}_titel" value="${escHtml(t['cat_'+slug+'_titel']||'')}" style="width:100%;">
-        </div>
-        <div class="veld">
-          <label>Eerste alinea</label>
-          <textarea id="catSeo_${slug}_tekst" rows="2" style="width:100%;resize:vertical;">${escHtml(t['cat_'+slug+'_tekst']||'')}</textarea>
-        </div>
-        <div class="veld">
-          <label>Tweede alinea</label>
-          <textarea id="catSeo_${slug}_tekst2" rows="2" style="width:100%;resize:vertical;">${escHtml(t['cat_'+slug+'_tekst2']||'')}</textarea>
-        </div>
+        <div class="veld"><label>SEO-koptekst</label><input type="text" id="catSeo_${slug}_titel" value="${escHtml(t['cat_'+slug+'_titel']||'')}" style="width:100%;"></div>
+        <div class="veld"><label>Eerste alinea</label><textarea id="catSeo_${slug}_tekst" rows="2" style="width:100%;resize:vertical;">${escHtml(t['cat_'+slug+'_tekst']||'')}</textarea></div>
+        <div class="veld"><label>Tweede alinea</label><textarea id="catSeo_${slug}_tekst2" rows="2" style="width:100%;resize:vertical;">${escHtml(t['cat_'+slug+'_tekst2']||'')}</textarea></div>
       </div>
     </div>`;
   }).join('');
 }
-
 function slaInstellingenOp() {
+  const cats = [...new Set(BOEKEN.flatMap(b => nbCats(b)))].sort();
+  const catTeksten = {};
+  cats.forEach(slug => {
+    const titel  = document.getElementById('catSeo_'+slug+'_titel')?.value.trim()  || '';
+    const tekst  = document.getElementById('catSeo_'+slug+'_tekst')?.value.trim()  || '';
+    const tekst2 = document.getElementById('catSeo_'+slug+'_tekst2')?.value.trim() || '';
+    if (titel)  catTeksten['cat_'+slug+'_titel']  = titel;
+    if (tekst)  catTeksten['cat_'+slug+'_tekst']  = tekst;
+    if (tekst2) catTeksten['cat_'+slug+'_tekst2'] = tekst2;
+  });
   const inst = {
     homepagina: {
-      uitgelicht_max:   parseInt(document.getElementById('iUitgelichtMax').value)        || 0,
-      nieuw_max:        parseInt(document.getElementById('iNieuwMax').value)             || 0,
-      aanbiedingen_max: parseInt(document.getElementById('iAanbiedingenMax').value)      || 0,
+      uitgelicht_max:   parseInt(document.getElementById('iUitgelichtMax').value)   || 0,
+      nieuw_max:        parseInt(document.getElementById('iNieuwMax').value)        || 0,
+      aanbiedingen_max: parseInt(document.getElementById('iAanbiedingenMax').value) || 0,
     },
     teksten: {
       welkom:               document.getElementById('iTekstWelkom').value.trim(),
@@ -2132,80 +1307,35 @@ function slaInstellingenOp() {
       nieuw_seo:            document.getElementById('iTekstNieuwSeo').value.trim(),
       aanbiedingen_seo:     document.getElementById('iTekstAanbiedingenSeo').value.trim(),
       toptien_seo:          document.getElementById('iTekstToptienSeo').value.trim(),
-      ...Object.fromEntries(
-        Object.entries(INSTELLINGEN.teksten || {}).filter(([k]) => k.startsWith('cat_'))
-      ),
+      ...catTeksten,
     }
   };
-
-  // Voeg categorie SEO-velden toe
-  const cats = [...new Set(BOEKEN.flatMap(b => {
-    const c = b.categorieën || b.categorie;
-    return Array.isArray(c) ? c : (c ? [c] : []);
-  }))].sort();
-  cats.forEach(slug => {
-    const titel = document.getElementById('catSeo_' + slug + '_titel')?.value.trim() || '';
-    const tekst = document.getElementById('catSeo_' + slug + '_tekst')?.value.trim() || '';
-    const tekst2 = document.getElementById('catSeo_' + slug + '_tekst2')?.value.trim() || '';
-    if (titel) inst.teksten['cat_' + slug + '_titel'] = titel;
-    if (tekst) inst.teksten['cat_' + slug + '_tekst'] = tekst;
-    if (tekst2) inst.teksten['cat_' + slug + '_tekst2'] = tekst2;
-  });
-  const blob = new Blob([JSON.stringify(inst, null, 2)], { type: 'application/json' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'instellingen.json';
-  a.click();
-  URL.revokeObjectURL(a.href);
-  nbMarkeerOpgeslagen();
-  const m = document.getElementById('instMelding');
-  m.style.display = 'inline';
-  setTimeout(() => m.style.display = 'none', 3000);
+  const blob = new Blob([JSON.stringify(inst, null, 2)], {type:'application/json'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'instellingen.json'; a.click();
+  URL.revokeObjectURL(a.href); nbMarkeerOpgeslagen();
+  const m = document.getElementById('instMelding'); m.style.display = 'inline'; setTimeout(() => m.style.display = 'none', 3000);
 }
-
 function laadInstellingenBestand(input) {
-  const file = input.files[0];
-  if (!file) return;
+  const file = input.files[0]; if (!file) return;
   const reader = new FileReader();
   reader.onload = e => {
     try {
       const data = JSON.parse(e.target.result);
       if (Array.isArray(data)) throw new Error('Dit is geen instellingen.json maar een boeken array');
-      INSTELLINGEN = data;
-      laadInstellingen();
+      INSTELLINGEN = data; laadInstellingen();
       toonMelding('instellingen.json geladen uit ' + file.name, 'succes');
-    } catch(err) {
-      toonMelding('Fout bij laden: ' + err.message, 'fout');
-    }
+    } catch(err) { toonMelding('Fout bij laden: ' + err.message, 'fout'); }
   };
-  reader.readAsText(file);
-  input.value = '';
+  reader.readAsText(file); input.value = '';
 }
 
-// ══════════════════════════════════════
-// WAARSCHUWING BIJ ONOPGESLAGEN WIJZIGINGEN
-// ══════════════════════════════════════
+// ── WIJZIGINGEN ──
 let nbHeeftWijzigingen = false;
+function nbMarkeerGewijzigd() { nbHeeftWijzigingen = true; }
+function nbMarkeerOpgeslagen() { nbHeeftWijzigingen = false; }
+window.addEventListener('beforeunload', e => { if (nbHeeftWijzigingen) { e.preventDefault(); e.returnValue = ''; } });
 
-function nbMarkeerGewijzigd() {
-  nbHeeftWijzigingen = true;
-}
-
-function nbMarkeerOpgeslagen() {
-  nbHeeftWijzigingen = false;
-}
-
-window.addEventListener('beforeunload', e => {
-  if (nbHeeftWijzigingen) {
-    e.preventDefault();
-    e.returnValue = 'U heeft onopgeslagen wijzigingen. Weet u zeker dat u de pagina wilt verlaten?';
-    return e.returnValue;
-  }
-});
-
-// ══════════════════════════════════════
-// INIT
-// ══════════════════════════════════════
+// ── INIT ──
 laadJSON();
 updatePreview();
 verversCatSelects();
